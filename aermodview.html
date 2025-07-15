@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AERMOD View - Gaussian Plume Air Dispersion Model</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f8fbff;
+            margin: 0;
+            padding: 0;
+        }
+        .aermod-hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            background: linear-gradient(135deg, #f8fbff 0%, #eaf4ff 100%);
+            padding: 64px 0 32px 0;
+        }
+        .aermod-hero-left {
+            flex: 1 1 420px;
+            min-width: 320px;
+            max-width: 650px;
+            padding: 0 36px 0 6vw;
+        }
+        .aermod-hero-label {
+            color: #2563eb;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .aermod-hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #1a237e;
+            margin-bottom: 10px;
+        }
+        .aermod-hero-subtitle {
+            font-size: 1.45rem;
+            color: #888;
+            font-weight: 700;
+            margin-bottom: 22px;
+        }
+        .aermod-hero-divider {
+            border: none;
+            border-top: 2px solid #2563eb33;
+            width: 100%;
+            margin: 24px 0 24px 0;
+        }
+        .aermod-hero-desc {
+            font-size: 1.08rem;
+            color: #222;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        .aermod-hero-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px 0;
+        }
+        .aermod-hero-features li {
+            display: flex;
+            align-items: center;
+            font-size: 1.08rem;
+            color: #1a237e;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .aermod-hero-features i {
+            color: #2563eb;
+            font-size: 1.3rem;
+            margin-right: 10px;
+        }
+        .aermod-hero-trust {
+            font-size: 1.01rem;
+            color: #374151;
+            margin-top: 18px;
+            max-width: 600px;
+        }
+        .aermod-hero-right {
+            flex: 1 1 420px;
+            min-width: 320px;
+            max-width: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 24px;
+        }
+        .aermod-hero-img-wrap {
+            width: 100%;
+            max-width: 440px;
+            aspect-ratio: 16/10;
+            background: #fff;
+            border-radius: 50% 50% 50% 50%/60% 60% 40% 40%;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(30,64,175,0.10);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .aermod-hero-img-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+        .aermod-hero-icon {
+            position: absolute;
+            right: 32px;
+            bottom: 32px;
+            background: #2563eb;
+            color: #fff;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 16px rgba(30,64,175,0.10);
+        }
+        @media (max-width: 900px) {
+            .aermod-hero {
+                flex-direction: column;
+                padding: 36px 0 24px 0;
+            }
+            .aermod-hero-left, .aermod-hero-right {
+                max-width: 100%;
+                padding: 0 24px;
+            }
+            .aermod-hero-img-wrap {
+                max-width: 340px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Intro Section Start -->
+    <section id="intro-section" style="position: relative; min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; background: url('image/air-pollution.avif') center center/cover no-repeat;">
+        <div style="position: absolute; inset: 0; background: rgba(24, 36, 56, 0.68); z-index: 1;"></div>
+        <div style="position: relative; z-index: 2; max-width: 900px; width: 100%; padding: 0 24px; text-align: center; color: #fff;">
+            <h1 style="font-size: 3.2rem; font-weight: 900; margin-bottom: 18px; letter-spacing: -1px; line-height: 1.1;">AERMOD View </h1>
+            <h2 style="font-size: 1.7rem; font-weight: 500; margin-bottom: 32px; color: #e3eaff;">The Complete Gaussian Plume Air Dispersion Modeling Solution</h2>
+            <p style="font-size: 1.18rem; max-width: 700px; margin: 0 auto 38px auto; color: #e0e6f0; line-height: 1.6;">Powerful, intuitive, and regulatory-ready. AERMOD View streamlines air quality modeling for consultants, regulators, and industry professionals worldwide. Experience advanced visualization, seamless data integration, and robust compliance tools—all in one platform.</p>
+            <button onclick="document.getElementById('aermod-hero').scrollIntoView({behavior: 'smooth'});" style="background: #2563eb; color: #fff; font-size: 1.18rem; font-weight: 700; border: none; border-radius: 10px; padding: 18px 44px; box-shadow: 0 2px 16px rgba(37,99,235,0.13); cursor: pointer; transition: background 0.2s; display: inline-flex; align-items: center; gap: 10px;">
+                More Details <span style="font-size: 1.3rem; display: inline-block; transform: translateY(1px);"><i class="ri-arrow-down-line"></i></span>
+            </button>
+        </div>
+    </section>
+    <!-- Intro Section End -->
+    <section class="aermod-hero" id="aermod-hero">
+        <div class="aermod-hero-left">
+            <div class="aermod-hero-label">AIR DISPERSION MODEL</div>
+            <div class="aermod-hero-title">AERMOD View</div>
+            <div class="aermod-hero-subtitle">Gaussian Plume Air Dispersion Model</div>
+            <hr class="aermod-hero-divider">
+            <div class="aermod-hero-desc">
+                <b>AERMOD View</b> is Lakes Environmental’s intuitive interface for the U.S. EPA’s preferred air dispersion model, <b>AERMOD</b>. Designed to estimate pollutant concentrations from industrial sources, AERMOD accounts for terrain, building downwash, and meteorological conditions.
+            </div>
+            <ul class="aermod-hero-features">
+                <li><i class="ri-checkbox-circle-fill"></i>Air permitting &amp; compliance</li>
+                <li><i class="ri-checkbox-circle-fill"></i>Environmental impact assessments</li>
+                <li><i class="ri-checkbox-circle-fill"></i>Health risk analysis</li>
+                <li><i class="ri-checkbox-circle-fill"></i>Regulatory reporting</li>
+            </ul>
+            <div class="aermod-hero-trust">
+                Trusted by thousands of users across more than 100 countries, AERMOD View delivers robust tools and efficient workflows that empower consultants, regulators, and industry professionals to perform accurate, high-quality air dispersion modeling.
+            </div>
+        </div>
+        <div class="aermod-hero-right">
+            <div class="aermod-hero-img-wrap">
+                <img src="image/aermod_overview.png" alt="AERMOD View Screenshot">
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Switch and Save Promo Section Start -->
+    <section class="switch-save-section" style="background: #f3f8ff; padding: 56px 0 36px 0; border-bottom: 1px solid #e5e7eb;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px; padding: 0 24px;">
+            <div class="switch-save-left" style="flex: 1 1 420px; min-width: 320px; max-width: 600px;">
+                <div style="color: #1a237e; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.13em; margin-bottom: 12px; text-transform: uppercase; opacity: 0.85;">Switch and Save</div>
+                <div style="font-size: 2.3rem; font-weight: 800; color: #111827; margin-bottom: 10px; line-height: 1.13;">
+                    Using a Different <span style="color: #2563eb;">AERMOD</span><br>Interface?
+                </div>
+                <div style="font-size: 1.13rem; color: #222; margin-bottom: 28px; max-width: 520px;">
+                    Make the switch to AERMOD View and discover the advantage of a complete, fully integrated air dispersion modeling solution. No additional modules, no hidden costs—just powerful, reliable tools backed by expert support.
+                </div>
+                
+            </div>
+            <div class="switch-save-right" style="flex: 1 1 420px; min-width: 320px; max-width: 600px; display: flex; align-items: center; justify-content: flex-end; position: relative;">
+                <div style="position: relative; width: 100%; max-width: 440px; min-width: 260px; height: 260px;">
+                    <img src="image/screen_shots_aermod.png" alt="AERMOD Screenshot 1" style="position: absolute; left: 0; top: 18px; width: 100%; box-shadow: 0 8px 32px rgba(30,64,175,0.13); border-radius: 8px; transform: rotate(-7deg); z-index: 1;">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Switch and Save Promo Section End -->
+    <!-- Empowering Professionals Section Start -->
+    <section style="background: #fff; padding: 72px 0 72px 0;">
+        <div style="max-width: 1280px; margin: 0 auto; padding-left: 32px; padding-right: 32px;">
+            <h2 style="font-size: 2.2rem; font-weight: 800; color: #181c32; margin-bottom: 8px; text-align: left;">
+                Revolutionizing <span style="color: #2563eb;">Air Quality Analysis</span> with<br>
+                a <span style="color: #2563eb;">Unified</span> Software Package
+            </h2>
+            <div style="color: #374151; font-size: 1.08rem; margin-bottom: 32px;">We're here to make things easy! Here's a list of everything included with your software purchase:</div>
+            <div style="display: flex; flex-wrap: nowrap; gap: 18px; justify-content: center;">
+                <div style="background: #f4f8ff; border-radius: 14px; padding: 24px 28px; display: flex; align-items: flex-start; gap: 18px; box-shadow: 0 2px 12px rgba(37,99,235,0.04); min-width: 280px; max-width: 370px; flex: 1 1 320px;">
+                    <i class="ri-settings-3-line" style="font-size: 2.2rem; color: #2563eb; flex-shrink: 0;"></i>
+                    <div>
+                        <div style="font-size: 1.18rem; font-weight: 700; color: #181c32; margin-bottom: 4px;">Software Updates</div>
+                        <div style="font-size: 1.01rem; color: #374151; margin-bottom: 8px;">Included with your software purchase is 1 year of technical support and updates.</div>
+                    </div>
+                </div>
+                <div style="background: #f4f8ff; border-radius: 14px; padding: 24px 28px; display: flex; align-items: flex-start; gap: 18px; box-shadow: 0 2px 12px rgba(37,99,235,0.04); min-width: 280px; max-width: 370px; flex: 1 1 320px;">
+                    <i class="ri-team-line" style="font-size: 2.2rem; color: #2563eb; flex-shrink: 0;"></i>
+                    <div>
+                        <div style="font-size: 1.18rem; font-weight: 700; color: #181c32; margin-bottom: 4px;">Technical Support and Resources</div>
+                        <div style="font-size: 1.01rem; color: #374151; margin-bottom: 8px;">Access to our world-class support team and resources such as tutorials and user's guides.</div>
+                    </div>
+                </div>
+                <div style="background: #f4f8ff; border-radius: 14px; padding: 24px 28px; display: flex; align-items: flex-start; gap: 18px; box-shadow: 0 2px 12px rgba(37,99,235,0.04); min-width: 280px; max-width: 370px; flex: 1 1 320px;">
+                    <i class="ri-computer-line" style="font-size: 2.2rem; color: #2563eb; flex-shrink: 0;"></i>
+                    <div>
+                        <div style="font-size: 1.18rem; font-weight: 700; color: #181c32; margin-bottom: 4px;">Popular Features</div>
+                        <div style="font-size: 1.01rem; color: #374151; margin-bottom: 8px;">Access to automatically download tile maps and NED terrain data directly within the AERMOD View software interface.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Empowering Professionals Section End -->
+    <!-- Tabs Section Start -->
+    <section class="aermod-tabs-section" style="background: #fff; padding: 0 0 64px 0;">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
+            <div style="display: flex; gap: 0; border-bottom: 2px solid #e5e7eb; margin-bottom: 0;">
+                <button id="tab-overview" class="aermod-tab-btn active" style="flex:1; padding: 18px 0; font-size: 1.18rem; font-weight: 700; color: #1a237e; background: none; border: none; border-bottom: 3px solid #2563eb; cursor: pointer; transition: color 0.2s, border-bottom 0.2s;">Overview</button>
+                <button id="tab-features" class="aermod-tab-btn" style="flex:1; padding: 18px 0; font-size: 1.18rem; font-weight: 700; color: #1a237e; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; transition: color 0.2s, border-bottom 0.2s;">Features</button>
+            </div>
+            <div id="tab-content-overview" class="aermod-tab-content" style="padding: 36px 0 0 0;">
+                <!-- All-in-one Section Start -->
+                <section style="margin: 56px 0 0 0; padding: 0;">
+                    <h2 style="font-size: 2.5rem; font-weight: 900; color: #111827; margin-bottom: 18px; letter-spacing: -1px;">
+                        <span style="color: #2563eb;">All-in-one</span> Air Dispersion Modeling Software
+                    </h2>
+                    <div style="font-size: 1.18rem; font-weight: 700; color: #181c32; margin-bottom: 18px;">Designed for Professionals. Trusted Worldwide.</div>
+                    <div style="font-size: 1.08rem; color: #222; margin-bottom: 28px; max-width: 900px;">Most commercial AERMOD software tools require add-ons or separate purchases for essential capabilities. With AERMOD View, your license includes:</div>
+                    <div style="margin-bottom: 22px;">
+                        <div style="font-size: 1.13rem; font-weight: 700; color: #181c32; margin-bottom: 4px;">AERMOD Parallel Processing</div>
+                        <div style="font-size: 1.08rem; color: #222; margin-bottom: 16px;">Accelerate your modeling projects with multi-core support for <b>up to 8 processors</b>, significantly reducing computation time—ideal for complex or large-scale studies.</div>
+                        <div style="font-size: 1.13rem; font-weight: 700; color: #181c32; margin-bottom: 4px;">Comprehensive Meteorological Preprocessing Tools (AERMET)</div>
+                        <div style="font-size: 1.08rem; color: #222; margin-bottom: 16px;">Save time and avoid the hassle of third-party tools. AERMOD View includes <b>fully integrated AERMET utilities</b>, making it easy to prepare site-specific meteorological data to U.S. EPA standards.</div>
+                        <div style="font-size: 1.13rem; font-weight: 700; color: #181c32; margin-bottom: 4px;">Tile Maps</div>
+                        <div style="font-size: 1.08rem; color: #222; margin-bottom: 16px;">Automatically access and download high-resolution geo-referenced map imagery—both satellite and street views—from global sources, allowing for accurate and intuitive visualization of modeling domains.</div>
+                        <div style="font-size: 1.13rem; font-weight: 700; color: #181c32; margin-bottom: 4px;">WebGIS Access</div>
+                        <div style="font-size: 1.08rem; color: #222;">Seamlessly connect to online GIS services to import required geophysical data directly within AERMOD View, enhancing spatial context and improving project analysis and presentation.</div>
+                    </div>
+                </section>
+                <!-- All-in-one Section End -->
+                <!-- Compare Table Section Start -->
+                <section style="margin: 64px 0 0 0; padding: 0;">
+                    <div style="padding: 48px 24px 40px 24px; max-width: 1200px; margin: 0 auto;">
+                        <div style="text-align: center; margin-bottom: 10px;">
+                            <div style="color: #2563eb; font-size: 1.08rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 10px;">Compare</div>
+                            <h2 style="font-size: 2.4rem; font-weight: 900; color: #181c32; margin-bottom: 12px; letter-spacing: -1px;">See How We Compare</h2>
+                            <div style="color: black; font-size: 1.13rem; max-width: 800px; margin: 0 auto 24px auto;">Discover how AERMOD View stands out from the competition with powerful features, intuitive design, and unmatched support – all in one comprehensive air dispersion modeling solution.</div>
+                        </div>
+                        <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: separate; border-spacing: 0 18px;">
+                            <thead>
+                                <tr>
+                                    <th style="background: #f4f8ff; color: #181c32; font-size: 1.35rem; font-weight: 700; padding: 18px 18px; border-radius: 12px 0 0 12px; text-align: left;">Feature</th>
+                                    <th style="background: #f4f8ff; color: #181c32; font-size: 1.35rem; font-weight: 700; padding: 18px 18px; text-align: left;">AERMOD View</th>
+                                    <th style="background: #f4f8ff; color: #181c32; font-size: 1.35rem; font-weight: 700; padding: 18px 18px; border-radius: 0 12px 12px 0; text-align: left;">Competitors Software</th>
+                                </tr>
+                            </thead>
+                            <tbody style="font-size: 1.13rem;">
+                                <tr>
+                                    <td style="background: #fff; color: #181c32; font-weight: 600; padding: 18px; border-radius: 10px 0 0 10px;">AERMOD Parallel (8 Processors)</td>
+                                    <td style="background: #fff; color: #2563eb; padding: 18px;"><span style="color: #3ee6a0; font-weight: 700;"><i class="ri-checkbox-circle-fill" style="color:#3ee6a0; margin-right:7px;"></i>Included</span></td>
+                                    <td style="background: #fff; color: #ff5c5c; padding: 18px; border-radius: 0 10px 10px 0;"><i class="ri-close-circle-fill" style="color:#ff5c5c; margin-right:7px;"></i>Add-on required</td>
+                                </tr>
+                                <tr>
+                                    <td style="background: #fff; color: #181c32; font-weight: 600; padding: 18px; border-radius: 10px 0 0 10px;">AERMET Preprocessing Tools</td>
+                                    <td style="background: #fff; color: #2563eb; padding: 18px;"><span style="color: #3ee6a0; font-weight: 700;"><i class="ri-checkbox-circle-fill" style="color:#3ee6a0; margin-right:7px;"></i>Included</span></td>
+                                    <td style="background: #fff; color: #ffb347; padding: 18px; border-radius: 0 10px 10px 0;"><i class="ri-error-warning-fill" style="color:#ffb347; margin-right:7px;"></i>Partial/Extra cost</td>
+                                </tr>
+                                <tr>
+                                    <td style="background: #fff; color: #181c32; font-weight: 600; padding: 18px; border-radius: 10px 0 0 10px;">Multi-Pollutant Modeling</td>
+                                    <td style="background: #fff; color: #2563eb; padding: 18px;"><span style="color: #3ee6a0; font-weight: 700;"><i class="ri-checkbox-circle-fill" style="color:#3ee6a0; margin-right:7px;"></i>Included</span></td>
+                                    <td style="background: #fff; color: #ffb347; padding: 18px; border-radius: 0 10px 10px 0;"><i class="ri-error-warning-fill" style="color:#ffb347; margin-right:7px;"></i>May require additional tools</td>
+                                </tr>
+                                <tr>
+                                    <td style="background: #fff; color: #181c32; font-weight: 600; padding: 18px; border-radius: 10px 0 0 10px;">Technical Support</td>
+                                    <td style="background: #fff; color: #2563eb; padding: 18px;"><span style="color: #3ee6a0; font-weight: 700;"><i class="ri-checkbox-circle-fill" style="color:#3ee6a0; margin-right:7px;"></i>Included</span></td>
+                                    <td style="background: #fff; color: #3ee6a0; padding: 18px; border-radius: 0 10px 10px 0;"><i class="ri-checkbox-circle-fill" style="color:#3ee6a0; margin-right:7px;"></i>Included</td>
+                                </tr>
+                                <tr>
+                                    <td style="background: #fff; color: #181c32; font-weight: 600; padding: 18px; border-radius: 10px 0 0 10px;">Regulatory Updates</td>
+                                    <td style="background: #fff; color: #2563eb; padding: 18px;"><span style="color: #3ee6a0; font-weight: 700;"><i class="ri-checkbox-circle-fill" style="color:#3ee6a0; margin-right:7px;"></i>Included</span></td>
+                                    <td style="background: #fff; color: #3ee6a0; padding: 18px; border-radius: 0 10px 10px 0;"><i class="ri-checkbox-circle-fill" style="color:#3ee6a0; margin-right:7px;"></i>Included</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </section>
+                <!-- Compare Table Section End -->
+                <!-- Value & Support Section Start -->
+                <section style="background: #fff; padding: 64px 0 0 0; max-width: 1200px; margin: 0 auto;">
+                    <div style="padding: 0 24px;">
+                        <h2 style="font-size: 2.5rem; font-weight: 900; color: #181c32; margin-bottom: 18px; letter-spacing: -1px;">Smart Investment. Superior Value.</h2>
+                        <div style="font-size: 1.18rem; color: #222; margin-bottom: 18px; max-width: 900px;">When evaluating dispersion modeling software, cost-of-ownership matters. AERMOD View provides:</div>
+                        <ul style="list-style: none; padding: 0; margin: 0 0 18px 0;">
+                            <li style="display: flex; align-items: flex-start; font-size: 1.13rem; color: #181c32; margin-bottom: 10px;"><span style="color: #2563eb; font-size: 1.5rem; margin-right: 12px; line-height: 1;"><i class='ri-checkbox-circle-fill'></i></span><b>More features upfront</b> – no expensive modules or plug-ins to purchase</li>
+                            <li style="display: flex; align-items: flex-start; font-size: 1.13rem; color: #181c32; margin-bottom: 10px;"><span style="color: #2563eb; font-size: 1.5rem; margin-right: 12px; line-height: 1;"><i class='ri-checkbox-circle-fill'></i></span><b>Lower annual maintenance costs</b> – up to $85 US less than other solutions</li>
+                            <li style="display: flex; align-items: flex-start; font-size: 1.13rem; color: #181c32; margin-bottom: 10px;"><span style="color: #2563eb; font-size: 1.5rem; margin-right: 12px; line-height: 1;"><i class='ri-checkbox-circle-fill'></i></span><b>Continuous updates & expert support</b> – included with annual maintenance</li>
+                        </ul>
+                        <div style="font-size: 1.08rem; color: #222; margin-bottom: 32px; max-width: 900px;">With AERMOD View, you know exactly what you’re getting. No hidden fees. Just a complete, professional solution at a competitive price.</div>
+                        <h2 style="font-size: 2.2rem; font-weight: 900; color: #181c32; margin-bottom: 14px; letter-spacing: -1px;">Global Support. Regulatory Confidence.</h2>
+                        <div style="font-size: 1.13rem; color: #222; margin-bottom: 18px; max-width: 1000px;">Our team of scientists, software engineers, and a Certified Consulting Meteorologist (CCM) are industry leaders in environmental modeling. We ensure AERMOD View stays aligned with the latest U.S. EPA regulatory updates and best practices.</div>
+                        <ul style="list-style: none; padding: 0; margin: 0 0 0 0;">
+                            <li style="display: flex; align-items: flex-start; font-size: 1.13rem; color: #181c32; margin-bottom: 10px;"><span style="color: #2563eb; font-size: 1.5rem; margin-right: 12px; line-height: 1;"><i class='ri-checkbox-circle-fill'></i></span>Continuous software updates included with maintenance</li>
+                            <li style="display: flex; align-items: flex-start; font-size: 1.13rem; color: #181c32; margin-bottom: 10px;"><span style="color: #2563eb; font-size: 1.5rem; margin-right: 12px; line-height: 1;"><i class='ri-checkbox-circle-fill'></i></span>Access to world-class technical support and training resources</li>
+                            <li style="display: flex; align-items: flex-start; font-size: 1.13rem; color: #181c32; margin-bottom: 10px;"><span style="color: #2563eb; font-size: 1.5rem; margin-right: 12px; line-height: 1;"><i class='ri-checkbox-circle-fill'></i></span>Used and endorsed by environmental professionals across multiple sectors</li>
+                        </ul>
+                    </div>
+                </section>
+                <!-- Value & Support Section End -->
+            </div>
+            <div id="tab-content-features" class="aermod-tab-content" style="display:none; padding: 36px 0 0 0;">
+                <!-- Key Features Section Start -->
+                <section style="margin: 0 auto; padding: 56px 0 56px 0; max-width: 1100px;">
+                    <div style="text-align: center; margin-bottom: 18px;">
+                        <div style="color: #2563eb; font-size: 1.08rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 10px;">Features</div>
+                        <h2 style="font-size: 2.3rem; font-weight: 900; color: #181c32; margin-bottom: 12px; letter-spacing: -1px;">AERMOD View Key Features</h2>
+                        <div style="color: black; font-size: 1.13rem; max-width: 700px; margin: 0 auto 24px auto;">From 3D terrain visualization to building downwash and urban/rural classifications, AERMOD View provides intuitive tools that simplify your workflow—without compromising performance or compliance.</div>
+                        
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 28px; justify-content: center;">
+                        <div style="background: #f4f8ff; border-radius: 12px; padding: 32px 28px; flex: 1 1 260px; min-width: 260px; max-width: 320px; display: flex; flex-direction: column; align-items: flex-start;">
+                            <i class="ri-computer-line" style="font-size: 2.1rem; color: #2563eb; margin-bottom: 12px;"></i>
+                            <div style="font-size: 1.18rem; font-weight: 700; color: #181c32; margin-bottom: 6px;">Integrated Interface</div>
+                            <div style="font-size: 1.01rem; color: #374151;">Fully integrated GIS-based interface combining easy to use graphical tools.</div>
+                        </div>
+                        <div style="background: #f4f8ff; border-radius: 12px; padding: 32px 28px; flex: 1 1 260px; min-width: 260px; max-width: 320px; display: flex; flex-direction: column; align-items: flex-start;">
+                            <i class="ri-computer-line" style="font-size: 2.1rem; color: #2563eb; margin-bottom: 12px;"></i>
+                            <div style="font-size: 1.18rem; font-weight: 700; color: #181c32; margin-bottom: 6px;">Tile Maps</div>
+                            <div style="font-size: 1.01rem; color: #374151;">Automatically download and import high-resolution satellite and street map imagery into your projects.</div>
+                        </div>
+                        <div style="background: #f4f8ff; border-radius: 12px; padding: 32px 28px; flex: 1 1 260px; min-width: 260px; max-width: 320px; display: flex; flex-direction: column; align-items: flex-start;">
+                            <i class="ri-computer-line" style="font-size: 2.1rem; color: #2563eb; margin-bottom: 12px;"></i>
+                            <div style="font-size: 1.18rem; font-weight: 700; color: #181c32; margin-bottom: 6px;">AERMOD MPI</div>
+                            <div style="font-size: 1.01rem; color: #374151;">AERMOD Parallel for up to 8 processors available at no additional cost.</div>
+                        </div>
+                        <div style="background: #f4f8ff; border-radius: 12px; padding: 32px 28px; flex: 1 1 260px; min-width: 260px; max-width: 320px; display: flex; flex-direction: column; align-items: flex-start;">
+                            <i class="ri-computer-line" style="font-size: 2.1rem; color: #2563eb; margin-bottom: 12px;"></i>
+                            <div style="font-size: 1.18rem; font-weight: 700; color: #181c32; margin-bottom: 6px;">Google Earth Export</div>
+                            <div style="font-size: 1.01rem; color: #374151;">Export your buildings, sources, receptors and contours into Google Earth to share results with others.</div>
+                        </div>
+                        <div style="background: #f4f8ff; border-radius: 12px; padding: 32px 28px; flex: 1 1 260px; min-width: 260px; max-width: 320px; display: flex; flex-direction: column; align-items: flex-start;">
+                            <i class="ri-computer-line" style="font-size: 2.1rem; color: #2563eb; margin-bottom: 12px;"></i>
+                            <div style="font-size: 1.18rem; font-weight: 700; color: #181c32; margin-bottom: 6px;">Terrain Data</div>
+                            <div style="font-size: 1.01rem; color: #374151;">Advanced terrain processing capabilities are offered for several terrain data file formats.</div>
+                        </div>
+                        <div style="background: #f4f8ff; border-radius: 12px; padding: 32px 28px; flex: 1 1 260px; min-width: 260px; max-width: 320px; display: flex; flex-direction: column; align-items: flex-start;">
+                            <i class="ri-computer-line" style="font-size: 2.1rem; color: #2563eb; margin-bottom: 12px;"></i>
+                            <div style="font-size: 1.18rem; font-weight: 700; color: #181c32; margin-bottom: 6px;">3D Visualization</div>
+                            <div style="font-size: 1.01rem; color: #374151;">Comprehensive 3D visualization of your entire modeling area to meet all your modeling needs.</div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Key Features Section End -->
+                <!-- Modern Feature Highlights Section Start -->
+                <section style="max-width: 1200px; margin: 56px auto 0 auto; padding: 0 0 32px 0;">
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 48px 0;">
+                        <!-- Feature 1: Integrated Graphical User Interface -->
+                        <div style="flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 48px;">
+                            <div style="flex: 0 0 340px; max-width: 340px; min-width: 220px; display: flex; align-items: center; justify-content: center;">
+                                <div style="border-radius: 18px; padding: 18px; display: inline-block;">
+                                    <img src="image/feature_aermod_gui.png" alt="AERMOD GUI" style="width: 100%; max-width: 300px; border-radius: 8px; box-shadow: 0 4px 24px rgba(37,99,235,0.13); background: #fff;">
+                                </div>
+                            </div>
+                            <div style="flex: 1 1 400px; min-width: 260px; padding-left: 36px;">
+                                <h3 style="font-size: 2rem; font-weight: 800; color: #181c32; margin-bottom: 10px;">Integrated Graphical User Interface</h3>
+                                <div style="font-size: 1.08rem; color: #222; max-width: 600px;">A fully integrated GIS-based interface with powerful, intuitive tools that simplify and enhance your environmental modeling. With easy-to-use graphical tools, you can precisely draw and define sources, buildings, and receptors, ensuring accurate mapping of your study area. It supports seamless model run execution, allowing for efficient data processing and automatically generates and posts detailed contours, providing clear and immediate insights into pollutant distribution.</div>
+                            </div>
+                        </div>
+                        <!-- Feature 2: Lakes Tile Maps -->
+                        <div style="flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; flex-direction: row-reverse;">
+                            <div style="flex: 0 0 340px; max-width: 340px; min-width: 220px; display: flex; align-items: center; justify-content: center;">
+                                <div style="border-radius: 18px; padding: 18px; display: inline-block;">
+                                    <img src="image/feature_aermod_tilemaps.png" alt="Lakes Tile Maps" style="width: 100%; max-width: 300px; border-radius: 8px; box-shadow: 0 4px 24px rgba(37,99,235,0.13); background: #fff;">
+                                </div>
+                            </div>
+                            <div style="flex: 1 1 400px; min-width: 260px; padding-right: 36px;">
+                                <h3 style="font-size: 2rem; font-weight: 800; color: #181c32; margin-bottom: 10px;">Lakes Tile Maps</h3>
+                                <div style="font-size: 1.08rem; color: #222; max-width: 600px;">Enhance your projects by automatically downloading and importing high-resolution satellite and street map imagery directly into your modeling projects. This feature simplifies the graphical input of model objects, such as sources, buildings, and receptors, by providing a highly detailed and accurate visual backdrop. The imported imagery serves as an excellent spatial reference point, allowing you to precisely position and define model elements within their real-world context.</div>
+                            </div>
+                        </div>
+                        <!-- Feature 3: 3D Visualization -->
+                        <div style="flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 48px;">
+                            <div style="flex: 0 0 340px; max-width: 340px; min-width: 220px; display: flex; align-items: center; justify-content: center;">
+                                <div style="border-radius: 18px; padding: 18px; display: inline-block;">
+                                    <img src="image/feature_aermod_3d.png" alt="AERMOD GUI" style="width: 100%; max-width: 300px; border-radius: 8px; box-shadow: 0 4px 24px rgba(37,99,235,0.13); background: #fff;">
+                                </div>
+                            </div>
+                            <div style="flex: 1 1 400px; min-width: 260px; padding-left: 36px;">
+                                <h3 style="font-size: 2rem; font-weight: 800; color: #181c32; margin-bottom: 10px;">3D Visualization</h3>
+                                <div style="font-size: 1.08rem; color: #222; max-width: 600px;">Our 3D visualization feature allows you to view emissions sources, buildings, concentration levels, and deposition contour results, all seamlessly integrated within the context of your surrounding terrain. 3D visualization ensures that every aspect of your model is accurately represented, offering a realistic depiction of how pollutants interact with the physical landscape. By seeing how your sources, buildings, and concentration or deposition contours are distributed across the terrain, you gain valuable insights into potential environmental impacts, making it easier to communicate findings and make informed decisions.</div>
+                            </div>
+                        </div>
+                        <!-- Feature 4: Export to Google Earth -->
+                        <div style="flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; flex-direction: row-reverse;">
+                            <div style="flex: 0 0 340px; max-width: 340px; min-width: 220px; display: flex; align-items: center; justify-content: center;">
+                                <div style="border-radius: 18px; padding: 18px; display: inline-block;">
+                                    <img src="image/feature_aermod_google-1.png" alt="Lakes Tile Maps" style="width: 100%; max-width: 300px; border-radius: 8px; box-shadow: 0 4px 24px rgba(37,99,235,0.13); background: #fff;">
+                                </div>
+                            </div>
+                            <div style="flex: 1 1 400px; min-width: 260px; padding-right: 36px;">
+                                <h3 style="font-size: 2rem; font-weight: 800; color: #181c32; margin-bottom: 10px;">Export to Google Earth</h3>
+                                <div style="font-size: 1.08rem; color: #222; max-width: 600px;">This powerful feature enables you to export your buildings, emission sources, receptors, and pollutant contours directly into Google Earth. By doing so, you can visualize your data in a more immersive and realistic manner, providing a better understanding of how pollutants might disperse and affect the surrounding areas. This enhanced visualization tool not only aids in better assessing environmental impacts but also supports more informed decision-making by giving you a clearer picture of potential pollutant distribution across various geographic landscapes.</div>
+                            </div>
+                        </div>
+                        <!-- Feature 5: Terrain Processors with Auto Downloads -->
+                        <div style="flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 48px;">
+                            <div style="flex: 0 0 340px; max-width: 340px; min-width: 220px; display: flex; align-items: center; justify-content: center;">
+                                <div style="border-radius: 18px; padding: 18px; display: inline-block;">
+                                    <img src="image/feature_aermod_terrain.png" alt="AERMOD GUI" style="width: 100%; max-width: 300px; border-radius: 8px; box-shadow: 0 4px 24px rgba(37,99,235,0.13); background: #fff;">
+                                </div>
+                            </div>
+                            <div style="flex: 1 1 400px; min-width: 260px; padding-left: 36px;">
+                                <h3 style="font-size: 2rem; font-weight: 800; color: #181c32; margin-bottom: 10px;">Terrain Processors with Auto Downloads</h3>
+                                <div style="font-size: 1.08rem; color: #222; max-width: 600px;">This feature offers advanced terrain processing capabilities, supporting various terrain data formats such as NED, SRTM, and USGS DEM, ensuring flexibility and accuracy in your environmental modeling. It includes an automated download feature for easy retrieval of terrain data from WebGIS and SRTM1 terrain data at 30 m resolution. This streamlines your workflow, minimizes manual effort, and provides valuable insights to terrain-related impacts.</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </section>
+                <!-- Modern Feature Highlights Section End -->
+                <!-- Additional Features Section Start -->
+                <section style="background: #fff; padding: 64px 0 64px 0; margin: 0 auto; max-width: 100vw;">
+                    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+                        <div style="text-align: left; margin-bottom: 38px;">
+                            <div style="color: #2563eb; font-size: 1.08rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 10px;">AERMOD VIEW</div>
+                            <h2 style="font-size: 2.3rem; font-weight: 900; color: #181c32; margin-bottom: 12px; letter-spacing: -1px;">Additional Features</h2>
+                            <div style="color: #374151; font-size: 1.13rem; max-width: 900px;">AERMOD View offers more than just an intuitive interface. Every copy comes fully equipped with all the tools you need to complete your project—<b>no need for expensive add-ons</b>.</div>
+                        </div>
+                        <div class="aermod-additional-features-cards" style="display: flex; flex-wrap: nowrap; gap: 32px; justify-content: center;">
+                            <!-- Card 1 -->
+                            <div class="aermod-feature-card" style="background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(24,28,50,0.08); flex: 1 1 320px; min-width: 280px; max-width: 370px; padding: 38px 28px 32px 28px; display: flex; flex-direction: column; align-items: flex-start; border: 1.5px solid #f0f4fa; cursor: pointer; transition: background 0.2s, color 0.2s;">
+                                <i class="ri-settings-5-line" style="font-size: 2.3rem; color: #2563eb; margin-bottom: 18px; transition: color 0.2s;"></i>
+                                <div style="font-size: 1.25rem; font-weight: 800; color: #181c32; margin-bottom: 10px; transition: color 0.2s;">New Project Wizard</div>
+                                <div style="font-size: 1.05rem; color: #374151; transition: color 0.2s;">Quickly and easily set up a new project in AERMOD View by specifying a reference point in Latitude/Longitude, UTM, or any other local coordinate system.</div>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="aermod-feature-card" style="background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(24,28,50,0.08); flex: 1 1 320px; min-width: 280px; max-width: 370px; padding: 38px 28px 32px 28px; display: flex; flex-direction: column; align-items: flex-start; border: 1.5px solid #f0f4fa; cursor: pointer; transition: background 0.2s, color 0.2s;">
+                                <i class="ri-flask-line" style="font-size: 2.3rem; color: #2563eb; margin-bottom: 18px; transition: color 0.2s;"></i>
+                                <div style="font-size: 1.25rem; font-weight: 800; color: #181c32; margin-bottom: 10px; transition: color 0.2s;">Multi-Chem Utility</div>
+                                <div style="font-size: 1.05rem; color: #374151; transition: color 0.2s;">Boost your productivity by specifying emissions from several pollutants emitted by the same source. No need to setup different projects for each pollutant!</div>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="aermod-feature-card" style="background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(24,28,50,0.08); flex: 1 1 320px; min-width: 280px; max-width: 370px; padding: 38px 28px 32px 28px; display: flex; flex-direction: column; align-items: flex-start; border: 1.5px solid #f0f4fa; cursor: pointer; transition: background 0.2s, color 0.2s;">
+                                <i class="ri-database-2-line" style="font-size: 2.3rem; color: #2563eb; margin-bottom: 18px; transition: color 0.2s;"></i>
+                                <div style="font-size: 1.25rem; font-weight: 800; color: #181c32; margin-bottom: 10px; transition: color 0.2s;">ISC Models Included</div>
+                                <div style="font-size: 1.05rem; color: #374151; transition: color 0.2s;">Lakes Environmental also seamlessly incorporates the Industrial Source Complex (ISC) air dispersion models ISCST3 and ISC-PRIME into AERMOD View.</div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="aermod-additional-features-cards" style="display: flex; flex-wrap: nowrap; gap: 32px; justify-content: center;">
+                            <!-- Card 1 -->
+                            <div class="aermod-feature-card" style="background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(24,28,50,0.08); flex: 1 1 320px; min-width: 280px; max-width: 370px; padding: 38px 28px 32px 28px; display: flex; flex-direction: column; align-items: flex-start; border: 1.5px solid #f0f4fa; cursor: pointer; transition: background 0.2s, color 0.2s;">
+                                <i class="ri-settings-5-line" style="font-size: 2.3rem; color: #2563eb; margin-bottom: 18px; transition: color 0.2s;"></i>
+                                <div style="font-size: 1.25rem; font-weight: 800; color: #181c32; margin-bottom: 10px; transition: color 0.2s;">New Project Wizard</div>
+                                <div style="font-size: 1.05rem; color: #374151; transition: color 0.2s;">Quickly and easily set up a new project in AERMOD View by specifying a reference point in Latitude/Longitude, UTM, or any other local coordinate system.</div>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="aermod-feature-card" style="background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(24,28,50,0.08); flex: 1 1 320px; min-width: 280px; max-width: 370px; padding: 38px 28px 32px 28px; display: flex; flex-direction: column; align-items: flex-start; border: 1.5px solid #f0f4fa; cursor: pointer; transition: background 0.2s, color 0.2s;">
+                                <i class="ri-flask-line" style="font-size: 2.3rem; color: #2563eb; margin-bottom: 18px; transition: color 0.2s;"></i>
+                                <div style="font-size: 1.25rem; font-weight: 800; color: #181c32; margin-bottom: 10px; transition: color 0.2s;">Multi-Chem Utility</div>
+                                <div style="font-size: 1.05rem; color: #374151; transition: color 0.2s;">Boost your productivity by specifying emissions from several pollutants emitted by the same source. No need to setup different projects for each pollutant!</div>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="aermod-feature-card" style="background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(24,28,50,0.08); flex: 1 1 320px; min-width: 280px; max-width: 370px; padding: 38px 28px 32px 28px; display: flex; flex-direction: column; align-items: flex-start; border: 1.5px solid #f0f4fa; cursor: pointer; transition: background 0.2s, color 0.2s;">
+                                <i class="ri-database-2-line" style="font-size: 2.3rem; color: #2563eb; margin-bottom: 18px; transition: color 0.2s;"></i>
+                                <div style="font-size: 1.25rem; font-weight: 800; color: #181c32; margin-bottom: 10px; transition: color 0.2s;">ISC Models Included</div>
+                                <div style="font-size: 1.05rem; color: #374151; transition: color 0.2s;">Lakes Environmental also seamlessly incorporates the Industrial Source Complex (ISC) air dispersion models ISCST3 and ISC-PRIME into AERMOD View.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+                        @media (max-width: 1100px) {
+                            .aermod-additional-features-cards {
+                                flex-wrap: wrap !important;
+                            }
+                        }
+                        .aermod-feature-card:hover {
+                            background: #2563eb !important;
+                            border-color: #2563eb !important;
+                        }
+                        .aermod-feature-card:hover i,
+                        .aermod-feature-card:hover div[style*='font-size: 1.25rem'],
+                        .aermod-feature-card:hover div[style*='font-size: 1.05rem'] {
+                            color: #fff !important;
+                        }
+                    </style>
+                </section>
+                <!-- Additional Features Section End -->
+            </div>
+        </div>
+        <script>
+        // Simple tab switcher
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabOverview = document.getElementById('tab-overview');
+            const tabFeatures = document.getElementById('tab-features');
+            const contentOverview = document.getElementById('tab-content-overview');
+            const contentFeatures = document.getElementById('tab-content-features');
+            tabOverview.onclick = function() {
+                tabOverview.classList.add('active');
+                tabFeatures.classList.remove('active');
+                tabOverview.style.borderBottom = '3px solid #2563eb';
+                tabFeatures.style.borderBottom = '3px solid transparent';
+                contentOverview.style.display = '';
+                contentFeatures.style.display = 'none';
+            };
+            tabFeatures.onclick = function() {
+                tabFeatures.classList.add('active');
+                tabOverview.classList.remove('active');
+                tabFeatures.style.borderBottom = '3px solid #2563eb';
+                tabOverview.style.borderBottom = '3px solid transparent';
+                contentFeatures.style.display = '';
+                contentOverview.style.display = 'none';
+            };
+        });
+        </script>
+    </section>
+    <!-- Tabs Section End -->
+     <!-- Copyright Section Start -->
+        <footer style="background: linear-gradient(135deg, #1db954 0%, #2563eb 100%); color: #eaf4ff; text-align: center; padding: 28px 0 18px 0; font-size: 1.08rem; font-family: inherit; letter-spacing: 0.02em;">
+            &copy; 2025 LaGa Systems Pvt Ltd. All rights reserved.
+        </footer>
+</body>
+</html>

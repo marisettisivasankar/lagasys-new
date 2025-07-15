@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALPUFF View - Advanced Puff Modeling System</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f8fbff;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Intro Section Start -->
+    <section id="intro-section" style="position: relative; min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; background: url('image/airpollution.avif') center center/cover no-repeat;">
+        <div style="position: absolute; inset: 0; background: rgba(24, 36, 56, 0.68); z-index: 1;"></div>
+        <div style="position: relative; z-index: 2; max-width: 900px; width: 100%; padding: 0 24px; text-align: center; color: #fff;">
+            <h1 style="font-size: 3.2rem; font-weight: 900; margin-bottom: 18px; letter-spacing: -1px; line-height: 1.1;">CALPUFF View</h1>
+            <h2 style="font-size: 1.7rem; font-weight: 500; margin-bottom: 32px; color: #e3eaff;">The Complete Puff Air Dispersion Modeling Solution</h2>
+            <p style="font-size: 1.18rem; max-width: 700px; margin: 0 auto 38px auto; color: #e0e6f0; line-height: 1.6;">CALPUFF View is a powerful, flexible, and regulatory-ready interface for the CALPUFF modeling system. It supports long-range transport, complex terrain, and non-steady-state meteorology for advanced air quality analysis.</p>
+            <button onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'});" style="background: #2563eb; color: #fff; font-size: 1.18rem; font-weight: 700; border: none; border-radius: 10px; padding: 18px 44px; box-shadow: 0 2px 16px rgba(37,99,235,0.13); cursor: pointer; transition: background 0.2s; display: inline-flex; align-items: center; gap: 10px;">
+                More Details <span style="font-size: 1.3rem; display: inline-block; transform: translateY(1px);"><i class="ri-arrow-down-line"></i></span>
+            </button>
+        </div>
+    </section>
+    <!-- Intro Section End -->
+</section>
+<!-- CALPUFF View Overview Section Start -->
+<section style="background: #fff; padding: 64px 0 64px 0;">
+  <div style="max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: 48px; padding: 0 24px;">
+    <!-- Left: Text Content -->
+    <div style="flex: 2 1 520px; min-width: 340px; max-width: 800px;">
+      <div style="color: #2563eb; font-size: 1.08rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 10px;">Air Dispersion Model</div>
+      <h2 style="font-size: 2.5rem; font-weight: 800; color: #181c32; margin-bottom: 10px;">CALPUFF View</h2>
+      <div style="font-size: 1.45rem; color: #888; font-weight: 700; margin-bottom: 22px;">Puff Air Dispersion Model</div>
+      <hr style="border: none; border-top: 2px solid #2563eb33; width: 100%; margin: 24px 0 24px 0;">
+      <div style="font-size: 1.08rem; color: #222; margin-bottom: 18px; line-height: 1.6;">
+        CALPUFF View provides a complete graphical solution for the CALPUFF modeling system: CALPUFF, CALMET, CALPOST, and their related pre- and post-processors. All three modeling systems are supported by the interface:
+      </div>
+      <ul style="list-style: none; padding: 0; margin: 0 0 18px 0; color: #2563eb; font-size: 1.13rem;">
+        <li style="margin-bottom: 8px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> USEPA Approved Version 5.8</li>
+        <li style="margin-bottom: 8px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> Version 6</li>
+        <li style="margin-bottom: 8px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> Version 7</li>
+      </ul>
+      <div style="font-size: 1.08rem; color: #222; margin-bottom: 18px;">CALPUFF View includes powerful and independent QA tools, stunning report-ready results, and a wide range of visualization options.</div>
+      <div style="font-size: 1.08rem; color: #222; margin-bottom: 18px;">CALPUFF is a sophisticated model and is used in many modeling scenarios including:</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 0 48px;">
+        <ul style="list-style: none; padding: 0; margin: 0 0 0 0; color: #2563eb; font-size: 1.13rem; flex: 1 1 260px; min-width: 220px;">
+          <li style="margin-bottom: 8px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> Toxic pollutant deposition</li>
+          <li style="margin-bottom: 8px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> Complex terrain</li>
+          <li style="margin-bottom: 8px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> Long range and overwater transport</li>
+          <li style="margin-bottom: 8px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> Costal interaction effects</li>
+          <li style="margin-bottom: 8px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> Fumigation conditions</li>
+          <li style="margin-bottom: 8px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> Sub-hourly time steps</li>
+        </ul>
+        <ul style="list-style: none; padding: 0; margin: 0 0 0 0; color: #2563eb; font-size: 1.13rem; flex: 1 1 260px; min-width: 220px;">
+          <li style="margin-bottom: 8px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> Visibility assessments</li>
+          <li style="margin-bottom: 8px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> Secondary pollutant formation</li>
+          <li style="margin-bottom: 8px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> Building downwash</li>
+          <li style="margin-bottom: 8px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> Dry deposition</li>
+          <li style="margin-bottom: 8px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> Chemical transformation</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Right: Image Content -->
+    <div style="flex: 1 1 380px; min-width: 320px; max-width: 520px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 100%; max-width: 420px; aspect-ratio: 1/1; background: #fff; border-radius: 50%; overflow: hidden; box-shadow: 0 8px 40px rgba(30,64,175,0.10); display: flex; align-items: center; justify-content: center; position: relative;">
+        <img src="image/calpuff_overview.png" alt="CALPUFF View Screenshot" style="width: 100%; height: auto; object-fit: cover;">
+        <span style="position: absolute; right: 18px; bottom: 18px; background: #2563eb; color: #fff; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 16px rgba(30,64,175,0.10);">
+          <i class="ri-building-2-line"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- CALPUFF View Overview Section End -->
+
+<!-- CALPUFF View Tabs Section Start -->
+<section class="calpuff-tabs-section" style="background: #fff; padding: 0 0 64px 0;">
+  <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
+    <div style="display: flex; gap: 0; border-bottom: 2px solid #e5e7eb; margin-bottom: 0;">
+      <button id="tab-overview" class="calpuff-tab-btn active" style="flex:1; padding: 18px 0; font-size: 1.18rem; font-weight: 700; color: #1a237e; background: none; border: none; border-bottom: 3px solid #2563eb; cursor: pointer; transition: color 0.2s, border-bottom 0.2s;">Overview</button>
+      <button id="tab-features" class="calpuff-tab-btn" style="flex:1; padding: 18px 0; font-size: 1.18rem; font-weight: 700; color: #1a237e; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; transition: color 0.2s, border-bottom 0.2s;">Features</button>
+    </div>
+    <div id="tab-content-overview" class="calpuff-tab-content" style="padding: 36px 0 0 0;">
+      <!-- Overview Content -->
+      <section style="margin-bottom: 48px;">
+        <h2 style="font-size: 2.1rem; font-weight: 800; color: #181c32; margin-bottom: 12px;">About CALPUFF</h2>
+        <p style="font-size: 1.13rem; color: #222; max-width: 900px; margin-bottom: 18px;">CALPUFF is a multi-layer, multi-species non-steady-state puff dispersion model which simulates the effects of time-and space-varying meteorological conditions on pollution transport, transformation, and removal. The CALPUFF modeling system includes:</p>
+        <ul style="font-size: 1.13rem; color: #2563eb; list-style: none; padding: 0; max-width: 900px;">
+          <li style="margin-bottom: 10px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> CALMET – Diagnostic three-dimensional meteorological model</li>
+          <li style="margin-bottom: 10px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> CALPUFF – The puff dispersion model</li>
+          <li style="margin-bottom: 10px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> CALPOST – Post-processor for calculating time-averaged concentrations, deposition fluxes, and visibility impacts</li>
+        </ul>
+      </section>
+      <section>
+        <h2 style="font-size: 2.1rem; font-weight: 800; color: #181c32; margin-bottom: 12px;">Why CALPUFF</h2>
+        <ul style="font-size: 1.13rem; color: #2563eb; list-style: none; padding: 0; max-width: 900px;">
+          <li style="margin-bottom: 10px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> CALPUFF can be applied to a wide variety of scenarios including far-field impacts (those beyond 50km from releases) which cannot be modeled with traditional plume models (e.g., AERMOD).</li>
+          <li style="margin-bottom: 10px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> Its three-dimensionally varying meteorological field makes it useful for regions with very complex terrain or non-steady-state conditions.</li>
+          <li style="margin-bottom: 10px;"><i class="ri-checkbox-circle-fill" style="color:#2563eb; margin-right:7px;"></i> CALPUFF View's wide range of features make it easy to execute the entire suite of pre- and post-processors for a modeling analysis.</li>
+        </ul>
+      </section>
+    </div>
+    <div id="tab-content-features" class="calpuff-tab-content" style="display:none; padding: 36px 0 0 0;">
+      <!-- Features Content -->
+      <section style="background: white; border-radius: 0 0 18px 18px; padding: 48px 0 48px 0; margin: 0 -24px;">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
+          <h2 style="font-size: 2.3rem; font-weight: 900; color: #23294a; margin-bottom: 12px; text-align: center;">CALPUFF View Key Features</h2>
+          <div style="color: black; font-size: 1.13rem; margin-bottom: 28px; text-align: center;">CALPUFF View is impeccably designed to streamline all aspects of model setup, execution, and analysis. Air dispersion modeling has never been easier.</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: center;">
+            <!-- Card 1 -->
+            <div style="background: #23294a; border-radius: 14px; padding: 32px 28px; flex: 1 1 260px; min-width: 260px; max-width: 340px; display: flex; flex-direction: column; align-items: flex-start;">
+              <i class="ri-computer-line" style="font-size: 2.1rem; color: #3ee6a0; margin-bottom: 12px;"></i>
+              <div style="font-size: 1.18rem; font-weight: 700; color: #fff; margin-bottom: 6px;">Parallel CALMET</div>
+              <div style="font-size: 1.01rem; color: #eaf4ff;">Utilize multiple cores when running the CALMET model to generate model data faster than ever.</div>
+            </div>
+            <!-- Card 2 -->
+            <div style="background: #23294a; border-radius: 14px; padding: 32px 28px; flex: 1 1 260px; min-width: 260px; max-width: 340px; display: flex; flex-direction: column; align-items: flex-start;">
+              <i class="ri-computer-line" style="font-size: 2.1rem; color: #3ee6a0; margin-bottom: 12px;"></i>
+              <div style="font-size: 1.18rem; font-weight: 700; color: #fff; margin-bottom: 6px;">Tile Maps</div>
+              <div style="font-size: 1.01rem; color: #eaf4ff;">Automatically download and import high-resolution satellite and street map imagery into your projects.</div>
+            </div>
+            <!-- Card 3 -->
+            <div style="background: #23294a; border-radius: 14px; padding: 32px 28px; flex: 1 1 260px; min-width: 260px; max-width: 340px; display: flex; flex-direction: column; align-items: flex-start;">
+              <i class="ri-computer-line" style="font-size: 2.1rem; color: #3ee6a0; margin-bottom: 12px;"></i>
+              <div style="font-size: 1.18rem; font-weight: 700; color: #fff; margin-bottom: 6px;">Plume Animation</div>
+              <div style="font-size: 1.01rem; color: #eaf4ff;">Allows you to play and record plume animations along with your wind field.</div>
+            </div>
+            <!-- Card 4 -->
+            <div style="background: #23294a; border-radius: 14px; padding: 32px 28px; flex: 1 1 260px; min-width: 260px; max-width: 340px; display: flex; flex-direction: column; align-items: flex-start;">
+              <i class="ri-computer-line" style="font-size: 2.1rem; color: #3ee6a0; margin-bottom: 12px;"></i>
+              <div style="font-size: 1.18rem; font-weight: 700; color: #fff; margin-bottom: 6px;">Google Earth Export</div>
+              <div style="font-size: 1.01rem; color: #eaf4ff;">Export your buildings, sources, receptors and contours into Google Earth.</div>
+            </div>
+            <!-- Card 5 -->
+            <div style="background: #23294a; border-radius: 14px; padding: 32px 28px; flex: 1 1 260px; min-width: 260px; max-width: 340px; display: flex; flex-direction: column; align-items: flex-start;">
+              <i class="ri-computer-line" style="font-size: 2.1rem; color: #3ee6a0; margin-bottom: 12px;"></i>
+              <div style="font-size: 1.18rem; font-weight: 700; color: #fff; margin-bottom: 6px;">PUFF Tracking</div>
+              <div style="font-size: 1.01rem; color: #eaf4ff;">Easily see where your puff will impact. The play feature shows how your puff disperses over time.</div>
+            </div>
+            <!-- Card 6 -->
+            <div style="background: #23294a; border-radius: 14px; padding: 32px 28px; flex: 1 1 260px; min-width: 260px; max-width: 340px; display: flex; flex-direction: column; align-items: flex-start;">
+              <i class="ri-computer-line" style="font-size: 2.1rem; color: #3ee6a0; margin-bottom: 12px;"></i>
+              <div style="font-size: 1.18rem; font-weight: 700; color: #fff; margin-bottom: 6px;">Terrain Data</div>
+              <div style="font-size: 1.01rem; color: #eaf4ff;">Advanced terrain processing capabilities are offered for several terrain data file formats.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Side-by-side Feature Highlights Section-->
+      <section style="background: #fff; padding: 64px 0 0 0;">
+        <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 64px;">
+          <!-- Parallel CALMET Row -->
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px;">
+            <div style="flex: 1 1 340px; min-width: 300px; max-width: 420px; display: flex; align-items: center; justify-content: center;">
+              <div style="background: white; border-radius: 28px; padding: 24px; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 340px; min-height: 240px;">
+                <img src="image/calpuff_feature_parallel.png" alt="Parallel CALMET" style="width: 100%; max-width: 320px; height: auto; border-radius: 10px; box-shadow: 0 8px 32px rgba(30,64,175,0.13); background: #fff;">
+              </div>
+            </div>
+            <div style="flex: 2 1 420px; min-width: 320px;">
+              <h3 style="font-size: 2rem; font-weight: 800; color: #23294a; margin-bottom: 10px;">Parallel CALMET</h3>
+              <div style="font-size: 1.13rem; color: #222; line-height: 1.7;">Enhance your processing efficiency with CALPUFF View! By utilizing multiple CPU cores, CALPUFF View significantly accelerates the computational speed of the CALMET model, allowing you to generate model data faster than ever before. This capability enables you to process large datasets more efficiently, reducing simulation time, especially for complex scenarios requiring high-resolution temporal and spatial inputs.</div>
+            </div>
+          </div>
+          <!-- Lakes Tile Maps Row -->
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px; flex-direction: row-reverse;">
+            <div style="flex: 1 1 340px; min-width: 300px; max-width: 420px; display: flex; align-items: center; justify-content: center;">
+              <div style="background: white; border-radius: 28px; padding: 24px; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 340px; min-height: 240px;">
+                <img src="image/feature_aermod_tilemaps_calpuff.png" alt="Lakes Tile Maps" style="width: 100%; max-width: 320px; height: auto; border-radius: 10px; box-shadow: 0 8px 32px rgba(30,64,175,0.13); background: #fff;">
+              </div>
+            </div>
+            <div style="flex: 2 1 420px; min-width: 320px;">
+              <h3 style="font-size: 2rem; font-weight: 800; color: #23294a; margin-bottom: 10px;">Lakes Tile Maps</h3>
+              <div style="font-size: 1.13rem; color: #222; line-height: 1.7;">Enhance your projects by automatically downloading and importing high-resolution satellite and street map imagery directly into your modeling projects. This feature simplifies the graphical input of model objects, such as sources, buildings, and receptors, by providing a highly detailed and accurate visual backdrop. The imported imagery serves as an excellent spatial reference point, allowing you to precisely position and define model elements within their real-world context.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section style="background: #fff; padding: 64px 0 0 0;">
+        <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 64px;">
+          <!-- Plume Animation -->
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px;">
+            <div style="flex: 1 1 340px; min-width: 300px; max-width: 420px; display: flex; align-items: center; justify-content: center;">
+              <div style="background: white; border-radius: 28px; padding: 24px; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 340px; min-height: 240px;">
+                <img src="image/calpuff_feature_plume.png" alt="Plume Animation" style="width: 100%; max-width: 320px; height: auto; border-radius: 10px; box-shadow: 0 8px 32px rgba(30,64,175,0.13); background: #fff;">
+              </div>
+            </div>
+            <div style="flex: 2 1 420px; min-width: 320px;">
+              <h3 style="font-size: 2rem; font-weight: 800; color: #23294a; margin-bottom: 10px;">Plume Animation</h3>
+              <div style="font-size: 1.13rem; color: #222; line-height: 1.7;">This exciting feature offers the ability to play and record dynamic plume animations in conjunction with your wind field data. By visualizing how plumes of pollutants disperse over time in sync with wind patterns, you can gain deeper insights into the behavior of airborne substances under varying meteorological conditions. The ability to record these animations provides an invaluable tool for presentations, reports, or further analysis, allowing you to capture key moments of plume movement and interaction with the wind field.</div>
+            </div>
+          </div>
+          <!-- Export to Google Earth -->
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px; flex-direction: row-reverse;">
+            <div style="flex: 1 1 340px; min-width: 300px; max-width: 420px; display: flex; align-items: center; justify-content: center;">
+              <div style="background: white; border-radius: 28px; padding: 24px; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 340px; min-height: 240px;">
+                <img src="image/calpuff_feature_google.png" alt="Export to Google Earth" style="width: 100%; max-width: 320px; height: auto; border-radius: 10px; box-shadow: 0 8px 32px rgba(30,64,175,0.13); background: #fff;">
+              </div>
+            </div>
+            <div style="flex: 2 1 420px; min-width: 320px;">
+              <h3 style="font-size: 2rem; font-weight: 800; color: #23294a; margin-bottom: 10px;">Export to Google Earth</h3>
+              <div style="font-size: 1.13rem; color: #222; line-height: 1.7;">This powerful feature enables you to export your buildings, emission sources, receptors, and pollutant contours directly into Google Earth. By doing so, you can visualize your data in a more immersive and realistic manner, providing a better understanding of how pollutants might disperse and affect the surrounding areas. This enhanced visualization tool not only aids in better assessing environmental impacts but also supports more informed decision-making by giving you a clearer picture of potential pollutant distribution across various geographic landscapes.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section style="background: #fff; padding: 64px 0 0 0;">
+        <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 64px;">
+          <!-- Puff Tracking Animations in Google Earth -->
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px;">
+            <div style="flex: 1 1 340px; min-width: 300px; max-width: 420px; display: flex; align-items: center; justify-content: center;">
+              <div style="background: white; border-radius: 28px; padding: 24px; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 340px; min-height: 240px;">
+                <img src="image/calpuff_feature_pufftracking.png" alt="Puff Tracking Animations in Google Earth" style="width: 100%; max-width: 320px; height: auto; border-radius: 10px; box-shadow: 0 8px 32px rgba(30,64,175,0.13); background: #fff;">
+              </div>
+            </div>
+            <div style="flex: 2 1 420px; min-width: 320px;">
+              <h3 style="font-size: 2rem; font-weight: 800; color: #23294a; margin-bottom: 10px;">Puff Tracking Animations in Google Earth</h3>
+              <div style="font-size: 1.13rem; color: #222; line-height: 1.7;">This feature offers a powerful way to visualize and analyze the impact area of your puff model in a real-world geographic context.  Quickly and easily see exactly where your pollutant plume will travel, disperse, and ultimately impact the surrounding environment. This feature allows you to overlay your puff dispersion data onto detailed satellite imagery, offering a highly accurate and visually intuitive representation of how pollution interacts with specific terrains, landscapes, and populated areas.</div>
+            </div>
+          </div>
+          <!-- Auto Download of Terrain and Land Use Data -->
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px; flex-direction: row-reverse;">
+            <div style="flex: 1 1 340px; min-width: 300px; max-width: 420px; display: flex; align-items: center; justify-content: center;">
+              <div style="background: white; border-radius: 28px; padding: 24px; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 340px; min-height: 240px;">
+                <img src="image/calpuff_feature_terrain.png" alt="Auto Download of Terrain and Land Use Data" style="width: 100%; max-width: 320px; height: auto; border-radius: 10px; box-shadow: 0 8px 32px rgba(30,64,175,0.13); background: #fff;">
+              </div>
+            </div>
+            <div style="flex: 2 1 420px; min-width: 320px;">
+              <h3 style="font-size: 2rem; font-weight: 800; color: #23294a; margin-bottom: 10px;">Auto Download of Terrain and Land Use Data</h3>
+              <div style="font-size: 1.13rem; color: #222; line-height: 1.7;">This feature offers advanced terrain processing capabilities, supporting various terrain data formats such as NED, SRTM, and USGS DEM, ensuring flexibility and accuracy in your environmental modeling. It includes an automated download feature for easy retrieval of terrain data from WebGIS and SRTM1 terrain data at 30 m resolution. This streamlines your workflow, minimizes manual effort, and provides valuable insights to terrain-related impacts.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Additional Features Section -->
+      <section style="background: #fff; padding: 64px 0 64px 0;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+          <h2 style="font-size: 2.3rem; font-weight: 900; color: #181c32; margin-bottom: 12px; text-align: left;">Additional Features</h2>
+          <div style="color: #23294a; font-size: 1.13rem; margin-bottom: 36px; text-align: left; max-width: 800px;">CALPUFF View offers more than just an intuitive interface. Every copy comes fully equipped with all the tools you need to complete your project—no need for expensive add-ons.</div>
+          <div class="calpuff-additional-features-grid">
+            <!-- Card 1 -->
+            <div class="calpuff-feature-card">
+              <i class='ri-settings-3-line'></i>
+              <div class="feature-title">Met Pre-Processors</div>
+              <div class="feature-desc">Seamlessly runs SMERGE, METSCAN, READ62, PXTRACT, and PMERGE for all of your met processing. Surface, Upper Air, and Precipitation files can be downloaded automatically from WebMET.</div>
+            </div>
+            <!-- Card 2 -->
+            <div class="calpuff-feature-card">
+              <i class='ri-cube-3-line'></i>
+              <div class="feature-title">3D Visualization</div>
+              <div class="feature-desc">Complete and powerful 3D visualization of your modeling area. Sources, buildings, wind field, and concentration/deposition contour results are displayed in context with the surrounding terrain.</div>
+            </div>
+            <!-- Card 3 -->
+            <div class="calpuff-feature-card">
+              <i class='ri-magic-line'></i>
+              <div class="feature-title">CALPUFF Wizards</div>
+              <div class="feature-desc">CALPUFF View provides an easy-to-use graphical interface. Each section can be completed by following the steps outlined in various wizards so that you don’t miss specifying required information.</div>
+            </div>
+            <!-- Card 4 -->
+            <div class="calpuff-feature-card">
+              <i class='ri-layout-2-line'></i>
+              <div class="feature-title">Fully Integrated GUI</div>
+              <div class="feature-desc">Combining easy to use graphical tools for drawing model objects; seamless model run execution; and automated contouring and posting of results.</div>
+            </div>
+            <!-- Card 5 -->
+            <div class="calpuff-feature-card">
+              <i class='ri-building-4-line'></i>
+              <div class="feature-title">Sloped Roof Tool</div>
+              <div class="feature-desc">This utility allows users to automatically create multiple building tiers based on the defined top and bottom tier to create the appearance of a sloped roof.</div>
+            </div>
+            <!-- Card 6 -->
+            <div class="calpuff-feature-card">
+              <i class='ri-file-list-3-line'></i>
+              <div class="feature-title">Report Templates</div>
+              <div class="feature-desc">Take advantage of the professional ready-to-use report templates. You can include your company logo, project number, and other project specific information.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <style>
+        .calpuff-additional-features-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 32px;
+        }
+        .calpuff-feature-card {
+          background: #f8fbff;
+          border-radius: 14px;
+          padding: 32px 28px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          box-shadow: 0 4px 24px rgba(30,64,175,0.07);
+          transition: background 0.2s, color 0.2s;
+          cursor: pointer;
+        }
+        .calpuff-feature-card i {
+          font-size: 2.1rem;
+          color: #2563eb;
+          margin-bottom: 12px;
+          transition: color 0.2s;
+        }
+        .calpuff-feature-card .feature-title {
+          font-size: 1.18rem;
+          font-weight: 700;
+          color: #181c32;
+          margin-bottom: 6px;
+          transition: color 0.2s;
+        }
+        .calpuff-feature-card .feature-desc {
+          font-size: 1.01rem;
+          color: #23294a;
+          transition: color 0.2s;
+        }
+        .calpuff-feature-card:hover {
+          background: #2563eb;
+        }
+        .calpuff-feature-card:hover i,
+        .calpuff-feature-card:hover .feature-title,
+        .calpuff-feature-card:hover .feature-desc {
+          color: #fff !important;
+        }
+        @media (max-width: 900px) {
+          .calpuff-additional-features-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+        @media (max-width: 600px) {
+          .calpuff-additional-features-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      </style>
+    </div>
+    </div>
+  </div>
+  <script>
+    // Simple tab switcher for CALPUFF View
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabOverview = document.getElementById('tab-overview');
+      const tabFeatures = document.getElementById('tab-features');
+      const contentOverview = document.getElementById('tab-content-overview');
+      const contentFeatures = document.getElementById('tab-content-features');
+      tabOverview.onclick = function() {
+        tabOverview.classList.add('active');
+        tabFeatures.classList.remove('active');
+        tabOverview.style.borderBottom = '3px solid #2563eb';
+        tabFeatures.style.borderBottom = '3px solid transparent';
+        contentOverview.style.display = '';
+        contentFeatures.style.display = 'none';
+      };
+      tabFeatures.onclick = function() {
+        tabFeatures.classList.add('active');
+        tabOverview.classList.remove('active');
+        tabFeatures.style.borderBottom = '3px solid #2563eb';
+        tabOverview.style.borderBottom = '3px solid transparent';
+        contentFeatures.style.display = '';
+        contentOverview.style.display = 'none';
+      };
+    });
+  </script>
+</section>
+<!-- CALPUFF View Tabs Section End -->
+<!-- CALPUFF All-in-One Package Section Start -->
+<section style="background: #f8fbff; padding: 64px 0 64px 0;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+    <h2 style="font-size: 2.3rem; font-weight: 900; color: #181c32; text-align: center; margin-bottom: 12px;">Empowering Air Quality Professionals with<br>an All-in-One Software Package</h2>
+    <div style="color: #23294a; font-size: 1.13rem; margin-bottom: 48px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">We're here to make things easy! Here's a list of everything included with your software purchase:</div>
+    <div class="calpuff-allinone-cards-row">
+      <!-- Card 1 -->
+      <div class="calpuff-allinone-card">
+        <i class="ri-shield-check-line"></i>
+        <div class="allinone-title">Software Updates</div>
+        <div class="allinone-desc">Included with your software purchase is 1 year of technical support and updates.</div>
+      </div>
+      <!-- Card 2 -->
+      <div class="calpuff-allinone-card">
+        <i class="ri-team-line"></i>
+        <div class="allinone-title">Technical Support and Resources</div>
+        <div class="allinone-desc">Access to our world-class support team and resources such as tutorials and user's guides.</div>
+      </div>
+      <!-- Card 3 -->
+      <div class="calpuff-allinone-card">
+        <i class="ri-computer-line"></i>
+        <div class="allinone-title">Popular Features</div>
+        <div class="allinone-desc">Access to automatically download tile maps and NED terrain data directly within the CALPUFF View software interface.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .calpuff-allinone-cards-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    margin-top: 0;
+  }
+  .calpuff-allinone-card {
+    background: #eaf4ff;
+    border-radius: 16px;
+    padding: 32px 28px 28px 28px;
+    flex: 1 1 320px;
+    min-width: 280px;
+    max-width: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 4px 24px rgba(30,64,175,0.07);
+    transition: background 0.2s, color 0.2s;
+    position: relative;
+  }
+  .calpuff-allinone-card i {
+    font-size: 2.2rem;
+    color: #2563eb;
+    margin-bottom: 14px;
+  }
+  .calpuff-allinone-card .allinone-title {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #181c32;
+    margin-bottom: 8px;
+  }
+  .calpuff-allinone-card .allinone-desc {
+    font-size: 1.01rem;
+    color: #23294a;
+    margin-bottom: 18px;
+  }
+  .calpuff-allinone-link, .allinone-link {
+    color: #2563eb;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  .calpuff-allinone-link:hover, .allinone-link:hover {
+    color: #1a237e;
+    text-decoration: underline;
+  }
+  .calpuff-allinone-card:hover {
+    background: #2563eb;
+  }
+  .calpuff-allinone-card:hover .allinone-title,
+  .calpuff-allinone-card:hover .allinone-desc,
+  .calpuff-allinone-card:hover i,
+  .calpuff-allinone-card:hover .allinone-link {
+    color: #fff !important;
+  }
+  @media (max-width: 1000px) {
+    .calpuff-allinone-cards-row {
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+    }
+    .calpuff-allinone-card {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+</style>
+<!-- Copyright Section Start -->
+        <footer style="background: linear-gradient(135deg, #1db954 0%, #2563eb 100%); color: #eaf4ff; text-align: center; padding: 28px 0 18px 0; font-size: 1.08rem; font-family: inherit; letter-spacing: 0.02em;">
+            &copy; 2025 LaGa Systems Pvt Ltd. All rights reserved.
+        </footer>
+</body>
+</html>

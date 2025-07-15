@@ -1,0 +1,1168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AQMIS - Ambient Quality Management Information System</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f8fbff;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Intro Section Start -->
+  <section id="intro-section" style="position: relative; min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; background: url('image/aqmis.avif') center center/cover no-repeat;">
+    <div style="position: absolute; inset: 0; background: rgba(24, 36, 56, 0.68); z-index: 1;"></div>
+    <div style="position: relative; z-index: 2; max-width: 900px; width: 100%; padding: 0 24px; text-align: center; color: #fff;">
+      <h1 style="font-size: 3.2rem; font-weight: 900; margin-bottom: 18px; letter-spacing: -1px; line-height: 1.1;">AQMIS</h1>
+      <h2 style="font-size: 1.7rem; font-weight: 500; margin-bottom: 32px; color: #e3eaff;">Air Quality Management Information System</h2>
+      <p style="font-size: 1.18rem; max-width: 700px; margin: 0 auto 38px auto; color: #e0e6f0; line-height: 1.6;">AQMIS is a comprehensive, web-based platform for managing, analyzing, and reporting air quality data. It supports real-time monitoring, regulatory compliance, emissions inventory, and advanced analytics for effective air quality management and decision-making.</p>
+      <button onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'});" style="background: #2563eb; color: #fff; font-size: 1.18rem; font-weight: 700; border: none; border-radius: 10px; padding: 18px 44px; box-shadow: 0 2px 16px rgba(37,99,235,0.13); cursor: pointer; transition: background 0.2s; display: inline-flex; align-items: center; gap: 10px;">
+        More Details <span style="font-size: 1.3rem; display: inline-block; transform: translateY(1px);"><i class="ri-arrow-down-line"></i></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Intro Section End -->
+  <!-- Overview Section Start -->
+  <section id="aqmis-overview" style="background: linear-gradient(90deg, #f8fbff 60%, #f3f7fd 100%); padding: 0; margin: 0;">
+    <div style="display: flex; flex-wrap: wrap; align-items: stretch; justify-content: center; max-width: 1400px; margin: 0 auto; padding: 64px 0 32px 0;">
+      <!-- Left: Text -->
+      <div style="flex: 1 1 480px; min-width: 340px; max-width: 700px; padding: 0 36px 0 6vw; display: flex; flex-direction: column; justify-content: center;">
+        <h1 style="font-size: 2.5rem; font-weight: 900; color: #1a2340; margin-bottom: 10px; letter-spacing: -1px;">AQMIS</h1>
+        <h2 style="font-size: 1.45rem; font-weight: 600; color: #757b8a; margin-bottom: 24px;">Ambient Quality Management Information System</h2>
+        <hr style="border: none; border-top: 2px solid #2563eb; width: 80%; margin: 0 0 28px 0;">
+        <p style="font-size: 1.08rem; color: #232b3b; line-height: 1.7; margin-bottom: 18px;"><b>AQMIS</b>, developed by Lakes Environmental Software, is an advanced environmental compliance solution designed to centralize all environmental data within your organization. By automating and streamlining complex tasks, AQMIS helps reduce operational costs and improve efficiency. The system (Ambient Quality Management Information System) consolidates environmental data, modeling tools, analytics, data visualization including mapping, and reporting into one seamless, online platform.</p>
+        <p style="font-size: 1.08rem; color: #232b3b; line-height: 1.7;">Offering a modular design, AQMIS allows users to easily expand its capabilities by adding new modules as needed, providing additional functionality and benefits. It is trusted by regulatory agencies, consultants, and industrial clients worldwide to accurately measure, analyze, and report emissions and conduct complex air quality studies. This combination of flexibility, scalability, and powerful features makes AQMIS a leading solution for environmental compliance and emissions management.</p>
+      </div>
+      <!-- Right: Image -->
+      <div style="flex: 1 1 400px; min-width: 320px; max-width: 600px; display: flex; align-items: center; justify-content: center; position: relative; padding: 24px 24px 24px 0;">
+        <div style="width: 100%; max-width: 440px; aspect-ratio: 1/1; background: #fff; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 32px rgba(37,99,235,0.10); display: flex; align-items: center; justify-content: center; position: relative;">
+          <img src="image/aqmis_overview.png" alt="AQMIS Screenshot" style="width: 100%; height: auto; object-fit: cover; border-radius: 50%;">
+          <span style="position: absolute; right: 24px; bottom: 24px; background: #2563eb; color: #fff; border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 2px 12px rgba(37,99,235,0.13);">
+            <i class="ri-building-2-fill"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Overview Section End -->
+</body>
+<!-- Tabbed Section Start -->
+<section id="aqmis-tabs-section" style="background: #f8fbff; margin: 0; padding: 0;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 0 64px 0;">
+    <!-- Sticky Tabs -->
+    <div id="aqmis-tabs-bar" style="position: sticky; top: 0; z-index: 10; background: #f8fbff; box-shadow: 0 2px 16px rgba(37,99,235,0.06); display: flex; gap: 0; border-bottom: 2px solid #e3eaff;">
+      <button class="aqmis-tab-btn active" data-tab="overview" style="flex:1; padding: 22px 0; font-size: 1.18rem; font-weight: 700; color: #2563eb; background: none; border: none; border-bottom: 3px solid #2563eb; cursor: pointer; transition: color 0.2s, border-bottom 0.2s;">Overview</button>
+      <button class="aqmis-tab-btn" data-tab="benefits" style="flex:1; padding: 22px 0; font-size: 1.18rem; font-weight: 700; color: #1a2340; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; transition: color 0.2s, border-bottom 0.2s;">Benefits</button>
+      <button class="aqmis-tab-btn" data-tab="modules" style="flex:1; padding: 22px 0; font-size: 1.18rem; font-weight: 700; color: #1a2340; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; transition: color 0.2s, border-bottom 0.2s;">Modules</button>
+      <button class="aqmis-tab-btn" data-tab="dashboards" style="flex:1; padding: 22px 0; font-size: 1.18rem; font-weight: 700; color: #1a2340; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; transition: color 0.2s, border-bottom 0.2s;">Dashboards</button>
+    </div>
+    <!-- Tab Content -->
+    <div id="aqmis-tabs-content" style="background: #fff; border-radius: 0 0 18px 18px; box-shadow: 0 4px 32px rgba(37,99,235,0.07); padding: 48px 36px 36px 36px; min-height: 340px;">
+      <!-- Overview Tab -->
+      <div class="aqmis-tab-panel" data-tab="overview" style="display: block;">
+        <!-- Benefits Section Start -->
+        <div class="aqmis-benefits-section" style="margin-bottom: 56px;">
+          <h3 style="font-size: 2.5rem; font-weight: 900; color: #1a2340; margin-bottom: 10px; letter-spacing: -1px;">Benefits</h3>
+          <p style="font-size: 1.18rem; color: #555a6a; margin-bottom: 38px; max-width: 1100px;">AQMIS, a trusted solution for regulatory agencies, consultants, and industries worldwide. It allows users to add modules as needed to meet their specific requirements, making it a leading choice for environmental compliance and emissions management.</p>
+          <div class="aqmis-benefits-list" style="display: flex; flex-wrap: wrap; gap: 0 48px; justify-content: flex-start;">
+            <ul style="flex:1 1 340px; min-width: 280px; font-size: 1.18rem; color: #0a1740; line-height: 2.3; list-style: none; padding: 0; margin: 0;">
+              <li><span style='color:#2563eb; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Eliminate Manual Workload</li>
+              <li><span style='color:#2563eb; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Allows You to Detect Trends Instantly</li>
+              <li><span style='color:#2563eb; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Reduce Your Stress with Automated Compliance</li>
+              <li><span style='color:#2563eb; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Streamline Data Management</li>
+              <li><span style='color:#2563eb; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Enhance Transparency and Accountability</li>
+              <li><span style='color:#2563eb; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Simplify Complex Calculations</li>
+              <li><span style='color:#2563eb; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Deploy Flexibly to Adapt to Your Workflow</li>
+            </ul>
+            <ul style="flex:1 1 340px; min-width: 280px; font-size: 1.18rem; color: #0a1740; line-height: 2.3; list-style: none; padding: 0; margin: 0;">
+              <li><span style='color:#2563eb; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Access Data Anytime, Anywhere</li>
+              <li><span style='color:#2563eb; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Online Data Entry for Regulated Industry</li>
+              <li><span style='color:#2563eb; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Automated Data Capture</li>
+              <li><span style='color:#2563eb; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Real-time Analytics & Decision Support</li>
+              <li><span style='color:#2563eb; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Automated Reporting & Documentation</li>
+              <li><span style='color:#2563eb; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Centralized Data Management & Accessibility</li>
+              <li><span style='color:#2563eb; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Improved Communication & Transparency</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Benefits Section End -->
+        <h3 style="font-size: 2rem; font-weight: 900; color: #1a2340; margin-bottom: 10px; letter-spacing: -1px;">AQMIS Modules</h3>
+        <p style="font-size: 1.08rem; color: #232b3b; line-height: 1.7; margin-bottom: 32px;">AQMIS offers a variety of modules specifically designed to meet and adapt to your unique needs.</p>
+
+        <!-- Feature Cards Grid Start -->
+        <div class="aqmis-feature-cards-grid">
+          <!-- Row 1 -->
+          <div class="aqmis-feature-row">
+            <div class="aqmis-flip-card">
+              <div class="aqmis-flip-card-inner">
+                <div class="aqmis-flip-card-front">
+                  <img src="image/emissions_mang_icon_blue.svg" alt="Emissions Inventory">
+                  <span>Emissions Inventory</span>
+                </div>
+                <div class="aqmis-flip-card-back">
+                  <p>The emissions inventory module is designed to streamlines data collection, reporting, and compliance, saving time and money.</p>
+                </div>
+              </div>
+            </div>
+            <div class="aqmis-flip-card">
+              <div class="aqmis-flip-card-inner">
+                <div class="aqmis-flip-card-front">
+                  <img src="image/cloud_icon_blue2.svg" alt="Ambient Air Monitoring">
+                  <span>Ambient Air Monitoring</span>
+                </div>
+                <div class="aqmis-flip-card-back">
+                  <p>An automated system for real-time air quality monitoring, analysis, and reporting to help agencies track pollution and protect health.</p>
+                </div>
+              </div>
+            </div>
+            <div class="aqmis-flip-card">
+              <div class="aqmis-flip-card-inner">
+                <div class="aqmis-flip-card-front">
+                  <img src="image/adm_icon_blue.svg" alt="Air Dispersion Modeling">
+                  <span>Air Dispersion Modeling</span>
+                </div>
+                <div class="aqmis-flip-card-back">
+                  <p>Simplifies air dispersion modeling to assess air quality impacts, ensure compliance, and support informed decisions for public health.</p>
+                </div>
+              </div>
+            </div>
+            <div class="aqmis-flip-card">
+              <div class="aqmis-flip-card-inner">
+                <div class="aqmis-flip-card-front">
+                  <img src="image/risk_icon_blue.svg" alt="Human Health Risk Assessment">
+                  <span>Human Health Risk Assessment</span>
+                </div>
+                <div class="aqmis-flip-card-back">
+                  <p>Automates health risk assessment to identify pollutants, ensure compliance, & support emissions reduction for public health protection.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Row 2 -->
+          <div class="aqmis-feature-row">
+            <div class="aqmis-flip-card">
+              <div class="aqmis-flip-card-inner">
+                <div class="aqmis-flip-card-front">
+                  <img src="image/water_icon_blue.svg" alt="Water Quality">
+                  <span>Water Quality</span>
+                </div>
+                <div class="aqmis-flip-card-back">
+                  <p>Monitor and report on water quality with real-time data, advanced analytics, and customizable calculators.</p>
+                </div>
+              </div>
+            </div>
+            <div class="aqmis-flip-card">
+              <div class="aqmis-flip-card-inner">
+                <div class="aqmis-flip-card-front">
+                  <img src="image/waste_icon_blue.svg" alt="Solid Waste">
+                  <span>Solid Waste</span>
+                </div>
+                <div class="aqmis-flip-card-back">
+                  <p>Manage hazardous waste processes with online profiling, tracking, and dashboards for streamlined compliance.</p>
+                </div>
+              </div>
+            </div>
+            <div class="aqmis-flip-card">
+              <div class="aqmis-flip-card-inner">
+                <div class="aqmis-flip-card-front">
+                  <img src="image/map_icon_blue.svg" alt="Mapping">
+                  <span>Mapping</span>
+                </div>
+                <div class="aqmis-flip-card-back">
+                  <p>Visualize geospatial data with integrated GIS tools, compatible with ESRI products.</p>
+                </div>
+              </div>
+            </div>
+            <div class="aqmis-flip-card">
+              <div class="aqmis-flip-card-inner">
+                <div class="aqmis-flip-card-front">
+                  <img src="image/report_icon_blue.svg" alt="Reporting">
+                  <span>Reporting</span>
+                </div>
+                <div class="aqmis-flip-card-back">
+                  <p>Create customizable reports with text, graphics, and GIS-based visualizations in multiple formats.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Feature Cards Grid End -->
+        <!-- Applications Section Start -->
+        <section class="aqmis-applications-section" style="margin: 64px 0 0 0;">
+          <div style="text-align: center; margin-top: 38px;">
+            <h2 style="font-size: 2.1rem; font-weight: 900; color: #1a2340; margin-bottom: 10px;">Empowering <span style='color:#2563eb;'>Air Quality Professionals</span> with a Modular Environmental Management System</h2>
+            <p style="font-size: 1.13rem; color: #444b5a; max-width: 900px; margin: 0 auto;">Discover how AQMIS empowers environmental agencies, regulated industries, and consultants with a robust, modular platform for effective environmental management. Explore its key applications, powerful features, and the measurable benefits it brings to air quality monitoring and compliance.</p>
+          </div>
+          <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0 32px;">
+            <!-- Left: Cards -->
+            <div style="flex: 1 1 420px; min-width: 320px; max-width: 480px; display: flex; flex-direction: column; gap: 24px;">
+              <div class="aqmis-app-card" style="background: #f6faff; border-radius: 18px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 32px 28px 28px 28px; display: flex; align-items: flex-start; gap: 18px;">
+                <span style="font-size: 2.5rem; color: #2563eb; min-width: 48px;"><i class="fa-solid fa-gears"></i></span>
+                <div>
+                  <h4 style="font-size: 1.25rem; font-weight: 800; color: #1a2340; margin: 0 0 8px 0;">Environmental Agencies</h4>
+                  <p style="font-size: 1.05rem; color: #444b5a; margin: 0 0 8px 0;">For local, state, tribal, and federal environmental regulatory agencies, AQMIS provides significant benefits across a wide variety of use cases.</p>
+                </div>
+              </div>
+              <div class="aqmis-app-card" style="background: #f6faff; border-radius: 18px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 32px 28px 28px 28px; display: flex; align-items: flex-start; gap: 18px;">
+                <span style="font-size: 2.5rem; color: #2563eb; min-width: 48px;"><i class="fa-solid fa-industry"></i></span>
+                <div>
+                  <h4 style="font-size: 1.25rem; font-weight: 800; color: #1a2340; margin: 0 0 8px 0;">Regulated Industries</h4>
+                  <p style="font-size: 1.05rem; color: #444b5a; margin: 0 0 8px 0;">Industries sectors such as manufacturing, energy, and chemical processing, must adhere to strict environmental standards. AQMIS offers tools and features designed to help these sectors achieve compliance while optimizing output.</p>
+                </div>
+              </div>
+              <div class="aqmis-app-card" style="background: #f6faff; border-radius: 18px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 32px 28px 28px 28px; display: flex; align-items: flex-start; gap: 18px;">
+                <span style="font-size: 2.5rem; color: #2563eb; min-width: 48px;"><i class="fa-solid fa-desktop"></i></span>
+                <div>
+                  <h4 style="font-size: 1.25rem; font-weight: 800; color: #1a2340; margin: 0 0 8px 0;">Environmental Consultants</h4>
+                  <p style="font-size: 1.05rem; color: #444b5a; margin: 0 0 8px 0;">Environmental consultants play a crucial role in helping businesses and organizations comply with environmental regulations and mitigate risks. AQMIS provides significant benefits and use cases tailored to their needs.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Right: Image -->
+            <div style="flex: 1 1 420px; min-width: 320px; max-width: 600px; display: flex; align-items: center; justify-content: center; position: relative; min-height: 420px;">
+              <div style="position: relative; width: 100%; max-width: 440px;">
+                <div style="position: absolute; top: 32px; left: 32px; width: 90%; height: 80%; background: #1656e6; border-radius: 32px; z-index: 1;"></div>
+                <img src="image/aqmis_laptop.png" alt="AQMIS Laptop Screenshot" style="position: relative; z-index: 2; width: 100%; max-width: 440px; border-radius: 18px; box-shadow: 0 4px 32px rgba(37,99,235,0.13); background: #fff;">
+              </div>
+            </div>
+          </div>
+          
+        </section>
+        <!-- Applications Section End -->
+        <!-- Key Platform Features Section Start -->
+        <section class="aqmis-key-features-section" style="background: url('image/plant_bg_dark.png') center center/cover no-repeat, #131a3a; border-radius: 24px; margin: 64px 0 0 0; padding: 64px 0 56px 0;">
+          <div style="max-width: 900px; margin: 0 auto; color: #fff;">
+            <h2 style="font-size: 2.6rem; font-weight: 900; margin-bottom: 18px; color: #fff;">Key Platform Features</h2>
+            <p style="font-size: 1.18rem; color: #e3eaff; margin-bottom: 38px;">Key features that deliver proven benefits:</p>
+            <ul style="font-size: 1 rem; color: #e3eaff; line-height: 2.2; list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 1px;"><span style='color:#2196f3; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Thousands of validated emissions calculators backed by the US EPA, ensuring reliable and compliant data calculations.</li>
+              <li style="margin-bottom: 1px;"><span style='color:#2196f3; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Automated calculation engine keeps emissions data up to date in real time, reducing manual effort and risk of errors.</li>
+              <li style="margin-bottom: 1px;"><span style='color:#2196f3; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Full transparency into all calculation methods, equations, emissions factors, and activity data for clear audit trails and regulatory compliance.</li>
+              <li style="margin-bottom: 1px;"><span style='color:#2196f3; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Advanced data import tools allow seamless migration of legacy emissions inventory data, minimizing data loss or inconsistencies.</li>
+              <li style="margin-bottom: 1px;"><span style='color:#2196f3; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Flexible spreadsheet import/export functionality for easy data management and reporting.</li>
+              <li style="margin-bottom: 1px;"><span style='color:#2196f3; font-size:1.3em; vertical-align:middle;'><i class="ri-check-double-fill"></i></span> Effortless emissions updates for new reporting periods with just a few clicks, simplifying ongoing compliance efforts.</li>
+            </ul>
+          </div>
+        </section>
+        <!-- Key Platform Features Section End -->
+        <!-- Trusted Solution Section Start -->
+        <section class="aqmis-trusted-solution-section" style="margin: 64px 0 0 0; padding: 0;">
+          <div style="display: flex; flex-wrap: wrap; align-items: stretch; justify-content: center; max-width: 1300px; margin: 0 auto; gap: 0 32px;">
+            <!-- Left: 2x2 Cards -->
+            <div style="flex: 1 1 480px; min-width: 320px; max-width: 600px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 32px; align-items: stretch;">
+              <!-- Card 1 -->
+              <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 36px 28px 32px 28px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;">
+                <span style="font-size: 2.2rem; color: #2563eb; margin-bottom: 18px;"><i class="fa-solid fa-gears"></i></span>
+                <h4 style="font-size: 1.18rem; font-weight: 800; color: #1a2340; margin: 0 0 10px 0;">Powerful</h4>
+                <p style="font-size: 1.04rem; color: #444b5a; margin: 0 0 18px 0;">Effortlessly manage large volumes of air quality data with AQMIS, designed for seamless data import, analysis, and reporting. This powerful tool simplifies regulatory compliance and real-time monitoring.</p>
+              </div>
+              <!-- Card 2 -->
+              <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 36px 28px 32px 28px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;">
+                <span style="font-size: 2.2rem; color: #2563eb; margin-bottom: 18px;"><i class="fa-solid fa-arrows-spin"></i></span>
+                <h4 style="font-size: 1.18rem; font-weight: 800; color: #1a2340; margin: 0 0 10px 0;">Scalable</h4>
+                <p style="font-size: 1.04rem; color: #444b5a; margin: 0 0 18px 0;">The modular system and scalable design deliver significant cost savings while ensuring a customized solution that meets your specific needs.</p>
+              </div>
+              <!-- Card 3 -->
+              <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 36px 28px 32px 28px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;">
+                <span style="font-size: 2.2rem; color: #2563eb; margin-bottom: 18px;"><i class="fa-solid fa-code"></i></span>
+                <h4 style="font-size: 1.18rem; font-weight: 800; color: #1a2340; margin: 0 0 10px 0;">Flexible</h4>
+                <p style="font-size: 1.04rem; color: #444b5a; margin: 0 0 18px 0;">Allows you to customize displays, user access levels, and reports to suit your specific requirements. This flexibility ensures a tailored experience for efficient air quality management.</p>
+              </div>
+              <!-- Card 4 -->
+              <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 36px 28px 32px 28px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;">
+                <span style="font-size: 2.2rem; color: #2563eb; margin-bottom: 18px;"><i class="fa-solid fa-desktop"></i></span>
+                <h4 style="font-size: 1.18rem; font-weight: 800; color: #1a2340; margin: 0 0 10px 0;">Modular</h4>
+                <p style="font-size: 1.04rem; color: #444b5a; margin: 0 0 18px 0;">With AQMIS, you can purchase only the components you need, ensuring a cost-effective and tailored solution. This modular approach lets you build a system that fits your specific air quality management requirements.</p>
+              </div>
+            </div>
+            <!-- Right: Text -->
+            <div style="flex: 1 1 420px; min-width: 320px; max-width: 600px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 32px 0 32px 32px;">
+              <span style="font-size: 1.02rem; font-weight: 700; color: #2563eb; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 18px;">Software Solutions</span>
+              <h2 style="font-size: 2.2rem; font-weight: 900; color: #1a2340; margin-bottom: 18px;">Your <span style='color:#2563eb;'>Trusted Solution</span> for Regulatory and Industrial Emissions</h2>
+              <p style="font-size: 1.13rem; color: #444b5a; margin-bottom: 32px;">Join regulatory agencies, consultants, and industrial leaders worldwide who rely on AQMIS to accurately measure, analyze, and report emissions—ensuring compliance and driving environmental performance with confidence.</p>
+            </div>
+          </div>
+        </section>
+        <!-- Trusted Solution Section End -->
+        <!-- Purchase Options Section Start -->
+        <section class="aqmis-purchase-options-section" style="margin: 64px 0 0 0; padding: 0;">
+          <div style="text-align: center; margin-bottom: 48px;">
+            <span style="font-size: 1.02rem; font-weight: 700; color: #2563eb; letter-spacing: 0.13em; text-transform: uppercase;">Pricing</span>
+            <h2 style="font-size: 2.4rem; font-weight: 900; color: #1a2340; margin: 12px 0 0 0;">AQMIS Purchase Options</h2>
+          </div>
+          <div class="aqmis-purchase-options-grid" style="display: flex; flex-wrap: wrap; gap: 36px; justify-content: center; align-items: stretch; max-width: 1200px; margin: 0 auto;">
+            <!-- Card 1 -->
+            <div class="aqmis-purchase-card" tabindex="0" style="flex: 1 1 420px; min-width: 320px; max-width: 540px; background: #fff; border-radius: 18px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 48px 38px 38px 38px; display: flex; flex-direction: column; align-items: flex-start; transition: box-shadow 0.2s, background 0.2s; cursor: pointer; border: 2px solid transparent;">
+              <h3 style="font-size: 2rem; font-weight: 900; color: #1a2340; margin-bottom: 18px;">Enterprise Liense</h3>
+              <h4 style="font-size: 1.13rem; font-weight: 700; color: #222; margin-bottom: 10px;">One-Time Capital Purchase</h4>
+              <p style="font-size: 1.08rem; color: #444b5a; margin-bottom: 24px;">AQMIS is available through a one-time capital purchase for an enterprise perpetual license with annual maintenance and technical support due after the first year of ownership.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="aqmis-purchase-card" tabindex="0" style="flex: 1 1 420px; min-width: 320px; max-width: 540px; background: #fff; border-radius: 18px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 48px 38px 38px 38px; display: flex; flex-direction: column; align-items: flex-start; transition: box-shadow 0.2s, background 0.2s; cursor: pointer; border: 2px solid transparent;">
+              <h3 style="font-size: 2rem; font-weight: 900; color: #1a2340; margin-bottom: 18px;">Subscription Purchase</h3>
+              <h4 style="font-size: 1.13rem; font-weight: 700; color: #222; margin-bottom: 10px;">Software as a Service (SaaS)</h4>
+              <p style="font-size: 1.08rem; color: #444b5a; margin-bottom: 24px;">AQMIS is also offered through the SaaS purchase model. This subscription-based offering provides users a flexible, cloud-hosted solution with updates and support, paid on a monthly or annual basis.</p>
+            </div>
+          </div>
+          <style>
+            .aqmis-purchase-card:hover, .aqmis-purchase-card:focus {
+              background: #2563eb !important;
+              color: #fff !important;
+              box-shadow: 0 6px 32px rgba(37,99,235,0.18);
+              border: 2px solid #2563eb;
+            }
+            .aqmis-purchase-card:hover h3, .aqmis-purchase-card:focus h3,
+            .aqmis-purchase-card:hover h4, .aqmis-purchase-card:focus h4,
+            .aqmis-purchase-card:hover p, .aqmis-purchase-card:focus p {
+              color: #fff !important;
+            }
+            .aqmis-purchase-card:hover a, .aqmis-purchase-card:focus a {
+              color: #fff !important;
+              text-decoration: underline;
+            }
+          </style>
+        </section>
+        <!-- Purchase Options Section End -->
+        <!-- Demo Request Section Start -->
+        <section class="aqmis-demo-request-section" style="background: #f8fbff; margin: 64px 0 0 0; padding: 0;">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; padding: 48px 0 32px 0; gap: 0 32px;">
+            <!-- Left: Text -->
+            <div style="flex: 1 1 480px; min-width: 320px; max-width: 600px; padding: 0 32px;">
+              <span style="font-size: 1.02rem; font-weight: 700; color: #222; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 18px; display: block;">Demo Request</span>
+              <h2 style="font-size: 2.6rem; font-weight: 900; color: #1a2340; margin-bottom: 18px; line-height: 1.1;">Want to see <span style='color:#2563eb;'>AQMIS</span> in Action?</h2>
+              <p style="font-size: 1.18rem; color: #232b3b; margin-bottom: 38px;">AQMIS offers a range of tailored solutions designed to address and adapt to your specific environmental management needs.</p>
+              <a href="#" class="aqmis-demo-btn" style="display: inline-flex; align-items: center; gap: 10px; background: #2563eb; color: #fff; font-weight: 700; font-size: 1.18rem; border-radius: 10px; padding: 16px 32px; text-decoration: none; box-shadow: 0 2px 16px rgba(37,99,235,0.10); transition: background 0.2s, box-shadow 0.2s; margin-top: 8px;">
+                Demo Request <span style="font-size: 1.3em; display: inline-block; transform: translateY(1px);">&rarr;</span>
+              </a>
+            </div>
+            <!-- Right: Overlapping Screenshots -->
+            <div style="flex: 1 1 520px; min-width: 320px; max-width: 700px; display: flex; align-items: center; justify-content: center; position: relative; min-height: 320px; padding: 0 32px;">
+              <div style="position: relative; width: 100%; max-width: 600px; min-height: 220px;">
+                <img src="image/screen_shots_aqmis1.png" alt="AQMIS Demo Screenshot 1" style="position: absolute; top: 0; left: 0; width: 100%; min-width: 220px; max-width: 420px; border-radius: 12px; box-shadow: 0 4px 32px rgba(37,99,235,0.13); z-index: 2; transform: rotate(-2deg) scale(1.03);">
+              </div>
+            </div>
+          </div>
+          <style>
+            .aqmis-demo-btn:hover, .aqmis-demo-btn:focus {
+              background: #1741b6;
+              color: #fff;
+              box-shadow: 0 6px 32px rgba(37,99,235,0.18);
+              text-decoration: none;
+            }
+            @media (max-width: 1100px) {
+              .aqmis-demo-request-section > div { flex-direction: column; gap: 32px 0; }
+              .aqmis-demo-request-section [style*='padding: 0 32px;'] { padding: 0 12px !important; }
+              .aqmis-demo-request-section [style*='max-width: 600px;'] { max-width: 100% !important; }
+            }
+            @media (max-width: 800px) {
+              .aqmis-demo-request-section > div { flex-direction: column; gap: 32px 0; }
+              .aqmis-demo-request-section [style*='padding: 0 32px;'] { padding: 0 4vw !important; }
+              .aqmis-demo-request-section [style*='max-width: 600px;'] { max-width: 100% !important; }
+              .aqmis-demo-request-section img { min-width: 120px !important; }
+            }
+            @media (max-width: 600px) {
+              .aqmis-demo-request-section h2 { font-size: 2rem !important; }
+              .aqmis-demo-request-section [style*='max-width: 600px;'] { max-width: 100% !important; }
+              .aqmis-demo-request-section img { min-width: 80px !important; }
+            }
+          </style>
+        </section>
+        <!-- Demo Request Section End -->
+        <style>
+        .aqmis-feature-cards-grid {
+          margin: 48px 0 0 0;
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+        }
+        .aqmis-feature-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 28px;
+          justify-content: center;
+        }
+        .aqmis-flip-card {
+          background: none;
+          width: 220px;
+          height: 260px;
+          perspective: 1000px;
+        }
+        .aqmis-flip-card-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          transition: transform 0.6s cubic-bezier(.4,2,.6,1);
+          transform-style: preserve-3d;
+        }
+        .aqmis-flip-card:hover .aqmis-flip-card-inner,
+        .aqmis-flip-card:focus-within .aqmis-flip-card-inner {
+          transform: rotateY(180deg);
+        }
+        .aqmis-flip-card-front, .aqmis-flip-card-back {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          backface-visibility: hidden;
+          border-radius: 18px;
+          box-shadow: 0 2px 16px rgba(37,99,235,0.10);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background: #fff;
+        }
+        .aqmis-flip-card-front img {
+          width: 72px;
+          height: 72px;
+          object-fit: contain;
+          margin-bottom: 18px;
+        }
+        .aqmis-flip-card-front span {
+          font-size: 1.08rem;
+          font-weight: 700;
+          color: #2563eb;
+          text-align: center;
+        }
+        .aqmis-flip-card-back {
+          background: #2563eb;
+          color: #fff;
+          transform: rotateY(180deg);
+          padding: 24px 18px;
+          font-size: 1.04rem;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        @media (max-width: 1100px) {
+          .aqmis-feature-row { gap: 18px; }
+          .aqmis-flip-card { width: 180px; height: 210px; }
+        }
+        @media (max-width: 800px) {
+          .aqmis-feature-row { flex-wrap: wrap; }
+          .aqmis-flip-card { width: 48vw; max-width: 220px; min-width: 140px; }
+        }
+        @media (max-width: 600px) {
+          .aqmis-feature-row { flex-direction: column; align-items: center; }
+          .aqmis-flip-card { width: 90vw; max-width: 320px; min-width: 140px; }
+        }
+        </style>
+      </div>
+      <!-- Benefits Tab -->
+      <div class="aqmis-tab-panel" data-tab="benefits" style="display: none;">
+        <h3 style="font-size: 2.2rem; font-weight: 900; color: #1a2340; margin-bottom: 18px;">AQMIS Proven Benefits</h3>
+        <p style="font-size: 1.13rem; color: #444b5a; margin-bottom: 32px; max-width: 900px;">Discover why regulatory agencies, consultants, and industrial clients worldwide rely on AQMIS to efficiently measure, analyze, and report their emissions with confidence!</p>
+        <div class="aqmis-benefits-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px 32px; max-width: 1200px; margin: 0 auto 32px auto;">
+          <div class="aqmis-benefit-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 32px 22px 28px 22px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; transition: box-shadow 0.2s, transform 0.2s;">
+            <span style="font-size: 2.1rem; color: #2563eb;"><i class="fa-solid fa-robot"></i></span>
+            <h4 style="font-size: 1.13rem; font-weight: 800; color: #1a2340; margin: 0;">Eliminate Manual Workload</h4>
+            <p style="font-size: 1.01rem; color: #444b5a; margin: 0;">Automate repetitive tasks to save time and reduce human error. Focus your team's efforts on high-value decision-making.</p>
+          </div>
+          <div class="aqmis-benefit-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 32px 22px 28px 22px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; transition: box-shadow 0.2s, transform 0.2s;">
+            <span style="font-size: 2.1rem; color: #2563eb;"><i class="fa-solid fa-chart-line"></i></span>
+            <h4 style="font-size: 1.13rem; font-weight: 800; color: #1a2340; margin: 0;">Detect Trends Instantly</h4>
+            <p style="font-size: 1.01rem; color: #444b5a; margin: 0;">Gain immediate insight into key data patterns and anomalies. Stay ahead with real-time visual indicators and alerts.</p>
+          </div>
+          <div class="aqmis-benefit-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 32px 22px 28px 22px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; transition: box-shadow 0.2s, transform 0.2s;">
+            <span style="font-size: 2.1rem; color: #2563eb;"><i class="fa-solid fa-database"></i></span>
+            <h4 style="font-size: 1.13rem; font-weight: 800; color: #1a2340; margin: 0;">Automated Data Capture</h4>
+            <p style="font-size: 1.01rem; color: #444b5a; margin: 0;">Seamlessly collect data from sensors, systems, and logs. Ensure consistency, accuracy, and up-to-date information.</p>
+          </div>
+          <div class="aqmis-benefit-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 32px 22px 28px 22px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; transition: box-shadow 0.2s, transform 0.2s;">
+            <span style="font-size: 2.1rem; color: #2563eb;"><i class="fa-solid fa-folder-open"></i></span>
+            <h4 style="font-size: 1.13rem; font-weight: 800; color: #1a2340; margin: 0;">Streamline Data Management</h4>
+            <p style="font-size: 1.01rem; color: #444b5a; margin: 0;">Organize, validate, and manage data efficiently in one place. Reduce clutter and increase operational agility.</p>
+          </div>
+          <div class="aqmis-benefit-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 32px 22px 28px 22px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; transition: box-shadow 0.2s, transform 0.2s;">
+            <span style="font-size: 2.1rem; color: #2563eb;"><i class="fa-solid fa-eye"></i></span>
+            <h4 style="font-size: 1.13rem; font-weight: 800; color: #1a2340; margin: 0;">Enhance Transparency and Accountability</h4>
+            <p style="font-size: 1.01rem; color: #444b5a; margin: 0;">Track every action and data change with full visibility. Enable audit-ready processes and responsible operations.</p>
+          </div>
+          <div class="aqmis-benefit-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 32px 22px 28px 22px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; transition: box-shadow 0.2s, transform 0.2s;">
+            <span style="font-size: 2.1rem; color: #2563eb;"><i class="fa-solid fa-calculator"></i></span>
+            <h4 style="font-size: 1.13rem; font-weight: 800; color: #1a2340; margin: 0;">Simplify Complex Calculations</h4>
+            <p style="font-size: 1.01rem; color: #444b5a; margin: 0;">Automate multi-step calculations with precision and ease. Deliver accurate results faster without manual intervention.</p>
+          </div>
+          <div class="aqmis-benefit-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 32px 22px 28px 22px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; transition: box-shadow 0.2s, transform 0.2s;">
+            <span style="font-size: 2.1rem; color: #2563eb;"><i class="fa-solid fa-network-wired"></i></span>
+            <h4 style="font-size: 1.13rem; font-weight: 800; color: #1a2340; margin: 0;">Centralized Data Management & Accessibility</h4>
+            <p style="font-size: 1.01rem; color: #444b5a; margin: 0;">Access all your critical information through a unified platform. Break down data silos for better collaboration and control.</p>
+          </div>
+          <div class="aqmis-benefit-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 32px 22px 28px 22px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; transition: box-shadow 0.2s, transform 0.2s;">
+            <span style="font-size: 2.1rem; color: #2563eb;"><i class="fa-solid fa-cloud"></i></span>
+            <h4 style="font-size: 1.13rem; font-weight: 800; color: #1a2340; margin: 0;">Access Data Anytime, Anywhere</h4>
+            <p style="font-size: 1.01rem; color: #444b5a; margin: 0;">Leverage cloud-based access for on-the-go decision-making. Stay connected and informed, no matter your location.</p>
+          </div>
+          <div class="aqmis-benefit-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 32px 22px 28px 22px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; transition: box-shadow 0.2s, transform 0.2s;">
+            <span style="font-size: 2.1rem; color: #2563eb;"><i class="fa-solid fa-chart-pie"></i></span>
+            <h4 style="font-size: 1.13rem; font-weight: 800; color: #1a2340; margin: 0;">Real-Time Analytics & Decision Support</h4>
+            <p style="font-size: 1.01rem; color: #444b5a; margin: 0;">Monitor KPIs and system performance live. Enable smart, timely decisions based on actionable insights.</p>
+          </div>
+          <div class="aqmis-benefit-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 32px 22px 28px 22px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; transition: box-shadow 0.2s, transform 0.2s;">
+            <span style="font-size: 2.1rem; color: #2563eb;"><i class="fa-solid fa-file-alt"></i></span>
+            <h4 style="font-size: 1.13rem; font-weight: 800; color: #1a2340; margin: 0;">Automated Reporting & Documentation</h4>
+            <p style="font-size: 1.01rem; color: #444b5a; margin: 0;">Generate detailed reports with one click. Maintain compliance and reduce administrative burden.</p>
+          </div>
+          <div class="aqmis-benefit-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 32px 22px 28px 22px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; transition: box-shadow 0.2s, transform 0.2s;">
+            <span style="font-size: 2.1rem; color: #2563eb;"><i class="fa-solid fa-sliders-h"></i></span>
+            <h4 style="font-size: 1.13rem; font-weight: 800; color: #1a2340; margin: 0;">Deploy Flexibly to Adapt to Your Workflow</h4>
+            <p style="font-size: 1.01rem; color: #444b5a; margin: 0;">Tailor the system to your unique processes and tools. Scale and configure to meet changing needs.</p>
+          </div>
+          <div class="aqmis-benefit-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 32px 22px 28px 22px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; transition: box-shadow 0.2s, transform 0.2s;">
+            <span style="font-size: 2.1rem; color: #2563eb;"><i class="fa-solid fa-comments"></i></span>
+            <h4 style="font-size: 1.13rem; font-weight: 800; color: #1a2340; margin: 0;">Improved Communication & Transparency</h4>
+            <p style="font-size: 1.01rem; color: #444b5a; margin: 0;">Share updates, data, and actions across teams instantly. Align stakeholders with clear, consistent information.</p>
+          </div>
+        </div>
+        <style>
+        .aqmis-benefits-cards-grid {
+          margin-bottom: 24px;
+        }
+        .aqmis-benefit-card {
+          transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .aqmis-benefit-card:hover, .aqmis-benefit-card:focus {
+          box-shadow: 0 6px 32px rgba(37,99,235,0.18);
+          transform: translateY(-6px) scale(1.03);
+        }
+        @media (max-width: 900px) {
+          .aqmis-benefits-cards-grid {
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 18px 12px;
+          }
+        }
+        @media (max-width: 600px) {
+          .aqmis-benefits-cards-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+        </style>
+      </div>
+      <!-- Modules Tab -->
+      <div class="aqmis-tab-panel" data-tab="modules" style="display: none;">
+        <h3 style="font-size: 2.2rem; font-weight: 900; color: #1a2340; margin-bottom: 18px;">Explore AQMIS Modules</h3>
+        <p style="font-size: 1.13rem; color: #444b5a; margin-bottom: 32px; max-width: 900px;">AQMIS offers a comprehensive suite of modules designed to address every aspect of environmental management. Each module is purpose-built to streamline workflows, ensure compliance, and deliver actionable insights for your organization.</p>
+
+        <div class="aqmis-modules-cards-grid">
+          <!-- Row 1 -->
+          <div class="aqmis-modules-row">
+            <div class="aqmis-module-flip-card">
+              <div class="aqmis-module-flip-card-inner">
+                <div class="aqmis-module-flip-card-front">
+                  <img src="image/emissions_inventory.jpg" alt="Emissions Inventory">
+                  <span>Emissions Inventory</span>
+                </div>
+                <div class="aqmis-module-flip-card-back">
+                  <p>The Emissions Inventory module offers a comprehensive database to manage emissions at the process, facility, and airshed levels. User-friendly tools allow seamless import and export of data for various source types, including stacks, nonroad and onroad sources, and tanks. Emissions calculation tools, such as U.S. EPA AP-42, enable both individual and batch calculations. AQMIS supports unlimited pollutants and sources, with the flexibility to create custom emissions calculators.</p>
+                </div>
+              </div>
+            </div>
+            <div class="aqmis-module-flip-card">
+              <div class="aqmis-module-flip-card-inner">
+                <div class="aqmis-module-flip-card-front">
+                  <img src="image/ambiant_air_monitoring.jpg" alt="Ambient Air Monitoring">
+                  <span>Ambient Air Monitoring</span>
+                </div>
+                <div class="aqmis-module-flip-card-back">
+                  <p>The AQMIS Ambient Air Monitoring module enables easy import, export, and organization of monitoring data, either through templates or near-real-time processes. Customizable charts, graphs, and tables illustrate trends, identify exceedances, flag data quality issues, and provide valuable insights. Users can also compare observed data with air dispersion model results to validate both model performance and instrument accuracy.</p>
+                </div>
+              </div>
+            </div>
+            <div class="aqmis-module-flip-card">
+              <div class="aqmis-module-flip-card-inner">
+                <div class="aqmis-module-flip-card-front">
+                  <img src="image/Char_view.jpg" alt="Air Dispersion Modeling">
+                  <span>Air Dispersion Modeling</span>
+                </div>
+                <div class="aqmis-module-flip-card-back">
+                  <p>The Air Dispersion Modeling module enables air dispersion modeling using your source and emissions data, supporting popular models like AERMOD, CALPUFF, SCICHEM, WRF-CHEM, CMAQ, and CAMx. Models run directly within AQMIS using high-performance computing, allowing simulations with hundreds of sources to be completed in minutes. Users can easily compare scenarios and assess impacts over large areas.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Row 2 -->
+          <div class="aqmis-modules-row">
+            <div class="aqmis-module-flip-card">
+              <div class="aqmis-module-flip-card-inner">
+                <div class="aqmis-module-flip-card-front">
+                  <img src="image/solid_waste.jpg" alt="Solid Waste">
+                  <span>Solid Waste</span>
+                </div>
+                <div class="aqmis-module-flip-card-back">
+                  <p>The Solid Waste module streamlines waste management, ensuring compliance with hazardous waste regulations for generation, handling, transportation, storage, and disposal. Its robust features help companies and regulators manage waste, ensure compliance, and enhance environmental performance.</p>
+                </div>
+              </div>
+            </div>
+            <div class="aqmis-module-flip-card">
+              <div class="aqmis-module-flip-card-inner">
+                <div class="aqmis-module-flip-card-front">
+                  <img src="image/water_quality.jpg" alt="Water Quality">
+                  <span>Water Quality</span>
+                </div>
+                <div class="aqmis-module-flip-card-back">
+                  <p>The Water Quality module provides comprehensive tools for monitoring and reporting water quality, such as drinking water, stormwater, wastewater, and groundwater. Its intuitive interface incorporates advanced data analytics techniques for easy use.</p>
+                </div>
+              </div>
+            </div>
+            <div class="aqmis-module-flip-card">
+              <div class="aqmis-module-flip-card-inner">
+                <div class="aqmis-module-flip-card-front">
+                  <img src="image/risk_assessment.jpg" alt="Human Health Risk Assessment">
+                  <span>Human Health Risk Assessment</span>
+                </div>
+                <div class="aqmis-module-flip-card-back">
+                  <p>AQMIS fully implements the U.S. EPA Human Health Risk Assessment Protocol (HHRAP), providing standardized methodologies for assessing both cancer and non-cancer health effects with precision. Users can conduct comprehensive risk analysis for specific locations and visualize results in the GIS/mapping display for better decision-making.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Row 3 -->
+          <div class="aqmis-modules-row">
+            <div class="aqmis-module-flip-card">
+              <div class="aqmis-module-flip-card-inner">
+                <div class="aqmis-module-flip-card-front">
+                  <img src="image/permitting.jpg" alt="Permitting and Compliance">
+                  <span>Permitting and Compliance</span>
+                </div>
+                <div class="aqmis-module-flip-card-back">
+                  <p>The extensive Permitting and Compliance module in AQMIS provides tools to manage permitting and compliance requirements for numerous users and facilities. It includes all necessary tools, forms, reports, and automation to streamline the collection of data from all sources.</p>
+                </div>
+              </div>
+            </div>
+            <div class="aqmis-module-flip-card">
+              <div class="aqmis-module-flip-card-inner">
+                <div class="aqmis-module-flip-card-front">
+                  <img src="image/ticketing.jpg" alt="Calendar and Ticketing">
+                  <span>Calendar and Ticketing</span>
+                </div>
+                <div class="aqmis-module-flip-card-back">
+                  <p>The Calendar and Ticketing module supports your project management and scheduling needs. Users can manually create tickets to track progress and set due dates for tasks. Built-in functions allow automatic generation and assignment of customizable tickets when wizards or tools are executed, triggering the next set of defined activities.</p>
+                </div>
+              </div>
+            </div>
+            <div class="aqmis-module-flip-card">
+              <div class="aqmis-module-flip-card-inner">
+                <div class="aqmis-module-flip-card-front">
+                  <img src="image/mapping2.jpg" alt="Mapping (GIS)">
+                  <span>Mapping (GIS)</span>
+                </div>
+                <div class="aqmis-module-flip-card-back">
+                  <p>AQMIS allows you to visualize project data in a geospatial environment using our proprietary GIS and mapping module. Since GIS tools are included, you don’t need to purchase third-party utilities, although you can connect with popular tools if desired. The AQMIS GIS/Mapping tool is fully compatible with ESRI products and can export maps in SHP format.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Row 4 -->
+          <div class="aqmis-modules-row">
+            <div class="aqmis-module-flip-card">
+              <div class="aqmis-module-flip-card-inner">
+                <div class="aqmis-module-flip-card-front">
+                  <img src="image/reporting.jpg" alt="Reporting">
+                  <span>Reporting</span>
+                </div>
+                <div class="aqmis-module-flip-card-back">
+                  <p>Provides a complete internal reporting system without needing third-party software. It allows you to prepare products with options ranging from professionally formatted standard reports to customizable ad-hoc reporting. Report types include textual and graphical reports, tabular summaries, and GIS-based mapping and data visualization.</p>
+                </div>
+              </div>
+            </div>
+            <div class="aqmis-module-flip-card">
+              <div class="aqmis-module-flip-card-inner">
+                <div class="aqmis-module-flip-card-front">
+                  <img src="image/admin2.jpg" alt="Systems Administration">
+                  <span>Systems Administration</span>
+                </div>
+                <div class="aqmis-module-flip-card-back">
+                  <p>The portal supports secure data transmission between public and internal software versions, allowing individual data components to be marked as confidential or tagged with custom properties. All changes to system data and access are logged for review by system administrators at any time. System administrators can review all logged changes to data and access at any time.</p>
+                </div>
+              </div>
+            </div>
+            <div class="aqmis-module-flip-card">
+              <div class="aqmis-module-flip-card-inner">
+                <div class="aqmis-module-flip-card-front">
+                  <img src="image/analytics.jpg" alt="Analytics">
+                  <span>Analytics</span>
+                </div>
+                <div class="aqmis-module-flip-card-back">
+                  <p>The Analytics module offers a suite of graphical and tabular tools for comprehensive data analysis. Users can review data across the inventory and filter results by pollutant, equipment type, or parameter. For those using the monitoring module, it includes features to analyze Air Quality Index (AQI) data for insights into air quality trends.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <style>
+        .aqmis-modules-cards-grid {
+          display: flex;
+          flex-direction: column;
+          gap: 28px;
+          margin: 32px 0 0 0;
+          width: 100%;
+        }
+        .aqmis-modules-row {
+          display: flex;
+          gap: 32px;
+          justify-content: stretch;
+          flex-wrap: wrap;
+          width: 100%;
+        }
+        .aqmis-module-flip-card {
+          background: none;
+          flex: 1 1 0;
+          min-width: 0;
+          height: 320px;
+          perspective: 1000px;
+          margin-bottom: 0;
+          max-width: none;
+        }
+        .aqmis-module-flip-card-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          transition: transform 0.6s cubic-bezier(.4,2,.6,1);
+          transform-style: preserve-3d;
+        }
+        .aqmis-module-flip-card:hover .aqmis-module-flip-card-inner,
+        .aqmis-module-flip-card:focus-within .aqmis-module-flip-card-inner {
+          transform: rotateY(180deg);
+        }
+        .aqmis-module-flip-card-front, .aqmis-module-flip-card-back {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          backface-visibility: hidden;
+          border-radius: 18px;
+          box-shadow: 0 2px 16px rgba(37,99,235,0.10);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background: #fff;
+          overflow: hidden;
+        }
+        .aqmis-module-flip-card-front img {
+          width: 100%;
+          height: 180px;
+          object-fit: cover;
+          border-radius: 18px 18px 0 0;
+          margin-bottom: 18px;
+          display: block;
+        }
+        .aqmis-module-flip-card-front span {
+          font-size: 1.13rem;
+          font-weight: 700;
+          color: #2563eb;
+          text-align: center;
+          padding: 0 12px;
+        }
+        .aqmis-module-flip-card-back {
+          background: #2563eb;
+          color: #fff;
+          transform: rotateY(180deg);
+          padding: 32px 18px;
+          font-size: 1.04rem;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        @media (max-width: 1200px) {
+          .aqmis-modules-row { gap: 18px; }
+          .aqmis-module-flip-card { height: 250px; }
+          .aqmis-module-flip-card-front img { height: 120px; }
+        }
+        @media (max-width: 900px) {
+          .aqmis-modules-row { flex-wrap: wrap; }
+          .aqmis-module-flip-card { height: 180px; }
+        }
+        @media (max-width: 600px) {
+          .aqmis-modules-cards-grid { gap: 18px; }
+          .aqmis-modules-row { flex-direction: column; align-items: stretch; gap: 12px; }
+          .aqmis-module-flip-card { height: 140px; }
+          .aqmis-module-flip-card-front img { height: 60px; }
+        }
+        </style>
+      </div>
+      <!-- Dashboards Tab -->
+      <div class="aqmis-tab-panel" data-tab="dashboards" style="display: none;">
+        <span style="font-size: 1.02rem; font-weight: 700; color: #2563eb; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 18px; display: block;">Emissions Management</span>
+        <h2 style="font-size: 2.1rem; font-weight: 900; color: #1a2340; margin-bottom: 10px;">AQMIS Dashboards and Key Features</h2>
+        <p style="font-size: 1.08rem; color: #232b3b; margin-bottom: 32px; max-width: 900px;">AQMIS offers dynamic dashboards that let you customize views and generate powerful analytics with ease. Gain actionable insights and make informed decisions with streamlined, data-driven visuals.</p>
+        <div class="aqmis-dashboards-grid">
+          <div class="aqmis-dashboard-card">
+            <span class="aqmis-dashboard-icon"><i class="fa-solid fa-desktop"></i></span>
+            <span class="aqmis-dashboard-title">Main</span>
+            <a href="#" class="aqmis-dashboard-link">Learn More <span>&rarr;</span></a>
+          </div>
+          <div class="aqmis-dashboard-card">
+            <span class="aqmis-dashboard-icon"><i class="fa-solid fa-industry"></i></span>
+            <span class="aqmis-dashboard-title">Emissions</span>
+            <a href="#" class="aqmis-dashboard-link">Learn More <span>&rarr;</span></a>
+          </div>
+          <div class="aqmis-dashboard-card">
+            <span class="aqmis-dashboard-icon"><i class="fa-solid fa-building"></i></span>
+            <span class="aqmis-dashboard-title">Facility</span>
+            <a href="#" class="aqmis-dashboard-link">Learn More <span>&rarr;</span></a>
+          </div>
+          <div class="aqmis-dashboard-card">
+            <span class="aqmis-dashboard-icon"><i class="fa-solid fa-wind"></i></span>
+            <span class="aqmis-dashboard-title">Air Dispersion Modeling</span>
+            <a href="#" class="aqmis-dashboard-link">Learn More <span>&rarr;</span></a>
+          </div>
+          <div class="aqmis-dashboard-card">
+            <span class="aqmis-dashboard-icon"><i class="fa-solid fa-people-group"></i></span>
+            <span class="aqmis-dashboard-title">Risk</span>
+            <a href="#" class="aqmis-dashboard-link">Learn More <span>&rarr;</span></a>
+          </div>
+          <div class="aqmis-dashboard-card">
+            <span class="aqmis-dashboard-icon"><i class="fa-solid fa-cloud-sun"></i></span>
+            <span class="aqmis-dashboard-title">Ambient Monitoring</span>
+            <a href="#" class="aqmis-dashboard-link">Learn More <span>&rarr;</span></a>
+          </div>
+          <div class="aqmis-dashboard-card">
+            <span class="aqmis-dashboard-icon"><i class="fa-solid fa-sun"></i></span>
+            <span class="aqmis-dashboard-title">Air Quality Index</span>
+            <a href="#" class="aqmis-dashboard-link">Learn More <span>&rarr;</span></a>
+          </div>
+          <div class="aqmis-dashboard-card">
+            <span class="aqmis-dashboard-icon"><i class="fa-solid fa-database"></i></span>
+            <span class="aqmis-dashboard-title">Data Quality</span>
+            <a href="#" class="aqmis-dashboard-link">Learn More <span>&rarr;</span></a>
+          </div>
+          <div class="aqmis-dashboard-card">
+            <span class="aqmis-dashboard-icon"><i class="fa-solid fa-ticket"></i></span>
+            <span class="aqmis-dashboard-title">Ticketing</span>
+            <a href="#" class="aqmis-dashboard-link">Learn More <span>&rarr;</span></a>
+          </div>
+          <div class="aqmis-dashboard-card">
+            <span class="aqmis-dashboard-icon"><i class="fa-solid fa-user-gear"></i></span>
+            <span class="aqmis-dashboard-title">Administrative</span>
+            <a href="#" class="aqmis-dashboard-link">Learn More <span>&rarr;</span></a>
+          </div>
+        </div>
+        <div id="main" class="aqmis-dashboard-details" style="display: flex; align-items: flex-start; gap: 48px; margin-top: 48px; flex-wrap: wrap;">
+          <div class="aqmis-dashboard-img-col" style="flex: 1 1 340px; min-width: 260px; max-width: 420px; display: flex; align-items: center; justify-content: center;">
+            <div style="border-radius: 24px; padding: 18px 18px 0 18px; display: inline-block;">
+              <img src="image/aqmis_dashboard_main.png" alt="Main Dashboard Screenshot" style="width: 100%; max-width: 340px; border-radius: 12px; box-shadow: 0 4px 32px rgba(37,99,235,0.13); background: #fff;">
+            </div>
+          </div>
+          <div class="aqmis-dashboard-text-col" style="flex: 2 1 420px; min-width: 260px; max-width: 600px;">
+            <h3 style="font-size: 1.6rem; font-weight: 900; color: #1a2340; margin-bottom: 18px;">Main Dashboard</h3>
+            <ul style="font-size: 1.08rem; color: #232b3b; line-height: 1.7; margin: 0; padding: 0 0 0 18px; list-style: disc;">
+              <li>Overview of active emission inventory years, facilities, and pollutants.</li>
+              <li>Media-specific totals for air, water, wastewater, and solid waste.</li>
+              <li>Interactive maps for facility locations and emissions by region or facility.</li>
+              <li>Customizable graphs by pollutant or region.</li>
+            </ul>
+          </div>
+        </div>
+        <div id="emissions" class="aqmis-dashboard-details" style="display: flex; align-items: flex-start; gap: 48px; margin-top: 48px; flex-wrap: wrap;">
+          <div class="aqmis-dashboard-img-col" style="flex: 1 1 340px; min-width: 260px; max-width: 420px; display: flex; align-items: center; justify-content: center;">
+            <div style="border-radius: 24px; padding: 18px 18px 0 18px; display: inline-block;">
+              <img src="image/aqmis_dashboard_emissions.png" alt="Emissions Dashboard" style="width: 100%; max-width: 340px; border-radius: 12px; box-shadow: 0 4px 32px rgba(37,99,235,0.13); background: #fff;">
+            </div>
+          </div>
+          <div class="aqmis-dashboard-text-col" style="flex: 2 1 420px; min-width: 260px; max-width: 600px;">
+            <h3 style="font-size: 1.6rem; font-weight: 900; color: #1a2340; margin-bottom: 18px;">Emissions Dashboard</h3>
+            <ul style="font-size: 1.08rem; color: #232b3b; line-height: 1.7; margin: 0; padding: 0 0 0 18px; list-style: disc;">
+              <li>Aggregated emissions data across source types, pollutants, and regions.</li>
+              <li>Temporal trends and multi-year analyses.</li>
+              <li>Customizable views for role-specific focus and easy data export (PDF, Excel, CSV, etc.).</li>
+            </ul>
+          </div>
+        </div>
+        <div class="aqmis-dashboard-details" style="display: flex; align-items: flex-start; gap: 48px; margin-top: 48px; flex-wrap: wrap;">
+          <div class="aqmis-dashboard-img-col" style="flex: 1 1 340px; min-width: 260px; max-width: 420px; display: flex; align-items: center; justify-content: center;">
+            <div style="border-radius: 24px; padding: 18px 18px 0 18px; display: inline-block;">
+              <img src="image/aqmis_dashboard_facility.png" alt="Facility Dashboard" style="width: 100%; max-width: 340px; border-radius: 12px; box-shadow: 0 4px 32px rgba(37,99,235,0.13); background: #fff;">
+            </div>
+          </div>
+          <div class="aqmis-dashboard-text-col" style="flex: 2 1 420px; min-width: 260px; max-width: 600px;">
+            <h3 style="font-size: 1.6rem; font-weight: 900; color: #1a2340; margin-bottom: 18px;">Facility Dashboard</h3>
+            <ul style="font-size: 1.08rem; color: #232b3b; line-height: 1.7; margin: 0; padding: 0 0 0 18px; list-style: disc;">
+              <li>Comprehensive facility data at a glance: emissions controls, release points, classification codes, and more.</li>
+              <li>Interactive maps for facility location and regulatory oversight.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="aqmis-dashboard-details" style="display: flex; align-items: flex-start; gap: 48px; margin-top: 48px; flex-wrap: wrap;">
+          <div class="aqmis-dashboard-img-col" style="flex: 1 1 340px; min-width: 260px; max-width: 420px; display: flex; align-items: center; justify-content: center;">
+            <div style="border-radius: 24px; padding: 18px 18px 0 18px; display: inline-block;">
+              <img src="image/aqmis_dashboard_adm.png" alt="Air Dispersion Modeling (ADM) Dashboard" style="width: 100%; max-width: 340px; border-radius: 12px; box-shadow: 0 4px 32px rgba(37,99,235,0.13); background: #fff;">
+            </div>
+          </div>
+          <div class="aqmis-dashboard-text-col" style="flex: 2 1 420px; min-width: 260px; max-width: 600px;">
+            <h3 style="font-size: 1.6rem; font-weight: 900; color: #1a2340; margin-bottom: 18px;">Air Dispersion Modeling (ADM) Dashboard</h3>
+            <ul style="font-size: 1.08rem; color: #232b3b; line-height: 1.7; margin: 0; padding: 0 0 0 18px; list-style: disc;">
+              <li>View pollutant-specific air concentration contours and gradients.</li>
+              <li>Simulate multiple dispersion scenarios (e.g., historic, real-time, forecast).</li>
+              <li>Identify emission sources affecting modeling domains.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="aqmis-dashboard-details" style="display: flex; align-items: flex-start; gap: 48px; margin-top: 48px; flex-wrap: wrap;">
+          <div class="aqmis-dashboard-img-col" style="flex: 1 1 340px; min-width: 260px; max-width: 420px; display: flex; align-items: center; justify-content: center;">
+            <div style="border-radius: 24px; padding: 18px 18px 0 18px; display: inline-block;">
+              <img src="image/aqmis_dashboard_risk.png" alt="Risk Dashboard" style="width: 100%; max-width: 340px; border-radius: 12px; box-shadow: 0 4px 32px rgba(37,99,235,0.13); background: #fff;">
+            </div>
+          </div>
+          <div class="aqmis-dashboard-text-col" style="flex: 2 1 420px; min-width: 260px; max-width: 600px;">
+            <h3 style="font-size: 1.6rem; font-weight: 900; color: #1a2340; margin-bottom: 18px;">Risk Dashboard</h3>
+            <ul style="font-size: 1.08rem; color: #232b3b; line-height: 1.7; margin: 0; padding: 0 0 0 18px; list-style: disc;">
+              <li>Evaluate chronic and acute health risks by pollutant or exposure pathway.</li>
+              <li>Cumulative risk visualization against regulatory benchmarks.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="aqmis-dashboard-details" style="display: flex; align-items: flex-start; gap: 48px; margin-top: 48px; flex-wrap: wrap;">
+          <div class="aqmis-dashboard-img-col" style="flex: 1 1 340px; min-width: 260px; max-width: 420px; display: flex; align-items: center; justify-content: center;">
+            <div style="border-radius: 24px; padding: 18px 18px 0 18px; display: inline-block;">
+              <img src="image/aqmis_dashboard_ams.png" alt="Ambient Monitoring Station (AMS) Dashboard" style="width: 100%; max-width: 340px; border-radius: 12px; box-shadow: 0 4px 32px rgba(37,99,235,0.13); background: #fff;">
+            </div>
+          </div>
+          <div class="aqmis-dashboard-text-col" style="flex: 2 1 420px; min-width: 260px; max-width: 600px;">
+            <h3 style="font-size: 1.6rem; font-weight: 900; color: #1a2340; margin-bottom: 18px;">Ambient Monitoring Station (AMS) Dashboard</h3>
+            <ul style="font-size: 1.08rem; color: #232b3b; line-height: 1.7; margin: 0; padding: 0 0 0 18px; list-style: disc;">
+              <li>Detect exceedances of regulatory thresholds or custom targets.</li>
+              <li>Explore temporal and spatial pollutant trends with interactive charts.</li>
+              <li>Automatically calculate and display Air Quality Index (AQI) metrics.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="aqmis-dashboard-details" style="display: flex; align-items: flex-start; gap: 48px; margin-top: 48px; flex-wrap: wrap;">
+          <div class="aqmis-dashboard-img-col" style="flex: 1 1 340px; min-width: 260px; max-width: 420px; display: flex; align-items: center; justify-content: center;">
+            <div style="border-radius: 24px; padding: 18px 18px 0 18px; display: inline-block;">
+              <img src="image/aqmis_dashboard_aqi.png" alt="Air Quality Index (AQI) Dashboard" style="width: 100%; max-width: 340px; border-radius: 12px; box-shadow: 0 4px 32px rgba(37,99,235,0.13); background: #fff;">
+            </div>
+          </div>
+          <div class="aqmis-dashboard-text-col" style="flex: 2 1 420px; min-width: 260px; max-width: 600px;">
+            <h3 style="font-size: 1.6rem; font-weight: 900; color: #1a2340; margin-bottom: 18px;">Air Quality Index (AQI) Dashboard</h3>
+            <ul style="font-size: 1.08rem; color: #232b3b; line-height: 1.7; margin: 0; padding: 0 0 0 18px; list-style: disc;">
+              <li>Simplified AQI scores with real-time and forecasted data.</li>
+              <li>Insights on pollutant-specific health risks and recommended actions.</li>
+              <li>24-hour AQI trend visualizations for public awareness.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="aqmis-dashboard-details" style="display: flex; align-items: flex-start; gap: 48px; margin-top: 48px; flex-wrap: wrap;">
+          <div class="aqmis-dashboard-img-col" style="flex: 1 1 340px; min-width: 260px; max-width: 420px; display: flex; align-items: center; justify-content: center;">
+            <div style="border-radius: 24px; padding: 18px 18px 0 18px; display: inline-block;">
+              <img src="image/aqmis_dashboard_ams.png" alt="Data Quality Dashboard" style="width: 100%; max-width: 340px; border-radius: 12px; box-shadow: 0 4px 32px rgba(37,99,235,0.13); background: #fff;">
+            </div>
+          </div>
+          <div class="aqmis-dashboard-text-col" style="flex: 2 1 420px; min-width: 260px; max-width: 600px;">
+            <h3 style="font-size: 1.6rem; font-weight: 900; color: #1a2340; margin-bottom: 18px;">Data Quality Dashboard</h3>
+            <ul style="font-size: 1.08rem; color: #232b3b; line-height: 1.7; margin: 0; padding: 0 0 0 18px; list-style: disc;">
+              <li>Visual summaries of data completeness and validity.</li>
+              <li>Classify data as Good, Bad, Critical, or Disconnected for rapid analysis.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="aqmis-dashboard-details" style="display: flex; align-items: flex-start; gap: 48px; margin-top: 48px; flex-wrap: wrap;">
+          <div class="aqmis-dashboard-img-col" style="flex: 1 1 340px; min-width: 260px; max-width: 420px; display: flex; align-items: center; justify-content: center;">
+            <div style="border-radius: 24px; padding: 18px 18px 0 18px; display: inline-block;">
+              <img src="image/aqmis_dashboard_calendar.png" alt="Ticketing and Calendar Dashboards" style="width: 100%; max-width: 340px; border-radius: 12px; box-shadow: 0 4px 32px rgba(37,99,235,0.13); background: #fff;">
+            </div>
+          </div>
+          <div class="aqmis-dashboard-text-col" style="flex: 2 1 420px; min-width: 260px; max-width: 600px;">
+            <h3 style="font-size: 1.6rem; font-weight: 900; color: #1a2340; margin-bottom: 18px;">Ticketing and Calendar Dashboards</h3>
+            <ul style="font-size: 1.08rem; color: #232b3b; line-height: 1.7; margin: 0; padding: 0 0 0 18px; list-style: disc;">
+              <li>Track tasks and deadlines with color-coded statuses.</li>
+              <li>Filter tickets by assignment or due date for streamlined project management.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="aqmis-dashboard-details" style="display: flex; align-items: flex-start; gap: 48px; margin-top: 48px; flex-wrap: wrap;">
+          <div class="aqmis-dashboard-img-col" style="flex: 1 1 340px; min-width: 260px; max-width: 420px; display: flex; align-items: center; justify-content: center;">
+            <div style="border-radius: 24px; padding: 18px 18px 0 18px; display: inline-block;">
+              <img src="image/aqmis_dashboard_admin.png" alt="Administrative Dashboard" style="width: 100%; max-width: 340px; border-radius: 12px; box-shadow: 0 4px 32px rgba(37,99,235,0.13); background: #fff;">
+            </div>
+          </div>
+          <div class="aqmis-dashboard-text-col" style="flex: 2 1 420px; min-width: 260px; max-width: 600px;">
+            <h3 style="font-size: 1.6rem; font-weight: 900; color: #1a2340; margin-bottom: 18px;">Administrative Dashboard</h3>
+            <ul style="font-size: 1.08rem; color: #232b3b; line-height: 1.7; margin: 0; padding: 0 0 0 18px; list-style: disc;">
+              <li>Monitor system usage and manage user access.</li>
+              <li>Review login trends, password resets, and user activities with customizable graphs.</li>
+            </ul>
+          </div>
+        </div>
+        <style>
+        .aqmis-dashboards-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 24px 24px;
+          margin: 32px 0 0 0;
+          max-width: 1100px;
+          width: 100%;
+        }
+        .aqmis-dashboard-card {
+          background: #fff;
+          border: 2px solid #1a2340;
+          border-radius: 10px;
+          padding: 32px 18px 22px 18px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 18px;
+          min-height: 160px;
+          transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+        }
+        .aqmis-dashboard-card:hover, .aqmis-dashboard-card:focus {
+          box-shadow: 0 6px 32px rgba(37,99,235,0.13);
+          border-color: #2563eb;
+          transform: translateY(-4px) scale(1.03);
+        }
+        .aqmis-dashboard-icon {
+          font-size: 2.5rem;
+          color: #2563eb;
+          margin-bottom: 8px;
+        }
+        .aqmis-dashboard-title {
+          font-size: 1.13rem;
+          font-weight: 800;
+          color: #1a2340;
+        }
+        .aqmis-dashboard-link {
+          font-size: 1.01rem;
+          color: #2563eb;
+          text-decoration: none;
+          font-weight: 700;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          margin-top: 8px;
+          transition: color 0.2s, text-decoration 0.2s;
+        }
+        .aqmis-dashboard-link:hover, .aqmis-dashboard-link:focus {
+          color: #1741b6;
+          text-decoration: underline;
+        }
+        @media (max-width: 900px) {
+          .aqmis-dashboards-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px 8px; }
+          .aqmis-dashboard-details { flex-direction: column; gap: 24px; }
+          .aqmis-dashboard-img-col, .aqmis-dashboard-text-col { max-width: 100% !important; }
+        }
+        @media (max-width: 600px) {
+          .aqmis-dashboards-grid { grid-template-columns: 1fr; }
+          .aqmis-dashboard-card { padding: 18px 8px 14px 8px; }
+          .aqmis-dashboard-details { flex-direction: column; gap: 18px; }
+        }
+        </style>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Tabbed Section End -->
+<!-- Use Cases Section Start -->
+<section class="aqmis-usecases-section" style="background: #f8fbff; padding: 64px 0 80px 0;">
+  <div style="max-width: 1300px; margin: 0 auto; padding: 0 18px;">
+    <span style="font-size: 1.02rem; font-weight: 700; color: #2563eb; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 18px; display: block;">Use Cases</span>
+    <h2 style="font-size: 2.6rem; font-weight: 900; color: #1a2340; margin-bottom: 18px;">Environmental Management Use Cases</h2>
+    <p style="font-size: 1.18rem; color: #232b3b; margin-bottom: 38px; max-width: 900px;">AQMIS supports a variety of use cases and benefits.</p>
+    <div class="aqmis-usecases-cards-grid">
+      <div class="aqmis-usecase-card">
+        <img src="image/permitting.jpg" alt="Regulated Industries">
+        <div class="aqmis-usecase-label">Regulated Industries</div>
+      </div>
+      <div class="aqmis-usecase-card">
+        <img src="image/analytics.jpg" alt="Environmental Consultants">
+        <div class="aqmis-usecase-label">Consultants</div>
+      </div>
+      <div class="aqmis-usecase-card">
+        <img src="image/emissions_inventory.jpg" alt="Regulatory Agencies">
+        <div class="aqmis-usecase-label">Regulatory Agencies</div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .aqmis-usecases-cards-grid {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+    .aqmis-usecase-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(37,99,235,0.10);
+      min-width: 320px;
+      max-width: 440px;
+      flex: 1 1 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      background: #fff;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .aqmis-usecase-card:hover, .aqmis-usecase-card:focus {
+      box-shadow: 0 8px 40px rgba(37,99,235,0.18);
+      transform: translateY(-6px) scale(1.03);
+    }
+    .aqmis-usecase-card img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      display: block;
+      border-radius: 20px 20px 0 0;
+    }
+    .aqmis-usecase-label {
+      background: #181f3a;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 800;
+      text-align: center;
+      padding: 24px 0 18px 0;
+      border-radius: 0 0 20px 20px;
+      letter-spacing: -1px;
+      margin-top: -6px;
+      box-shadow: 0 2px 12px rgba(37,99,235,0.10);
+    }
+    @media (max-width: 1100px) {
+      .aqmis-usecases-cards-grid { gap: 18px; }
+      .aqmis-usecase-card img { height: 220px; }
+    }
+    @media (max-width: 800px) {
+      .aqmis-usecases-cards-grid { flex-direction: column; align-items: center; }
+      .aqmis-usecase-card { max-width: 98vw; min-width: 220px; }
+      .aqmis-usecase-card img { height: 180px; }
+      .aqmis-usecase-label { font-size: 1.3rem; padding: 16px 0 12px 0; }
+    }
+  </style>
+</section>
+<!-- Use Cases Section End -->
+
+<script>
+// Tab switching logic for AQMIS tabs
+document.querySelectorAll('.aqmis-tab-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.aqmis-tab-btn').forEach(b => {
+      b.classList.remove('active');
+      b.style.color = '#1a2340';
+      b.style.borderBottom = '3px solid transparent';
+    });
+    this.classList.add('active');
+    this.style.color = '#2563eb';
+    this.style.borderBottom = '3px solid #2563eb';
+    const tab = this.getAttribute('data-tab');
+    document.querySelectorAll('.aqmis-tab-panel').forEach(panel => {
+      panel.style.display = (panel.getAttribute('data-tab') === tab) ? 'block' : 'none';
+    });
+  });
+});
+</script>
+<!-- Copyright Section Start -->
+        <footer style="background: linear-gradient(135deg, #1db954 0%, #2563eb 100%); color: #eaf4ff; text-align: center; padding: 28px 0 18px 0; font-size: 1.08rem; font-family: inherit; letter-spacing: 0.02em;">
+            &copy; 2025 LaGa Systems Pvt Ltd. All rights reserved.
+        </footer>
+</body>
+</html>

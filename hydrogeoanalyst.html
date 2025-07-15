@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hydro GeoAnalyst - Environmental Data Management Software</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    html, body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8fbff; margin: 0; padding: 0; overflow-x: hidden; }
+    .hga-hero {
+      background: linear-gradient(90deg, #2563eb 0%, #1a2340 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      text-align: center;
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .hga-hero img { max-width: 120px; margin-bottom: 18px; }
+    .hga-hero h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 12px; letter-spacing: -1px; }
+    .hga-hero h2 { font-size: 1.35rem; font-weight: 500; color: #e3eaff; margin-bottom: 22px; }
+    .hga-hero p { font-size: 1.13rem; color: #e0e6f0; max-width: 700px; margin: 0 auto 28px auto; line-height: 1.6; }
+    .hga-btn-main { background: #fff; color: #2563eb; font-weight: 700; border: none; border-radius: 8px; padding: 14px 36px; font-size: 1.13rem; box-shadow: 0 2px 16px rgba(37,99,235,0.13); cursor: pointer; margin: 0 10px; transition: background 0.2s; }
+    .hga-btn-main:hover { background: #e3eaff; }
+    .hga-section { max-width: 1200px; margin: 0 auto; background: #fff; border-radius: 18px; box-shadow: 0 2px 24px rgba(37,99,235,0.07); padding: 48px 28px 38px 28px; margin-top: 38px; }
+    .hga-section h2 { color: #2563eb; font-size: 2rem; font-weight: 800; margin-bottom: 18px; }
+    .hga-section h3 { color: #1a2340; font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; }
+    .hga-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 18px; }
+    .hga-feature-card {
+      background: #f3f7fd; border-radius: 12px; box-shadow: 0 2px 12px rgba(14,124,123,0.07);
+      padding: 24px 18px 18px 18px; display: flex; flex-direction: column; align-items: flex-start;
+    }
+    .hga-feature-card i {
+      font-size: 2.6rem;
+      color: #2563eb;
+      margin-bottom: 14px;
+    }
+    .hga-feature-card h4 { color: #2563eb; font-size: 1.08rem; font-weight: 700; margin-bottom: 8px; }
+    .hga-feature-card ul {
+      margin: 0 0 0 0;
+      padding: 0;
+      color: #232b3b;
+      font-size: 1.01rem;
+      list-style: none;
+    }
+    .hga-feature-card li {
+      margin-bottom: 7px;
+      position: relative;
+      padding-left: 22px;
+    }
+    .hga-feature-card li::before {
+      content: '\2022';
+      position: absolute;
+      left: 0;
+      top: 0.1em;
+      color: #2563eb;
+      font-size: 1.3em;
+      line-height: 1;
+    }
+    .hga-applications ul {
+      columns: 1;
+      font-size: 1.05rem;
+      color: #232b3b;
+      margin: 0 0 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .hga-applications li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 22px;
+    }
+    .hga-applications li::before {
+      content: '\2022';
+      position: absolute;
+      left: 0;
+      top: 0.1em;
+      color: #2563eb;
+      font-size: 1.3em;
+      line-height: 1;
+    }
+    .hga-dot-list {
+      list-style: none;
+      padding-left: 0;
+      margin-left: 0;
+    }
+    .hga-dot-list li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 7px;
+    }
+    .hga-dot-list li::before {
+      content: '\2022';
+      position: absolute;
+      left: 0;
+      top: 0.1em;
+      color: #2563eb;
+      font-size: 1.3em;
+      line-height: 1;
+    }
+    @media (max-width: 900px) {
+      .hga-section { padding: 28px 6vw 28px 6vw; }
+      .hga-features { grid-template-columns: 1fr; gap: 18px; }
+    }
+    .hga-flipcard-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 1100px) {
+      .hga-flipcard-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 700px) {
+      .hga-flipcard-grid { grid-template-columns: 1fr; }
+    }
+    .hga-flipcard {
+      background: none;
+      perspective: 1200px;
+      min-height: 220px;
+      outline: none;
+    }
+    .hga-flipcard-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
+      transform-style: preserve-3d;
+      min-height: 220px;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(37,99,235,0.10);
+      background: #fff;
+      cursor: pointer;
+    }
+    .hga-flipcard:focus .hga-flipcard-inner,
+    .hga-flipcard:hover .hga-flipcard-inner {
+      transform: rotateY(180deg);
+      box-shadow: 0 6px 32px rgba(37,99,235,0.18);
+    }
+    .hga-flipcard-front, .hga-flipcard-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 18px 18px 18px;
+      box-sizing: border-box;
+    }
+    .hga-flipcard-front {
+      z-index: 2;
+      background: #fff;
+      transition: box-shadow 0.2s;
+    }
+    .hga-flipcard-front img {
+      max-width: 64px;
+      margin-bottom: 18px;
+      border-radius: 8px;
+      box-shadow: 0 1px 6px rgba(37,99,235,0.07);
+    }
+    .hga-flipcard-front h4 {
+      font-size: 1.08rem;
+      color: #2563eb;
+      font-weight: 700;
+      margin: 0;
+      text-align: center;
+    }
+    .hga-flipcard-back {
+      background: #f3f7fd;
+      color: #232b3b;
+      transform: rotateY(180deg);
+      z-index: 3;
+      font-size: 1.01rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 18px 18px 18px;
+    }
+    .hga-flipcard:focus {
+      outline: 2px solid #2563eb;
+      outline-offset: 2px;
+    }
+    .hga-flipcard-inner {
+      outline: none;
+    }
+    .hga-flipcard {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hga-hero">
+    <img src="image/HGA_logo-1.png" alt="Hydro GeoAnalyst Icon">
+    <h1>Hydro GeoAnalyst</h1>
+    <h2>Environmental Data Management & Visualization</h2>
+    <p>Hydro GeoAnalyst (HGA) is our comprehensive and easy-to-use environmental data management system. HGA integrates customizable database structures used around the world with state-of-the-art tools for data interpretation, statistical analysis, Geographical Information System (GIS) mapping, data charting, and visualizations in two or three dimensions.</p>
+    <div>
+      <a href="https://www.waterloohydrogeologic.com/download-trial/" target="_blank" class="hga-btn-main">Download Trial</a>
+    </div>
+  </section>
+
+  <!-- Why Choose Section (screenshot style) -->
+  <section class="hga-section" style="background: #fff; max-width: 1400px;">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 48px;">
+      <div style="flex: 1 1 420px; min-width: 320px; text-align: center;">
+        <img src="image/hga-screenshot.png" alt="Hydro GeoAnalyst Screenshot" style="max-width: 100%; height: auto; box-shadow: 0 4px 32px rgba(37,99,235,0.10); border-radius: 12px;">
+      </div>
+      <div style="flex: 2 1 520px; min-width: 320px;">
+        <h2 style="font-size:2.8rem; color:#232b3b; font-weight:400; margin-bottom: 24px; text-align: left;">Why Choose Hydro GeoAnalyst?</h2>
+        <div style="font-size:1.18rem; color:#444; line-height:1.7; text-align:left;">
+          <p>With Hydro GeoAnalyst, environmental professionals, geoscientists and government agencies have all the tools required to effectively and efficiently manage large volumes of data, and make informed decisions about environmental and water resources.</p>
+          <p>HGA consists of an application that connects to an SQL Server database and facilitates data management, analysis and interpretation, and collaboration through various purpose-built modules. HGA helps you work with large volumes of environmental data without requiring in-depth knowledge of SQL. HGA+ extends these capabilities by adding modules specifically designed to work with geochemical data and a console for use R to get even more out of your data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="hga-section">
+    <h2>Key Features</h2>
+    <div class="hga-features">
+      <div class="hga-feature-card">
+        <i class="fas fa-database"></i>
+        <h4>Centralized Data Management</h4>
+        <ul>
+          <li>Store, organize, and validate all environmental data in one place</li>
+          <li>Flexible database structure for any project</li>
+          <li>Multi-user access and permissions</li>
+        </ul>
+      </div>
+      <div class="hga-feature-card">
+        <i class="fas fa-chart-line"></i>
+        <h4>Advanced Data Analysis</h4>
+        <ul>
+          <li>Powerful querying and filtering tools</li>
+          <li>Statistical and trend analysis</li>
+          <li>Automated QA/QC checks</li>
+        </ul>
+      </div>
+      <div class="hga-feature-card">
+        <i class="fas fa-map-marked-alt"></i>
+        <h4>GIS &amp; Mapping Integration</h4>
+        <ul>
+          <li>Visualize data on interactive maps</li>
+          <li>Import/export GIS data (SHP, DXF, KML, etc.)</li>
+          <li>Georeference and spatial analysis tools</li>
+        </ul>
+      </div>
+      <div class="hga-feature-card">
+        <i class="fas fa-flask"></i>
+        <h4>Laboratory Data Management</h4>
+        <ul>
+          <li>Import lab results from multiple formats</li>
+          <li>Track sample chains of custody</li>
+          <li>Flag exceedances and automate alerts</li>
+        </ul>
+      </div>
+      <div class="hga-feature-card">
+        <i class="fas fa-file-alt"></i>
+        <h4>Flexible Reporting</h4>
+        <ul>
+          <li>Customizable report templates</li>
+          <li>Automated report generation</li>
+          <li>Export to PDF, Excel, and more</li>
+        </ul>
+      </div>
+      <div class="hga-feature-card">
+        <i class="fas fa-cogs"></i>
+        <h4>Workflow Automation</h4>
+        <ul>
+          <li>Automate routine data processing tasks</li>
+          <li>Schedule imports, exports, and reports</li>
+          <li>Reduce manual errors and save time</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Applications Section -->
+  <section class="hga-section">
+    <h2>Applications</h2>
+    <div class="hga-applications">
+      <ul>
+        <li>Groundwater and surface water monitoring</li>
+        <li>Contaminated site investigation and remediation</li>
+        <li>Regulatory compliance and reporting</li>
+        <li>Mining and industrial site management</li>
+        <li>Water quality and quantity analysis</li>
+        <li>Geotechnical and environmental consulting</li>
+        <li>Municipal and government environmental programs</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Technical Section -->
+  <section class="hga-section">
+    <h2>Technical Details</h2>
+    <div class="hga-features" style="grid-template-columns: 1fr 1fr;">
+      <div class="hga-feature-card">
+        <h4>Supported Data Types</h4>
+        <ul class="hga-dot-list">
+          <li>Water levels, chemistry, and quality</li>
+          <li>Soil and sediment data</li>
+          <li>Geotechnical and lithological data</li>
+          <li>Time series and field measurements</li>
+          <li>Images, documents, and spatial data</li>
+        </ul>
+      </div>
+      <div class="hga-feature-card">
+        <h4>Database Platforms</h4>
+        <ul class="hga-dot-list">
+          <li>Microsoft SQL Server Express/Standard/Enterprise</li>
+          <li>Microsoft Access</li>
+        </ul>
+      </div>
+      <div class="hga-feature-card">
+        <h4>Integration &amp; Add-ons</h4>
+        <ul class="hga-dot-list">
+          <li>MODFLOW, AquaChem, Visual MODFLOW Flex</li>
+          <li>ESRI ArcGIS, Google Earth</li>
+          <li>Custom API integrations</li>
+        </ul>
+      </div>
+      <div class="hga-feature-card">
+        <h4>Reporting &amp; Output</h4>
+        <ul class="hga-dot-list">
+          <li>Customizable report templates</li>
+          <li>Export to PDF, Excel, CSV, and more</li>
+          <li>Automated regulatory reporting</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky Tabbed Section -->
+  <section class="hga-section" style="padding-top: 0;">
+    <h2 style="margin-bottom: 10px;">Hydro GeoAnalyst Modules</h2>
+    <p style="font-size:1.13rem; color:#232b3b; margin-bottom: 32px;">There are four editions of Hydro GeoAnalyst that are available with the following modules and features:</p>
+    <div class="hga-tabs-sticky-wrapper">
+      <div class="hga-tabs" id="hgaTabs">
+        <button class="hga-tab active" onclick="showTab(event, 'tab1')">Data Management</button>
+        <button class="hga-tab" onclick="showTab(event, 'tab2')">Analysis/Interpretation</button>
+        <button class="hga-tab" onclick="showTab(event, 'tab3')">Collaboration</button>
+        <button class="hga-tab" onclick="showTab(event, 'tab4')">Hydro GeoAnalyst Plus</button>
+      </div>
+      <div class="hga-tab-content" id="tab1" style="display:block;">
+        <h3>Data Management</h3>
+        <p>Organize, validate, and manage all your environmental data in a secure, centralized database. Benefit from advanced QA/QC, flexible schemas, and multi-user collaboration.</p>
+        <div class="hga-flipcard-grid">
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/template-manager-icon.png" alt="Centralized Database" />
+                <h4>Template Manager</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Fully customize your environmental database to your specific project needs with options to add unlimited tables and fields.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/data_import_icon.png" alt="QA/QC Tools" />
+                <h4>Data Import</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Easily import and validate data from Excel, Access, EDDs, Mobile EDDs, Diver MON files, or LAS files. Also includes the option to bulk-load images.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/data-viewer-icon.png" alt="Flexible Schemas" />
+                <h4>Data Viewers</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Edit, manage, tabulate, search, and filter your project data using integrated data viewers and lists specifically designed to work with your data based on your project-specific needs.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/query_builder_icon.png" alt="Data Import/Export" />
+                <h4>Query Builder/Viewer</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Easily create, save, and recall data queries to extract useful information about your project. Only minimal SQL syntax knowledge is required!</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/qa-qc-icon.png" alt="Multi-User Access" />
+                <h4>Lab QA/QC</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Verify the accuracy of laboratory results through the analysis of blank, duplicate,   and matrix spike samples, dilution factors, detection limits, and holding times.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/ListEditor_icon.png" alt="Audit Trails" />
+                <h4>List Editor</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Create lists of valid values for almost any field in your database (e.g. Station Type, Geologic Unit, etc.) for consistent and reliable data entry.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/MaterialSpecificationEditor_icon.png" alt="Automation" />
+                <h4>Material Specification Editor</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Create, edit, and manage material specifications and patterns for use in your project well profiles, cross sections, and 3D scenes.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/interval-validate-icon.png" alt="Interval Validator Validate" />
+                <h4>Interval Validator Validate</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Validate geologic and well construction data to find and fix intervals with gaps/overlaps.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hga-tab-content" id="tab2" style="display:none;">
+        <h3>Analysis/Interpretation</h3>
+        <p>Unlock actionable insights with powerful data visualization and analytical tools. Identify trends, relationships, and anomalies in your environmental data using intuitive charts, graphs, and mapping capabilities.</p>
+        <div class="hga-flipcard-grid">
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/template-manager-icon.png" alt="Centralized Database" />
+                <h4>Template Manager</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Fully customize your environmental database to your specific project needs with options to add unlimited tables and fields.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/data_import_icon.png" alt="QA/QC Tools" />
+                <h4>Data Import</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Easily import and validate data from Excel, Access, EDDs, Mobile EDDs, Diver MON files, or LAS files. Also includes the option to bulk-load images.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/data-viewer-icon.png" alt="Flexible Schemas" />
+                <h4>Data Viewers</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Edit, manage, tabulate, search, and filter your project data using integrated data viewers and lists specifically designed to work with your data based on your project-specific needs.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/query_builder_icon.png" alt="Data Import/Export" />
+                <h4>Query Builder/Viewer</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Easily create, save, and recall data queries to extract useful information about your project. Only minimal SQL syntax knowledge is required!</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/qa-qc-icon.png" alt="Multi-User Access" />
+                <h4>Lab QA/QC</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Verify the accuracy of laboratory results through the analysis of blank, duplicate,   and matrix spike samples, dilution factors, detection limits, and holding times.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/ListEditor_icon.png" alt="Audit Trails" />
+                <h4>List Editor</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Create lists of valid values for almost any field in your database (e.g. Station Type, Geologic Unit, etc.) for consistent and reliable data entry.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/MaterialSpecificationEditor_icon.png" alt="Automation" />
+                <h4>Material Specification Editor</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Create, edit, and manage material specifications and patterns for use in your project well profiles, cross sections, and 3D scenes.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/interval-validate-icon.png" alt="Interval Validator Validate" />
+                <h4>Interval Validator Validate</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Validate geologic and well construction data to find and fix intervals with gaps/overlaps.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hga-tab-content" id="tab3" style="display:none;">
+        <h3>collaboration</h3>
+        <p>Foster seamless teamwork with multi-user access, real-time updates, and integrated communication tools. Share data, track changes, and streamline workflows across departments and project teams.</p>
+        <div class="hga-flipcard-grid">
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/template-manager-icon.png" alt="Centralized Database" />
+                <h4>Template Manager</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Fully customize your environmental database to your specific project needs with options to add unlimited tables and fields.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/data_import_icon.png" alt="QA/QC Tools" />
+                <h4>Data Import</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Easily import and validate data from Excel, Access, EDDs, Mobile EDDs, Diver MON files, or LAS files. Also includes the option to bulk-load images.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/data-viewer-icon.png" alt="Flexible Schemas" />
+                <h4>Data Viewers</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Edit, manage, tabulate, search, and filter your project data using integrated data viewers and lists specifically designed to work with your data based on your project-specific needs.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/query_builder_icon.png" alt="Data Import/Export" />
+                <h4>Query Builder/Viewer</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Easily create, save, and recall data queries to extract useful information about your project. Only minimal SQL syntax knowledge is required!</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/qa-qc-icon.png" alt="Multi-User Access" />
+                <h4>Lab QA/QC</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Verify the accuracy of laboratory results through the analysis of blank, duplicate,   and matrix spike samples, dilution factors, detection limits, and holding times.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/ListEditor_icon.png" alt="Audit Trails" />
+                <h4>List Editor</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Create lists of valid values for almost any field in your database (e.g. Station Type, Geologic Unit, etc.) for consistent and reliable data entry.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/MaterialSpecificationEditor_icon.png" alt="Automation" />
+                <h4>Material Specification Editor</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Create, edit, and manage material specifications and patterns for use in your project well profiles, cross sections, and 3D scenes.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/interval-validate-icon.png" alt="Interval Validator Validate" />
+                <h4>Interval Validator Validate</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Validate geologic and well construction data to find and fix intervals with gaps/overlaps.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hga-tab-content" id="tab4" style="display:none;">
+        <h3>Hydro GeoAnalyst Plus</h3>
+        <p>Enhance your workflow with advanced capabilities offered by Hydro GeoAnalyst PLUS.</p>
+        <div class="hga-flipcard-grid">
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/template-manager-icon.png" alt="Centralized Database" />
+                <h4>Template Manager</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Fully customize your environmental database to your specific project needs with options to add unlimited tables and fields.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/data_import_icon.png" alt="QA/QC Tools" />
+                <h4>Data Import</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Easily import and validate data from Excel, Access, EDDs, Mobile EDDs, Diver MON files, or LAS files. Also includes the option to bulk-load images.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/data-viewer-icon.png" alt="Flexible Schemas" />
+                <h4>Data Viewers</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Edit, manage, tabulate, search, and filter your project data using integrated data viewers and lists specifically designed to work with your data based on your project-specific needs.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/query_builder_icon.png" alt="Data Import/Export" />
+                <h4>Query Builder/Viewer</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Easily create, save, and recall data queries to extract useful information about your project. Only minimal SQL syntax knowledge is required!</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/qa-qc-icon.png" alt="Multi-User Access" />
+                <h4>Lab QA/QC</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Verify the accuracy of laboratory results through the analysis of blank, duplicate,   and matrix spike samples, dilution factors, detection limits, and holding times.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/ListEditor_icon.png" alt="Audit Trails" />
+                <h4>List Editor</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Create lists of valid values for almost any field in your database (e.g. Station Type, Geologic Unit, etc.) for consistent and reliable data entry.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/MaterialSpecificationEditor_icon.png" alt="Automation" />
+                <h4>Material Specification Editor</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Create, edit, and manage material specifications and patterns for use in your project well profiles, cross sections, and 3D scenes.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hga-flipcard">
+            <div class="hga-flipcard-inner">
+              <div class="hga-flipcard-front">
+                <img src="image/interval-validate-icon.png" alt="Interval Validator Validate" />
+                <h4>Interval Validator Validate</h4>
+              </div>
+              <div class="hga-flipcard-back">
+                <p>Validate geologic and well construction data to find and fix intervals with gaps/overlaps.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .hga-tabs-sticky-wrapper {
+      position: relative;
+      margin-bottom: 32px;
+    }
+    .hga-tabs {
+      display: flex;
+      gap: 0;
+      background: #f3f7fd;
+      border-radius: 10px 10px 0 0;
+      box-shadow: 0 2px 12px rgba(37,99,235,0.07);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      overflow-x: auto;
+    }
+    .hga-tab {
+      flex: 1 1 0;
+      padding: 16px 24px;
+      background: none;
+      border: none;
+      outline: none;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #2563eb;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: background 0.2s, border-bottom 0.2s;
+    }
+    .hga-tab.active, .hga-tab:hover {
+      background: #fff;
+      border-bottom: 3px solid #2563eb;
+      color: #1a2340;
+    }
+    .hga-tab-content {
+      background: #fff;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 2px 12px rgba(37,99,235,0.07);
+      padding: 32px 24px 24px 24px;
+      margin-top: 0;
+      min-height: 120px;
+      animation: fadeIn 0.3s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @media (max-width: 900px) {
+      .hga-tabs { flex-direction: column; border-radius: 10px 10px 0 0; }
+      .hga-tab { border-bottom: 1px solid #e3eaff; border-radius: 0; }
+      .hga-tab.active, .hga-tab:hover { border-bottom: 3px solid #2563eb; }
+    }
+  </style>
+  <script>
+    function showTab(evt, tabId) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName('hga-tab-content');
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = 'none';
+      }
+      tablinks = document.getElementsByClassName('hga-tab');
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove('active');
+      }
+      document.getElementById(tabId).style.display = 'block';
+      evt.currentTarget.classList.add('active');
+    }
+  </script>
+
+  <!-- Call to Action Section -->
+  <section class="hga-section" style="text-align:center; background: #f3f7fd;">
+    <h2 style="color:#1a2340;">Get Started With Hydro GeoAnalyst</h2>
+    <p style="font-size:1.13rem; color:#232b3b; max-width:700px; margin:0 auto 24px auto;">Ready to streamline your environmental data management? Download a free trial or contact us for more information.</p>
+  </section>
+
+  <script>
+    // Accessibility: allow flip on keyboard focus/enter
+    document.addEventListener('DOMContentLoaded', function() {
+      var cards = document.querySelectorAll('.hga-flipcard');
+      cards.forEach(function(card) {
+        card.setAttribute('tabindex', '0');
+        card.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.querySelector('.hga-flipcard-inner').classList.toggle('flipped');
+          }
+        });
+        card.addEventListener('blur', function() {
+          this.querySelector('.hga-flipcard-inner').classList.remove('flipped');
+        });
+        card.addEventListener('focus', function() {
+          // Optionally, flip on focus
+        });
+      });
+    });
+    // Ensure mouse hover also works
+    var flipcardInners = document.querySelectorAll('.hga-flipcard-inner');
+    flipcardInners.forEach(function(inner) {
+      inner.addEventListener('mouseleave', function() {
+        this.classList.remove('flipped');
+      });
+    });
+  </script>
+</body>
+</html>

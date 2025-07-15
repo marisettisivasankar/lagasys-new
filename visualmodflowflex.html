@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual MODFLOW Flex - Groundwater Flow & Contaminant Transport Modeling Software</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    html, body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8fbff; margin: 0; padding: 0; overflow-x: hidden; }
+    .vmod-hero {
+      background: linear-gradient(90deg, #2563eb 0%, #1a2340 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      text-align: center;
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .vmod-hero img { max-width: 120px; margin-bottom: 18px; }
+    .vmod-hero h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 12px; letter-spacing: -1px; }
+    .vmod-hero h2 { font-size: 1.35rem; font-weight: 500; color: #e3eaff; margin-bottom: 22px; }
+    .vmod-hero p { font-size: 1.13rem; color: #e0e6f0; max-width: 700px; margin: 0 auto 28px auto; line-height: 1.6; }
+    .vmod-btn-main { background: #fff; color: #2563eb; font-weight: 700; border: none; border-radius: 8px; padding: 14px 36px; font-size: 1.13rem; box-shadow: 0 2px 16px rgba(37,99,235,0.13); cursor: pointer; margin: 0 10px; transition: background 0.2s; }
+    .vmod-btn-main:hover { background: #e3eaff; }
+    .vmod-section { max-width: 1200px; margin: 0 auto; background: #fff; border-radius: 18px; box-shadow: 0 2px 24px rgba(37,99,235,0.07); padding: 48px 28px 38px 28px; margin-top: 38px; }
+    .vmod-section h2 { color: #2563eb; font-size: 2rem; font-weight: 800; margin-bottom: 18px; }
+    .vmod-section h3 { color: #1a2340; font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; }
+    .vmod-features { display: flex; flex-wrap: wrap; gap: 32px; margin-top: 18px; }
+    .vmod-features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 32px;
+    }
+    .vmod-features-grid .vmod-feature-card {
+      width: 100%;
+      max-width: none;
+      min-width: 0;
+      align-self: stretch;
+    }
+    @media (max-width: 900px) {
+      .vmod-features-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        gap: 18px;
+      }
+    }
+    .vmod-feature-card {
+      flex: 1 1 320px; min-width: 260px; max-width: 370px;
+      background: #f3f7fd; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.07);
+      padding: 24px 18px 18px 18px; display: flex; flex-direction: column; align-items: flex-start;
+    }
+    .vmod-feature-card img { max-width: 60px; margin-bottom: 12px; }
+    .vmod-feature-card h4 { color: #2563eb; font-size: 1.08rem; font-weight: 700; margin-bottom: 8px; }
+    .vmod-feature-card ul {
+      margin: 0 0 0 0;
+      padding: 0;
+      color: #232b3b;
+      font-size: 1.01rem;
+      list-style: none;
+    }
+    .vmod-feature-card li {
+      margin-bottom: 7px;
+      position: relative;
+      padding-left: 22px;
+    }
+    .vmod-feature-card li::before {
+      content: '\2022';
+      position: absolute;
+      left: 0;
+      top: 0.1em;
+      color: #2563eb;
+      font-size: 1.3em;
+      line-height: 1;
+    }
+    .vmod-feature-card i {
+      font-size: 2.6rem;
+      color: #2563eb;
+      margin-bottom: 14px;
+    }
+    .vmod-applications { margin: 32px 0 0 0; }
+    .vmod-applications ul {
+      columns: 1;
+      font-size: 1.05rem;
+      color: #232b3b;
+      margin: 0 0 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .vmod-applications li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 22px;
+    }
+    .vmod-applications li::before {
+      content: '\2022';
+      position: absolute;
+      left: 0;
+      top: 0.1em;
+      color: #2563eb;
+      font-size: 1.3em;
+      line-height: 1;
+    }
+    .vmod-gallery { margin: 36px 0 0 0; text-align: right; }
+    .vmod-gallery a { color: #2563eb; font-size: 1.08rem; font-style: italic; font-weight: 500; text-decoration: underline; }
+    .vmod-fullheight-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .vmod-feature-icon {
+      font-size: 2.6rem;
+      color: #2563eb;
+      margin-bottom: 14px;
+    }
+    .vmod-dot-list {
+      list-style: none;
+      padding-left: 0;
+      margin-left: 0;
+    }
+    .vmod-dot-list li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 7px;
+    }
+    .vmod-dot-list li::before {
+      content: '\2022';
+      position: absolute;
+      left: 0;
+      top: 0.1em;
+      color: #2563eb;
+      font-size: 1.3em;
+      line-height: 1;
+    }
+    @media (max-width: 900px) {
+      .vmod-section { padding: 28px 6vw 28px 6vw; }
+      .vmod-features { flex-direction: column; gap: 18px; }
+      .vmod-applications ul { columns: 1; }
+      .vmod-features-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="vmod-hero">
+    <img src="image/VisualModflow-icon.png" alt="Visual MODFLOW Flex Icon">
+    <h1>Visual MODFLOW Flex</h1>
+    <h2>Groundwater Flow &amp; Contaminant Transport Modeling Software</h2>
+    <p>Visual MODFLOW Flex brings together industry-standard codes for groundwater flow and contaminant transport, essential analysis and calibration tools, and stunning 3D visualization capabilities in a single environment.</p>
+    <div>
+      <a href="https://www.waterloohydrogeologic.com/download-trial/" target="_blank" class="vmod-btn-main">Download Trial</a>
+    </div>
+  </section>
+
+  <!-- What's New Section -->
+  <section class="vmod-section vmod-fullwidth-section vmod-fullheight-section">
+    <h2>What’s New in Visual MODFLOW Flex 11.0</h2>
+    <p>Experience the new version release of Visual MODFLOW Flex 11.0. For a complete version history, see the <a href="https://www.waterloohydrogeologic.com/visual-modflow-flex-readme/" target="_blank" style="color:#2563eb; text-decoration:underline;">Visual MODFLOW Flex readme file</a>.</p>
+    <div class="vmod-features vmod-features-grid">
+      <div class="vmod-feature-card">
+        <i class="fas fa-file-import vmod-feature-icon"></i>
+        <h4>Model Import</h4>
+        <ul class="vmod-dot-list">
+          <li>Import data from a wide range of sources and formats</li>
+          <li>Automatic coordinate system and units conversion</li>
+          <li>Intelligent error checking and data validation</li>
+        </ul>
+      </div>
+      <div class="vmod-feature-card">
+        <i class="fas fa-sliders-h vmod-feature-icon"></i>
+        <h4>Boundary Condition &amp; Properties</h4>
+        <ul class="vmod-dot-list">
+          <li>Define model boundaries, property zones, and attributes from GIS data</li>
+          <li>Flexible grid options for various geologic conditions</li>
+          <li>Support for structured and unstructured grid types</li>
+        </ul>
+      </div>
+      <div class="vmod-feature-card">
+        <i class="fas fa-database vmod-feature-icon"></i>
+        <h4>Data Operations</h4>
+        <ul class="vmod-dot-list">
+          <li>Import TINs from point shapefiles (.shp) and from Triangle .node or .ele files</li>
+          <li>Generate TINs from existing point data objects, using linear or kriging interpolation schemes</li>
+          <li>Recharge and Evapotranspiration boundary conditions as shapefiles</li>
+          <li>Surfaces and TINs as point shapefiles</li>
+         
+        </ul>
+      </div>
+      <div class="vmod-feature-card">
+        <i class="fas fa-tachometer-alt vmod-feature-icon"></i>
+        <h4>Performance &amp; Usability</h4>
+        <ul class="vmod-dot-list">
+          <li>Improved simulation accuracy and model stability</li>
+          <li>Faster runtimes and enhanced hardware rendering</li>
+          <li>Parallel scenario management and comparison</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Applications Section -->
+  <section class="vmod-section">
+    <h2>Applications</h2>
+    <div class="vmod-applications">
+      <ul>
+        <li>Delineate well capture zones for domestic water supply development</li>
+        <li>Design and optimize pumping well locations for mine dewatering projects</li>
+        <li>Determine contaminant fate and exposure pathways for risk assessment</li>
+        <li>Simulate surface water-groundwater interactions</li>
+        <li>Watershed scale/regional groundwater modeling, and aquifer storage and recovery (ASR)</li>
+        <li>Evaluate groundwater remediation systems (pump and treat, funnel and gate, etc.)</li>
+        <li>Evaluate saltwater intrusion</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Why Choose Section -->
+  <section class="vmod-section">
+    <h2>Why Choose Visual MODFLOW Flex?</h2>
+    <div class="vmod-features">
+      <div class="vmod-feature-card">
+        <i class="fas fa-diagram-project"></i>
+        <h4>Intuitive Workflow-Driven UI</h4>
+        <ul>
+          <li>Update model inputs and grid design at any stage</li>
+          <li>See current, completed, and pending steps at a glance</li>
+          <li>Integrated GIS-based 3D conceptual and numerical modeling</li>
+        </ul>
+      </div>
+      <div class="vmod-feature-card">
+        <i class="fas fa-cube"></i>
+        <h4>Powerful 3D Visualization</h4>
+        <ul>
+          <li>Visualize all data in 2D, 3D, and multi-view displays</li>
+          <li>Create cut-away and cross-sectional views</li>
+          <li>Generate 3D animations and movies for reports or the web</li>
+        </ul>
+      </div>
+      <div class="vmod-feature-card">
+        <i class="fas fa-layer-group"></i>
+        <h4>Efficient Multi-Model Management</h4>
+        <ul>
+          <li>Manage multiple model scenarios in a single project</li>
+          <li>Direct visual and numerical comparisons between scenarios</li>
+          <li>Calculate head differences and analyze uncertainty</li>
+        </ul>
+      </div>
+      <div class="vmod-feature-card">
+        <i class="fas fa-map"></i>
+        <h4>Full GIS Integration</h4>
+        <ul>
+          <li>Quick and easy data importing of all common file types</li>
+          <li>Automatic coordinate system and units conversion</li>
+          <li>Define boundaries and attributes from imported GIS data</li>
+        </ul>
+      </div>
+      <div class="vmod-feature-card">
+        <i class="fas fa-cubes"></i>
+        <h4>Integrated 3D Conceptual &amp; Numerical Modeling</h4>
+        <ul>
+          <li>Define complex geology and model layers using borehole log data</li>
+          <li>Interpret GIS data to define hydrogeologic properties and boundaries</li>
+          <li>Run, analyze, and validate model results in 2D, 3D, and cross-section views</li>
+        </ul>
+      </div>
+      <div class="vmod-feature-card">
+        <i class="fas fa-border-all"></i>
+        <h4>Flexible Grid Options</h4>
+        <ul>
+          <li>Choose from various structured and unstructured grid types</li>
+          <li>Perform grid refinement around areas of interest</li>
+          <li>Create faster, more stable models with nested child grids</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Supported Packages, Engines, and File Types Section -->
+  <section class="vmod-section" id="vmod-supported">
+    <h2>Supported Packages, Engines &amp; File Types</h2>
+    <h3 style="color:#2563eb;">MODFLOW Engines and Utilities</h3>
+    <div style="overflow-x:auto;">
+      <table class="vmod-table" style="width:100%; border-collapse:collapse; margin-bottom:24px;">
+        <thead>
+          <tr style="background:#f3f7fd; color:#1a2340; font-weight:700;">
+            <th style="padding:10px; border:1px solid #e3eaff;">Engine/Utility</th>
+            <th style="padding:10px; border:1px solid #e3eaff;">Description</th>
+          </tr>
+        </thead>
+        <tbody style="font-size:1.01rem; color:#232b3b;">
+          <tr><td style="padding:10px; border:1px solid #e3eaff;">MODFLOW-2000, 2005, NWT</td><td style="padding:10px; border:1px solid #e3eaff;">Worldwide standard for simulating groundwater flow.</td></tr>
+          <tr><td style="padding:10px; border:1px solid #e3eaff;">MODFLOW-6</td><td style="padding:10px; border:1px solid #e3eaff;">The updated core version of MODFLOW – supports structured and unstructured grids, flow and transport modeling.</td></tr>
+          <tr><td style="padding:10px; border:1px solid #e3eaff;">MODFLOW-USG</td><td style="padding:10px; border:1px solid #e3eaff;">Control volume Finite Difference version of MODFLOW that uses unstructured grids.</td></tr>
+          <tr><td style="padding:10px; border:1px solid #e3eaff;">MODFLOW-LGR</td><td style="padding:10px; border:1px solid #e3eaff;">Shared-node local grid refinement (LGR) for regional-local scale simulations.</td></tr>
+          <tr><td style="padding:10px; border:1px solid #e3eaff;">MODFLOW-SURFACT*</td><td style="padding:10px; border:1px solid #e3eaff;">Enhanced simulations of complex saturated/unsaturated subsurface flow and transport processes.</td></tr>
+          <tr><td style="padding:10px; border:1px solid #e3eaff;">MODPATH</td><td style="padding:10px; border:1px solid #e3eaff;">Standard utility for forward and reverse particle tracking.</td></tr>
+          <tr><td style="padding:10px; border:1px solid #e3eaff;">MOD-PATH3DU**</td><td style="padding:10px; border:1px solid #e3eaff;">Advanced utility for forward and reverse particle tracking.</td></tr>
+          <tr><td style="padding:10px; border:1px solid #e3eaff;">Zone Budget</td><td style="padding:10px; border:1px solid #e3eaff;">Standard package for sub-regional water budget calculations.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.98rem; color:#888; margin-bottom:18px;">* MODFLOW-SURFACT is a proprietary version of MODFLOW, developed by HydroGeoLogic, Inc. (HGL). A demo version is included; full version available as an add-on.<br>** MOD-PATH3DU is distributed separately and available for download by registering at the MOD-PATH3DU <a href="https://www.sspa.com/software/mod-path3du" target="_blank" style="color:#2563eb;">website</a>.</p>
+
+    <h3 style="color:#2563eb;">MODFLOW Packages</h3>
+    <div class="vmod-features" style="gap:24px; margin-top:18px;">
+      <div class="vmod-feature-card" style="min-width:260px;max-width:370px;">
+        <h4 style="margin-bottom:8px;">Groundwater Flow Packages</h4>
+        <ul class="vmod-dot-list">
+          <li>BAS – Basic Package</li>
+          <li>DIS – Discretization Package for structured grids</li>
+          <li>DISU – Discretization Package for unstructured grids (MODFLOW-USG)</li>
+          <li>DISV – Discretization by Vertices Package for unstructured grids (MODFLOW-6)</li>
+          <li>BCF – Block Centered Flow Package</li>
+          <li>LPF – Layer Property Flow Package</li>
+          <li>HUF – Hydrogeologic Unit Flow Package</li>
+          <li>UPW – Upstream Weighting Flow Package</li>
+          <li>NPF – Node Property Flow Package</li>
+          <li>STO – Storage Package</li>
+          <li>IC – Initial Conditions Package</li>
+        </ul>
+      </div>
+      <div class="vmod-feature-card" style="min-width:260px;max-width:370px;">
+        <h4 style="margin-bottom:8px;">Boundary Condition Packages*</h4>
+        <ul class="vmod-dot-list">
+          <li>RIV – River package</li>
+          <li>CHD – Constant-Head boundary package</li>
+          <li>DRN – Drain package</li>
+          <li>WEL – Well package</li>
+          <li>LAK – Lake Package</li>
+          <li>EVT – Evapotranspiration package</li>
+          <li>SFR – Streamflow-Routing Package</li>
+          <li>RCH – Recharge package</li>
+          <li>FHB – Flow and Head boundary package</li>
+          <li>MNW1/2 – Multinode Well Package</li>
+          <li>HFB – Horizontal Flow Barrier Package</li>
+          <li>UZF – Unsaturated Zone Flow Package</li>
+          <li>RSF** – Recharge Seepage Face package</li>
+          <li>TMP** – Time-Varying Material Properties package</li>
+        </ul>
+      </div>
+      <div class="vmod-feature-card" style="min-width:260px;max-width:370px;">
+        <h4 style="margin-bottom:8px;">Solver Packages*</h4>
+        <ul class="vmod-dot-list">
+          <li>GMG – Geometric Multigrid Solver</li>
+          <li>NWT – Newton-Raphson Solver</li>
+          <li>PCG – Pre-conditioned Conjugate Gradient Solver</li>
+          <li>SAMG – Algebraic Multi-Grid Solver</li>
+          <li>SIP – Strongly Implicit Solver</li>
+          <li>WHS – Waterloo Hydrogeologic Solver (Bi-CGSTAB)</li>
+          <li>SMS – Sparse Matrix solver for MODFLOW-USG</li>
+          <li>IMS – Iterative Matrix Solution for MODFLOW-6</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:0.98rem; color:#888; margin-top:10px;">* Not all packages/solvers are available with every groundwater flow engine. See the <a href="https://www.waterloohydrogeologic.com/help/vmod-flex/index.html?vm_references.htm" target="_blank" style="color:#2563eb;">documentation</a> for details.<br>** MODFLOW-SURFACT only.</p>
+
+    <div style="display: flex; flex-direction: column; gap: 24px; margin-top: 18px;">
+      <div class="vmod-feature-card" style="width:100%;max-width:none;min-width:0;align-self:stretch;">
+        <h4 style="color:#2563eb; margin-bottom:8px;">Transport Engines</h4>
+        <ul class="vmod-dot-list">
+          <li>MT3DMS – Standard simulation of multi-species solute transport</li>
+          <li>MODFLOW-6 – Integrated transport modeling</li>
+          <li>MODFLOW-SURFACT* – Enhanced simulations of complex saturated/unsaturated subsurface flow and transport</li>
+          <li>SEAWAT – Variable-density groundwater flow coupled with multi-species solute and heat transport</li>
+          <li>RT3D – Advanced and specialized multi-species reactive solute transport simulations</li>
+        </ul>
+      </div>
+      <div class="vmod-feature-card" style="width:100%;max-width:none;min-width:0;align-self:stretch;">
+        <h4 style="color:#2563eb; margin-bottom:8px;">Parameter Estimation &amp; Sensitivity Analysis</h4>
+        <ul class="vmod-dot-list">
+          <li>PEST – Automated parameter estimation, calibration and sensitivity analysis, with support for pilot points, regularization, and advanced kriging.</li>
+        </ul>
+      </div>
+      <div class="vmod-feature-card" style="width:100%;max-width:none;min-width:0;align-self:stretch;">
+        <h4 style="color:#2563eb; margin-bottom:8px;">Grid Types</h4>
+        <ul class="vmod-dot-list">
+          <li><b>Structured Finite Difference Grids:</b> Domain divided into layers, rows, and columns. Supports deformed, uniform, and semi-uniform vertical discretization.</li>
+          <li><b>Unstructured Control Volume Finite Difference Grids:</b> Includes QuadTree (Q-grid) and Voronoi (V-grid) for local refinement and complex geometries.</li>
+        </ul>
+      </div>
+      <div class="vmod-feature-card" style="width:100%;max-width:none;min-width:0;align-self:stretch;">
+        <h4 style="color:#2563eb; margin-bottom:8px;">Supported File Types</h4>
+        <ul class="vmod-dot-list">
+          <li><b>Spatial/Vector Data:</b> Points (.XLS, .XLSX, .TXT, .CSV, .MDB, .SHP, .DXF, .TRP), Polylines (.SHP, .DXF), Polygons (.SHP, .DXF)</li>
+          <li><b>Raster Data:</b> 3D Surfaces (.GRD, .ASC), 3D Gridded Data (.HDS, .UCN, .DAT), Images (.BMP, .TIF, .JPG, .DXF)</li>
+          <li><b>Time Schedules:</b> Tabulated data (.XLS, .XLSX, .TXT, .CSV, .MDB)</li>
+          <li><b>Cross-Sections:</b> Hydro GeoAnalyst (HGA) Cross Sections (.3XS)</li>
+          <li><b>Vertical and Non-vertical Wells:</b> Tabulated Data (.XLSX, .CSV)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="vmod-section" style="text-align:center; background: #f3f7fd;">
+    <h2 style="color:#1a2340;">Get Started With Visual MODFLOW Flex</h2>
+    <p style="font-size:1.13rem; color:#232b3b; max-width:700px; margin:0 auto 24px auto;">Ready to experience the power of Visual MODFLOW Flex? Download a free trial or contact us for more information.</p>
+</section>
+
+</body>
+</html>

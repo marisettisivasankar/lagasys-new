@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoRisk View - Ecological Risk Assessment Software</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f8fbff;
+      margin: 0;
+      padding: 0;
+    }
+    .ecoriskview-features-section {
+      background: #15183a;
+    }
+    .ecoriskview-features-cards-grid {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 48px;
+    }
+    .ecoriskview-feature-card {
+      background: #23265a;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(37,99,235,0.10);
+      padding: 38px 32px 32px 32px;
+      min-width: 280px;
+      max-width: 400px;
+      flex: 1 1 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      color: #fff;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .ecoriskview-feature-card:hover, .ecoriskview-feature-card:focus {
+      box-shadow: 0 8px 40px rgba(37,99,235,0.18);
+      transform: translateY(-6px) scale(1.03);
+    }
+    .ecoriskview-feature-icon {
+      font-size: 2.5rem;
+      color: #2196f3;
+      margin-bottom: 18px;
+      display: block;
+    }
+    .ecoriskview-feature-card h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin: 0 0 12px 0;
+      color: #fff;
+    }
+    .ecoriskview-feature-card p {
+      font-size: 1.08rem;
+      color: #e3eaff;
+      margin: 0;
+    }
+    .ecoriskview-features-btn:hover, .ecoriskview-features-btn:focus {
+      background: #2563eb;
+      color: #fff;
+      border-color: #2563eb;
+      text-decoration: none;
+    }
+    @media (max-width: 900px) {
+      .ecoriskview-features-cards-grid { flex-direction: column; align-items: center; gap: 18px; }
+      .ecoriskview-feature-card { max-width: 98vw; min-width: 180px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Intro Section Start -->
+  <section id="intro-section" style="position: relative; min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; background: url('image/ecological.avif') center center/cover no-repeat;">
+    <div style="position: absolute; inset: 0; background: rgba(24, 36, 56, 0.68); z-index: 1;"></div>
+    <div style="position: relative; z-index: 2; max-width: 900px; width: 100%; padding: 0 24px; text-align: center; color: #fff;">
+      <h1 style="font-size: 3.2rem; font-weight: 900; margin-bottom: 18px; letter-spacing: -1px; line-height: 1.1;">EcoRisk View</h1>
+      <h2 style="font-size: 1.7rem; font-weight: 500; margin-bottom: 32px; color: #e3eaff;">Ecological Risk Assessment Software</h2>
+      <p style="font-size: 1.18rem; max-width: 700px; margin: 0 auto 38px auto; color: #e0e6f0; line-height: 1.6;">EcoRisk View streamlines the ecological risk assessment process, providing advanced tools for evaluating environmental impacts, managing data, and generating comprehensive reports. Designed for consultants, regulators, and industry professionals.</p>
+      <button onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'});" style="background: #2563eb; color: #fff; font-size: 1.18rem; font-weight: 700; border: none; border-radius: 10px; padding: 18px 44px; box-shadow: 0 2px 16px rgba(37,99,235,0.13); cursor: pointer; transition: background 0.2s; display: inline-flex; align-items: center; gap: 10px;">
+        More Details <span style="font-size: 1.3rem; display: inline-block; transform: translateY(1px);"><i class="ri-arrow-down-line"></i></span>
+      </button>
+    </div>
+  </section>
+  <!-- Intro Section End -->
+
+  <!-- Overview Section Start -->
+  <section id="ecoriskview-overview" style="background: linear-gradient(90deg, #f8fbff 60%, #f3f7fd 100%); padding: 0; margin: 0;">
+    <div style="display: flex; flex-wrap: wrap; align-items: stretch; justify-content: center; max-width: 1400px; margin: 0 auto; padding: 64px 0 32px 0;">
+      <!-- Left: Text -->
+      <div style="flex: 1 1 480px; min-width: 340px; max-width: 700px; padding: 0 36px 0 6vw; display: flex; flex-direction: column; justify-content: center;">
+        <span style="font-size: 1.02rem; font-weight: 700; color: #2563eb; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 18px;">Risk Assessment Program</span>
+        <h1 style="font-size: 2.8rem; font-weight: 900; color: #1a2340; margin-bottom: 10px; letter-spacing: -1px;">EcoRisk View</h1>
+        <h2 style="font-size: 2rem; font-weight: 700; color: #757b8a; margin-bottom: 24px;">Ecological Risk Assessment Program</h2>
+        <hr style="border: none; border-top: 2px solid #2563eb; width: 80%; margin: 0 0 28px 0;">
+        <p style="font-size: 1.13rem; color: #232b3b; line-height: 1.7; margin-bottom: 18px;"><b>EcoRisk View</b> is an advanced ecological risk assessment program for conducting a comprehensive multi-pathway ecological risk assessment by simultaneously calculating risk values for multiple chemicals, from multiple sources, at multiple exposure locations.</p>
+        <p style="font-size: 1.13rem; color: #232b3b; line-height: 1.7; margin-bottom: 18px;">It fully implements the latest U.S. EPA guidance for evaluating ecological risks: the 1999 U.S. EPA - OSW Screening Level Ecological Risk Assessment Protocol (SLERAP).</p>
+        <p style="font-size: 1.13rem; color: #232b3b; line-height: 1.7;">Regardless of experience, risk assessors, trial burn planners, permit writers, and toxicologists can readily produce expert results and professional reports. Most of all, they are completing these projects in only a fraction of the time and cost traditionally absorbed during in-depth risk.</p>
+      </div>
+      <!-- Right: Image -->
+      <div style="flex: 1 1 400px; min-width: 320px; max-width: 600px; display: flex; align-items: center; justify-content: center; position: relative; padding: 24px 24px 24px 0;">
+        <div style="width: 100%; max-width: 440px; aspect-ratio: 1/1; background: #fff; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 32px rgba(37,99,235,0.10); display: flex; align-items: center; justify-content: center; position: relative;">
+          <img src="image/eco_overview.png" alt="EcoRisk View Screenshot" style="width: 100%; height: auto; object-fit: cover; border-radius: 50%;">
+          <span style="position: absolute; right: 24px; bottom: 24px; background: #2563eb; color: #fff; border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 2px 12px rgba(37,99,235,0.13);">
+            <i class="ri-team-fill"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Overview Section End -->
+
+  <!-- Key Features Section Start -->
+  <section class="ecoriskview-features-section" style="background: #15183a; padding: 80px 0 64px 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 18px; text-align: center;">
+      <span style="font-size: 1.02rem; font-weight: 700; color: #2563eb; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 18px; display: block;">Features</span>
+      <h2 style="font-size: 2.6rem; font-weight: 900; color: #fff; margin-bottom: 18px;">EcoRisk View Key Features</h2>
+      <p style="font-size: 1.18rem; color: #e3eaff; margin-bottom: 38px; max-width: 900px; margin-left: auto; margin-right: auto;">EcoRisk View incorporates features designed by experienced meteorologists and engineers who routinely work with risk assessment programs. This ensures it meets the practical needs of today's modelers for successful and efficient performance.</p>
+      <div class="ecoriskview-features-cards-grid">
+        <div class="ecoriskview-feature-card">
+          <span class="ecoriskview-feature-icon"><i class="fa-solid fa-desktop"></i></span>
+          <h3>Integrated Interface</h3>
+          <p>Fully integrated GIS-based interface with easy-to-use graphical tools.</p>
+        </div>
+        <div class="ecoriskview-feature-card">
+          <span class="ecoriskview-feature-icon"><i class="fa-solid fa-database"></i></span>
+          <h3>COPC Database</h3>
+          <p>Includes the full US EPA database of Compounds of Potential Concern.</p>
+        </div>
+        <div class="ecoriskview-feature-card">
+          <span class="ecoriskview-feature-icon"><i class="fa-solid fa-network-wired"></i></span>
+          <h3>Custom Foodwebs</h3>
+          <p>Complex food webs with flexibility to modify trophic level pathways.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Key Features Section End -->
+
+  <!-- Integrated Graphical User Interface Section Start -->
+  <section id="ecoriskview-gui" style="background: #fff; padding: 80px 0 80px 0;">
+    <div style="max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0;">
+      <!-- Left: Laptop Image with blue background -->
+      <div style="flex: 1 1 480px; min-width: 340px; max-width: 600px; display: flex; align-items: center; justify-content: center; position: relative; min-height: 380px;">
+        <div style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 420px; height: 340px; background: white; border-radius: 32px; z-index: 1; box-shadow: 0 8px 40px rgba(37,99,235,0.10);"></div>
+        <img src="image/eco_feature_main.png" alt="EcoRisk View GUI Screenshot" style="position: relative; z-index: 2; width: 480px; max-width: 100%; height: auto; box-shadow: 0 8px 40px rgba(37,99,235,0.13); background: transparent;">
+      </div>
+      <!-- Right: Text -->
+      <div style="flex: 1 1 520px; min-width: 340px; max-width: 700px; padding: 0 36px 0 6vw; display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="font-size: 2.5rem; font-weight: 900; color: #15183a; margin-bottom: 18px; letter-spacing: -1px;">Integrated Graphical User Interface</h2>
+        <p style="font-size: 1.18rem; color: #232b3b; line-height: 1.7; margin-bottom: 0;">EcoRisk View offers a user-friendly graphical interface with intuitive tools for conducting risk assessments. It simplifies the process of performing risk calculations and generating detailed reports. The graphical tools are designed for ease of use, enhancing efficiency throughout the project. Comprehensive output reports provide clear and thorough results, supporting informed decision-making.</p>
+      </div>
+    </div>
+  </section>
+  <!-- Integrated Graphical User Interface Section End -->
+   <!-- Extensive COPC Database Section Start -->
+  <section id="ecoriskview-gui" style="background: #fff; padding: 80px 0 80px 0;">
+    <div style="max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0;">
+      <!-- Left: Laptop Image with blue background -->
+      <div style="flex: 1 1 480px; min-width: 340px; max-width: 600px; display: flex; align-items: center; justify-content: center; position: relative; min-height: 380px;">
+        <div style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 420px; height: 340px; background: white; border-radius: 32px; z-index: 1; box-shadow: 0 8px 40px rgba(37,99,235,0.10);"></div>
+        <img src="image/eco_feature_copc.png" alt="EcoRisk View GUI Screenshot" style="position: relative; z-index: 2; width: 480px; max-width: 100%; height: auto; box-shadow: 0 8px 40px rgba(37,99,235,0.13); background: transparent;">
+      </div>
+      <!-- Right: Text -->
+      <div style="flex: 1 1 520px; min-width: 340px; max-width: 700px; padding: 0 36px 0 6vw; display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="font-size: 2.5rem; font-weight: 900; color: #15183a; margin-bottom: 18px; letter-spacing: -1px;">Extensive COPC Database</h2>
+        <p style="font-size: 1.18rem; color: #232b3b; line-height: 1.7; margin-bottom: 0;">The full US EPA database of Compounds Of Potential Concern (COPCs) is included in EcoRisk View, complete with fate and transport parameters. Contains a wealth of species specific toxicity reference values and BCFs. Point-and-click flexibility to change default values to user specific values or conduct sensitivity analyses.</p>
+      </div>
+    </div>
+  </section>
+  <!-- Extensive COPC Database Section End -->
+   <!-- Default and Customizable Foodwebs Section Start -->
+  <section id="ecoriskview-gui" style="background: #fff; padding: 80px 0 80px 0;">
+    <div style="max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0;">
+      <!-- Left: Laptop Image with blue background -->
+      <div style="flex: 1 1 480px; min-width: 340px; max-width: 600px; display: flex; align-items: center; justify-content: center; position: relative; min-height: 380px;">
+        <div style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 420px; height: 340px; background: white; border-radius: 32px; z-index: 1; box-shadow: 0 8px 40px rgba(37,99,235,0.10);"></div>
+        <img src="image/eco_feature_foodweb.png" alt="EcoRisk View GUI Screenshot" style="position: relative; z-index: 2; width: 480px; max-width: 100%; height: auto; box-shadow: 0 8px 40px rgba(37,99,235,0.13); background: transparent;">
+      </div>
+      <!-- Right: Text -->
+      <div style="flex: 1 1 520px; min-width: 340px; max-width: 700px; padding: 0 36px 0 6vw; display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="font-size: 2.5rem; font-weight: 900; color: #15183a; margin-bottom: 18px; letter-spacing: -1px;">Default and Customizable Foodwebs</h2>
+        <p style="font-size: 1.18rem; color: #232b3b; line-height: 1.7; margin-bottom: 0;">EcoRisk View offers complex default food webs that can be easily modified. Users can adjust trophic level pathways with a simple "point-and-click" interface. This flexibility allows for customization of existing food webs. Additionally, users have the option to create entirely new food webs from scratch.</p>
+      </div>
+    </div>
+  </section>
+  <!-- Default and Customizable Foodwebs Section End -->
+   <!-- Comprehensive Risk Table Output Section Start -->
+  <section id="ecoriskview-gui" style="background: #fff; padding: 80px 0 80px 0;">
+    <div style="max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0;">
+      <!-- Left: Laptop Image with blue background -->
+      <div style="flex: 1 1 480px; min-width: 340px; max-width: 600px; display: flex; align-items: center; justify-content: center; position: relative; min-height: 380px;">
+        <div style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 420px; height: 340px; background: white; border-radius: 32px; z-index: 1; box-shadow: 0 8px 40px rgba(37,99,235,0.10);"></div>
+        <img src="image/eco_feature_output_report.png" alt="EcoRisk View GUI Screenshot" style="position: relative; z-index: 2; width: 480px; max-width: 100%; height: auto; box-shadow: 0 8px 40px rgba(37,99,235,0.13); background: transparent;">
+      </div>
+      <!-- Right: Text -->
+      <div style="flex: 1 1 520px; min-width: 340px; max-width: 700px; padding: 0 36px 0 6vw; display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="font-size: 2.5rem; font-weight: 900; color: #15183a; margin-bottom: 18px; letter-spacing: -1px;">Comprehensive Risk Table Output</h2>
+        <p style="font-size: 1.18rem; color: #232b3b; line-height: 1.7; margin-bottom: 0;">EcoRisk View generates a comprehensive set of tables that summarize risk and concentration values. These tables make it easy for users to quickly access and review their results. The clear organization of data enhances the efficiency of analyzing risk assessments. This feature ensures that all key information is readily available for informed decision-making.</p>
+      </div>
+    </div>
+  </section>
+  <!-- Comprehensive Risk Table Output Section End -->
+
+
+  <!-- SLERAP Documentation Section Start -->
+  <section id="ecoriskview-slerap-docs" style="background: #f8fbff; padding: 80px 0 80px 0; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;">
+    <div style="max-width: 1600px; margin: 0 auto; padding: 0 32px;">
+      <span style="font-size: 1.02rem; font-weight: 700; color: #2563eb; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 18px; display: block;">Documentation</span>
+      <h2 style="font-size: 2.1rem; font-weight: 900; color: #15183a; margin-bottom: 8px;">Screening Level Ecological Risk Assessment Protocol (SLERAP) for Hazardous Waste Combustion Facilities</h2>
+      <div style="font-size: 0.98rem; color: #6b7280; margin-bottom: 18px;">Source: U.S. EPA, Office of Solid Waste EPA 530-D-99-001A, August 1999</div>
+      <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 36px 24px 32px 24px;">
+        <!-- Volume 1 -->
+        <div style="font-weight: 700; color: #232b3b; font-size: 1.13rem; margin-bottom: 10px;">Volume 1</div>
+        <div style="border-bottom: 1px solid #e3eaff; margin-bottom: 10px;"></div>
+        <div style="display: flex; flex-direction: column; gap: 18px; margin-bottom: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+            <div>Introduction with objectives and purpose, related trial burn issues, reference documents and organization of remainder of document.</div>
+            <a href="#" style="color: #2563eb; font-weight: 700; text-decoration: none;">Chapter 1</a>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+            <div>Facility Characterization discussing complex facility information, identifying emission sources, estimating emission rates, identifying compounds of potential concern (COPCs), estimating COPC concentrations for non-detects and evaluating contamination in blanks.</div>
+            <a href="#" style="color: #2563eb; font-weight: 700; text-decoration: none;">Chapter 2</a>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+            <div>Air Dispersion and Deposition Modeling with recommended models, site-specific characteristics, source data, use of test emission rates, partitioning of emissions, meteorological data, model selection, supporting documentation, ISCST3 model input files, ISCST3 model execution, use of modeled output, modeling fugitive emissions and modeling results review.</div>
+            <a href="#" style="color: #2563eb; font-weight: 700; text-decoration: none;">Chapter 3</a>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+            <div>Problem Formulation with exposure setting characterization, food web development, selecting assessment endpoints and identifying measures of effect.</div>
+            <a href="#" style="color: #2563eb; font-weight: 700; text-decoration: none;">Chapter 4</a>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+            <div>Analysis with exposure assessment and toxicity assessment.</div>
+            <a href="#" style="color: #2563eb; font-weight: 700; text-decoration: none;">Chapter 5</a>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+            <div>Risk Characterization with risk estimation, risk description and uncertainty and limitations of the Screening Level Risk Assessment.</div>
+            <a href="#" style="color: #2563eb; font-weight: 700; text-decoration: none;">Chapter 6</a>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+            <div>References used in this document.</div>
+            <a href="#" style="color: #2563eb; font-weight: 700; text-decoration: none;">References</a>
+          </div>
+        </div>
+        <!-- Volume 2 -->
+        <div style="font-weight: 700; color: #232b3b; font-size: 1.13rem; margin-bottom: 10px; margin-top: 18px;">Volume 2</div>
+        <div style="border-bottom: 1px solid #e3eaff; margin-bottom: 10px;"></div>
+        <div style="display: flex; flex-direction: column; gap: 18px; margin-bottom: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+            <div>Consists of the following two documents: A-1. Chemicals for Consideration as Compounds of Potential Concern A-2. Compound-Specific Parameter Values</div>
+            <a href="#" style="color: #2563eb; font-weight: 700; text-decoration: none;">Appendix A</a>
+          </div>
+        </div>
+        <!-- Volume 3 -->
+        <div style="font-weight: 700; color: #232b3b; font-size: 1.13rem; margin-bottom: 10px; margin-top: 18px;">Volume 3</div>
+        <div style="border-bottom: 1px solid #e3eaff; margin-bottom: 10px;"></div>
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+            <div>Estimating Media Concentration Equations and Variable Values</div>
+            <a href="#" style="color: #2563eb; font-weight: 700; text-decoration: none;">Appendix B</a>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+            <div>Media-to-Reptile Bioconcentration Factors (BCFs)</div>
+            <a href="#" style="color: #2563eb; font-weight: 700; text-decoration: none;">Appendix C</a>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+            <div>Bioconcentration Factors (BCFs) for Wildlife Measurement Receptors</div>
+            <a href="#" style="color: #2563eb; font-weight: 700; text-decoration: none;">Appendix D</a>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+            <div>Toxicity Reference Values</div>
+            <a href="#" style="color: #2563eb; font-weight: 700; text-decoration: none;">Appendix E</a>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+            <div>Equations for Computing COPC Concentrations and COPC Dose Ingested Terms</div>
+            <a href="#" style="color: #2563eb; font-weight: 700; text-decoration: none;">Appendix F</a>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+            <div>State Natural Heritage Programs</div>
+            <a href="#" style="color: #2563eb; font-weight: 700; text-decoration: none;">Appendix G</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- SLERAP Documentation Section End -->
+<!-- Copyright Section Start -->
+        <footer style="background: linear-gradient(135deg, #1db954 0%, #2563eb 100%); color: #eaf4ff; text-align: center; padding: 28px 0 18px 0; font-size: 1.08rem; font-family: inherit; letter-spacing: 0.02em;">
+            &copy; 2025 LaGa Systems Pvt Ltd. All rights reserved.
+        </footer>
+</body> 
+</html>

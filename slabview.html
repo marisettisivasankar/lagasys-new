@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SLAB View - Emergency Release Dense Gas Model</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f8fbff;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Intro Section Start -->
+  <section id="intro-section" style="position: relative; min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; background: url('image/emergency.avif') center center/cover no-repeat;">
+    <div style="position: absolute; inset: 0; background: rgba(24, 36, 56, 0.68); z-index: 1;"></div>
+    <div style="position: relative; z-index: 2; max-width: 900px; width: 100%; padding: 0 24px; text-align: center; color: #fff;">
+      <h1 style="font-size: 3.2rem; font-weight: 900; margin-bottom: 18px; letter-spacing: -1px; line-height: 1.1;">SLAB View</h1>
+      <h2 style="font-size: 1.7rem; font-weight: 500; margin-bottom: 32px; color: #e3eaff;">Emergency Release Dense Gas Model</h2>
+      <p style="font-size: 1.18rem; max-width: 700px; margin: 0 auto 38px auto; color: #e0e6f0; line-height: 1.6;">SLAB View is a user-friendly interface for the SLAB dense gas dispersion model, designed for simulating the atmospheric dispersion of heavier-than-air releases. It is ideal for accidental releases of toxic, flammable, or explosive gases, supporting emergency response, risk assessment, and regulatory compliance.</p>
+      <button onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'});" style="background: #2563eb; color: #fff; font-size: 1.18rem; font-weight: 700; border: none; border-radius: 10px; padding: 18px 44px; box-shadow: 0 2px 16px rgba(37,99,235,0.13); cursor: pointer; transition: background 0.2s; display: inline-flex; align-items: center; gap: 10px;">
+        More Details <span style="font-size: 1.3rem; display: inline-block; transform: translateY(1px);"><i class="ri-arrow-down-line"></i></span>
+      </button>
+    </div>
+  </section>
+  <!-- Intro Section End -->
+</section>
+<!-- Overview Section Start -->
+<section style="background: #fff; padding: 64px 0 64px 0;">
+  <div style="max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: 48px; padding: 0 24px;">
+    <!-- Left: Text Content -->
+    <div style="flex: 2 1 520px; min-width: 340px; max-width: 800px;">
+      <div style="color: #2563eb; font-size: 1.08rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 10px;">Emergency Release</div>
+      <h2 style="font-size: 2.5rem; font-weight: 800; color: #181c32; margin-bottom: 10px;">SLAB View</h2>
+      <div style="font-size: 1.45rem; color: #888; font-weight: 700; margin-bottom: 22px;">Emergency Release Dense Gas Model</div>
+      <hr style="border: none; border-top: 2px solid #2563eb33; width: 100%; margin: 24px 0 24px 0;">
+      <div style="font-size: 1.08rem; color: #222; margin-bottom: 18px; line-height: 1.6;">
+        This software provides a graphical user interface for the SLAB atmospheric dispersion model, specifically designed for denser-than-air releases. It is an essential tool for predicting hazardous zones and assessing potential impacts of accidental emissions.
+      </div>
+      <div style="font-size: 1.08rem; color: #222; margin-bottom: 18px; line-height: 1.6;">
+        The platform visualizes how a release evolves over time and determines the total footprint of the incident.
+      </div>
+      <div style="font-size: 1.08rem; color: #222; margin-bottom: 18px; line-height: 1.6;">
+        Users can simulate continuous, finite duration, and instantaneous releases from four different source types:
+      </div>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px;">
+          <span style="color: #2563eb; font-size: 1.3rem; margin-top: 2px;"><i class="ri-checkbox-circle-fill"></i></span>
+          <span style="font-size: 1.08rem; color: #181c32;">A ground-level evaporating pool</span>
+        </li>
+        <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px;">
+          <span style="color: #2563eb; font-size: 1.3rem; margin-top: 2px;"><i class="ri-checkbox-circle-fill"></i></span>
+          <span style="font-size: 1.08rem; color: #181c32;">An elevated horizontal jet</span>
+        </li>
+        <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px;">
+          <span style="color: #2563eb; font-size: 1.3rem; margin-top: 2px;"><i class="ri-checkbox-circle-fill"></i></span>
+          <span style="font-size: 1.08rem; color: #181c32;">A stack or elevated vertical jet</span>
+        </li>
+        <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px;">
+          <span style="color: #2563eb; font-size: 1.3rem; margin-top: 2px;"><i class="ri-checkbox-circle-fill"></i></span>
+          <span style="font-size: 1.08rem; color: #181c32;">And a ground-based instantaneous release</span>
+        </li>
+      </ul>
+    </div>
+    <!-- Right: Image Content -->
+    <div style="flex: 1 1 380px; min-width: 320px; max-width: 520px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 100%; max-width: 420px; aspect-ratio: 1/1; background: #fff; border-radius: 50%; overflow: hidden; box-shadow: 0 8px 40px rgba(30,64,175,0.10); display: flex; align-items: center; justify-content: center; position: relative;">
+        <img src="image/slab_overview.png" alt="SLAB View Screenshot" style="width: 100%; height: auto; object-fit: cover;">
+        <span style="position: absolute; right: 18px; bottom: 18px; background: #2563eb; color: #fff; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 16px rgba(30,64,175,0.10);">
+          <i class="ri-error-warning-line"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Overview Section End -->
+</section>
+<!-- Key Features Section Start -->
+<section style="background: #181c32; padding: 64px 0 64px 0;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+    <div style="color: #2563eb; font-size: 1.08rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; text-align: center; margin-bottom: 10px;">Features</div>
+    <h2 style="font-size: 2.5rem; font-weight: 900; color: #fff; margin-bottom: 18px; text-align: center;">SLAB View Key Features</h2>
+    <div style="color: #e0e6f0; font-size: 1.13rem; margin-bottom: 36px; text-align: center; max-width: 900px; margin-left: auto; margin-right: auto;">The SLAB model was developed in the 1980's by the Lawrence Livermore National Laboratory (LLNL), with financial support from the Department of Energy (DOE).<br>The SLAB model is currently distributed by the US EPA.</div>
+    <div class="slab-features-grid">
+      <!-- Card 1 -->
+      <div class="slab-feature-card">
+        <i class="ri-computer-line"></i>
+        <div class="feature-title">Integrated Interface</div>
+        <div class="feature-desc">Fully integrated GIS-based interface combining easy to use graphical tools.</div>
+      </div>
+      <!-- Card 2 -->
+      <div class="slab-feature-card">
+        <i class="ri-computer-line"></i>
+        <div class="feature-title">3D Visualization</div>
+        <div class="feature-desc">Visualize plume dispersion in 3D with SLAB 3D's animation, ideal for presentations and analysis.</div>
+      </div>
+      <!-- Card 3 -->
+      <div class="slab-feature-card">
+        <i class="ri-computer-line"></i>
+        <div class="feature-title">Google Earth Export</div>
+        <div class="feature-desc">Export your buildings, sources, receptors and contours into Google Earth.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .slab-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 32px;
+  }
+  .slab-feature-card {
+    background: #23294a;
+    border-radius: 14px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 4px 24px rgba(30,64,175,0.07);
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+  }
+  .slab-feature-card i {
+    font-size: 2.1rem;
+    color: #2563eb;
+    margin-bottom: 12px;
+    transition: color 0.2s;
+  }
+  .slab-feature-card .feature-title {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+    transition: color 0.2s;
+  }
+  .slab-feature-card .feature-desc {
+    font-size: 1.01rem;
+    color: #eaf4ff;
+    transition: color 0.2s;
+  }
+  .slab-feature-card:hover {
+    background: #2563eb;
+  }
+  .slab-feature-card:hover i,
+  .slab-feature-card:hover .feature-title,
+  .slab-feature-card:hover .feature-desc {
+    color: #fff !important;
+  }
+  @media (max-width: 900px) {
+    .slab-features-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 600px) {
+    .slab-features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<!-- Key Features Section End -->
+</section>
+<!-- Feature Highlights Section Start -->
+<section style="background: #fff; padding: 64px 0 64px 0;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+    <div class="slab-feature-highlights-grid">
+      <!-- Card 1 -->
+      <div class="slab-highlight-card">
+        <div class="slab-highlight-imgwrap"><div class="slab-highlight-imgbg"></div><img src="image/slab_feature_main.png" alt="Integrated GUI Screenshot" class="slab-highlight-img"></div>
+        <div class="slab-highlight-text">
+          <h3>Integrated Graphical User Interface</h3>
+          <div>A fully integrated interface for atmospheric dispersion modeling. It combines user-friendly graphical tools with streamlined model execution for a smooth workflow. The software automates contouring and displays results effortlessly. This integration makes it easy to visualize and analyze model outcomes effectively.</div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="slab-highlight-card">
+        <div class="slab-highlight-imgwrap"><div class="slab-highlight-imgbg"></div><img src="image/slab_feature_graphs.png" alt="Maximum Concentration Graphs" class="slab-highlight-img"></div>
+        <div class="slab-highlight-text">
+          <h3>Maximum Concentration Graphs</h3>
+          <div>SLAB View automatically generates graphs displaying the Maximum Concentration Along the Centerline for all the meteorological conditions being modeled. You can specify the Level of Concern (LOC) for the chemical being modeled to be shown in the graph (indicated in this image as a red line).</div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="slab-highlight-card">
+        <div class="slab-highlight-imgwrap"><div class="slab-highlight-imgbg"></div><img src="image/slab_feature_3d.png" alt="3D Visualization" class="slab-highlight-img"></div>
+        <div class="slab-highlight-text">
+          <h3>3D Visualization</h3>
+          <div>Allows you to observe plume dispersion in three dimensions. This feature makes it simpler than ever to understand the spread of a release. SLAB 3D also enables you to create animated representations of plume movement. These animations can be easily integrated into most presentation software for enhanced communication.</div>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="slab-highlight-card">
+        <div class="slab-highlight-imgwrap"><div class="slab-highlight-imgbg"></div><img src="image/slab_feature_google.png" alt="Export to Google Earth" class="slab-highlight-img"></div>
+        <div class="slab-highlight-text">
+          <h3>Export to Google Earth</h3>
+          <div>This powerful feature enables you to export the spill footprint or puff directly into Google Earth. This feature provides a more realistic view of the spill’s impact area. By visualizing the affected zone in Google Earth, it’s easier to understand the spill's reach. This enables better assessment of potential impacts on nearby regions.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .slab-feature-highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 38px 32px;
+    margin-top: 18px;
+  }
+  .slab-highlight-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(30,64,175,0.07);
+    padding: 28px 18px 22px 18px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: box-shadow 0.2s, background 0.2s;
+    cursor: pointer;
+    min-height: 260px;
+    position: relative;
+    overflow: hidden;
+    gap: 32px;
+  }
+  .slab-highlight-card:hover {
+    background: #2563eb;
+    box-shadow: 0 8px 40px rgba(37,99,235,0.18);
+  }
+  .slab-highlight-card:hover .slab-highlight-imgbg {
+    background: #181c32;
+  }
+  .slab-highlight-card:hover .slab-highlight-img {
+    box-shadow: 0 8px 40px rgba(37,99,235,0.18);
+  }
+  .slab-highlight-card:hover .slab-highlight-text h3,
+  .slab-highlight-card:hover .slab-highlight-text div {
+    color: #fff !important;
+  }
+  .slab-highlight-imgwrap {
+    position: relative;
+    width: 220px;
+    min-width: 180px;
+    max-width: 240px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .slab-highlight-imgbg {
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: #2563eb;
+    border-radius: 18px;
+    z-index: 1;
+    transition: background 0.2s;
+  }
+  .slab-highlight-img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(30,64,175,0.13);
+    background: #fff;
+    transition: box-shadow 0.2s;
+  }
+  .slab-highlight-text {
+    flex: 1 1 100%;
+    padding: 0 2px;
+  }
+  .slab-highlight-text h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #181c32;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+  }
+  .slab-highlight-text div {
+    font-size: 1.01rem;
+    color: #23294a;
+    line-height: 1.7;
+    transition: color 0.2s;
+  }
+  @media (max-width: 1100px) {
+    .slab-feature-highlights-grid {
+      grid-template-columns: 1fr;
+    }
+    .slab-highlight-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+    }
+    .slab-highlight-imgwrap {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+</style>
+<!-- Feature Highlights Section End -->
+</section>
+<!-- Additional Features Section Start -->
+<section style="background: #181c32; padding: 64px 0 64px 0;">
+  <div style="max-width: 1400px; margin: 0 auto; padding: 0 24px;">
+    <h2 style="font-size: 2.5rem; font-weight: 900; color: #fff; margin-bottom: 18px;">Additional Features</h2>
+    <div style="color: #fff; font-size: 1.18rem; margin-bottom: 38px; max-width: 1100px;">SLAB View offers more than just an intuitive interface. Every copy comes fully equipped with all the tools you need to complete your project - no need for expensive add-ons.</div>
+    <div class="slab-additional-features-grid">
+      <!-- Card 1 -->
+      <div class="slab-additional-feature-card">
+        <i class="ri-computer-line"></i>
+        <div class="feature-title">Base Map Support</div>
+        <div class="feature-desc">Support for a variety of image and base map formats allowing you to setup your model with easy visualization and identification of the location of your spill area.</div>
+      </div>
+      <!-- Card 2 -->
+      <div class="slab-additional-feature-card">
+        <i class="ri-computer-line"></i>
+        <div class="feature-title">Chemical Database</div>
+        <div class="feature-desc">SLAB View has an extensive database of chemicals that can be modeled, including their properties. User defined chemicals can also be added.</div>
+      </div>
+      <!-- Card 3 -->
+      <div class="slab-additional-feature-card">
+        <i class="ri-computer-line"></i>
+        <div class="feature-title">Multiple Release Types</div>
+        <div class="feature-desc">SLAB View models several different release types such as horizontal and vertical jet, evaporation pool, and instantaneous or short duration evaporation pool.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .slab-additional-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+    margin-top: 38px;
+  }
+  .slab-additional-feature-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 38px 32px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 4px 32px rgba(30,64,175,0.09);
+    transition: background 0.22s, color 0.22s;
+    cursor: pointer;
+    min-height: 320px;
+  }
+  .slab-additional-feature-card i {
+    font-size: 2.2rem;
+    color: #2563eb;
+    margin-bottom: 18px;
+    transition: color 0.22s;
+  }
+  .slab-additional-feature-card .feature-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #181c32;
+    margin-bottom: 10px;
+    transition: color 0.22s;
+  }
+  .slab-additional-feature-card .feature-desc {
+    font-size: 1.08rem;
+    color: #23294a;
+    transition: color 0.22s;
+  }
+  .slab-additional-feature-card:hover {
+    background: #2563eb;
+  }
+  .slab-additional-feature-card:hover i,
+  .slab-additional-feature-card:hover .feature-title,
+  .slab-additional-feature-card:hover .feature-desc {
+    color: #fff !important;
+  }
+  @media (max-width: 900px) {
+    .slab-additional-features-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 600px) {
+    .slab-additional-features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<!-- Additional Features Section End -->
+ <!-- Copyright Section Start -->
+        <footer style="background: linear-gradient(135deg, #1db954 0%, #2563eb 100%); color: #eaf4ff; text-align: center; padding: 28px 0 18px 0; font-size: 1.08rem; font-family: inherit; letter-spacing: 0.02em;">
+            &copy; 2025 LaGa Systems Pvt Ltd. All rights reserved.
+        </footer>
+</body>
+</html>

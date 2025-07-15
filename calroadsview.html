@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CALRoads View - Traffic Air Dispersion Model</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f8fbff;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Intro Section Start -->
+  <section id="intro-section" style="position: relative; min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; background: url('image/traffic.avif') center center/cover no-repeat;">
+    <div style="position: absolute; inset: 0; background: rgba(24, 36, 56, 0.68); z-index: 1;"></div>
+    <div style="position: relative; z-index: 2; max-width: 900px; width: 100%; padding: 0 24px; text-align: center; color: #fff;">
+      <h1 style="font-size: 3.2rem; font-weight: 900; margin-bottom: 18px; letter-spacing: -1px; line-height: 1.1;">CALRoads View</h1>
+      <h2 style="font-size: 1.7rem; font-weight: 500; margin-bottom: 32px; color: #e3eaff;">Advanced Roadway Air Dispersion Modeling Solution</h2>
+      <p style="font-size: 1.18rem; max-width: 700px; margin: 0 auto 38px auto; color: #e0e6f0; line-height: 1.6;">CALRoads View is a comprehensive, user-friendly interface for modeling air quality impacts from roadways and traffic sources. It integrates CALINE4, CAL3QHC, and CAL3QHCR models for regulatory and research-grade analysis of pollutant dispersion near highways, streets, and intersections.</p>
+      <button onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'});" style="background: #2563eb; color: #fff; font-size: 1.18rem; font-weight: 700; border: none; border-radius: 10px; padding: 18px 44px; box-shadow: 0 2px 16px rgba(37,99,235,0.13); cursor: pointer; transition: background 0.2s; display: inline-flex; align-items: center; gap: 10px;">
+        More Details <span style="font-size: 1.3rem; display: inline-block; transform: translateY(1px);"><i class="ri-arrow-down-line"></i></span>
+      </button>
+    </div>
+  </section>
+  <!-- Intro Section End -->
+  <!-- CALRoads View Overview Section Start -->
+  <section style="background: #fff; padding: 64px 0 64px 0;">
+    <div style="max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: 48px; padding: 0 24px;">
+      <!-- Left: Text Content -->
+      <div style="flex: 2 1 520px; min-width: 340px; max-width: 800px;">
+        <div style="color: #2563eb; font-size: 1.08rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 10px;">Air Dispersion Model</div>
+        <h2 style="font-size: 2.5rem; font-weight: 800; color: #181c32; margin-bottom: 10px;">CALRoads View</h2>
+        <div style="font-size: 1.45rem; color: #888; font-weight: 700; margin-bottom: 22px;">Traffic Air Dispersion Model</div>
+        <hr style="border: none; border-top: 2px solid #2563eb33; width: 100%; margin: 24px 0 24px 0;">
+        <div style="font-size: 1.08rem; color: #222; margin-bottom: 18px; line-height: 1.6;">
+          <b>CALRoads View</b> is an air dispersion modeling package for predicting air quality impacts produced by mobile sources at or near roadways and roadway intersections.
+        </div>
+        <div style="font-size: 1.08rem; color: #222; margin-bottom: 18px; line-height: 1.6;">
+          Three US EPA models – <b>CALINE4, CAL3QHC, & CAL3QHCR</b> – are combined into one seamless graphical interface. These models predict air pollution concentrations of carbon monoxide (CO), nitrogen dioxide (NO2), particulate matter (PM), and other inert gases.
+        </div>
+      </div>
+      <!-- Right: Image Content -->
+      <div style="flex: 1 1 380px; min-width: 320px; max-width: 520px; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 100%; max-width: 420px; aspect-ratio: 1/1; background: #fff; border-radius: 50%; overflow: hidden; box-shadow: 0 8px 40px rgba(30,64,175,0.10); display: flex; align-items: center; justify-content: center; position: relative;">
+          <img src="image/calroads_overview.png" alt="CALRoads View Screenshot" style="width: 100%; height: auto; object-fit: cover;">
+          <span style="position: absolute; right: 18px; bottom: 18px; background: #2563eb; color: #fff; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 16px rgba(30,64,175,0.10);">
+            <i class="ri-building-2-line"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- CALRoads View Overview Section End -->
+  <!-- 3 Models in 1 Integrated Interface Section Start -->
+  <section style="background: #fff; padding: 32px 0 32px 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+      <h2 style="font-size: 2.5rem; font-weight: 900; color: #181c32; margin-bottom: 28px;">3 Models in 1 Integrated Interface!</h2>
+      <div style="font-size: 1.13rem; color: #23294a; margin-bottom: 28px; max-width: 1100px;">
+        <b>The CALINE 4</b> model developed by the California Department of Transportation (Caltrans) predicts air concentrations of carbon monoxide (CO), nitrogen dioxide (NO2), and suspended particles near roadways. Options are available for modeling near intersections, parking lots, elevated or depressed freeways, and canyons.
+      </div>
+      <div style="font-size: 1.13rem; color: #23294a; margin-bottom: 28px; max-width: 1100px;">
+        <b>The CAL3QHC</b> model estimates total air pollutant concentrations (CO or PM) near highways from both moving and idling vehicles. This model also estimates the length of queues formed by idling vehicles at signalized intersections.
+      </div>
+      <div style="font-size: 1.13rem; color: #23294a; max-width: 1100px;">
+        <b>The CAL3QHCR</b> model is an enhanced version of CAL3QHC, that can process up to a year of hourly meteorological data. Vehicular emissions, traffic volume, and signalization (ETS) data can be specified for each hour of a week.
+      </div>
+    </div>
+  </section>
+  <!-- 3 Models in 1 Integrated Interface Section End -->
+  <!-- CALRoads View Key Features Section Start -->
+  <section style="background: #fff; padding: 64px 0 64px 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+      <div style="color: #2563eb; font-size: 1.08rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; text-align: center; margin-bottom: 10px;">Features</div>
+      <h2 style="font-size: 2.5rem; font-weight: 900; color: #181c32; margin-bottom: 18px; text-align: center;">CALRoads View Key Features</h2>
+      <div style="color: #23294a; font-size: 1.13rem; margin-bottom: 36px; text-align: center; max-width: 900px; margin-left: auto; margin-right: auto;">CALRoads View is an industry-leading tool for modeling mobile sources, offering a comprehensive set of features that simplify the modeling process. Its user-friendly interface allows for quick and easy creation and execution of models, making it an essential tool for professionals.</div>
+      
+      <div class="calroads-features-grid">
+        <!-- Card 1 -->
+        <div class="calroads-feature-card">
+          <i class="ri-computer-line"></i>
+          <div class="feature-title">Integrated Interface</div>
+          <div class="feature-desc">Fully integrated GIS-based interface combining easy to use graphical tools.</div>
+        </div>
+        <!-- Card 2 -->
+        <div class="calroads-feature-card">
+          <i class="ri-computer-line"></i>
+          <div class="feature-title">Unlimited Receptors</div>
+          <div class="feature-desc">Run projects with an unlimited number of receptors, avoiding the restrictions imposed by the models.</div>
+        </div>
+        <!-- Card 3 -->
+        <div class="calroads-feature-card">
+          <i class="ri-computer-line"></i>
+          <div class="feature-title">Tile Maps</div>
+          <div class="feature-desc">Automatically download and import high-resolution satellite and street map imagery into your projects.</div>
+        </div>
+        <!-- Card 4 -->
+        <div class="calroads-feature-card">
+          <i class="ri-computer-line"></i>
+          <div class="feature-title">Met Scenarios</div>
+          <div class="feature-desc">Provides flexibility in capturing different environmental conditions for air quality assessments.</div>
+        </div>
+        <!-- Card 5 -->
+        <div class="calroads-feature-card">
+          <i class="ri-computer-line"></i>
+          <div class="feature-title">Pre-Processor</div>
+          <div class="feature-desc">Pre-process meteorological data for the CAL3QHCR model with Rammet View.</div>
+        </div>
+        <!-- Card 6 -->
+        <div class="calroads-feature-card">
+          <i class="ri-computer-line"></i>
+          <div class="feature-title">Link Types</div>
+          <div class="feature-desc">Ability to model free-flow traffic, intersections, traffic patterns and different receptor configurations.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <style>
+    .calroads-features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 32px;
+    }
+    .calroads-feature-card {
+      background: #23294a;
+      border-radius: 14px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      box-shadow: 0 4px 24px rgba(30,64,175,0.07);
+      transition: background 0.2s, color 0.2s;
+      cursor: pointer;
+    }
+    .calroads-feature-card i {
+      font-size: 2.1rem;
+      color: #3ee6a0;
+      margin-bottom: 12px;
+      transition: color 0.2s;
+    }
+    .calroads-feature-card .feature-title {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+      transition: color 0.2s;
+    }
+    .calroads-feature-card .feature-desc {
+      font-size: 1.01rem;
+      color: #eaf4ff;
+      transition: color 0.2s;
+    }
+    .calroads-feature-card:hover {
+      background: #2563eb;
+    }
+    .calroads-feature-card:hover i,
+    .calroads-feature-card:hover .feature-title,
+    .calroads-feature-card:hover .feature-desc {
+      color: #fff !important;
+    }
+    @media (max-width: 900px) {
+      .calroads-features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 600px) {
+      .calroads-features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <!-- CALRoads View Key Features Section End -->
+  <!-- CALRoads View Feature Highlights Section Start -->
+  <section style="background: #fff; padding: 64px 0 64px 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+      <!-- Row 1: Integrated Graphical User Interface -->
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px; margin-bottom: 64px;">
+        <div style="flex: 1 1 420px; min-width: 320px; max-width: 520px; display: flex; align-items: center; justify-content: center;">
+          <div style="background: white; border-radius: 28px; padding: 24px; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 380px;">
+            <img src="image/calroads_feature_gui.png" alt="Integrated GUI Screenshot" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 8px 32px rgba(30,64,175,0.13); background: #fff;">
+          </div>
+        </div>
+        <div style="flex: 2 1 420px; min-width: 320px; padding-left: 36px;">
+          <h3 style="font-size: 1.7rem; font-weight: 800; color: #181c32; margin-bottom: 10px;">Integrated Graphical User Interface</h3>
+          <div style="font-size: 1.08rem; color: #23294a; line-height: 1.7;">A fully integrated GIS-based interface with powerful, intuitive tools that simplify and enhance your environmental modeling. With easy-to-use graphical tools, you can precisely draw and define roadway links, and receptors, ensuring accurate mapping of your study area. It supports seamless model run execution, allowing for efficient data processing and automatically generates and posts detailed contours, providing clear and immediate insights into pollutant distribution.</div>
+        </div>
+      </div>
+      <!-- Row 2: Unlimited Receptors -->
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px; flex-direction: row-reverse;">
+        <div style="flex: 1 1 420px; min-width: 320px; max-width: 520px; display: flex; align-items: center; justify-content: center;">
+          <div style="background: white; border-radius: 28px; padding: 24px; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 380px;">
+            <img src="image/calroads_feature_receptors.png" alt="Unlimited Receptors Screenshot" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 8px 32px rgba(30,64,175,0.13); background: #fff;">
+          </div>
+        </div>
+        <div style="flex: 2 1 420px; min-width: 320px; padding-right: 36px;">
+          <h3 style="font-size: 1.7rem; font-weight: 800; color: #181c32; margin-bottom: 10px;">Unlimited Receptors</h3>
+          <div style="font-size: 1.08rem; color: #23294a; line-height: 1.7;">CALRoads View provides the flexibility to run a project with an unlimited number of receptors. This feature allows you to configure your project with various receptor options, including a detailed Cartesian receptor grid for uniform coverage, specific discrete receptors for targeted analysis, and receptors placed strategically along roadways to capture traffic-related emissions. This level of customization ensures that you can model air quality impacts with greater precision, adapting to the specific needs of each project without the limitations of receptor count, giving you comprehensive control over your analysis.</div>
+        </div>
+      </div>
+      <br><br>
+      <!-- Row 3: Lakes Tile Maps -->
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px; margin-bottom: 64px;">
+        <div style="flex: 1 1 420px; min-width: 320px; max-width: 520px; display: flex; align-items: center; justify-content: center;">
+          <div style="background: white; border-radius: 28px; padding: 24px; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 380px;">
+            <img src="image/calroads_feature_tilemap.png" alt="Lakes Tile Maps" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 8px 32px rgba(30,64,175,0.13); background: #fff;">
+          </div>
+        </div>
+        <div style="flex: 2 1 420px; min-width: 320px; padding-left: 36px;">
+          <h3 style="font-size: 1.7rem; font-weight: 800; color: #181c32; margin-bottom: 10px;">Lakes Tile Maps</h3>
+          <div style="font-size: 1.08rem; color: #23294a; line-height: 1.7;">Seamlessly download and import high-resolution satellite and street map imagery directly into your projects with just a few clicks. This feature streamlines the graphical input of new road links and receptors, enhancing accuracy and efficiency. The imported imagery also serves as a precise spatial reference, helping you better visualize and analyze your model results with greater confidence.</div>
+        </div>
+      </div>
+      <!-- Row 4: Meteorological Scenarios -->
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px; flex-direction: row-reverse;">
+        <div style="flex: 1 1 420px; min-width: 320px; max-width: 520px; display: flex; align-items: center; justify-content: center;">
+          <div style="background: white; border-radius: 28px; padding: 24px; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 380px;">
+            <img src="image/calroads_feature_mets_cenarios.png" alt="Meteorological Scenarios" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 8px 32px rgba(30,64,175,0.13); background: #fff;">
+          </div>
+        </div>
+        <div style="flex: 2 1 420px; min-width: 320px; padding-right: 36px;">
+          <h3 style="font-size: 1.7rem; font-weight: 800; color: #181c32; margin-bottom: 10px;">Meteorological Scenarios</h3>
+          <div style="font-size: 1.08rem; color: #23294a; line-height: 1.7;">CALINE4: Allows you to specify the worst-case meteorological conditions for air quality analysis. CAL3QHC: Analyze one or more sets of meteorological conditions to assess varying scenarios. CAL3QHCR: Allows you to input up to a full year of hourly meteorological data, enabling continuous, detailed modeling. Together, these tools provide flexibility in capturing different environmental conditions for comprehensive air quality assessments.</div>
+        </div>
+      </div>
+      <br><br>
+      <!-- Row 5: Met Data Pre-Processor for CAL3QHCR -->
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px; margin-bottom: 64px;">
+        <div style="flex: 1 1 420px; min-width: 320px; max-width: 520px; display: flex; align-items: center; justify-content: center;">
+          <div style="background: white; border-radius: 28px; padding: 24px; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 380px;">
+            <img src="image/calroads_feature_rammet.png" alt="Met Data Pre-Processor for CAL3QHCR" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 8px 32px rgba(30,64,175,0.13); background: #fff;">
+          </div>
+        </div>
+        <div style="flex: 2 1 420px; min-width: 320px; padding-left: 36px;">
+          <h3 style="font-size: 1.7rem; font-weight: 800; color: #181c32; margin-bottom: 10px;">Met Data Pre-Processor for CAL3QHCR</h3>
+          <div style="font-size: 1.08rem; color: #23294a; line-height: 1.7;">Rammet View is a meteorological data processing tool specifically designed for use with the CAL3QHCR model, and it comes bundled with CALRoads View at no additional cost. This utility allows you to efficiently pre-process meteorological data, ensuring that it is properly formatted and ready for input into the CAL3QHCR dispersion model.</div>
+        </div>
+      </div>
+      <!-- Row 6: Several Link Types -->
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px; flex-direction: row-reverse;">
+        <div style="flex: 1 1 420px; min-width: 320px; max-width: 520px; display: flex; align-items: center; justify-content: center;">
+          <div style="background: white; border-radius: 28px; padding: 24px; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 380px;">
+            <img src="image/calroads_feature_line.png" alt="Several Link Types" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 8px 32px rgba(30,64,175,0.13); background: #fff;">
+          </div>
+        </div>
+        <div style="flex: 2 1 420px; min-width: 320px; padding-right: 36px;">
+          <h3 style="font-size: 1.7rem; font-weight: 800; color: #181c32; margin-bottom: 10px;">Several Link Types</h3>
+          <div style="font-size: 1.08rem; color: #23294a; line-height: 1.7;">CALRoads View enables precise modeling of free-flow traffic, intersections, parking lots, and street canyons for comprehensive air quality assessments. It allows for the simulation of various traffic patterns, capturing emissions from different roadway types and urban environments. Additionally, the software offers flexible receptor configurations, including grids, discrete points, and receptors along roadways. This versatility makes it ideal for analyzing diverse traffic and environmental scenarios.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- CALRoads View Feature Highlights Section End -->
+   <!-- Additional Features Section Start -->
+<section style="background: #181c32; padding: 64px 0 64px 0;">
+  <div style="max-width: 1400px; margin: 0 auto; padding: 0 24px;">
+    <h2 style="font-size: 2.5rem; font-weight: 900; color: #fff; margin-bottom: 18px;">Additional Features</h2>
+    <div style="color: #fff; font-size: 1.18rem; margin-bottom: 38px; max-width: 1100px;">CALRoads View offers more than just an intuitive interface. Every copy comes fully equipped with all the tools you need to complete your project—no need for expensive add-ons.</div>
+    <div class="calroads-additional-features-grid">
+      <!-- Card 1 -->
+      <div class="calroads-additional-feature-card">
+        <i class="ri-computer-line"></i>
+        <div class="feature-title">Graphical Post-Processing</div>
+        <div class="feature-desc">A wide range of contouring options and controls make it easy to present your results just the way you want them.</div>
+      </div>
+      <!-- Card 2 -->
+      <div class="calroads-additional-feature-card">
+        <i class="ri-computer-line"></i>
+        <div class="feature-title">Windrose Visualization</div>
+        <div class="feature-desc">Create customized windrose plots using WRPLOT View. Change colors, petal size, and more.</div>
+      </div>
+      <!-- Card 3 -->
+      <div class="calroads-additional-feature-card">
+        <i class="ri-computer-line"></i>
+        <div class="feature-title">Input Utilities</div>
+        <div class="feature-desc">Use a variety of input wizards to quickly and easily add all of your project data – links, receptors, emissions, etc.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Copyright Section Start -->
+        <footer style="background: linear-gradient(135deg, #1db954 0%, #2563eb 100%); color: #eaf4ff; text-align: center; padding: 28px 0 18px 0; font-size: 1.08rem; font-family: inherit; letter-spacing: 0.02em;">
+            &copy; 2025 LaGa Systems Pvt Ltd. All rights reserved.
+        </footer>
+</body>
+
+<style>
+  .calroads-additional-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+    margin-top: 38px;
+  }
+  .calroads-additional-feature-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 38px 32px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 4px 32px rgba(30,64,175,0.09);
+    transition: background 0.22s, color 0.22s;
+    cursor: pointer;
+    min-height: 320px;
+  }
+  .calroads-additional-feature-card i {
+    font-size: 2.2rem;
+    color: #2563eb;
+    margin-bottom: 18px;
+    transition: color 0.22s;
+  }
+  .calroads-additional-feature-card .feature-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #181c32;
+    margin-bottom: 10px;
+    transition: color 0.22s;
+  }
+  .calroads-additional-feature-card .feature-desc {
+    font-size: 1.08rem;
+    color: #23294a;
+    transition: color 0.22s;
+  }
+  .calroads-additional-feature-card:hover {
+    background: #2563eb;
+  }
+  .calroads-additional-feature-card:hover i,
+  .calroads-additional-feature-card:hover .feature-title,
+  .calroads-additional-feature-card:hover .feature-desc {
+    color: #fff !important;
+  }
+  @media (max-width: 900px) {
+    .calroads-additional-features-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 600px) {
+    .calroads-additional-features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<!-- Additional Features Section End -->
+
+  
+  <style>
+    .calroads-additional-features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 32px;
+    }
+    .calroads-additional-feature-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 38px 32px 38px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      box-shadow: 0 4px 24px rgba(30,64,175,0.07);
+      transition: background 0.22s, color 0.22s;
+      cursor: pointer;
+      min-height: 320px;
+    }
+    .calroads-additional-feature-card i {
+      font-size: 2.3rem;
+      color: #2563eb;
+      margin-bottom: 18px;
+      transition: color 0.22s;
+    }
+    .calroads-additional-feature-card .feature-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #181c32;
+      margin-bottom: 10px;
+      transition: color 0.22s;
+    }
+    .calroads-additional-feature-card .feature-desc {
+      font-size: 1.08rem;
+      color: #23294a;
+      transition: color 0.22s;
+    }
+    .calroads-additional-feature-card:hover {
+      background: #2563eb;
+    }
+    .calroads-additional-feature-card:hover i,
+    .calroads-additional-feature-card:hover .feature-title,
+    .calroads-additional-feature-card:hover .feature-desc {
+      color: #fff !important;
+    }
+    @media (max-width: 900px) {
+      .calroads-additional-features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 600px) {
+      .calroads-additional-features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <!-- Additional Features Section End -->
+</html>

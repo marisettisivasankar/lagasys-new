@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUSTAL View - Lagrangian Particle Tracking Air Dispersion Model</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f8fbff;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Intro Section Start -->
+  <section id="intro-section" style="position: relative; min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; background: url('image/austalview.avif') center center/cover no-repeat;">
+    <div style="position: absolute; inset: 0; background: rgba(24, 36, 56, 0.68); z-index: 1;"></div>
+    <div style="position: relative; z-index: 2; max-width: 900px; width: 100%; padding: 0 24px; text-align: center; color: #fff;">
+      <h1 style="font-size: 3.2rem; font-weight: 900; margin-bottom: 18px; letter-spacing: -1px; line-height: 1.1;">AUSTAL View</h1>
+      <h2 style="font-size: 1.7rem; font-weight: 500; margin-bottom: 32px; color: #e3eaff;">Lagrangian Particle Tracking Air Dispersion Model</h2>
+      <p style="font-size: 1.18rem; max-width: 700px; margin: 0 auto 38px auto; color: #e0e6f0; line-height: 1.6;">AUSTAL View is a powerful, user-friendly interface for the German AUSTAL2000 model, designed for regulatory air quality modeling of point, area, and volume sources. It supports complex terrain, building effects, and time-varying emissions, making it ideal for both industrial and urban applications.</p>
+      <button onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'});" style="background: #2563eb; color: #fff; font-size: 1.18rem; font-weight: 700; border: none; border-radius: 10px; padding: 18px 44px; box-shadow: 0 2px 16px rgba(37,99,235,0.13); cursor: pointer; transition: background 0.2s; display: inline-flex; align-items: center; gap: 10px;">
+        More Details <span style="font-size: 1.3rem; display: inline-block; transform: translateY(1px);"><i class="ri-arrow-down-line"></i></span>
+      </button>
+    </div>
+  </section>
+  <!-- Intro Section End -->
+</section>
+<!-- Overview Section Start -->
+<section style="background: #fff; padding: 64px 0 64px 0;">
+  <div style="max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: 48px; padding: 0 24px;">
+    <!-- Left: Text Content -->
+    <div style="flex: 2 1 520px; min-width: 340px; max-width: 800px;">
+      <div style="color: #2563eb; font-size: 1.08rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 10px;">Air Dispersion Model</div>
+      <h2 style="font-size: 2.5rem; font-weight: 800; color: #181c32; margin-bottom: 10px;">AUSTAL View</h2>
+      <div style="font-size: 1.45rem; color: #888; font-weight: 700; margin-bottom: 22px;">Lagrangian Particle Tracking Air Dispersion Model</div>
+      <hr style="border: none; border-top: 2px solid #2563eb33; width: 100%; margin: 24px 0 24px 0;">
+      <div style="font-size: 1.08rem; color: #222; margin-bottom: 18px; line-height: 1.6;">
+        AUSTAL View is a graphical user interface for the official German Federal Environmental Agency air dispersion model, AUSTAL.
+      </div>
+      <div style="font-size: 1.08rem; color: #222; margin-bottom: 18px; line-height: 1.6;">
+        The AUSTAL model was developed according to Germany's air pollution control regulation TA Luft (Technical Instructions on Air Quality).
+      </div>
+      <div style="font-size: 1.08rem; color: #222; margin-bottom: 18px; line-height: 1.6;">
+        AUSTAL is a Lagrangian particle tracking air dispersion model that contains its own diagnostic wind field model (TALdia). The model takes into account the influence of topography on the wind field and therefore on the dispersion of pollutants.
+      </div>
+    </div>
+    <!-- Right: Image Content -->
+    <div style="flex: 1 1 380px; min-width: 320px; max-width: 520px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 100%; max-width: 420px; aspect-ratio: 1/1; background: #fff; border-radius: 50%; overflow: hidden; box-shadow: 0 8px 40px rgba(30,64,175,0.10); display: flex; align-items: center; justify-content: center; position: relative;">
+        <img src="image/austal_overview.png" alt="AUSTAL View Screenshot" style="width: 100%; height: auto; object-fit: cover;">
+        <span style="position: absolute; right: 18px; bottom: 18px; background: #2563eb; color: #fff; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 16px rgba(30,64,175,0.10);">
+          <i class="ri-building-2-line"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Overview Section End -->
+</section>
+<!-- Modules Section Start -->
+<section style="background: #f8fbff; padding: 64px 0 64px 0;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+    <h2 style="font-size: 2.5rem; font-weight: 900; color: #181c32; margin-bottom: 18px;">Available AUSTAL View Modules</h2>
+    <div style="color: #555; font-size: 1.18rem; margin-bottom: 38px; max-width: 1100px;">AUSTAL View is available in three versions (T, G, and TG) and an add-on module. See descriptions below:</div>
+    <ul style="list-style: none; padding: 0; margin: 0;">
+      <li style="display: flex; align-items: flex-start; gap: 16px; margin-bottom: 22px;">
+        <span style="color: #2563eb; font-size: 1.6rem; margin-top: 2px;"><i class="ri-checkbox-circle-fill"></i></span>
+        <span style="font-size: 1.13rem; color: #181c32;"> <b>AUSTAL View T:</b> This version supports the TA Luft chemicals but does not support odor modeling (formerly AUSTAL View).</span>
+      </li>
+      <li style="display: flex; align-items: flex-start; gap: 16px; margin-bottom: 22px;">
+        <span style="color: #2563eb; font-size: 1.6rem; margin-top: 2px;"><i class="ri-checkbox-circle-fill"></i></span>
+        <span style="font-size: 1.13rem; color: #181c32;"> <b>AUSTAL View G:</b> This version supports odor modeling but does not support the TA Luft chemicals (formerly ODOR View).</span>
+      </li>
+      <li style="display: flex; align-items: flex-start; gap: 16px; margin-bottom: 22px;">
+        <span style="color: #2563eb; font-size: 1.6rem; margin-top: 2px;"><i class="ri-checkbox-circle-fill"></i></span>
+        <span style="font-size: 1.13rem; color: #181c32;"> <b>AUSTAL View TG:</b> This version supports all the TA Luft chemicals and odor modeling. This version combines the specialized AUSTAL View T and AUSTAL View G Versions (formerly AUSTAL View G+).</span>
+      </li>
+      <li style="display: flex; align-items: flex-start; gap: 16px; margin-bottom: 22px;">
+        <span style="color: #2563eb; font-size: 1.6rem; margin-top: 2px;"><i class="ri-checkbox-circle-fill"></i></span>
+        <span style="font-size: 1.13rem; color: #181c32;"> <b>Multi-Core Module:</b> This module allows for the use of a multi-core (multi-processor) compatible model executable, and allows for the use of up to 8 multi-processors in a single machine.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+<!-- Modules Section End -->
+</section>
+<!-- Key Features Section Start -->
+<section style="background: #fff; padding: 64px 0 64px 0;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+    <div style="color: #2563eb; font-size: 1.08rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; text-align: center; margin-bottom: 10px;">Features</div>
+    <h2 style="font-size: 2.5rem; font-weight: 900; color: #181c32; margin-bottom: 18px; text-align: center;">AUSTAL View Key Features</h2>
+    <div style="color: #23294a; font-size: 1.13rem; margin-bottom: 36px; text-align: center; max-width: 900px; margin-left: auto; margin-right: auto;">AUSTAL View incorporates features designed by experienced meteorologists and engineers who routinely work with air dispersion models. This ensures it meets the practical needs of today's modelers for successful and efficient performance.</div>
+    <div class="austal-features-grid">
+      <!-- Card 1 -->
+      <div class="austal-feature-card">
+        <i class="ri-computer-line"></i>
+        <div class="feature-title">Integrated Interface</div>
+        <div class="feature-desc">Fully integrated GIS-based interface combining easy to use graphical tools.</div>
+      </div>
+      <!-- Card 2 -->
+      <div class="austal-feature-card">
+        <i class="ri-computer-line"></i>
+        <div class="feature-title">3D Visualization</div>
+        <div class="feature-desc">Visualize your modeling area in 3D with sources, buildings, terrain, and custom building textures.</div>
+      </div>
+      <!-- Card 3 -->
+      <div class="austal-feature-card">
+        <i class="ri-computer-line"></i>
+        <div class="feature-title">Google Earth Export</div>
+        <div class="feature-desc">Export your buildings, sources, receptors and contours into Google Earth.</div>
+      </div>
+      <!-- Card 4 -->
+      <div class="austal-feature-card">
+        <i class="ri-computer-line"></i>
+        <div class="feature-title">Terrain Data</div>
+        <div class="feature-desc">Advanced terrain processing capabilities are offered for several terrain data file formats.</div>
+      </div>
+      <!-- Card 5 -->
+      <div class="austal-feature-card">
+        <i class="ri-computer-line"></i>
+        <div class="feature-title">Base Maps</div>
+        <div class="feature-desc">Allows you to design your model with confidence and view your results in context with your site.</div>
+      </div>
+      <!-- Card 6 -->
+      <div class="austal-feature-card">
+        <i class="ri-computer-line"></i>
+        <div class="feature-title">Windrose Tool</div>
+        <div class="feature-desc">Creates windrose plots in the following formats: AKT, AKTerm, AKS, series.dmna, zeitreih.dmna.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .austal-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 32px;
+  }
+  .austal-feature-card {
+    background: #23294a;
+    border-radius: 14px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 4px 24px rgba(30,64,175,0.07);
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+  }
+  .austal-feature-card i {
+    font-size: 2.1rem;
+    color: #2563eb;
+    margin-bottom: 12px;
+    transition: color 0.2s;
+  }
+  .austal-feature-card .feature-title {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+    transition: color 0.2s;
+  }
+  .austal-feature-card .feature-desc {
+    font-size: 1.01rem;
+    color: #eaf4ff;
+    transition: color 0.2s;
+  }
+  .austal-feature-card:hover {
+    background: #2563eb;
+  }
+  .austal-feature-card:hover i,
+  .austal-feature-card:hover .feature-title,
+  .austal-feature-card:hover .feature-desc {
+    color: #fff !important;
+  }
+  @media (max-width: 900px) {
+    .austal-features-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 600px) {
+    .austal-features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<!-- Key Features Section End -->
+</section>
+<!-- Feature Highlights Section Start -->
+<section style="background: #fff; padding: 64px 0 64px 0;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+    <div class="austal-feature-highlights-grid">
+      <!-- Card 1 -->
+      <div class="austal-highlight-card">
+        <div class="austal-highlight-imgwrap"><div class="austal-highlight-imgbg"></div><img src="image/austal_feature_gui.png" alt="Integrated GUI Screenshot" class="austal-highlight-img"></div>
+        <div class="austal-highlight-text">
+          <h3>Integrated Graphical User Interface</h3>
+          <div>A fully integrated GIS-based interface with powerful, intuitive tools that simplify and enhance your environmental modeling. With easy-to-use graphical tools, you can precisely draw and define sources, buildings, and receptors, ensuring accurate mapping of your study area. It supports seamless model run execution, allowing for efficient data processing and automatically generates and posts detailed contours, providing clear and immediate insights into pollutant distribution.</div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="austal-highlight-card">
+        <div class="austal-highlight-imgwrap"><div class="austal-highlight-imgbg"></div><img src="image/feature_aermod_tilemaps_austal.png" alt="Lakes Tile Maps" class="austal-highlight-img"></div>
+        <div class="austal-highlight-text">
+          <h3>Lakes Tile Maps</h3>
+          <div>Enhance your projects by automatically downloading and importing high-resolution satellite and street map imagery directly into your modeling projects. This feature simplifies the graphical input of model objects, such as sources, buildings, and receptors, by providing a highly detailed and accurate visual backdrop. The imported imagery serves as an excellent spatial reference point, allowing you to precisely position and define model elements within their real-world context.</div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="austal-highlight-card">
+        <div class="austal-highlight-imgwrap"><div class="austal-highlight-imgbg"></div><img src="image/austal_feature_3d.png" alt="3D Visualization" class="austal-highlight-img"></div>
+        <div class="austal-highlight-text">
+          <h3>3D Visualization</h3>
+          <div>Our 3D visualization feature allows you to view emissions sources, buildings, concentration levels, and deposition contour results, all seamlessly integrated within the context of your surrounding terrain. 3D visualization ensures that every aspect of your model is accurately represented, offering a realistic depiction of how pollutants interact with the physical landscape. By seeing how your sources, buildings, and concentration or deposition contours are distributed across the terrain, you gain valuable insights into potential environmental impacts, making it easier to communicate findings and make informed decisions.</div>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="austal-highlight-card">
+        <div class="austal-highlight-imgwrap"><div class="austal-highlight-imgbg"></div><img src="image/austal_feature_google.png" alt="Google Earth Export" class="austal-highlight-img"></div>
+        <div class="austal-highlight-text">
+          <h3>Google Earth Export</h3>
+          <div>This powerful feature enables you to export your buildings, emission sources, receptors, and pollutant contours directly into Google Earth. By doing so, you can visualize your data in a more immersive and realistic manner, providing a better understanding of how pollutants might disperse and affect the surrounding areas. This enhanced visualization tool not only aids in better assessing environmental impacts but also supports more informed decision-making by giving you a clearer picture of potential pollutant distribution across various geographic landscapes.</div>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="austal-highlight-card">
+        <div class="austal-highlight-imgwrap"><div class="austal-highlight-imgbg"></div><img src="image/austal_feature_terrain.png" alt="Terrain Data" class="austal-highlight-img"></div>
+        <div class="austal-highlight-text">
+          <h3>Terrain Processors with Auto Downloads (STRM)</h3>
+          <div>This feature offers advanced terrain processing capabilities, supporting various terrain data formats such as SRTM, USGS DEM, and XYZ, ensuring flexibility and accuracy in your environmental modeling. It includes an automated download feature for easy retrieval of terrain data from WebGIS and SRTM3 terrain data at 90m resolution. Automated conversion of these formats into the GridASCII data format required by the model. </div>
+        </div>
+      </div>
+      <!-- Card 6 -->
+      <div class="austal-highlight-card">
+        <div class="austal-highlight-imgwrap"><div class="austal-highlight-imgbg"></div><img src="image/austal_feature_base.png" alt="Support for Several Base Map Formats" class="austal-highlight-img"></div>
+        <div class="austal-highlight-text">
+          <h3>Support for Several Base Map Formats</h3>
+          <div>Visualizing your site in AUSTAL View is easy. Our full-featured support for a variety of image and base map formats allow you to design your model with confidence and view your results in context with your site. Supported base maps include: Bitmap, DLG, DXF, JPEG, LULC, MrSID, Shapefile, and TIFF/GeoTIFF.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .austal-feature-highlights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 38px 32px;
+    margin-top: 18px;
+  }
+  .austal-highlight-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(30,64,175,0.07);
+    padding: 28px 18px 22px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: box-shadow 0.2s, background 0.2s;
+    cursor: pointer;
+    min-height: 420px;
+    position: relative;
+    overflow: hidden;
+  }
+  .austal-highlight-card:hover {
+    background: #2563eb;
+    box-shadow: 0 8px 40px rgba(37,99,235,0.18);
+  }
+  .austal-highlight-card:hover .austal-highlight-imgbg {
+    background: #181c32;
+  }
+  .austal-highlight-card:hover .austal-highlight-img {
+    box-shadow: 0 8px 40px rgba(37,99,235,0.18);
+  }
+  .austal-highlight-card:hover .austal-highlight-text h3,
+  .austal-highlight-card:hover .austal-highlight-text div {
+    color: #fff !important;
+  }
+  .austal-highlight-imgwrap {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .austal-highlight-imgbg {
+    position: absolute;
+    left: 0; top: 0;
+    width: 90%; height: 90%;
+    background: #2563eb;
+    border-radius: 18px;
+    z-index: 1;
+    transition: background 0.2s;
+  }
+  .austal-highlight-img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 280px;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(30,64,175,0.13);
+    background: #fff;
+    transition: box-shadow 0.2s;
+  }
+  .austal-highlight-text {
+    flex: 1 1 100%;
+    padding: 0 2px;
+  }
+  .austal-highlight-text h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #181c32;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+  }
+  .austal-highlight-text div {
+    font-size: 1.01rem;
+    color: #23294a;
+    line-height: 1.7;
+    transition: color 0.2s;
+  }
+  @media (max-width: 1100px) {
+    .austal-feature-highlights-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 700px) {
+    .austal-feature-highlights-grid {
+      grid-template-columns: 1fr;
+    }
+    .austal-highlight-imgwrap {
+      max-width: 100%;
+    }
+  }
+  .austal-highlight-imgwrap {
+    position: relative;
+    min-width: 320px;
+    max-width: 420px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .austal-highlight-imgbg {
+    position: absolute;
+    left: 0; top: 0;
+    width: 90%; height: 90%;
+    background: #2563eb;
+    border-radius: 18px;
+    z-index: 1;
+    transition: background 0.2s;
+  }
+  .austal-highlight-img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 380px;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(30,64,175,0.13);
+    background: #fff;
+    transition: box-shadow 0.2s;
+  }
+  .austal-highlight-row:hover .austal-highlight-imgbg {
+    background: #181c32;
+  }
+  .austal-highlight-row:hover .austal-highlight-img {
+    box-shadow: 0 8px 40px rgba(37,99,235,0.18);
+  }
+  .austal-highlight-text {
+    flex: 1 1 420px;
+    min-width: 320px;
+    padding: 0 12px;
+  }
+  .austal-highlight-text h3 {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #181c32;
+    margin-bottom: 10px;
+  }
+  .austal-highlight-text div {
+    font-size: 1.08rem;
+    color: #23294a;
+    line-height: 1.7;
+  }
+  @media (max-width: 900px) {
+    .austal-highlight-row, .austal-highlight-row.reverse {
+      flex-direction: column !important;
+      gap: 24px;
+    }
+    .austal-highlight-imgwrap, .austal-highlight-text {
+      max-width: 100%;
+      min-width: 0;
+    }
+  }
+</style>
+<!-- Feature Highlights Section End -->
+</section>
+<!-- Additional Features Section Start -->
+<section style="background: #181c32; padding: 64px 0 64px 0;">
+  <div style="max-width: 1400px; margin: 0 auto; padding: 0 24px;">
+    <h2 style="font-size: 2.5rem; font-weight: 900; color: #fff; margin-bottom: 18px;">Additional Features</h2>
+    <div style="color: #fff; font-size: 1.18rem; margin-bottom: 38px; max-width: 1100px;">AUSTAL View offers more than just an intuitive interface. Every copy comes fully equipped with all the tools you need to complete your AUSTAL projects.</div>
+    <div class="austal-additional-features-grid">
+      <!-- Card 1 -->
+      <div class="austal-additional-feature-card">
+        <i class="ri-computer-line"></i>
+        <div class="feature-title">Professional Reports</div>
+        <div class="feature-desc">AUSTAL View impresses with integrated report generation, including "Source Parameters," "Monitor Point Results," and "Maximum Calculation Results."</div>
+      </div>
+      <!-- Card 2 -->
+      <div class="austal-additional-feature-card">
+        <i class="ri-computer-line"></i>
+        <div class="feature-title">Windrose Tool</div>
+        <div class="feature-desc">Allows you to create windrose plots for your meteorological data. It can also display bar graphs of the wind class and dispersion class frequency distribution.</div>
+      </div>
+      <!-- Card 3 -->
+      <div class="austal-additional-feature-card">
+        <i class="ri-computer-line"></i>
+        <div class="feature-title">German & English Versions</div>
+        <div class="feature-desc">AUSTAL View user interface, help files, and user's guides are available in German and English languages. The AUSTAL model is available in German language only.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .austal-additional-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+    margin-top: 38px;
+  }
+  .austal-additional-feature-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 38px 32px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 4px 32px rgba(30,64,175,0.09);
+    transition: background 0.22s, color 0.22s;
+    cursor: pointer;
+    min-height: 320px;
+  }
+  .austal-additional-feature-card i {
+    font-size: 2.2rem;
+    color: #2563eb;
+    margin-bottom: 18px;
+    transition: color 0.22s;
+  }
+  .austal-additional-feature-card .feature-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #181c32;
+    margin-bottom: 10px;
+    transition: color 0.22s;
+  }
+  .austal-additional-feature-card .feature-desc {
+    font-size: 1.08rem;
+    color: #23294a;
+    transition: color 0.22s;
+  }
+  .austal-additional-feature-card:hover {
+    background: #2563eb;
+  }
+  .austal-additional-feature-card:hover i,
+  .austal-additional-feature-card:hover .feature-title,
+  .austal-additional-feature-card:hover .feature-desc {
+    color: #fff !important;
+  }
+  @media (max-width: 900px) {
+    .austal-additional-features-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 600px) {
+    .austal-additional-features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<!-- Additional Features Section End -->
+ <!-- Copyright Section Start -->
+        <footer style="background: linear-gradient(135deg, #1db954 0%, #2563eb 100%); color: #eaf4ff; text-align: center; padding: 28px 0 18px 0; font-size: 1.08rem; font-family: inherit; letter-spacing: 0.02em;">
+            &copy; 2025 LaGa Systems Pvt Ltd. All rights reserved.
+        </footer>
+</body>
+</html>

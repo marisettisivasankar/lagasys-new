@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
   <style>
-    html, body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8fbff; margin: 0; padding: 0; overflow-x: hidden; }
+    html, body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;; background: #f8fbff; margin: 0; padding: 0; overflow-x: hidden; }
     .vmod-hero {
       background: linear-gradient(90deg, #2563eb 0%, #1a2340 100%);
       color: #fff;
@@ -35,15 +35,16 @@
     .vmod-features { display: flex; flex-wrap: wrap; gap: 32px; margin-top: 18px; }
     .vmod-features-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, auto);
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, 1fr);
       gap: 32px;
-    }
-    .vmod-features-grid .vmod-feature-card {
       width: 100%;
-      max-width: none;
-      min-width: 0;
-      align-self: stretch;
+    }
+    @media (max-width: 1200px) {
+      .vmod-features-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+      }
     }
     @media (max-width: 900px) {
       .vmod-features-grid {
@@ -51,6 +52,103 @@
         grid-template-rows: none;
         gap: 18px;
       }
+    }
+    .vmod-flipcard {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(37,99,235,0.10);
+      min-height: 220px;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 28px 22px 22px 22px;
+      position: relative;
+      transition: box-shadow 0.2s;
+    }
+    .vmod-flipcard:hover {
+      box-shadow: 0 4px 24px rgba(37,99,235,0.18);
+    }
+    .vmod-flipcard .vmod-card-meta {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+      width: 100%;
+    }
+    .vmod-flipcard .vmod-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #e3eaff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 16px;
+      flex-shrink: 0;
+    }
+    .vmod-flipcard .vmod-card-icon i {
+      font-size: 2rem;
+      color: #2563eb;
+    }
+    .vmod-flipcard h4 {
+      color: #2563eb;
+      font-size: 1.13rem;
+      font-weight: 800;
+      margin: 0;
+      letter-spacing: -1px;
+      flex: 1;
+    }
+    .vmod-flipcard .vmod-card-desc {
+      font-size: 1.05rem;
+      color: #232b3b;
+      margin-bottom: 12px;
+      margin-top: 6px;
+      font-weight: 500;
+    }
+    .vmod-flipcard ul {
+      padding-left: 0;
+      margin: 0;
+      list-style: none;
+      color: #232b3b;
+      font-size: 1.01rem;
+    }
+    .vmod-flipcard li {
+      margin-bottom: 7px;
+      position: relative;
+      padding-left: 22px;
+    }
+    .vmod-flipcard li::before {
+      content: '\2022';
+      position: absolute;
+      left: 0;
+      top: 0.1em;
+      color: #2563eb;
+      font-size: 1.3em;
+      line-height: 1;
+    }
+    .vmod-flipcard .vmod-card-footer {
+      display: flex;
+      align-items: center;
+      margin-top: 18px;
+      width: 100%;
+      justify-content: flex-end;
+    }
+    .vmod-flipcard .vmod-card-footer .vmod-card-add {
+      color: #2563eb;
+      font-size: 1.08rem;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .vmod-flipcard .vmod-card-footer .vmod-card-add:hover {
+      color: #1a2340;
     }
     .vmod-feature-card {
       flex: 1 1 320px; min-width: 260px; max-width: 370px;
@@ -125,11 +223,13 @@
       list-style: none;
       padding-left: 0;
       margin-left: 0;
+      
     }
     .vmod-dot-list li {
       position: relative;
       padding-left: 22px;
       margin-bottom: 7px;
+      
     }
     .vmod-dot-list li::before {
       content: '\2022';
@@ -152,139 +252,201 @@
   </style>
 </head>
 <body>
+
   <!-- Hero Section -->
   <section class="vmod-hero">
-    <img src="image/VisualModflow-icon.png" alt="Visual MODFLOW Flex Icon">
-    <h1>Visual MODFLOW Flex</h1>
-    <h2>Groundwater Flow &amp; Contaminant Transport Modeling Software</h2>
-    <p>Visual MODFLOW Flex brings together industry-standard codes for groundwater flow and contaminant transport, essential analysis and calibration tools, and stunning 3D visualization capabilities in a single environment.</p>
-    <div>
-      <a href="https://www.waterloohydrogeologic.com/download-trial/" target="_blank" class="vmod-btn-main">Download Trial</a>
+    <div style="display:flex; flex-direction:row; align-items:center; justify-content:space-between; min-height:520px; width:100%; max-width:1600px; margin:0 auto; padding:0 0 0 5vw;">
+      <div style="flex:2; display:flex; flex-direction:column; justify-content:center; align-items:flex-start;">
+        <div style="margin-bottom:18px; letter-spacing:2px; color:#b3c7e6; font-size:1.08rem; font-weight:600;">Groundwater Modeling</div>
+        <h1 style="color:#fff; font-size:3.2rem; font-weight:900; margin-bottom:18px; letter-spacing:2px; line-height:1.1;">Visual MODFLOW Flex</h1>
+        <p style="color:#e3eaff; font-size:1.25rem; margin-bottom:38px; max-width:600px; line-height:1.7; font-weight:500; text-align:left;">Groundwater Flow & Contaminant Transport Modeling Software</p>
+        <div style="display:flex; gap:18px;">
+          <a href="https://www.waterloohydrogeologic.com/download-trial/" target="_blank" style="background:#b3d2f7; color:#1a2340; font-weight:700; border-radius:10px; padding:18px 38px; font-size:1.18rem; box-shadow:0 2px 16px rgba(37,99,235,0.13); text-decoration:none; border:none; transition:background 0.2s;">Get started with Flex</a>
+          <a href="#vmod-supported" style="background:none; color:#fff; font-weight:700; border-radius:10px; padding:18px 38px; font-size:1.18rem; box-shadow:0 2px 16px rgba(37,99,235,0.13); text-decoration:none; border:2px solid #b3d2f7; transition:background 0.2s;">Explore Supported Packages</a>
+        </div>
+      </div>
+      <div style="flex:1; display:flex; align-items:center; justify-content:center;">
+        <img src="image/VMOD-screen-2.jpg" alt="Visual MODFLOW Flex Hero" style="max-width:500px; padding:32px;">
+      </div>
     </div>
   </section>
 
-  <!-- What's New Section -->
-  <section class="vmod-section vmod-fullwidth-section vmod-fullheight-section">
-    <h2>What’s New in Visual MODFLOW Flex 11.0</h2>
-    <p>Experience the new version release of Visual MODFLOW Flex 11.0. For a complete version history, see the <a href="https://www.waterloohydrogeologic.com/visual-modflow-flex-readme/" target="_blank" style="color:#2563eb; text-decoration:underline;">Visual MODFLOW Flex readme file</a>.</p>
-    <div class="vmod-features vmod-features-grid">
-      <div class="vmod-feature-card">
-        <i class="fas fa-file-import vmod-feature-icon"></i>
-        <h4>Model Import</h4>
-        <ul class="vmod-dot-list">
-          <li>Import data from a wide range of sources and formats</li>
-          <li>Automatic coordinate system and units conversion</li>
-          <li>Intelligent error checking and data validation</li>
+  <!-- Intro Section -->
+  <section class="vmod-section" style="max-width:1200px; margin:38px auto 0 auto; background:linear-gradient(90deg, #2563eb 0%, #1a2340 100%); border-radius:18px; box-shadow:0 4px 32px rgba(37,99,235,0.10); overflow:hidden; min-height:260px; padding:54px 48px 54px 54px; display:block;">
+    <h2 style="color:#fff; font-size:2.0rem; font-weight:400; margin-bottom:18px; letter-spacing:-1px;">Visual MODFLOW Flex brings together industry-standard codes for groundwater flow and contaminant transport, essential analysis and calibration tools, and stunning 3D visualization capabilities in a single environment.</h2>
+  </section>
+  
+  <!-- Why Choose Visual MODFLOW Flex Section -->
+  <section class="vmod-section">
+    <h2 style="font-size: 2.5rem; font-weight: 600; color: #1a237e; margin-bottom: 0.2em; line-height: 1.1;">
+      Why Choose <span style="color: #1E73FA; font-weight: 700;">Visual MODFLOW Flex?</span>
+    </h2>
+    <div class="vmod-features-grid" style="grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; gap: 32px;">
+      <div class="vmod-flipcard">
+        <div class="vmod-card-meta">
+          <span class="vmod-card-icon"><i class="fas fa-gears"></i></span>
+          <h4>Build models faster and more efficiently</h4>
+        </div>
+        <ul>
+          <li>Model inputs and grid design can be updated at any point in the modeling process as modeling objectives change, more data are collected and a better understanding of the sub-surface is achieved.</li>
+          <li>Modeling steps are conveniently presented in an intuitive, workflow-driven graphical user interface: see current and completed steps, and steps you need to finish.</li>
+          <li>GIS-based 3D conceptual modeling and numerical modeling all within a single integrated software environment. This reduces costly 3rd party pre-processing tools, and eliminates transfer errors.</li>
         </ul>
       </div>
-      <div class="vmod-feature-card">
-        <i class="fas fa-sliders-h vmod-feature-icon"></i>
-        <h4>Boundary Condition &amp; Properties</h4>
-        <ul class="vmod-dot-list">
-          <li>Define model boundaries, property zones, and attributes from GIS data</li>
-          <li>Flexible grid options for various geologic conditions</li>
-          <li>Support for structured and unstructured grid types</li>
+      <div class="vmod-flipcard">
+        <div class="vmod-card-meta">
+          <span class="vmod-card-icon"><i class="fas fa-brain"></i></span>
+          <h4>Build larger, more complex credible models</h4>
+        </div>
+        <ul>
+          <li>Equipped to handle vast quantities of detailed, high resolution data. Simulate large and complex regional-scale groundwater systems.</li>
+          <li>Model inputs and outputs can be easily visualized alongside raw GIS field data in 3D, allowing credibility by demonstrating numerical model data generation (model layers, flow parameters, recharge data) from conceptual data (borehole logs, GIS data).</li>
+          <li>Unique design permits easy side-by-side comparisons of multiple models allowing you to assess alternative modeling scenarios, grid indiscretions and hydro-geologic interpretations.</li>
         </ul>
       </div>
-      <div class="vmod-feature-card">
-        <i class="fas fa-database vmod-feature-icon"></i>
-        <h4>Data Operations</h4>
-        <ul class="vmod-dot-list">
-          <li>Import TINs from point shapefiles (.shp) and from Triangle .node or .ele files</li>
-          <li>Generate TINs from existing point data objects, using linear or kriging interpolation schemes</li>
-          <li>Recharge and Evapotranspiration boundary conditions as shapefiles</li>
-          <li>Surfaces and TINs as point shapefiles</li>
-         
+      <div class="vmod-flipcard">
+        <div class="vmod-card-meta">
+          <span class="vmod-card-icon"><i class="fas fa-chart-line"></i></span>
+          <h4>Powerful Data Visualization</h4>
+        </div>
+        <ul>
+          <li>Visualize all data, including conceptual objects, numerical grids, input data (property zones, boundary condition cells) and output data (calculated heads, pathlines, water table) in state-of-the-art 2D, 3D and multi-view (FlexViewer) displays.</li>
+          <li>Create cut-away and cross-sectional views that allow you to see inside your model.</li>
+          <li>Generate 3D animations and movies for reports or the web, and optimized OpenGL graphics for enhanced hardware rendering.</li>
         </ul>
       </div>
-      <div class="vmod-feature-card">
-        <i class="fas fa-tachometer-alt vmod-feature-icon"></i>
-        <h4>Performance &amp; Usability</h4>
-        <ul class="vmod-dot-list">
-          <li>Improved simulation accuracy and model stability</li>
-          <li>Faster runtimes and enhanced hardware rendering</li>
-          <li>Parallel scenario management and comparison</li>
+      <div class="vmod-flipcard">
+        <div class="vmod-card-meta">
+          <span class="vmod-card-icon"><i class="fas fa-layer-group"></i></span>
+          <h4>Efficiently Manage Multiple Models</h4>
+        </div>
+        <ul>
+          <li>Manage multiple model scenarios in a single project, and make direct visual and numerical comparisons between different modeling scenarios.</li>
+          <li>Easily generate multiple models in parallel for evaluating alternative hydrogeologic interpretations and hypotheses.</li>
+          <li>Calculate head differences between multiple model runs, with the same or different grid size.</li>
+          <li>Compare and analyze multiple modeling scenarios for selecting the best, most realistic model.</li>
+        </ul>
+      </div>
+      <div class="vmod-flipcard">
+        <div class="vmod-card-meta">
+          <span class="vmod-card-icon"><i class="fas fa-map"></i></span>
+          <h4>Full GIS Integration</h4>
+        </div>
+        <ul>
+          <li>Quick and easy data importing of all common file types and formats.</li>
+          <li>Automatic coordinate system and units conversion on import, and automatic data validation and intelligent error checking on import.</li>
+          <li>Define model boundaries, property zones, boundary conditions and attributes from imported GIS data.</li>
+        </ul>
+      </div>
+      <div class="vmod-flipcard">
+        <div class="vmod-card-meta">
+          <span class="vmod-card-icon"><i class="fas fa-cube"></i></span>
+          <h4>Integrated 3D Conceptual and Numerical Groundwater Modeling</h4>
+        </div>
+        <ul>
+          <li>Define complex geology and model layers using borehole log data and cross-sections</li>
+          <li>Interpret GIS data to define hydrogeologic properties and boundaries independent of the grid</li>
+          <li>Run, analyze, and validate model results with raw data in 2D, 3D, and cross-section views</li>
+          <li>Easily create multiple conceptualizations; generate numerous grids and model scenarios in parallel all in a single project</li>
+          <li>Assess uncertainty though comparing heads from multiple model runs in 2D, 3D or chart views</li>
+        </ul>
+      </div>
+      <div class="vmod-flipcard">
+        <div class="vmod-card-meta">
+          <span class="vmod-card-icon"><i class="fas fa-border-all"></i></span>
+          <h4>Flexible Grid Options</h4>
+        </div>
+        <ul>
+          <li>Choose from various structured and unstructured grid types to accommodate a wide range of applications and geologic conditions (e.g., pinch outs, discontinuities).</li>
+          <li>Improve simulation accuracy, reduce runtimes and increase model stability with unstructured grid types (MODFLOW-USG)</li>
+          <li>Easily generate multiple grids within the same project and compare side-by-side in 2D or 3D</li>
+          <li>Perform grid refinement around areas of interest</li>
+          <li>Create faster more stable models with nested child grids that contain local horizontal and vertical refinement (MODFLOW-LGR)</li>
         </ul>
       </div>
     </div>
   </section>
+
 
   <!-- Applications Section -->
-  <section class="vmod-section">
-    <h2>Applications</h2>
-    <div class="vmod-applications">
-      <ul>
-        <li>Delineate well capture zones for domestic water supply development</li>
-        <li>Design and optimize pumping well locations for mine dewatering projects</li>
-        <li>Determine contaminant fate and exposure pathways for risk assessment</li>
-        <li>Simulate surface water-groundwater interactions</li>
-        <li>Watershed scale/regional groundwater modeling, and aquifer storage and recovery (ASR)</li>
-        <li>Evaluate groundwater remediation systems (pump and treat, funnel and gate, etc.)</li>
-        <li>Evaluate saltwater intrusion</li>
-      </ul>
+  <!-- What's New in Visual MODFLOW Flex 11.0 Section -->
+  <section class="vmod-section" style="background:linear-gradient(90deg, #f8fbff 0%, #e3eaff 100%); box-shadow:0 2px 24px rgba(37,99,235,0.07); margin-bottom:32px;">
+    <h2 style="color:#2563eb; font-size:2.2rem; font-weight:800; margin-bottom:38px; text-align:center;">What's New in Visual MODFLOW Flex 11.0</h2>
+    <div style="display:flex; flex-direction:row; flex-wrap:wrap; gap:0; justify-content:space-between; align-items:flex-start; max-width:1100px; margin:0 auto; position:relative;">
+      <div style="flex:1 1 220px; min-width:220px; max-width:260px; display:flex; flex-direction:column; align-items:center; position:relative;">
+        <div style="background:#2563eb; color:#fff; border-radius:50%; width:64px; height:64px; display:flex; align-items:center; justify-content:center; font-size:2rem; margin-bottom:18px; box-shadow:0 2px 12px rgba(37,99,235,0.13);">
+          <i class="fas fa-file-import"></i>
+        </div>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px; text-align:center;">Model Import</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500; text-align:center;">Model import has been significantly improved in Visual MODFLOW Flex 11.0. Flex now internally uses the FloPy Python library to perform model import, allowing for more types of models to be imported and greater flexibility during model import.</p>
+        <div style="position:absolute; right:-30px; top:32px; width:60px; height:4px; background:linear-gradient(90deg,#2563eb 60%,#e3eaff 100%); border-radius:2px; z-index:1;"></div>
+      </div>
+      <div style="flex:1 1 220px; min-width:220px; max-width:260px; display:flex; flex-direction:column; align-items:center; position:relative;">
+        <div style="background:#2563eb; color:#fff; border-radius:50%; width:64px; height:64px; display:flex; align-items:center; justify-content:center; font-size:2rem; margin-bottom:18px; box-shadow:0 2px 12px rgba(37,99,235,0.13);">
+          <i class="fas fa-database"></i>
+        </div>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px; text-align:center;">Data Operations</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500; text-align:center;">Triangular irregular network (TIN) surfaces can now be used with your Visual MODFLOW Flex projects. Export Recharge and Evapotranspiration boundary conditions as shapefiles.</p>
+        <div style="position:absolute; right:-30px; top:32px; width:60px; height:4px; background:linear-gradient(90deg,#2563eb 60%,#e3eaff 100%); border-radius:2px; z-index:1;"></div>
+      </div>
+      <div style="flex:1 1 220px; min-width:220px; max-width:260px; display:flex; flex-direction:column; align-items:center; position:relative;">
+        <div style="background:#2563eb; color:#fff; border-radius:50%; width:64px; height:64px; display:flex; align-items:center; justify-content:center; font-size:2rem; margin-bottom:18px; box-shadow:0 2px 12px rgba(37,99,235,0.13);">
+          <i class="fas fa-draw-polygon"></i>
+        </div>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px; text-align:center;">Boundary Condition & Properties</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500; text-align:center;">Inactive Transport Areas: transport models can include distinct zones for active transport and inactive transport (i.e. ICBUND for MT3D-MS, RT3D, and SEAWAT)</p>
+        <div style="position:absolute; right:-30px; top:32px; width:60px; height:4px; background:linear-gradient(90deg,#2563eb 60%,#e3eaff 100%); border-radius:2px; z-index:1;"></div>
+      </div>
+      <div style="flex:1 1 220px; min-width:220px; max-width:260px; display:flex; flex-direction:column; align-items:center; position:relative;">
+        <div style="background:#2563eb; color:#fff; border-radius:50%; width:64px; height:64px; display:flex; align-items:center; justify-content:center; font-size:2rem; margin-bottom:18px; box-shadow:0 2px 12px rgba(37,99,235,0.13);">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px; text-align:center;">Performance, Usability & Other Enhancements</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500; text-align:center;">Enjoy faster performance, improved usability, and a range of other enhancements for a better modeling experience.</p>
+      </div>
+    </div>
+  </section>
+  <section class="vmod-section" style="background:linear-gradient(90deg, #e3eaff 0%, #f8fbff 100%); box-shadow:0 2px 24px rgba(37,99,235,0.07);">
+    <h2 style="color:#1a2340; font-size:2.2rem; font-weight:800; margin-bottom:28px;">Applications</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:32px; justify-content:center;">
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-faucet vmod-feature-icon"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Well Capture Zones</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Delineate well capture zones for domestic water supply development.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-industry vmod-feature-icon"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Mine Dewatering</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Design and optimize pumping well locations for mine dewatering projects.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-biohazard vmod-feature-icon"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Contaminant Fate & Risk</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Determine contaminant fate and exposure pathways for risk assessment.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-water vmod-feature-icon"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Surface-Groundwater Interactions</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Simulate surface water-groundwater interactions.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-mountain vmod-feature-icon"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Watershed & ASR</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Watershed scale/regional groundwater modeling, and aquifer storage and recovery (ASR).</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-recycle vmod-feature-icon"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Remediation Systems</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Evaluate groundwater remediation systems (pump and treat, funnel and gate, etc.).</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-water vmod-feature-icon"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Saltwater Intrusion</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Evaluate saltwater intrusion.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Why Choose Section -->
-  <section class="vmod-section">
-    <h2>Why Choose Visual MODFLOW Flex?</h2>
-    <div class="vmod-features">
-      <div class="vmod-feature-card">
-        <i class="fas fa-diagram-project"></i>
-        <h4>Intuitive Workflow-Driven UI</h4>
-        <ul>
-          <li>Update model inputs and grid design at any stage</li>
-          <li>See current, completed, and pending steps at a glance</li>
-          <li>Integrated GIS-based 3D conceptual and numerical modeling</li>
-        </ul>
-      </div>
-      <div class="vmod-feature-card">
-        <i class="fas fa-cube"></i>
-        <h4>Powerful 3D Visualization</h4>
-        <ul>
-          <li>Visualize all data in 2D, 3D, and multi-view displays</li>
-          <li>Create cut-away and cross-sectional views</li>
-          <li>Generate 3D animations and movies for reports or the web</li>
-        </ul>
-      </div>
-      <div class="vmod-feature-card">
-        <i class="fas fa-layer-group"></i>
-        <h4>Efficient Multi-Model Management</h4>
-        <ul>
-          <li>Manage multiple model scenarios in a single project</li>
-          <li>Direct visual and numerical comparisons between scenarios</li>
-          <li>Calculate head differences and analyze uncertainty</li>
-        </ul>
-      </div>
-      <div class="vmod-feature-card">
-        <i class="fas fa-map"></i>
-        <h4>Full GIS Integration</h4>
-        <ul>
-          <li>Quick and easy data importing of all common file types</li>
-          <li>Automatic coordinate system and units conversion</li>
-          <li>Define boundaries and attributes from imported GIS data</li>
-        </ul>
-      </div>
-      <div class="vmod-feature-card">
-        <i class="fas fa-cubes"></i>
-        <h4>Integrated 3D Conceptual &amp; Numerical Modeling</h4>
-        <ul>
-          <li>Define complex geology and model layers using borehole log data</li>
-          <li>Interpret GIS data to define hydrogeologic properties and boundaries</li>
-          <li>Run, analyze, and validate model results in 2D, 3D, and cross-section views</li>
-        </ul>
-      </div>
-      <div class="vmod-feature-card">
-        <i class="fas fa-border-all"></i>
-        <h4>Flexible Grid Options</h4>
-        <ul>
-          <li>Choose from various structured and unstructured grid types</li>
-          <li>Perform grid refinement around areas of interest</li>
-          <li>Create faster, more stable models with nested child grids</li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
   <!-- Supported Packages, Engines, and File Types Section -->
   <section class="vmod-section" id="vmod-supported">
@@ -404,7 +566,7 @@
 
   <!-- Call to Action Section -->
   <section class="vmod-section" style="text-align:center; background: #f3f7fd;">
-    <h2 style="color:#1a2340;">Get Started With Visual MODFLOW Flex</h2>
+    <h2 style="color: #2563eb;">Get Started With Visual MODFLOW Flex</h2>
     <p style="font-size:1.13rem; color:#232b3b; max-width:700px; margin:0 auto 24px auto;">Ready to experience the power of Visual MODFLOW Flex? Download a free trial or contact us for more information.</p>
 </section>
 

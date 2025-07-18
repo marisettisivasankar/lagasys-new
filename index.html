@@ -29,7 +29,7 @@
         <!-- Full Height Carousel Section Start -->
         <section class="main-carousel-section" style="width: 100%; min-height: 100vh; height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #eaf4ff 0%, #f3fcf7 100%); position: relative; overflow: hidden;">
             <div id="main-carousel" style="width: 100%; height: 100vh; position: absolute; top: 0; left: 0; z-index: 1;">
-                <div class="main-carousel-slide" data-bg="image/1591951.webp" style="width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: flex-start; position: absolute; top: 0; left: 0; opacity: 1; transition: opacity 0.7s; background-size: cover; background-position: center; background-repeat: no-repeat;">
+                <div class="main-carousel-slide" data-bg="image/aermod.jpg" style="width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: flex-start; position: absolute; top: 0; left: 0; opacity: 1; transition: opacity 0.7s; background-size: cover; background-position: center; background-repeat: no-repeat;">
                     <div style="margin-left: 8vw; max-width: 540px; background: rgba(30,64,175,0.18); border-radius: 18px; box-shadow: 0 4px 32px rgba(30,64,175,0.07); padding: 48px 36px; display: flex; flex-direction: column; align-items: flex-start; backdrop-filter: blur(2px);">
                         <div style="font-size: 1.1rem; color: #1db954; font-weight: 700; margin-bottom: 10px;">AIR</div>
                         <div style="font-size: 2.2rem; font-weight: 800; color: #fff; margin-bottom: 10px; text-shadow: 0 2px 8px #1a237e55;">AERMOD View</div>
@@ -38,7 +38,7 @@
                         <a href="aermodview.html" target="_blank" style="display: inline-block; padding: 14px 38px; background: linear-gradient(90deg, #1db954 0%, #2563eb 100%); color: #fff; border-radius: 12px; font-size: 1.1rem; font-weight: 700; text-decoration: none; box-shadow: 0 4px 16px rgba(26,35,126,0.08); border: none; transition: background 0.2s;">See More</a>
                     </div>
                 </div>
-                <div class="main-carousel-slide" data-bg="image/cloud.jpg" style="width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: flex-start; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.7s; background-size: cover; background-position: center; background-repeat: no-repeat;">
+                <div class="main-carousel-slide" data-bg="image/aqmis.jpg" style="width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: flex-start; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.7s; background-size: cover; background-position: center; background-repeat: no-repeat;">
                     <div style="margin-left: 8vw; max-width: 540px; background: rgba(30,64,175,0.18); border-radius: 18px; box-shadow: 0 4px 32px rgba(30,64,175,0.07); padding: 48px 36px; display: flex; flex-direction: column; align-items: flex-start; backdrop-filter: blur(2px);">
                         <div style="font-size: 1.1rem; color: #1db954; font-weight: 700; margin-bottom: 10px;">AIR</div>
                         <div style="font-size: 2.2rem; font-weight: 800; color: #fff; margin-bottom: 10px; text-shadow: 0 2px 8px #1a237e55;">AQMIS Cloud</div>
@@ -84,426 +84,205 @@
         </section>
         <!-- Full Height Carousel Section End -->
         <!--=============== HEADER ===============-->
-        <header class="header">
-            <nav class="nav container">
-                <div class="nav__data">
-                    <a href="index.html" class="nav__logo">
-                        <img src="image/newlagalogo.png" alt="LaGa Systems Logo" style="height: 38px; width: auto; vertical-align: middle; margin-right: 12px; display: inline-block; border-radius: 50%;"> 
-                        <span style="font-size: 2.1rem; font-weight: 900; letter-spacing: -1px; color: #1E73FA; vertical-align: middle; display: inline-block;">LaGa Systems</span>
-                    </a>
-    
-                    <div class="nav__toggle" id="nav-toggle">
-                        <i class="ri-menu-line nav__toggle-menu"></i>
-                        <i class="ri-close-line nav__toggle-close"></i>
+    <nav id="aqt-navbar" style="position:fixed;top:0;left:0;width:100vw;z-index:1200;background:#fff;box-shadow:0 2px 12px rgba(37,99,235,0.07);">
+    <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:64px;">
+      <div style="display:flex;align-items:center;gap:18px;">
+        <img src="image/newlagalogo.png" alt="LaGa Systems Logo" style="height:50px;width:auto;border-radius:6px;">
+        <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;font-size:1.6rem;font-weight:800;color:#2563eb;">LaGa Systems</span>
+      </div>
+      <ul style="list-style:none;display:flex;align-items:center;gap:32px;margin:0;padding:0;">
+        <li><a href="#" style="color:#2563eb;font-size:1.08rem;font-weight:700;text-decoration:none;">Home</a></li>
+        <li><a href="#About" style="color:#2563eb;font-size:1.08rem;font-weight:700;text-decoration:none;">About</a></li>
+        <li style="position:relative;">
+          <button id="products-menu-btn" style="background:none;border:none;font-size:1.08rem;font-weight:600;color:#2563eb;cursor:pointer;padding:0;">Solutions <i class="fas fa-chevron-down" style="font-size:0.9em;"></i></button>
+          <div id="products-mega-menu" style="display:none;position:fixed;left:0;top:64px;width:100vw;height:calc(100vh - 64px);background:#fff;border-radius:0 0 18px 18px;box-shadow:0 4px 32px rgba(37,99,235,0.13);padding:32px 48px 32px 48px;z-index:1100;overflow:hidden;">
+            <div style="display:flex;height:100%;">
+              <div id="mega-menu-left" style="width:auto;min-width:260px;max-width:none;overflow-y:auto;height:100%;white-space:nowrap;">
+                <h4 style="font-size:1.08rem;font-weight:700;color:#232b3b;margin-bottom:18px;">Categories</h4>
+                <ul id="mega-menu-categories" style="list-style:none;padding:0;margin:0;">
+                  <li style="margin-bottom:10px;"><button class="mega-menu-cat-btn" data-cat="airdispersion" style="background:none;border:none;color:#2563eb;text-decoration:none;font-weight:700;cursor:pointer;width:100%;text-align:left;font-size:1rem;padding:6px 0;">Air Dispersion</button></li>
+                  <li style="margin-bottom:10px;"><button class="mega-menu-cat-btn" data-cat="emissions" style="background:none;border:none;color:#2563eb;text-decoration:none;font-weight:700;cursor:pointer;width:100%;text-align:left;font-size:1rem;padding:6px 0;">Emissions Management</button></li>
+                  <li style="margin-bottom:10px;"><button class="mega-menu-cat-btn" data-cat="risk" style="background:none;border:none;color:#2563eb;text-decoration:none;font-weight:700;cursor:pointer;width:100%;text-align:left;font-size:1rem;padding:6px 0;">Risk Assessment</button></li>
+                  <li style="margin-bottom:10px;"><button class="mega-menu-cat-btn" data-cat="emergency" style="background:none;border:none;color:#2563eb;text-decoration:none;font-weight:700;cursor:pointer;width:100%;text-align:left;font-size:1rem;padding:6px 0;">Emergency Release</button></li>
+                  <li style="margin-bottom:10px;"><button class="mega-menu-cat-btn" data-cat="hydrogeologic" style="background:none;border:none;color:#2563eb;text-decoration:none;font-weight:700;cursor:pointer;width:100%;text-align:left;font-size:1rem;padding:6px 0;">Hydrogeologic Solutions</button></li>
+                  <li style="margin-bottom:10px;"><button class="mega-menu-cat-btn" data-cat="databases" style="background:none;border:none;color:#2563eb;text-decoration:none;font-weight:700;cursor:pointer;width:100%;text-align:left;font-size:1rem;padding:6px 0;">Graphing and Analysis</button></li>
+                  <li style="margin-bottom:10px;"><button class="mega-menu-cat-btn" data-cat="devtools" style="background:none;border:none;color:#2563eb;text-decoration:none;font-weight:700;cursor:pointer;width:100%;text-align:left;font-size:1rem;padding:6px 0;">Level Measurement Devices</button></li>
+                  <li style="margin-bottom:10px;"><button class="mega-menu-cat-btn" data-cat="devtools" style="background:none;border:none;color:#2563eb;text-decoration:none;font-weight:700;cursor:pointer;width:100%;text-align:left;font-size:1rem;padding:6px 0;">Dataloggers and Telemetry</button></li>
+                  <li style="margin-bottom:10px;"><button class="mega-menu-cat-btn" data-cat="devtools" style="background:none;border:none;color:#2563eb;text-decoration:none;font-weight:700;cursor:pointer;width:100%;text-align:left;font-size:1rem;padding:6px 0;">Groundwater Samplers</button></li>
+                  
+                </ul>
+              </div>
+              <div id="mega-menu-right" style="width:auto;padding-left:32px;min-width:300px;overflow-y:auto;height:100%;">
+                <div id="mega-menu-content">
+                  <!-- Default: Featured Products -->
+                  <h3 style="font-size:1.5rem;font-weight:700;color:#232b3b;margin-bottom:18px;display:flex;align-items:center;gap:12px;">
+                    <span>Featured Products</span>
+                  </h3>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+                    <div>
+                      <h5 style="display:flex;align-items:center;font-size:1.08rem;font-weight:700;color:#232b3b;margin-bottom:6px;"><i class="fas fa-wind fa-2x" style="color:#2563eb;margin-right:8px;"></i>AERMOD View</h5>
+                      <p style="color:#888;font-size:0.98rem;margin:0;">Gaussian Plume Air Dispersion Model</p>
                     </div>
+                    <div>
+                      <h5 style="display:flex;align-items:center;font-size:1.08rem;font-weight:700;color:#232b3b;margin-bottom:6px;"><i class="fas fa-cloud fa-2x" style="color:#2563eb;margin-right:8px;"></i>CALPUFF View</h5>
+                      <p style="color:#888;font-size:0.98rem;margin:0;">Puff Air Dispersion Model</p>
+                    </div>
+                    <div>
+                      <h5 style="display:flex;align-items:center;font-size:1.08rem;font-weight:700;color:#232b3b;margin-bottom:6px;"><i class="fas fa-chart-bar fa-2x" style="color:#2563eb;margin-right:8px;"></i>AQMIS</h5>
+                      <p style="color:#888;font-size:0.98rem;margin:0;">Ambient Quality Management Information System</p>
+                    </div>
+                    <div>
+                      <h5 style="display:flex;align-items:center;font-size:1.08rem;font-weight:700;color:#232b3b;margin-bottom:6px;"><i class="fas fa-water fa-2x" style="color:#2563eb;margin-right:8px;"></i>Visual MODFLOW Flex</h5>
+                      <p style="color:#888;font-size:0.98rem;margin:0;">Groundwater Flow & Contaminant Transport Modeling Software</p>
+                    </div>
+                    <div>
+                      <h5 style="display:flex;align-items:center;font-size:1.08rem;font-weight:700;color:#232b3b;margin-bottom:6px;"><i class="fas fa-database fa-2x" style="color:#2563eb;margin-right:8px;"></i>Hydro GeoAnalyst</h5>
+                      <p style="color:#888;font-size:0.98rem;margin:0;">Environmental Data Management & Visualization</p>
+                    </div>
+                    <div>
+                      <h5 style="display:flex;align-items:center;font-size:1.08rem;font-weight:700;color:#232b3b;margin-bottom:6px;"><i class="fas fa-flask fa-2x" style="color:#2563eb;margin-right:8px;"></i>AquaChem</h5>
+                      <p style="color:#888;font-size:0.98rem;margin:0;">Water Quality Data Analysis and Reporting Software</p>
+                    </div>
+                    <div>
+                      <h5 style="display:flex;align-items:center;font-size:1.08rem;font-weight:700;color:#232b3b;margin-bottom:6px;"><i class="fas fa-tint fa-2x" style="color:#2563eb;margin-right:8px;"></i>AquiferTest</h5>
+                      <p style="color:#888;font-size:0.98rem;margin:0;">Pumping & Slug Test Analysis, Interpretation & Visualization Software</p>
+                    </div>
+                    <div>
+                      <h5 style="display:flex;align-items:center;font-size:1.08rem;font-weight:700;color:#232b3b;margin-bottom:6px;"><i class="fas fa-chart-line fa-2x" style="color:#2563eb;margin-right:8px;"></i>OriginPro</h5>
+                      <p style="color:#888;font-size:0.98rem;margin:0;">The Ultimate Software for Graphing and Analysis</p>
+                    </div>
+                    <div>
+                      <h5 style="display:flex;align-items:center;font-size:1.08rem;font-weight:700;color:#232b3b;margin-bottom:6px;"><i class="fas fa-seedling fa-2x" style="color:#2563eb;margin-right:8px;"></i>HYDRUS</h5>
+                      <p style="color:#888;font-size:0.98rem;margin:0;">Numerical simulations of water, heat, and solute transport in variably saturated porous media.</p>
+                    </div>
+                    
+                  </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li><a href="#training" style="color:#2563eb;font-size:1.08rem;font-weight:700;text-decoration:none;">Training</a></li>
+        <li><a href="#contact" style="color:#2563eb;font-size:1.08rem;font-weight:700;text-decoration:none;">Contact</a></li>
+      </ul>
+      
+    </div>
+  </nav>
+  <script>
+    // Mega menu toggle
+    const productsBtn = document.getElementById('products-menu-btn');
+    const megaMenu = document.getElementById('products-mega-menu');
+    let menuOpen = false;
+    productsBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      menuOpen = !menuOpen;
+      megaMenu.style.display = menuOpen ? 'block' : 'none';
+    });
+    document.addEventListener('click', function(e) {
+      if (menuOpen && !megaMenu.contains(e.target) && e.target !== productsBtn) {
+        megaMenu.style.display = 'none';
+        menuOpen = false;
+      }
+    });
 
-                <!--=============== NAV MENU ===============-->
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li>
-                            <a href="#main-carousel" class="nav__link" style="color: #1a237e;">Home</a>
-                        </li>
-                        <li>
-                            <a href="#About" class="nav__link" style="color: #1a237e;">About</a>
-                        </li>
+    // Mega menu category switching
+    const megaMenuContent = document.getElementById('mega-menu-content');
+    const categoryContent = {
+      airdispersion: `
+        <h4 style="font-size:1.5rem;font-weight:700;color:#232b3b;margin-bottom:18px;">Air Dispersion Modeling</h4>
+        <p style="color: black;">Air dispersion modeling uses information about sources and meteorological conditions to calculate how a pollutant moves through the atmosphere and what the pollutant concentration is at specific points.</p>
+        <br>
+        <hr>
+        <br>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+          <div><h3 style="color:#232b3b; margin-bottom:0.5rem;"><i class="fas fa-wind fa-1x" style="color:#2563eb;margin-right:8px;"></i><a href="aermodview.html" target="_blank">AERMOD View</a></h3><h4>Gaussian Plume Air Dispersion Model</h4><p style="color:#888;">Our most commonly used air dispersion model. Applicable to a wide range of buoyant or neutrally buoyant emissions up to a range of 50km. Also suitable for complex terrain and urban dispersion.</p></div>
+          <div><h3 style="color:#232b3b; margin-bottom:0.5rem;"><i class="fas fa-cloud fa-1x" style="color:#2563eb;margin-right:8px;"></i><a href="calpuffview.html" target="_blank">CALPUFF View</a></h3><h4>Puff Air Dispersion Model</h4><p style="color:#888;">A non-steady state Gaussian puff model, suitable for long range transport, atmospheric chemistry, visibility and scenarios with complex wind fields, such as coastal and complex terrain areas.</p></div>
+          <div><h3 style="color:#232b3b; margin-bottom:0.5rem;"><i class="fas fa-car fa-1x" style="color:#2563eb;margin-right:8px;"></i><a href="calroadsview.html" target="_blank">CALRoads View</a></h3><h4>Traffic Air Dispersion Model</h4><p style="color:#888;">A traffic dispersion model specifically designed for modeling emissions from vehicles. CALRoads can model timed intersections, parking lots and account for traffic patterns.</p></div>
+          <div><h3 style="color:#232b3b; margin-bottom:0.5rem;"><i class="fas fa-dna fa-1x" style="color:#2563eb;margin-right:8px;"></i><a href="austalview.html" target="_blank">AUSTAL View</a></h3><h4>Lagrangian Particle Tracking Air Dispersion Model</h4><p style="color:#888;">A Lagrangian particle tracking model. Widely used in Germany, AUSTAL is capable of modeling complex wind fields and transient behavior.</p></div>
+        </div>
+      `,
+      emissions: `
+        <h4 style="font-size:1.5rem;font-weight:700;color:#232b3b;margin-bottom:18px;">Emissions Management</h4>
+        <p style="color: black;">Emissions management involves the collection, calculation, analysis, and reporting of emission data from a variety of sources. Examples of common source types include Point, Area, Fugitive, and Mobile sources.  Emissions data may be used to create inventories for regulatory reporting or to run air dispersion models.</p>
+        <br>
+        <hr>
+        <br>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+          <div><h3 style="color:#232b3b; margin-bottom:0.5rem;"><i class="fas fa-cloud fa-1x" style="color:#2563eb;margin-right:8px;"></i><a href="aqmis.html" target="_blank">AQMIS</a></h3><h4>Ambient Quality Management Information System</h4><p style="color:#888;">Complete air quality management solution for environmental agencies, environmental consultants and regulated industry. User reported benefits include significant cost and time savings, improved accuracy, and defensible regulatory compliance.</p></div>
+        </div>
+      `,
+      risk: `
+        <h4 style="font-size:1.5rem;font-weight:700;color:#232b3b;margin-bottom:18px;">Risk Assessment</h4>
+        <p style="color: black;">Risk assessment involves modeling the fate and transport of pollutants beyond their dispersion in the air. Transport through mechanisms such as deposition, run-off and bioaccumulation are considered with an overall objective of assessing the impact of pollutants on people and the environment.</p>
+        <br>
+        <hr>
+        <br>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+          <div><h3 style="color:#232b3b; margin-bottom:0.5rem;"><i class="fas fa-user-shield fa-1x" style="color:#2563eb;margin-right:8px;"></i><a href="irap-hview.html" target="_blank">IRAP-H View</a></h3><h4>Human Health Risk Assessment Program</h4><p style="color:#888;">An advanced human health risk assessment program for conducting a comprehensive multi-pathway risk assessment based on the US EPA Human Health Risk Assessment Protocol (HHRAP).</p></div>
+          <div><h3 style="color:#232b3b; margin-bottom:0.5rem;"><i class="fas fa-leaf fa-1x" style="color:#2563eb;margin-right:8px;"></i><a href="ecoriskview.html" target="_blank">ECORisk View</a></h3><h4>Ecological Risk Assessment Program</h4><p style="color:#888;">An advanced ecological risk assessment program for conducting a comprehensive multi-pathway risk assessment based on the US EPA Screening Level Ecological Risk Assessment Protocol (SLERAP).</p></div>
+        </div>
+      `,
+      emergency: `
+        <h4 style="font-size:1.5rem;font-weight:700;color:#232b3b;margin-bottom:18px;">Emergency Release</h4>
+        <p style="color: black;">Emergency release modeling is a specific kind of air dispersion modeling that deals with accidental releases, typically denser than air. This kind of modeling is used to evaluate accident scenarios and create emergency response plans.</p>
+        <br>
+        <hr>
+        <br>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+          <div><h3 style="color:#232b3b; margin-bottom:0.5rem;"><i class="fas fa-radiation fa-1x" style="color:#2563eb;margin-right:8px;"></i><a href="slabview.html" target="_blank">SLAB View</a></h3><h4>Emergency Release Dense Gas Model</h4><p style="color:#888;">A graphical user interface for the SLAB model - an atmospheric dispersion model for denser-than-air releases. SLAB View is an ideal tool to predict hazardous zones and potential impacts of accidental releases.</p></div> 
+        </div>
+      `,
+      hydrogeologic: `
+        <h4 style="font-size:1.5rem;font-weight:700;color:#232b3b;margin-bottom:18px;">Gain Critical Insight into Groundwater Systems</h4>
+        <p style="color: black;">Gain a deeper understanding of groundwater systems across diverse geological settings with powerful tools and data-driven insights. Whether you're managing water resources, conducting environmental assessments, or supporting sustainable development, our solutions provide critical visibility into the hidden dynamics of subsurface environments worldwide.</p>
+        <br>
+        <hr>
+        <br>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+          <div><h3 style="color:#232b3b; margin-bottom:0.5rem;"><i class="fas fa-water fa-1x" style="color:#2563eb;margin-right:8px;"></i><a href="visualmodflowflex.html" target="_blank">Visual MODFLOW Flex</a></h3><h4>Groundwater Flow & Contaminant Transport Modeling</h4><p style="color:#888;">Visual MODFLOW Flex brings together industry-standard codes for groundwater flow and contaminant transport, essential analysis and calibration tools, and stunning 3D visualization capabilities in a single environment.</p></div>
+          <div><h3 style="color:#232b3b; margin-bottom:0.5rem;"><i class="fas fa-chart-column fa-1x" style="color:#2563eb;margin-right:8px;"></i><a href="hydrogeoanalyst.html" target="_blank">Hydro GeoAnalyst</a></h3><h4>Environmental Data Management & Visualization</h4><p style="color:#888;">Hydro GeoAnalyst (HGA) is our comprehensive and easy-to-use environmental data management system.</p></div>
+          <div><h3 style="color:#232b3b; margin-bottom:0.5rem;"><i class="fas fa-droplet fa-1x" style="color:#2563eb;margin-right:8px;"></i><a href="aquachem.html" target="_blank">AquaChem</a></h3><h4>Water Quality Data Analysis and Reporting</h4><p style="color:#888;">AquaChem’s analysis tools cover a range of functions and calculations including unit transformations, charge balances, and statistics. </p></div>
+          <div><h3 style="color:#232b3b; margin-bottom:0.5rem;"><i class="fas fa-vial fa-1x" style="color:#2563eb;margin-right:8px;"></i><a href="aquifertest.html" target="_blank">AquiferTest</a></h3><h4>Pumping & Slug Test Analysis, Interpretation & Visualization</h4><p style="color:#888;">AquiferTest is an easy-to-use software package for analyzing, interpreting and visualizing pumping and slug test data. </p></div>
+        </div>
+      `,
+      databases: `
+        <h4 style="font-size:1.08rem;font-weight:700;color:#232b3b;margin-bottom:18px;">Databases</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+          <div><h5 style="color:#232b3b;">HydroGeo Database</h5><p style="color:#888;">Store and manage groundwater data securely.</p></div>
+          <div><h5 style="color:#232b3b;">Data Integration</h5><p style="color:#888;">Integrate aquifer test data with enterprise databases.</p></div>
+        </div>
+      `,
+      devtools: `
+        <h4 style="font-size:1.08rem;font-weight:700;color:#232b3b;margin-bottom:18px;">Developer Tools</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+          <div><h5 style="color:#232b3b;">API Access</h5><p style="color:#888;">Programmatic access to groundwater analysis features.</p></div>
+          <div><h5 style="color:#232b3b;">Custom Extensions</h5><p style="color:#888;">Build custom tools for aquifer test workflows.</p></div>
+        </div>
+      `
+    };
+    document.querySelectorAll('.mega-menu-cat-btn').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const cat = btn.getAttribute('data-cat');
+        if (categoryContent[cat]) {
+          megaMenuContent.innerHTML = categoryContent[cat];
+        }
+        // Highlight selected
+        document.querySelectorAll('.mega-menu-cat-btn').forEach(b => b.style.background = 'none');
+        btn.style.background = '#e3eaff';
+      });
+    });
 
-                        <!--=============== DROPDOWN 1 ===============-->
-                        <li class="dropdown__item">                      
-                            <div class="nav__link dropdown__button" style="color: #1a237e;">
-                                Solutions <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                            </div>
-
-                            <div class="dropdown__container">
-                                
-                                <div class="dropdown__content">
-                                    
-                                    <div class="dropdown__group">
-                                        
-    
-                                        <span class="dropdown__title">Air Dispersion</span>
-    
-                                        <ul class="dropdown__list">
-                                            <li>
-                                                <a href="aermodview.html" class="dropdown__link" target="_blank">AERMOD View</a>
-                                            </li>
-                                            <li>
-                                                <a href="calpuffview.html" class="dropdown__link" target="_blank">CALPUFF View</a>
-                                            </li>
-                                            <li>
-                                                <a href="calroadsview.html" class="dropdown__link" target="_blank">CALRoads View</a>
-                                            </li>
-                                            <li>
-                                                <a href="austalview.html" class="dropdown__link" target="_blank">AUSTAL View</a>
-                                            </li>
-                                            
-                                        </ul>
-                                    </div>
-    
-                                    <div class="dropdown__group">
-                                        
-    
-                                        <span class="dropdown__title">Emergency Release</span>
-    
-                                        <ul class="dropdown__list">
-                                            <li>
-                                                <a href="slabview.html" class="dropdown__link" target="_blank">SLAB View</a>
-                                            </li>
-                                            
-                                        </ul>
-                                    </div>
-    
-                                    <div class="dropdown__group">
-                                        
-    
-                                        <span class="dropdown__title">Emissions Management</span>
-    
-                                        <ul class="dropdown__list">
-                                            <li>
-                                                <a href="aqmis.html" class="dropdown__link" target="_blank">AQMIS Cloud</a>
-                                            </li>
-                                            
-                                        </ul>
-                                    </div>
-
-                                    <div class="dropdown__group">
-                                        
-    
-                                        <span class="dropdown__title">Risk Management</span>
-    
-                                        <ul class="dropdown__list">
-                                            <li>
-                                                <a href="irap-hview.html" class="dropdown__link" target="_blank">IRAP-H View</a>
-                                            </li>
-                                            <li>
-                                                <a href="ecoriskview.html" class="dropdown__link" target="_blank">ECORISK View</a>
-                                            </li>
-                                            
-                                        </ul>
-                                    </div>
-                                    
-    
-                                    <div class="dropdown__group">
-                                        
-    
-                                        <span class="dropdown__title">Graphing & Analysis</span>
-    
-                                        <ul class="dropdown__list">
-                                            <li>
-                                                <a href="originpro.html" class="dropdown__link" target="_blank">Origin</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">OriginPro</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">Origin Viewer</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="dropdown__content">
-                                    <div class="dropdown__group">
-                                        
-    
-                                        <span class="dropdown__title">Groundwater Modeling</span>
-    
-                                        <ul class="dropdown__list">
-                                            <li>
-                                                <a href="visualmodflowflex.html" class="dropdown__link" target="_blank">Visual MODFLOW Flex</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">HYDRUS 2D/3D</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">SMS</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">WMS</a>
-                                            </li>
-                                            
-                                        </ul>
-                                    </div>
-    
-                                    <div class="dropdown__group">
-                                        
-    
-                                        <span class="dropdown__title">Data Management & Visualization</span>
-    
-                                        <ul class="dropdown__list">
-                                            <li>
-                                                <a href="hydrogeoanalyst.html" class="dropdown__link" target="_blank">Hydro GeoAnalyst</a>
-                                            </li>
-                                            
-                                        </ul>
-                                    </div>
-    
-                                    <div class="dropdown__group">
-                                        
-    
-                                        <span class="dropdown__title">Water Quality Analysis</span>
-    
-                                        <ul class="dropdown__list">
-                                            <li>
-                                                <a href="#" class="dropdown__link">AquaChem</a>
-                                            </li>
-                                            
-                                        </ul>
-                                    </div>
-
-                                    <div class="dropdown__group">
-                                        
-    
-                                        <span class="dropdown__title">Pumping & Slug Test Analysis</span>
-    
-                                        <ul class="dropdown__list">
-                                            <li>
-                                                <a href="#" class="dropdown__link">AquiferTest</a>
-                                            </li>
-                                            
-                                            
-                                        </ul>
-                                    </div>
-                                    
-    
-                                    
-                                </div>
-                                <div class="dropdown__content">
-                                    <div class="dropdown__group">
-                                        
-    
-                                        <span class="dropdown__title">Level Measurement Devices</span>
-    
-                                        <ul class="dropdown__list">
-                                            <li>
-                                                <a href="#" class="dropdown__link">101 Water Level Meter</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">101D Water Level DrawDown Meter</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">101B Water Level Meter </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">102 Water Level Meter</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">104 Sonic Water Level Meter</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">122 Interface Meter</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">201 Water Level Temperature Meter</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">107 TLC Meter</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">105 Well Casing & Depth Indicator</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-    
-                                    <div class="dropdown__group">
-                                        
-    
-                                        <span class="dropdown__title">Dataloggers and Telemetry</span>
-    
-                                        <ul class="dropdown__list">
-                                            <li>
-                                                <a href="#" class="dropdown__link">3001 Levelogger® 5</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">3001 Levelogger Junior 5</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">3001 Levelogger LTC 5</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">3002 Rainlogger</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">3250 LevelVent 5</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">301 Water Level Temperature Sensor</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">9500 LevelSender 5</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">9700 SolSat 5</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-    
-                                    
-
-                                    <div class="dropdown__group">
-                                        
-    
-                                        <span class="dropdown__title">Groundwater Samplers</span>
-    
-                                        <ul class="dropdown__list">
-                                            <li>
-                                                <a href="#" class="dropdown__link">415 12V Submersible Pump</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">410 Peristaltic Pump</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">407 Bladder Pump</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">408 Double Valve Pump</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">425 Discrete Interval Sampler</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">429 Point Source Bailer</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">428 Biodegradable PVC Bailer</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">800 Low Pressure Packers</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    
-    
-                                    
-                                </div>
-                            </div>
-                        </li>
-
-                        <!--=============== DROPDOWN 2 ===============
-                        <li class="dropdown__item">
-                            <div class="nav__link dropdown__button" style="color: #1a237e;">
-                                Resources <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                            </div>
-
-                            <div class="dropdown__container">
-                                <div class="dropdown__content">
-                                    <div class="dropdown__group">
-                                        <div class="dropdown__icon">
-                                            <i class="ri-code-line"></i>
-                                        </div>
-    
-                                        <span class="dropdown__title">Web templates</span>
-    
-                                        <ul class="dropdown__list">
-                                            <li>
-                                                <a href="#" class="dropdown__link">Free templates</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">Premium templates</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-    
-                                    <div class="dropdown__group">
-                                        <div class="dropdown__icon">
-                                            <i class="ri-pen-nib-line"></i>
-                                        </div>
-    
-                                        <span class="dropdown__title">Designs</span>
-    
-                                        <ul class="dropdown__list">
-                                            <li>
-                                                <a href="#" class="dropdown__link">Web designs</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">App designs</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">Component design</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-    
-                                    <div class="dropdown__group">
-                                        <div class="dropdown__icon">
-                                            <i class="ri-apps-2-line"></i>
-                                        </div>
-    
-                                        <span class="dropdown__title">Others</span>
-    
-                                        <ul class="dropdown__list">
-                                            <li>
-                                                <a href="#" class="dropdown__link">Recent blogs</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">Tutorial videos</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">Webinar</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>-->
-
-                        <li>
-                            <a href="#training" class="nav__link" style="color: #1a237e;">Training</a>
-                        </li>
-                        <li>
-                            <a href="#contact" class="nav__link" style="color: #1a237e;">Contact</a>
-                        </li>
-
-                        <!--=============== DROPDOWN 3 ===============
-                        <li class="dropdown__item">                        
-                            <div class="nav__link dropdown__button" style="color: #1a237e;">
-                                Company <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                            </div>
-
-                            <div class="dropdown__container">
-                                <div class="dropdown__content">
-                                    <div class="dropdown__group">
-                                        <div class="dropdown__icon">
-                                            <i class="ri-community-line"></i>
-                                        </div>
-    
-                                        <span class="dropdown__title">About us</span>
-    
-                                        <ul class="dropdown__list">
-                                            <li>
-                                                <a href="#" class="dropdown__link">About us</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">Support</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">Contact us</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-    
-                                    <div class="dropdown__group">
-                                        <div class="dropdown__icon">
-                                            <i class="ri-shield-line"></i>
-                                        </div>
-    
-                                        <span class="dropdown__title">Safety and quality</span>
-    
-                                        <ul class="dropdown__list">
-                                            <li>
-                                                <a href="#" class="dropdown__link">Cookie settings</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown__link">Privacy Policy</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>-->
-                    </ul>
-                </div>
-            </nav>
-        </header>
+    // Sticky nav shadow on scroll
+    window.addEventListener('scroll', function() {
+      const nav = document.getElementById('aqt-navbar');
+      if (window.scrollY > 10) {
+        nav.style.boxShadow = '0 4px 24px rgba(37,99,235,0.13)';
+      } else {
+        nav.style.boxShadow = '0 2px 12px rgba(37,99,235,0.07)';
+      }
+    });
+  </script>
         <!-- Carousel -->
         
         <!-- Hero Section Start -->

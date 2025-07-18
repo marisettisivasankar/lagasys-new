@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AquaChem – Water Quality Data Analysis & Reporting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f7fafc; color: #232b3b; }
+    .ac-hero {
+      background: linear-gradient(90deg, #2563eb 60%, #60a5fa 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 0 32px 0;
+    }
+    .ac-hero h1 { font-size: 2.8rem; margin-bottom: 12px; }
+    .ac-hero h2 { font-size: 1.5rem; font-weight: 400; margin-bottom: 24px; }
+    .ac-hero .ac-btn { background: #fff; color: #2563eb; padding: 14px 36px; border-radius: 6px; font-weight: 700; text-decoration: none; font-size: 1.1rem; transition: background 0.2s, color 0.2s; }
+    .ac-hero .ac-btn:hover { background: #e0e7ff; color: #1e293b; }
+    .ac-section { max-width: 1200px; margin: 48px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 16px rgba(37,99,235,0.07); padding: 40px 28px; }
+    .ac-section h2 { color: #2563eb; font-size: 2rem; margin-bottom: 18px; }
+    .ac-features { display: flex; flex-wrap: wrap; gap: 32px; margin-top: 24px; }
+    .ac-flipcard {
+      flex: 1 1 320px;
+      min-width: 280px;
+      height: 320px;
+      perspective: 1200px;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(37,99,235,0.10);
+      margin-bottom: 12px;
+      background: transparent;
+      position: relative;
+    }
+    .ac-flipcard-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(.4,2,.6,1);
+      transform-style: preserve-3d;
+      border-radius: 12px;
+    }
+    .ac-flipcard:hover .ac-flipcard-inner,
+    .ac-flipcard:focus-within .ac-flipcard-inner {
+      transform: rotateY(180deg);
+    }
+    .ac-flipcard-front, .ac-flipcard-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      padding: 32px 18px;
+      font-size: 1.13rem;
+      box-sizing: border-box;
+    }
+    .ac-flipcard-front {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      box-shadow: 0 2px 16px rgba(37,99,235,0.10);
+      z-index: 2;
+    }
+    .ac-flipcard-front h3 {
+      color: #fff;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 8px rgba(30,41,59,0.18);
+    }
+    .ac-flipcard-back {
+      background: #232b3b;
+      color: #fff;
+      transform: rotateY(180deg);
+      box-shadow: 0 2px 16px rgba(37,99,235,0.10);
+      z-index: 3;
+      overflow-y: auto;
+    }
+    .ac-flipcard-back ul {
+      padding-left: 18px;
+      color: #fff;
+      padding-top: 40px;
+    }
+    .ac-flipcard-back li {
+      margin-bottom: 8px;
+    }
+    .ac-applications { margin-top: 32px; }
+    .ac-applications ul { columns: 2; font-size: 1.08rem; color: #374151; }
+    .ac-applications li { margin-bottom: 10px; }
+    .ac-cta { text-align: center; margin: 56px 0 32px 0; }
+    .ac-cta h2 { color: #1e293b; }
+    .ac-cta .ac-btn-main { background: #2563eb; color: #fff; padding: 16px 40px; border-radius: 8px; font-size: 1.18rem; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+    .ac-cta .ac-btn-main:hover { background: #1e40af; }
+    @media (max-width: 900px) {
+      .ac-features { flex-direction: column; }
+      .ac-applications ul { columns: 1; }
+      .ac-section { padding: 24px 8px; }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="ac-hero" style="background:linear-gradient(90deg, #2563eb 0%, #60a5fa 100%); color:#fff; min-height:100vh; display:flex; flex-direction:row; align-items:center; justify-content:space-between; width:100%; max-width:1600px; margin:0 auto; padding:0 0 0 5vw; box-sizing:border-box; text-align:left;">
+    <div style="flex:2; display:flex; flex-direction:column; justify-content:center; align-items:flex-start;">
+      <div style="letter-spacing:2px; color:#b3c7e6; font-size:1.08rem; font-weight:600;">Water Quality Data Analysis</div>
+      <h1 style="color:#fff; font-size:3.2rem; font-weight:900; margin-bottom:18px; letter-spacing:2px; line-height:1.1;">AquaChem</h1>
+      <h2 style="font-size:1.35rem; font-weight:500; color:#e3eaff; margin-bottom:22px;">Water Quality Data Analysis and Reporting Software</h2>
+      <div style="display:flex; gap:18px;">
+        <a href="https://www.waterloohydrogeologic.com/download-trial/" target="_blank" style="background:#b3d2f7; color:#1a2340; font-weight:700; border-radius:10px; padding:18px 38px; font-size:1.18rem; box-shadow:0 2px 16px rgba(37,99,235,0.13); text-decoration:none; border:none; transition:background 0.2s;">Download Trial</a>
+        <a href="#why" style="background:none; color:#fff; font-weight:700; border-radius:10px; padding:18px 38px; font-size:1.18rem; box-shadow:0 2px 16px rgba(37,99,235,0.13); text-decoration:none; border:2px solid #b3d2f7; transition:background 0.2s;">Explore Features</a>
+      </div>
+    </div>
+    <div style="flex:1; display:flex; align-items:center; justify-content:center;">
+      <img src="image/aquachem.png" alt="AquaChem Logo" style="max-width:500px; padding:32px;">
+    </div>
+  </section>
+
+  
+
+  <!-- Intro Section -->
+  <section class="vmod-section" style="max-width:1200px; margin:38px auto 0 auto; background:linear-gradient(90deg, #2563eb 0%, #1a2340 100%); border-radius:18px; box-shadow:0 4px 32px rgba(37,99,235,0.10); overflow:hidden; min-height:260px; padding:54px 48px 54px 54px; display:block;">
+    <h2 style="color:#fff; font-size:2.0rem; font-weight:400; margin-bottom:18px; letter-spacing:-1px;">AquaChem’s analysis tools cover a range of functions and calculations including unit transformations, charge balances, and statistics. These powerful analytical capabilities are complemented by an extensive selection of commonly used geochemical plots to represent the chemical characteristics of water quality data.</h2>
+  </section>
+
+  <!-- Featured News/Updates Section -->
+  <section id="why" class="ac-featured-news" style="max-width:1300px; margin:48px auto 0 auto; padding:0 18px;">
+    <div style="margin-bottom:18px; color:#2563eb; font-size:1.02rem; font-weight:700; letter-spacing:1.5px;">Why</div>
+    <h2 style="font-size:2.6rem; font-weight:900; color:#1a2340; margin-bottom:32px; letter-spacing:-1px;">Why Choose <span style="color: #2563eb; font-weight: 700;">AquaChem?</span></h2>
+    <p style="color: black; font-size: 1.5rem; font-weight: 400;">AquaChem’s analysis tools cover a range of functions and calculations including unit transformations, charge balances, and statistics. These powerful analytical capabilities are complemented by an extensive selection of commonly used geochemical plots to represent the chemical characteristics of water quality data.</p>
+    <div style="display:flex; flex-wrap:wrap; gap:32px; justify-content:center;">
+      <div style="background:#fff; border-radius:22px; box-shadow:0 2px 16px rgba(37,99,235,0.10); max-width:400px; flex:1 1 340px; display:flex; flex-direction:column; overflow:hidden; min-width:320px;">
+        <div style="padding:28px 24px 18px 24px; flex:1; display:flex; flex-direction:column;">
+          <i class="fa-solid fa-folder-tree fa-3x" style="color: #2563eb;"></i>
+          <h3 style="font-size:1.25rem; font-weight:800; color:#2563eb; margin-bottom:12px;">Effortless Data Management & QA/QC</h3>
+          <p style="color:#232b3b; font-size:1.08rem; margin-bottom:18px;">Easily import data from various file types (.txt, .csv, .xls, .xlsx, .mdb, and .accdb) and file formats (samples as rows, samples as columns, one analyzed value for each row)</p>
+        </div>
+      </div>
+      <div style="background:#fff; border-radius:22px; box-shadow:0 2px 16px rgba(37,99,235,0.10); max-width:400px; flex:1 1 340px; display:flex; flex-direction:column; overflow:hidden; min-width:320px;">
+        <div style="padding:28px 24px 18px 24px; flex:1; display:flex; flex-direction:column;">
+          <i class="fa-solid fa-chart-column fa-3x" style="color: #2563eb;"></i>
+          <h3 style="font-size:1.25rem; font-weight:800; color:#2563eb; margin-bottom:12px;">Interactive GeoChemical and Statistical Plots</h3>
+          <p style="color:#232b3b; font-size:1.08rem; margin-bottom:18px;">AquaChem allows you to create multiple plots for the same dataset and view these plots simultaneously side-by-side. All plots are interactive – click on a data point and its corresponding sample is highlighted in the sample list. This is useful for identifying outliers.</p>
+        </div>
+      </div>
+      <div style="background:#fff; border-radius:22px; box-shadow:0 2px 16px rgba(37,99,235,0.10); max-width:400px; flex:1 1 340px; display:flex; flex-direction:column; overflow:hidden; min-width:320px;">
+        <div style="padding:28px 24px 18px 24px; flex:1; display:flex; flex-direction:column;">
+          <i class="fa-solid fa-chart-line fa-3x" style="color: #2563eb;"></i>
+          <h3 style="font-size:1.25rem; font-weight:800; color:#2563eb; margin-bottom:12px;">Water Quality Data Analysis</h3>
+          <p style="color:#232b3b; font-size:1.08rem; margin-bottom:18px;">AquaChem comes with comprehensive calculators and converters that allow you to perform quick, on-the-fly analyses on your water quality data.</p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div style="display:flex; flex-wrap:wrap; gap:32px; justify-content:center;">
+      <div style="background:#fff; border-radius:22px; box-shadow:0 2px 16px rgba(37,99,235,0.10); max-width:400px; flex:1 1 340px; display:flex; flex-direction:column; overflow:hidden; min-width:320px;">
+        <div style="padding:28px 24px 18px 24px; flex:1; display:flex; flex-direction:column;">
+          <i class="fa-solid fa-file-lines fa-3x" style="color: #2563eb;"></i>
+          <h3 style="font-size:1.25rem; font-weight:800; color:#2563eb; margin-bottom:12px;">Automatic Reports</h3>
+          <p style="color:#232b3b; font-size:1.08rem; margin-bottom:18px;">In just a few clicks, AquaChem delivers ready-made reports that contain key information about your water quality data. Fully customized layouts using the Report Designer</p>
+        </div>
+      </div>
+      <div style="background:#fff; border-radius:22px; box-shadow:0 2px 16px rgba(37,99,235,0.10); max-width:400px; flex:1 1 340px; display:flex; flex-direction:column; overflow:hidden; min-width:320px;">
+        <div style="padding:28px 24px 18px 24px; flex:1; display:flex; flex-direction:column;">
+          <i class="fa-solid fa-flask fa-3x" style="color: #2563eb;"></i>
+          <h3 style="font-size:1.25rem; font-weight:800; color:#2563eb; margin-bottom:12px;">Geochemical Modeling (Using PHREEQC)</h3>
+          <p style="color:#232b3b; font-size:1.08rem; margin-bottom:18px;">AquaChem includes features that integrate the functionality of PHREEQC and PHREEQCi to facilitate geochemical modelling</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's New in AquaChem 13.0 Section -->
+  <section class="ac-section ac-whatsnew" style="background:linear-gradient(90deg, #f8fbff 0%, #e3eaff 100%); box-shadow:0 2px 24px rgba(37,99,235,0.07); margin-bottom:32px;">
+    <h2 style="color:#2563eb; font-size:2.2rem; font-weight:800; margin-bottom:38px; text-align:center;">What's New in AquaChem 13.0</h2>
+    <div style="display:flex; flex-direction:row; flex-wrap:wrap; gap:0; justify-content:space-between; align-items:flex-start; max-width:1100px; margin:0 auto; position:relative;">
+      <div style="flex:1 1 220px; min-width:220px; max-width:260px; display:flex; flex-direction:column; align-items:center; position:relative;">
+        <div style="background:#2563eb; color:#fff; border-radius:50%; width:64px; height:64px; display:flex; align-items:center; justify-content:center; font-size:2rem; margin-bottom:18px; box-shadow:0 2px 12px rgba(37,99,235,0.13);">
+          <i class="fas fa-microchip"></i>
+        </div>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px; text-align:center;">AquaChem 64-Bit Edition</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500; text-align:center;">Experience improved performance and stability with the new 64-bit edition of AquaChem.</p>
+        <div style="position:absolute; right:-30px; top:32px; width:60px; height:4px; background:linear-gradient(90deg,#2563eb 60%,#e3eaff 100%); border-radius:2px; z-index:1;"></div>
+      </div>
+      <div style="flex:1 1 220px; min-width:220px; max-width:260px; display:flex; flex-direction:column; align-items:center; position:relative;">
+        <div style="background:#2563eb; color:#fff; border-radius:50%; width:64px; height:64px; display:flex; align-items:center; justify-content:center; font-size:2rem; margin-bottom:18px; box-shadow:0 2px 12px rgba(37,99,235,0.13);">
+          <i class="fas fa-object-group"></i>
+        </div>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px; text-align:center;">Plot Collections</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500; text-align:center;">Organize and view multiple geochemical plots together for enhanced data visualization.</p>
+        <div style="position:absolute; right:-30px; top:32px; width:60px; height:4px; background:linear-gradient(90deg,#2563eb 60%,#e3eaff 100%); border-radius:2px; z-index:1;"></div>
+      </div>
+      <div style="flex:1 1 220px; min-width:220px; max-width:260px; display:flex; flex-direction:column; align-items:center; position:relative;">
+        <div style="background:#2563eb; color:#fff; border-radius:50%; width:64px; height:64px; display:flex; align-items:center; justify-content:center; font-size:2rem; margin-bottom:18px; box-shadow:0 2px 12px rgba(37,99,235,0.13);">
+          <i class="fas fa-database"></i>
+        </div>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px; text-align:center;">Data Sources</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500; text-align:center;">Connect, manage, and analyze data from a variety of sources with new integration options.</p>
+        <div style="position:absolute; right:-30px; top:32px; width:60px; height:4px; background:linear-gradient(90deg,#2563eb 60%,#e3eaff 100%); border-radius:2px; z-index:1;"></div>
+      </div>
+      <div style="flex:1 1 220px; min-width:220px; max-width:260px; display:flex; flex-direction:column; align-items:center; position:relative;">
+        <div style="background:#2563eb; color:#fff; border-radius:50%; width:64px; height:64px; display:flex; align-items:center; justify-content:center; font-size:2rem; margin-bottom:18px; box-shadow:0 2px 12px rgba(37,99,235,0.13);">
+          <i class="fas fa-flask"></i>
+        </div>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px; text-align:center;">PHREEQC</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500; text-align:center;">Enhanced integration with PHREEQC for advanced geochemical modeling and analysis.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Applications Section -->
+  <section class="ac-section ac-applications" style="background:linear-gradient(90deg, #e3eaff 0%, #f8fbff 100%); box-shadow:0 2px 24px rgba(37,99,235,0.07);">
+    <h2 style="color:#1a2340; font-size:2.2rem; font-weight:800; margin-bottom:28px;">Applications</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:32px; justify-content:center;">
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-tint" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Supply Well Geochemistry</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Analyze & report aqueous geochemistry of supply wells.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-vial" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Contaminated Site Analysis</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Analytical lab results of samples from contaminated sites.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-dumpster" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Landfill Data Management</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Manage water quality data from sanitary landfills.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-mountain" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Mining Exploration</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Identify mineralization trends for mining exploration.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-chart-line" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Water Quality Analysis</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Analyze, interpret and plot water quality data.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-file-alt" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Regulatory Compliance</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Regulatory compliance with trend analyses reports.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-exclamation-triangle" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Guideline Exceedances</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Identify and report water quality guideline exceedances.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="ac-cta">
+    <h2 style="color:#2563eb;">Get Started With AquaChem</h2>
+    <p style="font-size:1.13rem; color:#374151; max-width:700px; margin:0 auto 24px auto;">
+      Ready to streamline your water quality data analysis? Download a free trial or contact us for more information.
+    </p>
+  </section>
+</body>
+</html>

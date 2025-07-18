@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
   <style>
-    html, body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8fbff; margin: 0; padding: 0; overflow-x: hidden; }
+    html, body { font-family: 'Segoe UI'; background: #f8fbff; margin: 0; padding: 0; overflow-x: hidden; }
     .hga-hero {
       background: linear-gradient(90deg, #2563eb 0%, #1a2340 100%);
       color: #fff;
@@ -202,152 +202,146 @@
 </head>
 <body>
   <!-- Hero Section -->
-  <section class="hga-hero">
-    <img src="image/HGA_logo-1.png" alt="Hydro GeoAnalyst Icon">
-    <h1>Hydro GeoAnalyst</h1>
-    <h2>Environmental Data Management & Visualization</h2>
-    <p>Hydro GeoAnalyst (HGA) is our comprehensive and easy-to-use environmental data management system. HGA integrates customizable database structures used around the world with state-of-the-art tools for data interpretation, statistical analysis, Geographical Information System (GIS) mapping, data charting, and visualizations in two or three dimensions.</p>
-    <div>
-      <a href="https://www.waterloohydrogeologic.com/download-trial/" target="_blank" class="hga-btn-main">Download Trial</a>
+  <section class="hga-hero" style="background:linear-gradient(90deg, #2563eb 0%, #1a2340 100%); color:#fff; min-height:100vh; display:flex; flex-direction:row; align-items:center; justify-content:space-between; width:100%; max-width:1600px; margin:0 auto; padding:0 0 0 5vw; box-sizing:border-box;">
+    <div style="flex:2; display:flex; flex-direction:column; justify-content:center; align-items:flex-start;">
+      <div style="margin-bottom:18px; letter-spacing:2px; color:#b3c7e6; font-size:1.08rem; font-weight:600;">Environmental Data Management</div>
+      <h1 style="color:#fff; font-size:3.2rem; font-weight:900; margin-bottom:18px; letter-spacing:2px; line-height:1.1;">Hydro GeoAnalyst</h1>
+      <h2 style="font-size:1.35rem; font-weight:500; color:#e3eaff; margin-bottom:22px;">Environmental Data Management & Visualization</h2>
+      <div style="display:flex; gap:18px;">
+        <a href="https://www.waterloohydrogeologic.com/download-trial/" target="_blank" style="background:#b3d2f7; color:#1a2340; font-weight:700; border-radius:10px; padding:18px 38px; font-size:1.18rem; box-shadow:0 2px 16px rgba(37,99,235,0.13); text-decoration:none; border:none; transition:background 0.2s;">Download Trial</a>
+        <a href="#modules" style="background:none; color:#fff; font-weight:700; border-radius:10px; padding:18px 38px; font-size:1.18rem; box-shadow:0 2px 16px rgba(37,99,235,0.13); text-decoration:none; border:2px solid #b3d2f7; transition:background 0.2s;">Explore Features</a>
+      </div>
+    </div>
+    <div style="flex:1; display:flex; align-items:center; justify-content:center;">
+      <img src="image/HGA-hero-product-image-1.jpg" alt="Hydro GeoAnalyst Icon" style="max-width:500px; padding:32px;">
     </div>
   </section>
 
-  <!-- Why Choose Section (screenshot style) -->
-  <section class="hga-section" style="background: #fff; max-width: 1400px;">
-    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 48px;">
-      <div style="flex: 1 1 420px; min-width: 320px; text-align: center;">
-        <img src="image/hga-screenshot.png" alt="Hydro GeoAnalyst Screenshot" style="max-width: 100%; height: auto; box-shadow: 0 4px 32px rgba(37,99,235,0.10); border-radius: 12px;">
+  <!-- Intro Section -->
+  <section class="vmod-section" style="max-width:1200px; margin:38px auto 0 auto; background:linear-gradient(90deg, #2563eb 0%, #1a2340 100%); border-radius:18px; box-shadow:0 4px 32px rgba(37,99,235,0.10); overflow:hidden; min-height:260px; padding:54px 48px 54px 54px; display:block;">
+    <h2 style="color:#fff; font-size:2.0rem; font-weight:400; margin-bottom:18px; letter-spacing:-1px;">Hydro GeoAnalyst (HGA) is our comprehensive and easy-to-use environmental data management system. HGA integrates customizable database structures used around the world with state-of-the-art tools for data interpretation, statistical analysis, Geographical Information System (GIS) mapping, data charting, and visualizations in two or three dimensions.</h2>
+  </section>
+
+  <!-- Featured News/Updates Section -->
+  <section class="hga-featured-news" style="max-width:1300px; margin:48px auto 0 auto; padding:0 18px;">
+    <div style="margin-bottom:18px; color:#2563eb; font-size:1.02rem; font-weight:700; letter-spacing:1.5px;">Why</div>
+    <h2 style="font-size:2.6rem; font-weight:900; color:#1a2340; margin-bottom:32px; letter-spacing:-1px;">Why Choose <span style="color: #2563eb; font-weight: 700;">Hydro GeoAnalyst?</span></h2>
+    <p style="color: black; font-size: 1.5rem; font-weight: 400;">HGA consists of an application that connects to an SQL Server database and facilitates data management, analysis and interpretation, and collaboration through various purpose-built modules.  HGA helps you work with large volumes of environmental data without requiring in-depth knowledge of SQL.  HGA+ extends these capabilities by adding modules specifically designed to work with geochemical data and a console for use R to get even more out of your data.</p>
+    <br>
+    <div style="display:flex; flex-wrap:wrap; gap:32px; justify-content:center;">
+      <div style="background:#fff; border-radius:22px; box-shadow:0 2px 16px rgba(37,99,235,0.10); max-width:400px; flex:1 1 340px; display:flex; flex-direction:column; overflow:hidden; min-width:320px;">
+        <div style="padding:28px 24px 18px 24px; flex:1; display:flex; flex-direction:column;">
+          <h3 style="font-size:1.25rem; font-weight:800; color: #2563eb; margin-bottom:12px;">Improved Data Quality </h3>
+          <p style="color:#232b3b; font-size:1.08rem; margin-bottom:18px;">Hydro GeoAnalyst standardizes your organization and intelligently validates all data upon import, ensuring it meets quality requirements for reliable analyses and informed decision making.</p>
+        </div>
       </div>
-      <div style="flex: 2 1 520px; min-width: 320px;">
-        <h2 style="font-size:2.8rem; color:#232b3b; font-weight:400; margin-bottom: 24px; text-align: left;">Why Choose Hydro GeoAnalyst?</h2>
-        <div style="font-size:1.18rem; color:#444; line-height:1.7; text-align:left;">
-          <p>With Hydro GeoAnalyst, environmental professionals, geoscientists and government agencies have all the tools required to effectively and efficiently manage large volumes of data, and make informed decisions about environmental and water resources.</p>
-          <p>HGA consists of an application that connects to an SQL Server database and facilitates data management, analysis and interpretation, and collaboration through various purpose-built modules. HGA helps you work with large volumes of environmental data without requiring in-depth knowledge of SQL. HGA+ extends these capabilities by adding modules specifically designed to work with geochemical data and a console for use R to get even more out of your data.</p>
+      <div style="background:#fff; border-radius:22px; box-shadow:0 2px 16px rgba(37,99,235,0.10); max-width:400px; flex:1 1 340px; display:flex; flex-direction:column; overflow:hidden; min-width:320px;">
+        <div style="padding:28px 24px 18px 24px; flex:1; display:flex; flex-direction:column;">
+          <h3 style="font-size:1.25rem; font-weight:800; color:#2563eb; margin-bottom:12px;">Vital Information at Your Fingertips</h3>
+          <p style="color:#232b3b; font-size:1.08rem; margin-bottom:18px;">The Query Builder is a powerful tool that helps you create, save and recall simple to complex data queries without having to know complicated SQL syntax.</p>
+        </div>
+      </div>
+      <div style="background:#fff; border-radius:22px; box-shadow:0 2px 16px rgba(37,99,235,0.10); max-width:400px; flex:1 1 340px; display:flex; flex-direction:column; overflow:hidden; min-width:320px;">
+        <div style="padding:28px 24px 18px 24px; flex:1; display:flex; flex-direction:column;">
+          <h3 style="font-size:1.25rem; font-weight:800; color:#2563eb; margin-bottom:12px;">Collaborate and Communicate Efficiently</h3>
+          <p style="color:#232b3b; font-size:1.08rem; margin-bottom:18px;">Hydro GeoAnalyst stores all your data in a single, centralized database that can be accessed securely by multiple users across a network.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Features Section -->
-  <section class="hga-section">
-    <h2>Key Features</h2>
-    <div class="hga-features">
-      <div class="hga-feature-card">
-        <i class="fas fa-database"></i>
-        <h4>Centralized Data Management</h4>
-        <ul>
-          <li>Store, organize, and validate all environmental data in one place</li>
-          <li>Flexible database structure for any project</li>
-          <li>Multi-user access and permissions</li>
-        </ul>
-      </div>
-      <div class="hga-feature-card">
-        <i class="fas fa-chart-line"></i>
-        <h4>Advanced Data Analysis</h4>
-        <ul>
-          <li>Powerful querying and filtering tools</li>
-          <li>Statistical and trend analysis</li>
-          <li>Automated QA/QC checks</li>
-        </ul>
-      </div>
-      <div class="hga-feature-card">
-        <i class="fas fa-map-marked-alt"></i>
-        <h4>GIS &amp; Mapping Integration</h4>
-        <ul>
-          <li>Visualize data on interactive maps</li>
-          <li>Import/export GIS data (SHP, DXF, KML, etc.)</li>
-          <li>Georeference and spatial analysis tools</li>
-        </ul>
-      </div>
-      <div class="hga-feature-card">
-        <i class="fas fa-flask"></i>
-        <h4>Laboratory Data Management</h4>
-        <ul>
-          <li>Import lab results from multiple formats</li>
-          <li>Track sample chains of custody</li>
-          <li>Flag exceedances and automate alerts</li>
-        </ul>
-      </div>
-      <div class="hga-feature-card">
-        <i class="fas fa-file-alt"></i>
-        <h4>Flexible Reporting</h4>
-        <ul>
-          <li>Customizable report templates</li>
-          <li>Automated report generation</li>
-          <li>Export to PDF, Excel, and more</li>
-        </ul>
-      </div>
-      <div class="hga-feature-card">
-        <i class="fas fa-cogs"></i>
-        <h4>Workflow Automation</h4>
-        <ul>
-          <li>Automate routine data processing tasks</li>
-          <li>Schedule imports, exports, and reports</li>
-          <li>Reduce manual errors and save time</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
   <!-- Applications Section -->
-  <section class="hga-section">
-    <h2>Applications</h2>
-    <div class="hga-applications">
-      <ul>
-        <li>Groundwater and surface water monitoring</li>
-        <li>Contaminated site investigation and remediation</li>
-        <li>Regulatory compliance and reporting</li>
-        <li>Mining and industrial site management</li>
-        <li>Water quality and quantity analysis</li>
-        <li>Geotechnical and environmental consulting</li>
-        <li>Municipal and government environmental programs</li>
-      </ul>
+  <!-- What's New in Hydro GeoAnalyst 13.0 & Hydro GeoAnalyst PLUS Section -->
+  <section class="hga-section" style="background:linear-gradient(90deg, #f8fbff 0%, #e3eaff 100%); box-shadow:0 2px 24px rgba(37,99,235,0.07); margin-bottom:32px;">
+    <h2 style="color:#2563eb; font-size:2.2rem; font-weight:600; margin-bottom:38px; text-align:center;">What's New in Hydro GeoAnalyst 13.0 & Hydro GeoAnalyst PLUS</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:32px; justify-content:center; align-items:stretch;">
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:220px; max-width:320px; flex:1 1 220px; display:flex; flex-direction:column; align-items:center;">
+        <i class="fas fa-vector-square" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px; text-align:center;">Cross Section Viewer</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500; text-align:center;">Visualize and interpret subsurface data with the new cross section viewer.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:220px; max-width:320px; flex:1 1 220px; display:flex; flex-direction:column; align-items:center;">
+        <i class="fas fa-map" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px; text-align:center;">Map Viewer</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500; text-align:center;">Enhanced map viewer for improved spatial data visualization and analysis.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:220px; max-width:320px; flex:1 1 220px; display:flex; flex-direction:column; align-items:center;">
+        <i class="fas fa-ruler-combined" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px; text-align:center;">Interval Validator</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500; text-align:center;">Quickly validate and correct interval data for wells and boreholes.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:220px; max-width:320px; flex:1 1 220px; display:flex; flex-direction:column; align-items:center;">
+        <i class="fas fa-object-group" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px; text-align:center;">Plot Collections</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500; text-align:center;">Organize and view multiple plots together for enhanced data visualization.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:220px; max-width:320px; flex:1 1 220px; display:flex; flex-direction:column; align-items:center;">
+        <i class="fas fa-file-import" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px; text-align:center;">Import</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500; text-align:center;">Improved import tools for easier and more flexible data integration.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:220px; max-width:320px; flex:1 1 220px; display:flex; flex-direction:column; align-items:center;">
+        <i class="fas fa-thumbs-up" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px; text-align:center;">Usability & Other Enhancements (HGA)</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500; text-align:center;">Enjoy improved usability and a range of enhancements for a better experience in HGA.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:220px; max-width:320px; flex:1 1 220px; display:flex; flex-direction:column; align-items:center;">
+        <i class="fas fa-flask" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px; text-align:center;">Integrated Geochemical Modeling (PHREEQC) <span style="font-size:0.95em; color:#1a2340;">(HGA+ only)</span></h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500; text-align:center;">Advanced geochemical modeling and analysis with PHREEQC, available exclusively in HGA+.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:220px; max-width:320px; flex:1 1 220px; display:flex; flex-direction:column; align-items:center;">
+        <i class="fas fa-thumbs-up" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px; text-align:center;">Usability & Other Enhancements <span style="font-size:0.95em; color:#1a2340;">(HGA+ only)</span></h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500; text-align:center;">Additional usability improvements and features available exclusively in HGA+.</p>
+      </div>
     </div>
   </section>
-
-  <!-- Technical Section -->
-  <section class="hga-section">
-    <h2>Technical Details</h2>
-    <div class="hga-features" style="grid-template-columns: 1fr 1fr;">
-      <div class="hga-feature-card">
-        <h4>Supported Data Types</h4>
-        <ul class="hga-dot-list">
-          <li>Water levels, chemistry, and quality</li>
-          <li>Soil and sediment data</li>
-          <li>Geotechnical and lithological data</li>
-          <li>Time series and field measurements</li>
-          <li>Images, documents, and spatial data</li>
-        </ul>
+  <section class="hga-section" style="background:linear-gradient(90deg, #e3eaff 0%, #f8fbff 100%); box-shadow:0 2px 24px rgba(37,99,235,0.07);">
+    <h2 style="color:#1a2340; font-size:2.2rem; font-weight:800; margin-bottom:28px;">Applications</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:32px; justify-content:center;">
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-network-wired" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Groundwater Monitoring Networks</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Manage data for local, state and federal groundwater monitoring networks.</p>
       </div>
-      <div class="hga-feature-card">
-        <h4>Database Platforms</h4>
-        <ul class="hga-dot-list">
-          <li>Microsoft SQL Server Express/Standard/Enterprise</li>
-          <li>Microsoft Access</li>
-        </ul>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-mountain" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Mineral Exploration</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Analyze borehole data acquired for mineral exploration.</p>
       </div>
-      <div class="hga-feature-card">
-        <h4>Integration &amp; Add-ons</h4>
-        <ul class="hga-dot-list">
-          <li>MODFLOW, AquaChem, Visual MODFLOW Flex</li>
-          <li>ESRI ArcGIS, Google Earth</li>
-          <li>Custom API integrations</li>
-        </ul>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-hard-hat" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Well Construction & Registration</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Manage well construction details and registration information.</p>
       </div>
-      <div class="hga-feature-card">
-        <h4>Reporting &amp; Output</h4>
-        <ul class="hga-dot-list">
-          <li>Customizable report templates</li>
-          <li>Export to PDF, Excel, CSV, and more</li>
-          <li>Automated regulatory reporting</li>
-        </ul>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-recycle" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Remediation Projects</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Manage data associated with remediation projects.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-dumpster" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Landfill & Vulnerability Assessment</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Store and report landfill monitoring data, groundwater vulnerability assessment and protection planning.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-map" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Aquifer & Geologic Mapping</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Mapping and reporting of aquifer extents and geologic formations.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(37,99,235,0.10); padding:28px 22px; min-width:260px; max-width:340px; flex:1 1 260px; display:flex; flex-direction:column; align-items:flex-start;">
+        <i class="fas fa-tint" style="font-size:2.2rem; color:#2563eb; margin-bottom:14px;"></i>
+        <h4 style="color:#2563eb; font-size:1.13rem; font-weight:800; margin-bottom:10px;">Water Quality Analysis</h4>
+        <p style="color:#232b3b; font-size:1.05rem; font-weight:500;">Evaluate and report the spatial distribution of water quality parameters.</p>
       </div>
     </div>
   </section>
 
   <!-- Sticky Tabbed Section -->
-  <section class="hga-section" style="padding-top: 0;">
-    <h2 style="margin-bottom: 10px;">Hydro GeoAnalyst Modules</h2>
+  <section class="hga-section" style="padding-top: 0;" id="modules">
+    <br>
+    <h2 style="margin-bottom: 10px; font-weight: 700;">Hydro GeoAnalyst Modules</h2>
     <p style="font-size:1.13rem; color:#232b3b; margin-bottom: 32px;">There are four editions of Hydro GeoAnalyst that are available with the following modules and features:</p>
     <div class="hga-tabs-sticky-wrapper">
       <div class="hga-tabs" id="hgaTabs">
@@ -806,7 +800,7 @@
 
   <!-- Call to Action Section -->
   <section class="hga-section" style="text-align:center; background: #f3f7fd;">
-    <h2 style="color:#1a2340;">Get Started With Hydro GeoAnalyst</h2>
+    <h2 style="color:#2563eb;">Get Started With Hydro GeoAnalyst</h2>
     <p style="font-size:1.13rem; color:#232b3b; max-width:700px; margin:0 auto 24px auto;">Ready to streamline your environmental data management? Download a free trial or contact us for more information.</p>
   </section>
 

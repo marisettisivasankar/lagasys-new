@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hydrus - Advanced Water Flow & Transport Modeling</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    html, body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #f8fbff; margin: 0; padding: 0; overflow-x: hidden; }
+    .hydrus-hero {
+      background: linear-gradient(90deg, #1e90ff 0%, #1a2340 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      text-align: center;
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .hydrus-hero img { max-width: 120px; margin-bottom: 18px; }
+    .hydrus-hero h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 12px; letter-spacing: -1px; }
+    .hydrus-hero h2 { font-size: 1.35rem; font-weight: 500; color: #c2e0ff; margin-bottom: 22px; }
+    .hydrus-hero p { font-size: 1.13rem; color: #c2e0ff; max-width: 700px; margin: 0 auto 28px auto; line-height: 1.6; }
+    .hydrus-btn-main { background: #fff; color: #1e90ff; font-weight: 700; border: none; border-radius: 8px; padding: 14px 36px; font-size: 1.13rem; box-shadow: 0 2px 16px rgba(30,144,255,0.13); cursor: pointer; margin: 0 10px; transition: background 0.2s; }
+    .hydrus-btn-main:hover { background: #c2e0ff; }
+    @media (max-width: 900px) {
+      .hydrus-hero h1 { font-size: 2.1rem; }
+      .hydrus-hero h2 { font-size: 1.1rem; }
+    }
+  </style>
+  
+  
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hydrus-hero">
+    <div style="display:flex; flex-direction:row; align-items:center; justify-content:space-between; min-height:520px; width:100%; max-width:1600px; margin:0 auto; padding:0 0 0 5vw;">
+      <div style="flex:2; display:flex; flex-direction:column; justify-content:center; align-items:flex-start;">
+        <div style="margin-bottom:18px; letter-spacing:2px; color:#c2e0ff; font-size:1.08rem; font-weight:600;">Water Flow & Transport Modeling</div>
+        <h1 style="color:#fff; font-size:3.2rem; font-weight:900; margin-bottom:18px; letter-spacing:2px; line-height:1.1;">HYDRUS</h1>
+        <p style="color:#c2e0ff; font-size:1.25rem; margin-bottom:38px; max-width:600px; line-height:1.7; font-weight:500; text-align:left;">Advanced software for simulating water, heat, and solute movement in variably saturated media.</p>
+        <div style="display:flex; gap:18px;">
+          <a href="#" class="hydrus-btn-main">Get Started with Hydrus</a>
+          <a href="#features" style="background:none; color:#fff; font-weight:700; border-radius:10px; padding:18px 38px; font-size:1.18rem; box-shadow:0 2px 16px rgba(30,144,255,0.13); text-decoration:none; border:2px solid #c2e0ff; transition:background 0.2s;">Explore Features</a>
+        </div>
+      </div>
+      <div style="flex:1; display:flex; align-items:center; justify-content:center;">
+        <img src="image/hydrus.jpg" alt="Hydrus Hero" style="max-width:600px; padding:32px;height: 400px;">
+      </div>
+    </div>
+  </section>
+  
+  
+  
+</section>
+
+  <!-- Intro Section -->
+  <section class="hydrus-intro-section" style="max-width:1200px; margin:38px auto 0 auto; background:linear-gradient(90deg, #1e90ff 0%, #1a2340 100%); border-radius:18px; box-shadow:0 4px 32px rgba(30,144,255,0.10); overflow:hidden; min-height:220px; padding:54px 48px 54px 54px; display:block;">
+    <h2 style="color:#fff; font-size:2.0rem; font-weight:400; margin-bottom:18px; letter-spacing:-1px; text-align: center;">HYDRUS is a Microsoft Windows based modeling environment for the analysis of water flow and solute transport in variably saturated porous media. The software package includes computational finite element models for simulating the one-, two-, and three-dimensional movement of water, heat, and multiple solutes in variably saturated media. The model includes a parameter optimization algorithm for inverse estimation of a variety of soil hydraulic and/or solute transport parameters (only for the standard modules). The model is supported by an interactive graphics-based interface for data-preprocessing, generation of structured and unstructured finite element mesh, and graphic presentation of the results. The program can be extended with a number of special add-on modules.</h2>
+  </section>
+  <!-- HYDRUS Editions / Levels Section -->
+  <section class="hydrus-editions-section" style="max-width:1200px; margin:48px auto 0 auto; display:flex; align-items:center; justify-content:space-between; background:#fff; border-radius:18px; box-shadow:0 4px 32px rgba(30,144,255,0.10); padding:48px 38px; gap:38px;">
+    <div style="flex:1.5; min-width:260px;">
+      <h2 style="color:#1e90ff; font-size:2rem; font-weight:800; margin-bottom:18px;">HYDRUS Editions / Levels</h2>
+      <p style="font-size:1.13rem; color:#222; margin-bottom:18px; text-align: justify;">HYDRUS is distributed in multiple different versions (Editions / Levels) so that users may acquire only that segment of the software that is most appropriate for their application. Users can select software limited to one-dimensional applications (the 1D-Standard Level), general two-dimensional applications (the 2D-Standard Level, which corresponds with former Hydrus-2D with MeshGen-2D) or for both two- and three-dimensional applications (i.e., 3D-Standard or 3D-Professional). Users can also opt for relatively simple (two-dimensional rectangular geometries – 2D-Lite [which corresponds with former Hydrus-2D without MeshGen-2D] or three-dimensional hexahedral geometries – 3D-Lite) or more complex geometries (i.e., 2D-Standard for general two-dimensional geometries, 3D-Standard for problems that can be defined using the general two-dimensional base and a layered third dimension, or 3D-Professional for applications with general three-dimensional geometries). Users may upgrade to higher Levels from lower Levels, as well as from lower versions (e.g., version 1.x) to higher versions (e.g., version 2 (and higher - in the future)).</p>
+    </div>
+    <div style="flex:1; display:flex; align-items:center; justify-content:center;">
+      <img src="image/H3D2_New_Features_01.jpg" alt="HYDRUS Editions" class="hydrus-editions-img" style="max-width:420px; border-radius:12px; box-shadow:0 2px 16px rgba(30,144,255,0.13); transition: transform 0.35s cubic-bezier(.4,2,.6,1); cursor:zoom-in;">
+    </div>
+  </section>
+  <style>
+    .hydrus-editions-img:hover {
+      transform: scale(1.13);
+      z-index: 2;
+      box-shadow: 0 8px 32px rgba(30,144,255,0.18), 0 2px 12px rgba(26,35,64,0.10);
+    }
+    @media (max-width: 900px) {
+      .hydrus-editions-section { flex-direction:column; padding:28px 8px; gap:18px; }
+      .hydrus-editions-img { max-width:100%; }
+    }
+  </style>
+  <!-- HYDRUS Feature Cards Section -->
+  <section class="hydrus-feature-cards-section" style="max-width:1200px; margin:48px auto 0 auto;">
+    <div class="hydrus-feature-cards-row">
+      <div class="hydrus-flip-card">
+        <div class="hydrus-flip-card-inner">
+          <div class="hydrus-flip-card-front" style="background-image:url('image/H3D2_New_Features_03.jpg');">
+            <div class="hydrus-flip-card-title">Automatic FE-Mesh Generation</div>
+          </div>
+          <div class="hydrus-flip-card-back">
+            <div class="hydrus-flip-card-content">Data preprocessing involves specification of the two-dimensional flow region having an arbitrary continuous shape bounded by polylines, arcs, and splines, discretization of domain boundaries, and subsequent generation of an unstructured finite element mesh.</div>
+          </div>
+        </div>
+      </div>
+      <div class="hydrus-flip-card">
+        <div class="hydrus-flip-card-inner">
+          <div class="hydrus-flip-card-front" style="background-image:url('image/Isosurfaces.gif');">
+            <div class="hydrus-flip-card-title">Post-Processing</div>
+          </div>
+          <div class="hydrus-flip-card-back">
+            <div class="hydrus-flip-card-content">Output graphics include 2D contours (isolines or color spectra) in spatial or cross-sectional view for heads, water contents, velocities, concentrations, and temperatures.</div>
+          </div>
+        </div>
+      </div>
+      <div class="hydrus-flip-card">
+        <div class="hydrus-flip-card-inner">
+          <div class="hydrus-flip-card-front" style="background-image:url('image/Tutorial_512_03.gif');">
+            <div class="hydrus-flip-card-title">Domain and FE-Mesh Sections</div>
+          </div>
+          <div class="hydrus-flip-card-back">
+            <div class="hydrus-flip-card-content">To simplify the work with complex transport geometries, these can be divided into simpler parts, called Sections. Only these simpler parts can then be displayed in the View Window, while the remaining parts can be hidden.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <style>
+    .hydrus-feature-cards-row {
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+      align-items: stretch;
+      margin-top: 0;
+    }
+    .hydrus-flip-card {
+      background: none;
+      width: 340px;
+      height: 260px;
+      perspective: 1200px;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(30,144,255,0.10);
+      cursor: pointer;
+    }
+    .hydrus-flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s cubic-bezier(.4,2,.6,1);
+      transform-style: preserve-3d;
+      border-radius: 16px;
+    }
+    .hydrus-flip-card:hover .hydrus-flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .hydrus-flip-card-front, .hydrus-flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 24px;
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 700;
+      box-sizing: border-box;
+    }
+    .hydrus-flip-card-front {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      box-shadow: 0 2px 16px rgba(30,144,255,0.13);
+      align-items: flex-end;
+      justify-content: flex-start;
+      display: flex;
+    }
+    .hydrus-flip-card-title {
+      background: rgba(26,35,64,0.72);
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 1.18rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      box-shadow: 0 2px 8px rgba(30,144,255,0.10);
+    }
+    .hydrus-flip-card-back {
+      background: linear-gradient(120deg, #1e90ff 0%, #1a2340 100%);
+      color: #fff;
+      transform: rotateY(180deg);
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      font-size: 1.08rem;
+      font-weight: 500;
+      text-align: left;
+      padding: 32px 24px;
+    }
+    .hydrus-flip-card-content {
+      width: 100%;
+      line-height: 1.6;
+    }
+    @media (max-width: 1100px) {
+      .hydrus-feature-cards-row { flex-direction: column; gap: 24px; align-items: center; }
+      .hydrus-flip-card { width: 98vw; max-width: 400px; }
+    }
+  </style>
+  <!-- HYDRUS Applications Section -->
+  <section class="hydrus-applications-section" style="max-width:1200px; margin:48px auto 0 auto; background:#fff; border-radius:18px; box-shadow:0 4px 32px rgba(30,144,255,0.10); padding:48px 38px;">
+    <h2 style="color:#1e90ff; font-size:2rem; font-weight:800; margin-bottom:18px;">HYDRUS Applications</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 48px;">
+      <div style="flex:1; min-width:260px;">
+        <h3 style="color:#1e90ff; font-size:1.25rem; font-weight:700; margin-bottom:12px;">Agricultural Applications</h3>
+        <ul style="color:#1a2340; font-size:1.13rem; line-height:1.8; padding-left:28px;">
+          <li>Irrigation management</li>
+          <li>Drip irrigation design</li>
+          <li>Sprinkler irrigation design</li>
+          <li>Tile drainage design - flow to a drainage system</li>
+          <li>Crop grow models, i.e., cotton model</li>
+          <li>Salinization and reclamation processes, salt leaching</li>
+          <li>Movement of pesticides; nonpoint source pollution</li>
+          <li>Seasonal simulation of water flow and plant response</li>
+        </ul>
+      </div>
+      <div style="flex:1; min-width:260px;">
+        <h3 style="color:#1e90ff; font-size:1.25rem; font-weight:700; margin-bottom:12px;">Non-Agricultural Applications</h3>
+        <ul style="color:#1a2340; font-size:1.13rem; line-height:1.8; padding-left:28px;">
+          <li>Deep percolation beneath final closure cap designs for radioactive waste management sites at the Nevada test site</li>
+          <li>Flow around nuclear subsidence craters at the Nevada test site</li>
+          <li>Capillary barrier at the Texas low-level radioactive waste disposal site</li>
+          <li>Evaluation of approximate analytical analysis of capillary barriers</li>
+          <li>Landfill covers with and without vegetation</li>
+          <li>Risk analysis of contaminant plume from landfills</li>
+          <li>Seepage of wastewater from land treatment systems</li>
+          <li>Tunnel design - flow around buried objects</li>
+          <li>Highway design - road construction - seepage</li>
+          <li>Stochastic theory - solute transport in heterogeneous media</li>
+          <li>Lake basin recharge analysis</li>
+          <li>Interaction between groundwater aquifers and streams</li>
+          <li>Environmental impact of the drawdown of shallow water tables</li>
+          <li>Analysis of cone permeameter and tension infiltrometer experiments</li>
+        </ul>
+      </div>
+    </div>
+    <style>
+      .hydrus-applications-section ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .hydrus-applications-section li {
+        position: relative;
+        padding-left: 2em;
+        margin-bottom: 0.5em;
+      }
+      .hydrus-applications-section li::before {
+        content: '\25CF'; /* Unicode black circle */
+        color: #1e90ff;
+        position: absolute;
+        left: 0;
+        top: 0.2em;
+        font-size: 1em;
+        line-height: 1;
+      }
+      .hydrus-applications-section h3 {
+        margin-top: 0;
+        margin-bottom: 12px;
+      }
+      @media (max-width: 900px) {
+        .hydrus-applications-section > div {
+          flex-direction: column;
+          gap: 24px;
+        }
+      }
+    </style>
+  </section>
+  <!-- HYDRUS Add-on Modules Section -->
+  <section class="hydrus-addon-modules-section" style="max-width:1200px; margin:48px auto 0 auto; background:#fff; border-radius:18px; box-shadow:0 4px 32px rgba(30,144,255,0.10); padding:48px 38px;">
+    <h2 style="color:#1e90ff; font-size:2rem; font-weight:800; margin-bottom:18px;">Available Add-on Modules</h2>
+    <div style="overflow-x:auto;">
+      <table class="hydrus-addon-table" style="width:100%; border-collapse:collapse; background:#f8fbff;">
+        <thead>
+          <tr style="background:#b3d3ea;">
+            <th style="padding:12px 10px; text-align:left; color:#1a2340; font-size:1.08rem; font-weight:700; border-bottom:2px solid #1e90ff;">Module Name</th>
+            <th style="padding:12px 10px; text-align:left; color:#1a2340; font-size:1.08rem; font-weight:700; border-bottom:2px solid #1e90ff;">Dimension</th>
+            <th style="padding:12px 10px; text-align:left; color:#1a2340; font-size:1.08rem; font-weight:700; border-bottom:2px solid #1e90ff;">Flow, Transport, and Reaction Simulations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#" style="color:#1e90ff; font-weight:700; text-decoration:underline;">HP1, HP2</a></td>
+            <td>1D, 2D</td>
+            <td>The HP1 and HP2 modules are the result of coupling Hydrus (its one- and two-dimensional parts) with the PHREEQC geochemical code [Parkhurst and Appelo, 1999], and corresponds to a similar one-dimensional module HP1 [Jacques and Šimůnek, 2005, 2010; Jacques et al., 2006, 2008]. HP2 has, apart from the dimensionality (2D), the same capabilities as HP1. HP2 contains modules simulating (1) transient water flow, (2) the transport of multiple components, (3) mixed equilibrium/kinetic biogeochemical reactions, and (4) heat transport in two-dimensional variably-saturated porous media (soils). Detailed description of the HP2 Module is given in the HP2 user manual [Šimůnek et al., 2012].</td>
+          </tr>
+          <tr>
+            <td><a href="#" style="color:#1e90ff; font-weight:700; text-decoration:underline;">UnsatChem</a></td>
+            <td>1D, 2D, 3D</td>
+            <td>The Major Ion Chemistry Module [UNSATCHEM; <a href="#" style="color:#1e90ff; text-decoration:underline;">Šimůnek and Suarez, 1994</a>] can be used instead of the standard solute transport module. Detailed description of the UNSATCHEM Module is given in the UNSATCHEM user manuals [Šimůnek et al., 2012, 2022]. More detailed description of concepts used in the UNSATCHEM module is provided in the HYDRUS-1D technical manual [<a href="#" style="color:#1e90ff; text-decoration:underline;">Šimůnek et al., 2022</a>], which provides all relevant information about the one-dimensional version of this module.</td>
+          </tr>
+          <tr>
+            <td><a href="#" style="color:#1e90ff; font-weight:700; text-decoration:underline;">Wetland</a></td>
+            <td>2D</td>
+            <td>The Wetland Module (for two-dimensional problems only) was developed to model biochemical transformation and degradation processes in subsurface flow constructed wetlands. In the wetland module two biokinetic model formulations can be chosen: (1) the biokinetic model as described in CW2D [<a href="#" style="color:#1e90ff; text-decoration:underline;">Langergraber and Šimůnek, 2005, 2006, 2011</a>] and (2) the CWM1 (Constructed Wetland Model #1) biokinetic model [<a href="#" style="color:#1e90ff; text-decoration:underline;">Langergraber et al., 2009</a>]. In CW2D aerobic and anoxic transformation and degradation processes for organic matter, nitrogen and phosphorus are described, whereas in CWM1 aerobic, anoxic and anaerobic processes for organic matter, nitrogen and sulphur.</td>
+          </tr>
+          <tr>
+            <td><a href="#" style="color:#1e90ff; font-weight:700; text-decoration:underline;">C-Ride</a></td>
+            <td>1D, 2D</td>
+            <td>The C-Ride module simulates one- and two-dimensional variably-saturated water flow, colloid transport, and colloid-facilitated solute transport in porous media. The module accounts for transient variably-saturated water flow, and for both colloid and solute movement due to advection, diffusion, and dispersion, as well as for solute movement facilitated by colloid transport. Detailed description of the C-Ride Module is given in the C-Ride user manual.</td>
+          </tr>
+          <tr>
+            <td><a href="#" style="color:#1e90ff; font-weight:700; text-decoration:underline;">DualPerm</a></td>
+            <td>1D, 2D</td>
+            <td>The DualPerm module for simulating two-dimensional variably-saturated water movement and solute transport in dual-permeability porous media, i.e., preferential and nonequilibrium water flow and solute transport [Gerke and van Genuchten, 1993; Šimůnek et al., 2003; Šimůnek and van Genuchten, 2008].</td>
+          </tr>
+          <tr>
+            <td><a href="#" style="color:#1e90ff; font-weight:700; text-decoration:underline;">Furrow</a></td>
+            <td>2D</td>
+            <td>The Furrow module is a hybrid Finite Volume – Finite Element (FV-FE) model that describes the coupled surface-subsurface flow and transport processes occurring during furrow irrigation and fertigation Brunetti et al., 2018]. The numerical approach combines a one-dimensional description of water flow and solute transport in an open channel with a two-dimensional description of water flow and solute transport in a subsurface soil domain.</td>
+          </tr>
+          <tr>
+            <td><a href="#" style="color:#1e90ff; font-weight:700; text-decoration:underline;">PFAS</a></td>
+            <td>1D, 2D, 3D</td>
+            <td>The PFAS module includes options to consider sorption to the air-water interface and the concentration effects on surface tension and viscosity Silva et al., 2020].</td>
+          </tr>
+          <tr>
+            <td><a href="#" style="color:#1e90ff; font-weight:700; text-decoration:underline;">Particle Tracking</a></td>
+            <td>1D</td>
+            <td>The Particle Tracking algorithm from Šimůnek [1991] was implemented into HYDRUS Zhou et al., 2021]. The results of this module can be used to calculate soil water travel times and water age for different locations in the soil profile.</td>
+          </tr>
+          <tr>
+            <td><a href="#" style="color:#1e90ff; font-weight:700; text-decoration:underline;">COSMIC</a></td>
+            <td>1D</td>
+            <td>The COSMIC module developed by Brunetti et al. [2019] calculates above ground neutron fluxes used the physically-based COsmic-ray Soil Moisture Interaction Code (COSMIC) of Shuttleworth et al. [2013].</td>
+          </tr>
+          <tr>
+            <td><a href="#" style="color:#1e90ff; font-weight:700; text-decoration:underline;">DPU</a></td>
+            <td>1D, 2D</td>
+            <td>The Dynamic Plant Uptake (DPU) module developed by Brunetti et al. 2019, 2021, 2022] simulates the translocation and transformation of neutral compounds in the soil-plant domain.</td>
+          </tr>
+          <tr>
+            <td><a href="#" style="color:#1e90ff; font-weight:700; text-decoration:underline;">Fumigant</a></td>
+            <td>1D, 2D, 3D</td>
+            <td>The Fumigant module includes options required to simulate the fate and transport of fumigants in soils (e.g., removal of a tarp, temperature-dependent tarp properties, an additional injection of fumigant) Spurlock et al., 2013].</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <style>
+      .hydrus-addon-table th, .hydrus-addon-table td {
+        border-bottom: 1px solid #d0e6f7;
+        vertical-align: top;
+        padding: 12px 10px;
+      }
+      .hydrus-addon-table th {
+        background: #b3d3ea;
+      }
+      .hydrus-addon-table tr:last-child td {
+        border-bottom: none;
+      }
+      .hydrus-addon-table a {
+        color: #1e90ff;
+        text-decoration: underline;
+        font-weight: 700;
+      }
+      @media (max-width: 900px) {
+        .hydrus-addon-table th, .hydrus-addon-table td {
+          font-size: 0.98rem;
+          padding: 10px 6px;
+        }
+      }
+    </style>
+  </section>
+  <!-- HYDRUS Additional Modules Section -->
+  <section class="hydrus-addon-modules-section" style="max-width:1200px; margin:48px auto 0 auto; background:#fff; border-radius:18px; box-shadow:0 4px 32px rgba(30,144,255,0.10); padding:48px 38px;">
+    <div style="overflow-x:auto;">
+      <table class="hydrus-addon-table" style="width:100%; border-collapse:collapse; background:#f8fbff;">
+        <thead>
+          <tr style="background:#b3d3ea;">
+            <th style="padding:12px 10px; text-align:left; color:#1a2340; font-size:1.08rem; font-weight:700; border-bottom:2px solid #1e90ff;">Module Name</th>
+            <th style="padding:12px 10px; text-align:left; color:#1a2340; font-size:1.08rem; font-weight:700; border-bottom:2px solid #1e90ff;">Dimension</th>
+            <th style="padding:12px 10px; text-align:left; color:#1a2340; font-size:1.08rem; font-weight:700; border-bottom:2px solid #1e90ff;">Parameter Optimization</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#" style="color:#1e90ff; font-weight:700; text-decoration:underline;">GOpt</a></td>
+            <td>1D</td>
+            <td>The GOpt module includes three global optimization algorithms (i.e., Particle swarm optimization (PSO) [Kennedy and Eberhart, 1995; Shi and Eberhart, 1998], Comprehensive learning particle swarm optimization (CLPSO) [Liang et al., 2006], and Gradient-Based comprehensive learning particle swarm optimization (G-CLPSO) [Brunetti et al., 2022c]).</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="hydrus-addon-table" style="width:100%; border-collapse:collapse; background:#f8fbff; margin-top:32px;">
+        <thead>
+          <tr style="background:#b3d3ea;">
+            <th style="padding:12px 10px; text-align:left; color:#1a2340; font-size:1.08rem; font-weight:700; border-bottom:2px solid #1e90ff;">Module Name</th>
+            <th style="padding:12px 10px; text-align:left; color:#1a2340; font-size:1.08rem; font-weight:700; border-bottom:2px solid #1e90ff;">Dimension</th>
+            <th style="padding:12px 10px; text-align:left; color:#1a2340; font-size:1.08rem; font-weight:700; border-bottom:2px solid #1e90ff;">Program Performance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#" style="color:#1e90ff; font-weight:700; text-decoration:underline;">HyPar</a></td>
+            <td>2D, 3D</td>
+            <td>HyPar is a parallelized version of the standard two-dimensional and three-dimensional HYDRUS computational modules (h2d_calc.exe and h3d_calc.exe). HyPar uses parallel programming tools and techniques to take advantage of multiple cores and to accelerate calculations on multi-core processor computers. HyPar currently supports only calculations in the direct mode (does not support the inverse mode), and it does not support any add-on modules (e.g., HP2, UnsatChem, Wetland, DPU, and/or C-Ride). It supports processes and factors available in HYDRUS Version 5.01 (the processes and factors implemented in later versions will be made available in HyPar in the near future). The HyPar module is initialized on the Program Tab of the Program Options dialog window.</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="hydrus-addon-table" style="width:100%; border-collapse:collapse; background:#f8fbff; margin-top:32px;">
+        <thead>
+          <tr style="background:#b3d3ea;">
+            <th style="padding:12px 10px; text-align:left; color:#1a2340; font-size:1.08rem; font-weight:700; border-bottom:2px solid #1e90ff;">Module Name</th>
+            <th style="padding:12px 10px; text-align:left; color:#1a2340; font-size:1.08rem; font-weight:700; border-bottom:2px solid #1e90ff;">Dimension</th>
+            <th style="padding:12px 10px; text-align:left; color:#1a2340; font-size:1.08rem; font-weight:700; border-bottom:2px solid #1e90ff;">Slope Stress and Stability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#" style="color:#1e90ff; font-weight:700; text-decoration:underline;">Slope Cube</a></td>
+            <td>2D, 3D</td>
+            <td>The add-on module "Slope Cube" (Slope Stress and Stability) was developed to provide a unified effective stress approach for both saturated and unsaturated conditions [Lu et al., 2010]. The module is intended to predict spatially and temporally infiltration-induced landslide initiation and to carry out slope stability analyses under variably-saturated soil conditions. Transient moisture and pressure head fields are directly obtained from the HYDRUS model, and subsequently used to compute the effective stress field of hillslopes [Lu and Godt, 2013]. Furthermore, instead of the methodology of one-slope for one factor safety in the classical slope stability analysis, the SLOPE Cube module computes fields of the factor of safety in the entire domain within hillslopes [Lu et al., 2012], thus allowing identification of the development of potential failure surface zones or surfaces.</td>
+          </tr>
+          <tr>
+            <td><a href="#" style="color:#1e90ff; font-weight:700; text-decoration:underline;">Slope Classic</a></td>
+            <td>2D</td>
+            <td>The "Slope Classic" add-on module is intended to be used mainly for stability checks of embankments, dams, earth cuts and anchored sheeting structures. The influence of water is modeled using the distribution of pore pressure, which is imported automatically from the HYDRUS results for specified times. Each time step of water distribution can be analyzed separately.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <style>
+      .hydrus-addon-table th, .hydrus-addon-table td {
+        border-bottom: 1px solid #d0e6f7;
+        vertical-align: top;
+        padding: 12px 10px;
+      }
+      .hydrus-addon-table th {
+        background: #b3d3ea;
+      }
+      .hydrus-addon-table tr:last-child td {
+        border-bottom: none;
+      }
+      .hydrus-addon-table a {
+        color: #1e90ff;
+        text-decoration: underline;
+        font-weight: 700;
+      }
+      @media (max-width: 900px) {
+        .hydrus-addon-table th, .hydrus-addon-table td {
+          font-size: 0.98rem;
+          padding: 10px 6px;
+        }
+      }
+    </style>
+  </section>
+</body>
+</html>

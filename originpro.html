@@ -3,412 +3,807 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OriginPro - Advanced Data Analysis and Graphing Software</title>
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <title>OriginPro - Advanced Data Analysis & Graphing Software</title>
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background: #f8fbff;
-      margin: 0;
+    html, body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #f8fbff; margin: 0; padding: 0; overflow-x: hidden; }
+    .origin-hero {
+      background: linear-gradient(90deg, #e67e22 0%, #1a2340 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       padding: 0;
+      text-align: center;
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .origin-hero img { max-width: 120px; margin-bottom: 18px; }
+    .origin-hero h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 12px; letter-spacing: -1px; }
+    .origin-hero h2 { font-size: 1.35rem; font-weight: 500; color: #ffe5c2; margin-bottom: 22px; }
+    .origin-hero p { font-size: 1.13rem; color: #ffe5c2; max-width: 700px; margin: 0 auto 28px auto; line-height: 1.6; }
+    .origin-btn-main { background: #fff; color: #e67e22; font-weight: 700; border: none; border-radius: 8px; padding: 14px 36px; font-size: 1.13rem; box-shadow: 0 2px 16px rgba(230,126,34,0.13); cursor: pointer; margin: 0 10px; transition: background 0.2s; }
+    .origin-btn-main:hover { background: #ffe5c2; }
+    @media (max-width: 900px) {
+      .origin-hero h1 { font-size: 2.1rem; }
+      .origin-hero h2 { font-size: 1.1rem; }
     }
   </style>
 </head>
-<body>
-  <!-- Intro Section Start -->
-  <section id="intro-section" style="position: relative; min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; background: url('image/graph.avif') center center/cover no-repeat;">
-    <div style="position: absolute; inset: 0; background: rgba(24, 36, 56, 0.68); z-index: 1;"></div>
-    <div style="position: relative; z-index: 2; max-width: 900px; width: 100%; padding: 0 24px; text-align: center; color: #fff;">
-      <h1 style="font-size: 3.2rem; font-weight: 900; margin-bottom: 18px; letter-spacing: -1px; line-height: 1.1;">OriginPro</h1>
-      <h2 style="font-size: 1.7rem; font-weight: 500; margin-bottom: 32px; color: #e3eaff;">Advanced Data Analysis and Graphing Software</h2>
-      <p style="font-size: 1.18rem; max-width: 700px; margin: 0 auto 38px auto; color: #e0e6f0; line-height: 1.6;">OriginPro provides powerful tools for data analysis, graphing, and automation, making it the preferred choice for scientists and engineers worldwide. Create publication-quality graphs and perform advanced statistical analysis with ease.</p>
-      <button onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'});" style="background: #2563eb; color: #fff; font-size: 1.18rem; font-weight: 700; border: none; border-radius: 10px; padding: 18px 44px; box-shadow: 0 2px 16px rgba(37,99,235,0.13); cursor: pointer; transition: background 0.2s; display: inline-flex; align-items: center; gap: 10px;">
-        More Details <span style="font-size: 1.3rem; display: inline-block; transform: translateY(1px);"><i class="ri-arrow-down-line"></i></span>
-      </button>
+<body style="padding-top:64px;">
+  <!-- Navigation Bar with Mega Menu -->
+  <nav class="origin-navbar" style="width:100%; background:#fff; box-shadow:0 2px 12px rgba(26,35,64,0.07); position:fixed; top:0; left:0; z-index:100;">
+    <div style="max-width:1400px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:64px; padding:0 32px;">
+      <ul class="origin-nav-links" style="list-style:none; display:flex; align-items:center; gap:32px; margin:0; padding:0;">
+        <li style="position:relative;">
+          <a href="#" class="origin-nav-link" id="productsMenuBtn" style="font-size:1.08rem; color:#1a2340; font-weight:600; text-decoration:none; padding:8px 12px; border-radius:6px; transition:background 0.2s;">Features <i class="fa fa-angle-down"></i></a>
+          <!-- Mega Menu -->
+          <div class="origin-mega-menu" id="originMegaMenu" style="display:none; position:fixed; left:0; top:64px; width:100vw; min-width:900px; background:#fff; box-shadow:0 8px 32px rgba(26,35,64,0.13); border-radius:0 0 18px 18px; padding:0; margin:0; z-index:200;">
+            <div style="min-height:420px; width:100vw; display:block;">
+              <div class="origin-mega-menu-right" id="originMegaMenuContent" style="width:100%; padding:38px 48px 38px 48px; overflow-y:visible;">
+                <!-- Default: Featured Products -->
+                <h2 style="font-size:2.1rem; font-weight:700; color:#1a2340; margin-bottom:28px; letter-spacing:-1px;">Features</h2>
+                <div class="origin-mega-products-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:32px; max-height:340px; overflow-y:auto; padding-right:8px;">
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-chart-line"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">Graphing</div>
+                      <div style="color:#555; font-size:1.01rem;">Powerful and flexible graphing capabilities.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-face-smile"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">User-friendly Interface</div>
+                      <div style="color:#555; font-size:1.01rem;">Intuitive and easy-to-use interface for all users.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-file-import"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">Importing</div>
+                      <div style="color:#555; font-size:1.01rem;">Import data from a wide variety of formats.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-magnifying-glass-chart"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">Data Exploration</div>
+                      <div style="color:#555; font-size:1.01rem;">Explore and visualize your data interactively.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-filter"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">Slicer: Graph-based Data Filtering</div>
+                      <div style="color:#555; font-size:1.01rem;">Filter data directly from graphs using slicers.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-sliders"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">Change Parameter and Recalculate</div>
+                      <div style="color:#555; font-size:1.01rem;">Modify parameters and instantly recalculate results.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-chart-simple"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">Data Analysis and Statistics</div>
+                      <div style="color:#555; font-size:1.01rem;">Comprehensive data analysis and statistical tools.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-search"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">Exploratory Analysis</div>
+                      <div style="color:#555; font-size:1.01rem;">Tools for in-depth and exploratory data analysis.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-wave-square"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">Curve and Surface Fitting</div>
+                      <div style="color:#555; font-size:1.01rem;">Fit curves and surfaces to your data with ease.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-mountain"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">Peak Analysis</div>
+                      <div style="color:#555; font-size:1.01rem;">Detect and analyze peaks in your data.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-chart-bar"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">Statistics</div>
+                      <div style="color:#555; font-size:1.01rem;">Advanced statistical analysis features.</div>
+                    </div>
+                  </div>
+                  <!-- Additional 8 features for a total of 20 -->
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-signal"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">Signal Processing</div>
+                      <div style="color:#555; font-size:1.01rem;">Analyze and process signals efficiently.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-square-root-variable"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">Mathematics</div>
+                      <div style="color:#555; font-size:1.01rem;">Mathematical tools for data analysis and modeling.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-database"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">Data Processing</div>
+                      <div style="color:#555; font-size:1.01rem;">Efficient data processing and transformation tools.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-globe"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">RS and GIS Data Processing</div>
+                      <div style="color:#555; font-size:1.01rem;">Remote sensing and GIS data processing support.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-file-export"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">Exporting and Presentation</div>
+                      <div style="color:#555; font-size:1.01rem;">Export results and create professional presentations.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-clone"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">Batch Processing</div>
+                      <div style="color:#555; font-size:1.01rem;">Automate repetitive tasks with batch processing.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-folder-open"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">Project and Data Management</div>
+                      <div style="color:#555; font-size:1.01rem;">Organize, manage, and track your projects and data.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-code"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">Programming and Connectivity</div>
+                      <div style="color:#555; font-size:1.01rem;">Integrate with other tools and automate with programming.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:flex-start; gap:18px;">
+                    <span style="font-size:2.1rem; color:#e67e22;"><i class="fa-solid fa-th-large"></i></span>
+                    <div>
+                      <div style="font-weight:700; color:#1a2340; font-size:1.13rem;">Apps in Origin</div>
+                      <div style="color:#555; font-size:1.01rem;">Extend Origin's capabilities with a wide range of apps.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
-  </section>
-  <!-- Intro Section End -->
-
-  <!-- About Section Start -->
-  <section id="originpro-about" style="background: #fff; padding: 64px 0 64px 0;">
-    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; max-width: 1400px; margin: 0 auto;">
-      <!-- Left: Text -->
-      <div style="flex: 1 1 480px; min-width: 320px; max-width: 700px; padding: 0 36px 0 6vw; display: flex; flex-direction: column; justify-content: center;">
-        <span style="font-size: 1.02rem; font-weight: 700; color: #2563eb; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 18px;">About OriginPro</span>
-        <h2 style="font-size: 2.2rem; font-weight: 900; color: #1a2340; margin-bottom: 18px; letter-spacing: -1px;">Powerful Data Analysis & Graphing</h2>
-        <p style="font-size: 1.13rem; color: #232b3b; line-height: 1.7; margin-bottom: 18px;">OriginPro is a leading software for data analysis and graphing, trusted by scientists and engineers worldwide. With its intuitive interface, advanced analysis tools, and customizable graphing options, OriginPro empowers users to turn raw data into meaningful insights and publication-quality visuals.</p>
-        <p style="font-size: 1.13rem; color: #232b3b; line-height: 1.7;">Whether you are working with large datasets, performing complex statistical analysis, or creating stunning 2D and 3D graphs, OriginPro provides the flexibility and power you need to achieve your research and engineering goals.</p>
-      </div>
-      <!-- Right: Image -->
-      <div style="flex: 1 1 400px; min-width: 320px; max-width: 600px; display: flex; align-items: center; justify-content: center; position: relative; padding: 24px 24px 24px 0;">
-        <div style="width: 100%; max-width: 440px; aspect-ratio: 1/1; background: #f3f7fd; border-radius: 0%; overflow: hidden; box-shadow: 0 4px 32px rgba(37,99,235,0.10); display: flex; align-items: center; justify-content: center; position: relative;">
-          <img src="image/2024_dark_mode_Origin.png" alt="About OriginPro" style="width: 100%; height: auto; object-fit: cover;">
+  </nav>
+  <script>
+    // Mega menu show/hide logic
+    const productsMenuBtn = document.getElementById('productsMenuBtn');
+    const originMegaMenu = document.getElementById('originMegaMenu');
+    let megaMenuTimeout;
+    productsMenuBtn.addEventListener('mouseenter', () => {
+      clearTimeout(megaMenuTimeout);
+      originMegaMenu.style.display = 'block';
+    });
+    productsMenuBtn.addEventListener('mouseleave', () => {
+      megaMenuTimeout = setTimeout(() => { originMegaMenu.style.display = 'none'; }, 180);
+    });
+    originMegaMenu.addEventListener('mouseenter', () => {
+      clearTimeout(megaMenuTimeout);
+      originMegaMenu.style.display = 'block';
+    });
+    originMegaMenu.addEventListener('mouseleave', () => {
+      megaMenuTimeout = setTimeout(() => { originMegaMenu.style.display = 'none'; }, 180);
+    });
+    // Category switching (demo: only Featured Products is implemented)
+    const catItems = document.querySelectorAll('#originMegaMenuCats li');
+    catItems.forEach(item => {
+      item.addEventListener('click', function() {
+        catItems.forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+        // For demo, only Featured Products is implemented
+        document.getElementById('originMegaMenuContent').innerHTML = document.getElementById('originMegaMenuContent').innerHTML;
+      });
+    });
+  </script>
+  <style>
+    .origin-navbar .origin-nav-link:hover { background:#f8fbff; color:#e67e22 !important; }
+    .origin-mega-menu { animation: fadeInMega 0.18s; }
+    @keyframes fadeInMega { from { opacity:0; transform:translateY(18px);} to { opacity:1; transform:translateY(0);} }
+    .origin-mega-menu-left li.active { background:#e7eaf3 !important; color:#e67e22 !important; font-weight:700; }
+    .origin-mega-menu-left li:hover { background:#f3f5fa; color:#e67e22; }
+    .origin-mega-products-grid > div:hover { background:#f8fbff; border-radius:12px; box-shadow:0 2px 8px rgba(26,35,64,0.07); }
+    @media (max-width:1100px) {
+      .origin-mega-products-grid { grid-template-columns:repeat(2,1fr)!important; }
+    }
+    @media (max-width:700px) {
+      .origin-mega-products-grid { grid-template-columns:1fr!important; }
+      .origin-mega-menu-left { width:120px!important; font-size:0.95rem; }
+      .origin-mega-menu-right { padding:18px 8px 18px 8px!important; }
+    }
+    @media (max-width:600px) {
+      .origin-navbar { padding:0 4px!important; }
+      .origin-mega-menu { min-width:0!important; }
+    }
+  </style>
+  <!-- Hero Section -->
+  <section class="origin-hero">
+    <div style="display:flex; flex-direction:row; align-items:center; justify-content:space-between; min-height:520px; width:100%; max-width:1600px; margin:0 auto; padding:0 0 0 5vw;">
+      <div style="flex:2; display:flex; flex-direction:column; justify-content:center; align-items:flex-start;">
+        <div style="margin-bottom:18px; letter-spacing:2px; color:#ffe5c2; font-size:1.08rem; font-weight:600;">Data Analysis and Graphing</div>
+        <h1 style="color:#fff; font-size:3.2rem; font-weight:900; margin-bottom:18px; letter-spacing:2px; line-height:1.1;">OriginPro v2025b</h1>
+        <p style="color:#ffe5c2; font-size:1.25rem; margin-bottom:38px; max-width:600px; line-height:1.7; font-weight:500; text-align:left;">The ultimate Graphing and Analysis Software</p>
+        <div style="display:flex; gap:18px;">
+          <a href="#" class="origin-btn-main">Get Started with OriginPro</a>
+          <a href="#features" style="background:none; color:#fff; font-weight:700; border-radius:10px; padding:18px 38px; font-size:1.18rem; box-shadow:0 2px 16px rgba(230,126,34,0.13); text-decoration:none; border:2px solid #ffe5c2; transition:background 0.2s;">Explore Features</a>
         </div>
       </div>
+      <div style="flex:1; display:flex; align-items:center; justify-content:center;">
+        <img src="image/2024_dark_mode_Origin.png" alt="OriginPro Hero" style="max-width:600px; padding:32px;">
+      </div>
     </div>
-  </section>
-  <!-- About Section End -->
+</section>
 
-  <!-- Sticky Tabbed Section Start -->
-  <section id="originpro-sticky-tabs-section" style="background: #f8fbff; padding: 0; margin: 0; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;">
+  <!-- Intro Section -->
+  <section class="origin-intro-section" style="max-width:1200px; margin:38px auto 0 auto; background:linear-gradient(90deg, #e67e22 0%, #1a2340 100%); border-radius:18px; box-shadow:0 4px 32px rgba(230,126,34,0.10); overflow:hidden; min-height:220px; padding:54px 48px 54px 54px; display:block;">
+    <h2 style="color:#fff; font-size:2.0rem; font-weight:400; margin-bottom:18px; letter-spacing:-1px;">Origin is the data analysis and graphing software of choice for over a million scientists and engineers in commercial industries, academia, and government laboratories worldwide. Origin offers an easy-to-use interface for beginners, combined with the ability to perform advanced customization as you become more familiar with the application.</h2>
+  </section>
+
+  <!-- Feature Sections -->
+  <div class="origin-feature-sections" style="max-width:1200px; margin:48px auto 0 auto;">
+    <section id="feature-graphing" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">Graphing</h2>
+      <p style="font-size:1.13rem; color:#222; margin-bottom:22px;">Create publication-quality 2D, 3D, and contour graphs with extensive customization options. Explore a wide range of graphing features below:</p>
+      <div class="graphing-subsections">
+        <div class="graph-card">
+          <span class="graph-card-icon"><i class="fa-solid fa-chart-column"></i></span>
+          <span class="graph-card-title">Graph Types</span>
+        </div>
+        <div class="graph-card">
+          <span class="graph-card-icon"><i class="fa-solid fa-layer-group"></i></span>
+          <span class="graph-card-title">Extended Templates from OriginLab Website</span>
+        </div>
+        <div class="graph-card">
+          <span class="graph-card-icon"><i class="fa-solid fa-arrows-left-right-to-line"></i></span>
+          <span class="graph-card-title">Multiple Axes and Panels</span>
+        </div>
+        <div class="graph-card">
+          <span class="graph-card-icon"><i class="fa-solid fa-object-group"></i></span>
+          <span class="graph-card-title">Grouped Data Plot</span>
+        </div>
+        <div class="graph-card">
+          <span class="graph-card-icon"><i class="fa-solid fa-chart-area"></i></span>
+          <span class="graph-card-title">Data Plots</span>
+        </div>
+        <div class="graph-card">
+          <span class="graph-card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+          <span class="graph-card-title">Plot Modifiers</span>
+        </div>
+        <div class="graph-card">
+          <span class="graph-card-icon"><i class="fa-solid fa-ruler-horizontal"></i></span>
+          <span class="graph-card-title">Axes</span>
+        </div>
+        <div class="graph-card">
+          <span class="graph-card-icon"><i class="fa-solid fa-palette"></i></span>
+          <span class="graph-card-title">Graph Legends and Color Scales</span>
+        </div>
+        <div class="graph-card">
+          <span class="graph-card-icon"><i class="fa-solid fa-pen-fancy"></i></span>
+          <span class="graph-card-title">Annotation</span>
+        </div>
+        <div class="graph-card">
+          <span class="graph-card-icon"><i class="fa-solid fa-brush"></i></span>
+          <span class="graph-card-title">Graph Styles</span>
+        </div>
+        <div class="graph-card">
+          <span class="graph-card-icon"><i class="fa-solid fa-sliders"></i></span>
+          <span class="graph-card-title">Setting Graph Defaults</span>
+        </div>
+        <div class="graph-card">
+          <span class="graph-card-icon"><i class="fa-solid fa-cube"></i></span>
+          <span class="graph-card-title">3D Graphs</span>
+        </div>
+      </div>
+      <style>
+        .graphing-subsections {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 14px 18px;
+          width: 100%;
+          margin-top: 0;
+        }
+        .graph-card {
+          background: #fff;
+          border-radius: 10px;
+          box-shadow: 0 2px 8px rgba(26,35,64,0.07);
+          padding: 14px 10px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          transition: box-shadow 0.18s, transform 0.18s;
+          cursor: pointer;
+          border: 1px solid #f3f5fa;
+          min-width: 0;
+        }
+        .graph-card:hover {
+          box-shadow: 0 6px 24px rgba(230,126,34,0.13), 0 2px 12px rgba(26,35,64,0.10);
+          transform: translateY(-2px) scale(1.025);
+          border-color: #e67e22;
+        }
+        .graph-card-icon {
+          color: #e67e22;
+          font-size: 1.5rem;
+          flex-shrink: 0;
+        }
+        .graph-card-title {
+          font-size: 1.01rem;
+          color: #1a2340;
+          font-weight: 600;
+          line-height: 1.2;
+        }
+        @media (max-width: 900px) {
+          .graphing-subsections { grid-template-columns:1fr!important; }
+        }
+      </style>
+    </section>
+
+    <section id="feature-user-friendly-interface" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">User-friendly Interface</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-moon"></i></span>
+          <span class="feature-card-title">Dark Mode</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-grip-lines"></i></span>
+          <span class="feature-card-title">Mini Toolbar</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-window-restore"></i></span>
+          <span class="feature-card-title">Float Windows outside of Origin Interface</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+          <span class="feature-card-title">Search</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-redo"></i></span>
+          <span class="feature-card-title">Redo and Undo</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-file-signature"></i></span>
+          <span class="feature-card-title">Customizable Report Style</span>
+        </div>
+      </div>
+    </section>
+    <section id="feature-importing" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">Importing</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-gauge-high"></i></span>
+          <span class="feature-card-title">Impressive Import Speed for Large Data</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-file-import"></i></span>
+          <span class="feature-card-title">Importing Files</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-plug"></i></span>
+          <span class="feature-card-title">Data Connectors</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-file-excel"></i></span>
+          <span class="feature-card-title">Working with Excel</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-database"></i></span>
+          <span class="feature-card-title">Database Import</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-crosshairs"></i></span>
+          <span class="feature-card-title">Digitizer</span>
+        </div>
+      </div>
+    </section>
+    <section id="feature-data-exploration" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">Data Exploration</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+          <span class="feature-card-title">Zoom and Pan</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-eraser"></i></span>
+          <span class="feature-card-title">Alter or Remove Data Points</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-eye"></i></span>
+          <span class="feature-card-title">Examine Data Points and Related Data</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-crop"></i></span>
+          <span class="feature-card-title">ROI-based Data Extraction from Graph</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-diagram-project"></i></span>
+          <span class="feature-card-title">Browser Graph for Multichannel Data Exploration</span>
+        </div>
+      </div>
+    </section>
+    <section id="feature-slicer" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">Slicer: Graph-based Data Filtering</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-filter"></i></span>
+          <span class="feature-card-title">Filter and segment your data directly from graphs for focused analysis.</span>
+        </div>
+      </div>
+    </section>
+    <section id="feature-change-parameter" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">Change Parameter and Recalculate</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-sliders"></i></span>
+          <span class="feature-card-title">Easily modify parameters and instantly recalculate results for dynamic analysis.</span>
+        </div>
+      </div>
+    </section>
+    <section id="feature-data-analysis-statistics" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">Data Analysis and Statistics</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-chart-simple"></i></span>
+          <span class="feature-card-title">Comprehensive suite of data analysis and statistical tools for all needs.</span>
+        </div>
+      </div>
+    </section>
+    <section id="feature-exploratory-analysis" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">Exploratory Analysis</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-search"></i></span>
+          <span class="feature-card-title">Perform in-depth exploratory analysis to uncover trends and patterns.</span>
+        </div>
+      </div>
+    </section>
+    <section id="feature-curve-surface-fitting" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">Curve and Surface Fitting</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-sliders-h"></i></span>
+          <span class="feature-card-title">Options and Controls</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-chart-bar"></i></span>
+          <span class="feature-card-title">Comparing Models and Datasets <span style='color:#e67e22;font-size:0.95em;'>PRO</span></span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-chart-surface"></i></span>
+          <span class="feature-card-title">Surface Fitting <span style='color:#e67e22;font-size:0.95em;'>PRO</span></span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-infinity"></i></span>
+          <span class="feature-card-title">Implicit Fitting <span style='color:#e67e22;font-size:0.95em;'>PRO</span></span>
+        </div>
+      </div>
+    </section>
+    <section id="feature-peak-analysis" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">Peak Analysis</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-chart-area"></i></span>
+          <span class="feature-card-title">Baseline Detection</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-chart-line"></i></span>
+          <span class="feature-card-title">Peak Integration</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-chart-bar"></i></span>
+          <span class="feature-card-title">Peak Fitting <span style='color:#e67e22;font-size:0.95em;'>PRO</span></span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-search"></i></span>
+          <span class="feature-card-title">Peak Finding</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-clone"></i></span>
+          <span class="feature-card-title">Batch Peak Analysis</span>
+        </div>
+      </div>
+    </section>
+    <section id="feature-statistics" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">Statistics</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-list-ol"></i></span>
+          <span class="feature-card-title">Descriptive Statistics</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-vial"></i></span>
+          <span class="feature-card-title">Parametric Tests</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-vials"></i></span>
+          <span class="feature-card-title">Non-parametric Tests</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-chart-pie"></i></span>
+          <span class="feature-card-title">ANOVA</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-project-diagram"></i></span>
+          <span class="feature-card-title">Multivariate Analysis</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-check-double"></i></span>
+          <span class="feature-card-title">Quality Control and Improvement</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-clock"></i></span>
+          <span class="feature-card-title">Time Series Exploration and Analysis</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-plus"></i></span>
+          <span class="feature-card-title">Additional Analyses</span>
+        </div>
+      </div>
+    </section>
+    <section id="feature-signal-processing" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">Signal Processing</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-random"></i></span>
+          <span class="feature-card-title">Transforms</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-water"></i></span>
+          <span class="feature-card-title">Smoothing</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-filter"></i></span>
+          <span class="feature-card-title">Filtering</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-wave-square"></i></span>
+          <span class="feature-card-title">Wavelet Analysis</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-toolbox"></i></span>
+          <span class="feature-card-title">Additional Tools</span>
+        </div>
+      </div>
+    </section>
+    <section id="feature-mathematics" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">Mathematics</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-table-cells"></i></span>
+          <span class="feature-card-title">Column and Cell Calculations</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-arrows-to-dot"></i></span>
+          <span class="feature-card-title">Interpolation and Extrapolation</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-divide"></i></span>
+          <span class="feature-card-title">Differentiation and Integration</span>
+        </div>
+      </div>
+    </section>
+    <section id="feature-data-processing" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">Data Processing</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-random"></i></span>
+          <span class="feature-card-title">Reorganization</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-compress"></i></span>
+          <span class="feature-card-title">Extraction and Reduction</span>
+        </div>
+      </div>
+    </section>
+    <section id="feature-rs-gis" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">RS and GIS Data Processing</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-database"></i></span>
+          <span class="feature-card-title">NetCDF</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-image"></i></span>
+          <span class="feature-card-title">GeoTIFF</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-gears"></i></span>
+          <span class="feature-card-title">Data Processing and Analysis</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-chart-area"></i></span>
+          <span class="feature-card-title">Visualization and Graphing</span>
+        </div>
+      </div>
+    </section>
+    <section id="feature-exporting-presentation" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">Exporting and Presentation</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-expand"></i></span>
+          <span class="feature-card-title">Resize Graph for Publishing</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-image"></i></span>
+          <span class="feature-card-title">Exporting Graphs</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-paste"></i></span>
+          <span class="feature-card-title">Pasting and Embedding</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-file-powerpoint"></i></span>
+          <span class="feature-card-title">Send Graphs to PowerPoint or Word</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-table"></i></span>
+          <span class="feature-card-title">Copy and Paste HTML or EMF Tables</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-slideshare"></i></span>
+          <span class="feature-card-title">Slide Show</span>
+        </div>
+      </div>
+    </section>
+    <section id="feature-batch-processing" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">Batch Processing</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-chart-line"></i></span>
+          <span class="feature-card-title">For Graphing</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-file-import"></i></span>
+          <span class="feature-card-title">For Importing</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-chart-simple"></i></span>
+          <span class="feature-card-title">For Analysis</span>
+        </div>
+      </div>
+    </section>
+    <section id="feature-project-data-management" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">Project and Data Management</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-file-archive"></i></span>
+          <span class="feature-card-title">Origin Project (OPJ, OPJU) File</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-compass"></i></span>
+          <span class="feature-card-title">Navigating Your Data</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-window-maximize"></i></span>
+          <span class="feature-card-title">Window Management</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-table"></i></span>
+          <span class="feature-card-title">Workbooks and Worksheets</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-layer-group"></i></span>
+          <span class="feature-card-title">Matrix books, Sheet and Objects</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-lock"></i></span>
+          <span class="feature-card-title">Password Protection</span>
+        </div>
+      </div>
+    </section>
+    <section id="feature-programming-connectivity" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">Programming and Connectivity</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-brands fa-python"></i></span>
+          <span class="feature-card-title">Python</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-terminal"></i></span>
+          <span class="feature-card-title">LabTalk</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-c"></i></span>
+          <span class="feature-card-title">Origin C</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-calculator"></i></span>
+          <span class="feature-card-title">MATLAB Console</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-brands fa-r-project"></i></span>
+          <span class="feature-card-title">R and Rserve Console</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-link"></i></span>
+          <span class="feature-card-title">Mathematica Link</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-project-diagram"></i></span>
+          <span class="feature-card-title">LabVIEW SubVIs</span>
+        </div>
+      </div>
+    </section>
+    <section id="feature-apps-in-origin" style="margin-bottom:38px;">
+      <h2 style="color:#e67e22; font-size:2rem; font-weight:800; margin-bottom:12px;">Apps in Origin</h2>
+      <div class="feature-subsections">
+        <div class="feature-card">
+          <span class="feature-card-icon"><i class="fa-solid fa-th-large"></i></span>
+          <span class="feature-card-title">Extend Origin's capabilities with a wide range of user-contributed apps.</span>
+        </div>
+      </div>
     <style>
-      .originpro-sticky-tabs-container {
-        display: flex;
+      .feature-subsections {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px 18px;
         width: 100%;
-        max-width: 1800px;
-        margin: 0 auto;
-        min-height: 520px;
-        box-shadow: 0 2px 24px rgba(37,99,235,0.07);
-        border-radius: 18px;
+        margin-top: 0;
+      }
+      .feature-card {
         background: #fff;
-        overflow: hidden;
-        margin-top: 48px;
-        margin-bottom: 48px;
-      }
-      .originpro-sticky-tabs-nav {
-        flex: 0 0 20%;
-        background: #f3f7fd;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(26,35,64,0.07);
+        padding: 14px 10px;
         display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        padding: 36px 0 36px 0;
-        gap: 6px;
-        min-width: 100px;
-        border-right: 2px solid #e3eaff;
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        max-height: 90vh;
-        overflow-y: auto;
-      }
-      .originpro-sticky-tab-btn {
-        width: 90%;
-        background: none;
-        border: none;
-        outline: none;
-        text-align: left;
-        font-size: 1rem;
-        font-weight: 600;
-        color: #232b3b;
-        padding: 13px 22px;
-        border-radius: 10px 0 0 10px;
-        margin-right: 0;
+        align-items: center;
+        gap: 12px;
+        transition: box-shadow 0.18s, transform 0.18s;
         cursor: pointer;
-        transition: background 0.18s, color 0.18s, box-shadow 0.18s;
-        box-shadow: none;
-        position: relative;
-      }
-      .originpro-sticky-tab-btn:hover, .originpro-sticky-tab-btn:focus {
-        background: #e3eaff;
-        color: #2563eb;
-      }
-      .originpro-sticky-tab-btn.active {
-        background: #2563eb;
-        color: #fff;
-        box-shadow: 0 2px 16px rgba(37,99,235,0.10);
-      }
-      .originpro-sticky-tabs-content {
-        flex: 1 1 80%;
-        padding: 36px 32px 36px 32px;
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
+        border: 1px solid #f3f5fa;
         min-width: 0;
-        position: relative;
-        overflow-y: auto;
-        max-height: 540px;
-        scrollbar-width: thin;
-        scrollbar-color: #2563eb #e3eaff;
       }
-    .originpro-sticky-tabs-content::-webkit-scrollbar {
-      width: 10px;
-      background: #e3eaff;
-      border-radius: 8px;
-    }
-    .originpro-sticky-tabs-content::-webkit-scrollbar-thumb {
-      background: #2563eb;
-      border-radius: 8px;
-    }
-      .originpro-sticky-tab-panel {
-        width: 100%;
-        opacity: 0;
-        position: absolute;
-        left: 0; top: 0;
-        transition: opacity 0.35s cubic-bezier(.4,0,.2,1);
-        z-index: 0;
-        pointer-events: none;
+      .feature-card:hover {
+        box-shadow: 0 6px 24px rgba(230,126,34,0.13), 0 2px 12px rgba(26,35,64,0.10);
+        transform: translateY(-2px) scale(1.025);
+        border-color: #e67e22;
       }
-      .originpro-sticky-tab-panel.active {
-        opacity: 1;
-        position: relative;
-        z-index: 1;
-        pointer-events: auto;
-        transition: opacity 0.35s cubic-bezier(.4,0,.2,1);
+      .feature-card-icon {
+        color: #e67e22;
+        font-size: 1.5rem;
+        flex-shrink: 0;
       }
-      .originpro-sticky-tab-panel h3 {
-        font-size: 1.15rem !important;
-        margin-bottom: 10px !important;
-      }
-      .originpro-sticky-tab-panel p {
-        font-size: 0.95rem !important;
-        line-height: 1.6 !important;
+      .feature-card-title {
+        font-size: 1.01rem;
+        color: #1a2340;
+        font-weight: 600;
+        line-height: 1.2;
       }
       @media (max-width: 900px) {
-        .originpro-sticky-tabs-container {
-          flex-direction: column;
-          min-height: unset;
-        }
-        .originpro-sticky-tabs-nav {
-          flex-direction: row;
-          align-items: stretch;
-          justify-content: flex-start;
-          border-right: none;
-          border-bottom: 2px solid #e3eaff;
-          padding: 0 0 0 0;
-          min-width: 0;
-          max-height: unset;
-          overflow-y: visible;
-          position: static;
-        }
-        .originpro-sticky-tab-btn {
-          width: 100%;
-          border-radius: 10px 10px 0 0;
-          padding: 11px 8px;
-          font-size: 0.93rem;
-        }
-        .originpro-sticky-tabs-content {
-          padding: 22px 10px 22px 10px;
-        }
+        .feature-subsections { grid-template-columns:1fr!important; }
       }
     </style>
-    <div class="originpro-sticky-tabs-container">
-      <nav class="originpro-sticky-tabs-nav">
-        <button class="originpro-sticky-tab-btn active" data-tab="sticky-tab1">Introduction</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab2">Graphing</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab3">Tab 3</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab4">Tab 4</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab5">Tab 5</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab6">Tab 6</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab7">Tab 7</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab8">Tab 8</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab9">Tab 9</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab10">Tab 10</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab11">Tab 11</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab12">Tab 12</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab13">Tab 13</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab14">Tab 14</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab15">Tab 15</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab16">Tab 16</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab17">Tab 17</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab18">Tab 18</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab19">Tab 19</button>
-        <button class="originpro-sticky-tab-btn" data-tab="sticky-tab20">Tab 20</button>
-      </nav>
-      <div class="originpro-sticky-tabs-content">
-        <div class="originpro-sticky-tab-panel active" id="sticky-tab1">
-          <div style="width: 100%;">
-            <!-- Text Only, Full Width -->
-            <div style="max-width: 900px; margin: 0 auto; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
-              <h3 style="color: #e67c1a; font-size: 1.18rem; font-weight: 800; margin-bottom: 10px;">Introduction</h3>
-              <p style="font-size: 1.05rem; color: #232b3b; line-height: 1.7; margin-bottom: 10px;">Origin is the data analysis and graphing software of choice for over a million scientists and engineers in commercial industries, academia, and government laboratories worldwide. Origin offers an easy-to-use interface for beginners, combined with the ability to perform advanced customization as you become more familiar with the application.</p>
-              <p style="font-size: 1.05rem; color: #232b3b; line-height: 1.7; margin-bottom: 10px;">Origin graphs and analysis results can automatically update on data or parameter change, allowing you to create templates for repetitive tasks or to perform batch operations from the user interface, without the need for programming. Extend the capabilities in Origin by installing free Apps available from our website. Connect with other applications such as MATLAB™, LabVIEW™ or Microsoft® Excel, or create custom routines within Origin using our scripting and C languages, embedded Python, or the R console.</p>
-              <p style="font-size: 1.05rem; color: #232b3b; line-height: 1.7; margin-bottom: 10px;">Take your data analysis to the next level with <b>OriginPro</b>. In addition to all of Origin's features, OriginPro offers advanced analysis tools and Apps for Peak Fitting, Surface Fitting, Statistics and Signal Processing. Features specific to OriginPro are marked with the <span style='display: inline-block; background: #e67c1a; color: #fff; font-size: 0.85em; font-weight: 700; border-radius: 4px; padding: 1px 6px; margin: 0 2px;'>PRO</span> icon in this page. Visit the <a href="#" style="color: #2563eb; text-decoration: underline;">Origin v.s. OriginPro</a> page to view a comparison table.</p>
-              <div style="margin: 18px 0 10px 0; display: flex; flex-wrap: wrap; gap: 10px;">
-                <a href="#" style="background: #2563eb; color: #fff; font-size: 0.98rem; font-weight: 600; border-radius: 6px; padding: 7px 18px; text-decoration: none; display: inline-block;">See what people are saying about Origin</a>
-              </div>
-              <p style="font-size: 0.98rem; color: #232b3b; margin: 18px 0 0 0;">If you are upgrading from a previous version, visit our <a href="#" style="color: #2563eb; text-decoration: underline;">Top Features</a> page to see what's new in the latest version, or browse our <a href="#" style="color: #2563eb; text-decoration: underline;">Key Features by Version</a> page.</p>
-              <div style="margin: 22px 0 0 0;">
-                <span style="font-size: 1.01rem; font-weight: 700; color: #1a2340;">Browse the sections below to learn more about Origin and OriginPro. Features available only in OriginPro are marked as <span style='display: inline-block; background: #e67c1a; color: #fff; font-size: 0.85em; font-weight: 700; border-radius: 4px; padding: 1px 6px; margin: 0 2px;'>PRO</span>.</span>
-                <div style="display: flex; flex-wrap: wrap; gap: 18px; margin-top: 12px;">
-                  <ul style="list-style: none; padding: 0; margin: 0; min-width: 180px;">
-                    <li>• Graphing</li>
-                    <li>• Data Exploration</li>
-                    <li>• Exploratory Analysis</li>
-                    <li>• Curve and Surface Fitting</li>
-                  </ul>
-                  <ul style="list-style: none; padding: 0; margin: 0; min-width: 180px;">
-                    <li>• Peak Analysis</li>
-                    <li>• Statistics</li>
-                    <li>• Signal Processing</li>
-                    <li>• Mathematics</li>
-                  </ul>
-                  <ul style="list-style: none; padding: 0; margin: 0; min-width: 180px;">
-                    <li>• Data Processing</li>
-                    <li>• Importing</li>
-                    <li>• Exporting and Presentation</li>
-                    <li>• Batch Processing</li>
-                  </ul>
-                  <ul style="list-style: none; padding: 0; margin: 0; min-width: 180px;">
-                    <li>• Project and Data Management</li>
-                    <li>• Programming and Connectivity</li>
-                    <li>• Apps in Origin</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab2">
-          <div style="width: 100%; max-width: 1200px; margin: 0 auto; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
-            <h3 style="color: #e67c1a; font-size: 1.35rem; font-weight: 800; margin-bottom: 10px;">Graphing</h3>
-            <p style="font-size: 1.08rem; color: #232b3b; line-height: 1.7; margin-bottom: 28px; max-width: 900px;">With over 100 built-in and extended graph types and point-and-click customization of all elements, Origin makes it easy to create and customize publication-quality graphs. You can add additional axes and panels, add, remove plots, etc. to suit your needs. Batch plot new graphs with similar data structure, or save the customized graph as a graph template or save customized elements as graph themes for future use.</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: flex-start; margin-bottom: 18px;">
-              <!-- Card 1 -->
-              <div style="flex: 1 1 260px; min-width: 260px; max-width: 340px; background: #fff; border: 1.5px solid #e3eaff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.07); padding: 18px 12px 12px 12px; display: flex; flex-direction: column; align-items: center;">
-                <div style="width: 100%; display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
-                  <img src="image/2017_Highlights_Box_Plot_Improvements.png" alt="Box Plot" style="max-width: 98%; height: auto; border-radius: 6px; border: 1px solid #ccc; background: #f8fbff;">
-                </div>
-                <div style="font-size: 0.97rem; color: #555; margin-top: 6px; text-align: left;">
-                  This is a box plot with mean points connected. The user can also connect median points, data points or other percentiles, using controls on the <b>Connect Lines</b> tab of the <b>Plot Details</b> dialog.
-                </div>
-              </div>
-              <!-- Card 2 -->
-              <div style="flex: 1 1 260px; min-width: 260px; max-width: 340px; background: #fff; border: 1.5px solid #e3eaff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.07); padding: 18px 12px 12px 12px; display: flex; flex-direction: column; align-items: center;">
-                <div style="width: 100%; display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
-                  <img src="image/Product_Page_Graphing01-2.png" alt="3D OpenGL Surface Plot" style="max-width: 98%; height: auto; border-radius: 6px; border: 1px solid #ccc; background: #f8fbff;">
-                </div>
-                <div style="font-size: 0.97rem; color: #555; margin-top: 6px; text-align: left;">
-                  <b>A 3D OpenGL Surface Plot</b> with multiple surfaces stacked in one graph layer. The graph has been <b>customized</b> by assigning a unique plot style and a custom Z offset to each surface. Some surfaces are also rendered as flat.
-                </div>
-              </div>
-              <!-- Card 3 -->
-              <div style="flex: 1 1 260px; min-width: 260px; max-width: 340px; background: #fff; border: 1.5px solid #e3eaff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.07); padding: 18px 12px 12px 12px; display: flex; flex-direction: column; align-items: center;">
-                <div style="width: 100%; display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
-                  <img src="image/2020DensityDotsTwoMillion.png" alt="Density Dots Plot" style="max-width: 98%; height: auto; border-radius: 6px; border: 1px solid #ccc; background: #f8fbff;">
-                </div>
-                <div style="font-size: 0.97rem; color: #555; margin-top: 6px; text-align: left;">
-                  Density Dots plot of 2 million data points. Colormap represents data density computed using a fast algorithm.
-                </div>
-              </div>
-            </div>
-            <div style="margin-top: 10px;">
-              <a href="#" style="color: #2563eb; font-size: 1.08rem; font-style: italic; font-weight: 500; text-decoration: underline;">Graph Gallery&gt;&gt;</a>
-            </div>
-            <!-- Graph Types Section -->
-            <div style="margin-top: 38px; background: #fff; border: 1.5px solid #e3eaff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.07); padding: 28px 18px 24px 18px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 32px;">
-              <!-- Left: Bulleted List -->
-              <div style="flex: 1 1 320px; min-width: 260px; max-width: 420px;">
-                <h3 style="color: #1a2340; font-size: 1.32rem; font-weight: 700; margin-bottom: 12px;">Graph Types</h3>
-                <ul style="font-size: 1.08rem; color: #232b3b; line-height: 1.7; margin: 0 0 0 18px; padding: 0;">
-                  <li>Column &amp; Bar Charts: Basic, Stacked, Grouped</li>
-                  <li>Floating Column &amp; Bar Charts</li>
-                  <li>Bridge Plot</li>
-                  <li>2D Pie and Doughnut Chart</li>
-                  <li>Line Plot</li>
-                  <li>Scatter Plot (with X,Y Error Bar, Column Scatter, Drop Lines, Color Map, Size Map)</li>
-                  <li>Line + Symbol Plot</li>
-                  <li>Lollipop Plot</li>
-                  <li>Density Dots Plot</li>
-                  <li>Area Plot (Area, Stacked Area, Fill Area)</li>
-                  <li>Multi-Axis &amp; Multi-Panel Plots</li>
-                  <li>Trellis Plot</li>
-                  <li>Cluster Plot</li>
-                  <li>Kite Diagram</li>
-                  <li>Ternary &amp; Piper Plots</li>
-                </ul>
-              </div>
-              <!-- Right: Feature Image -->
-              <div style="flex: 1 1 420px; min-width: 320px; max-width: 600px; display: flex; flex-direction: column; align-items: center;">
-                <img src="image/Plotmenu.gif" alt="Graph Types Menu" style="width: 100%; max-width: 520px; border-radius: 8px; border: 1.5px solid #e3eaff; box-shadow: 0 2px 12px rgba(37,99,235,0.07); margin-bottom: 10px;">
-                <span style="font-size: 1.01rem; color: #555; margin-top: 4px;">Over 100+ graph types are available from the Plot Menu.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab3">
-          <h3>Tab 3 Content</h3>
-          <p>This is the content for Tab 3.</p>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab4">
-          <h3>Tab 4 Content</h3>
-          <p>This is the content for Tab 4.</p>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab5">
-          <h3>Tab 5 Content</h3>
-          <p>This is the content for Tab 5.</p>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab6">
-          <h3>Tab 6 Content</h3>
-          <p>This is the content for Tab 6.</p>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab7">
-          <h3>Tab 7 Content</h3>
-          <p>This is the content for Tab 7.</p>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab8">
-          <h3>Tab 8 Content</h3>
-          <p>This is the content for Tab 8.</p>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab9">
-          <h3>Tab 9 Content</h3>
-          <p>This is the content for Tab 9.</p>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab10">
-          <h3>Tab 10 Content</h3>
-          <p>This is the content for Tab 10.</p>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab11">
-          <h3>Tab 11 Content</h3>
-          <p>This is the content for Tab 11.</p>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab12">
-          <h3>Tab 12 Content</h3>
-          <p>This is the content for Tab 12.</p>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab13">
-          <h3>Tab 13 Content</h3>
-          <p>This is the content for Tab 13.</p>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab14">
-          <h3>Tab 14 Content</h3>
-          <p>This is the content for Tab 14.</p>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab15">
-          <h3>Tab 15 Content</h3>
-          <p>This is the content for Tab 15.</p>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab16">
-          <h3>Tab 16 Content</h3>
-          <p>This is the content for Tab 16.</p>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab17">
-          <h3>Tab 17 Content</h3>
-          <p>This is the content for Tab 17.</p>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab18">
-          <h3>Tab 18 Content</h3>
-          <p>This is the content for Tab 18.</p>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab19">
-          <h3>Tab 19 Content</h3>
-          <p>This is the content for Tab 19.</p>
-        </div>
-        <div class="originpro-sticky-tab-panel" id="sticky-tab20">
-          <h3>Tab 20 Content</h3>
-          <p>This is the content for Tab 20.</p>
-        </div>
-      </div>
-    </div>
-    <script>
-      const stickyTabBtns = document.querySelectorAll('.originpro-sticky-tab-btn');
-      const stickyTabPanels = document.querySelectorAll('.originpro-sticky-tab-panel');
-      stickyTabBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-          stickyTabBtns.forEach(b => b.classList.remove('active'));
-          stickyTabPanels.forEach(p => p.classList.remove('active'));
-          this.classList.add('active');
-          const tabId = this.getAttribute('data-tab');
-          document.getElementById(tabId).classList.add('active');
-        });
-      });
-    </script>
-  </section>
-  <!-- Sticky Tabbed Section End -->
-
-  
-
-  
+    </section>
+  </div>
 </body>
 </html>

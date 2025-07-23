@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMS - Surface-water Modeling Solutions</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f7f6f2;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: #1a2340;
+    }
+    .sms-hero {
+      width: 100vw;
+      min-height: 100vh;
+      background: #f7f6f2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 60px;
+      box-sizing: border-box;
+    }
+    .sms-hero-logo {
+      width: 180px;
+      margin-bottom: 18px;
+      margin-top: 24px;
+    }
+    .sms-hero-content {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      gap: 48px;
+    }
+    .sms-hero-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 32px;
+      margin-left: 32px;
+    }
+    .sms-hero-title {
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: #1a2340;
+      margin-bottom: 18px;
+      letter-spacing: -1px;
+    }
+    .sms-hero-desc {
+      font-size: 1.35rem;
+      color: #222;
+      font-weight: 400;
+      margin-bottom: 32px;
+      max-width: 520px;
+      line-height: 1.5;
+    }
+    .sms-hero-images {
+      flex: 2;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 0px;
+      margin-top: 24px;
+    }
+    .sms-hero-img {
+      height: 320px;
+      box-shadow: 0 4px 32px rgba(30,144,255,0.10);
+      border-radius: 12px;
+      margin: 0 -32px;
+      background: #fff;
+      object-fit: cover;
+      transition: transform 0.25s cubic-bezier(.4,2,.6,1);
+    }
+    .sms-hero-img.center {
+      height: 370px;
+      z-index: 2;
+      box-shadow: 0 8px 32px rgba(30,144,255,0.18), 0 2px 12px rgba(26,35,64,0.10);
+      transform: scale(1.08);
+    }
+    @media (max-width: 1100px) {
+      .sms-hero-content { flex-direction: column; align-items: center; gap: 24px; }
+      .sms-hero-text { margin-left: 0; align-items: center; text-align: center; }
+      .sms-hero-desc { max-width: 100%; }
+      .sms-hero-images { flex-direction: column; gap: 0; }
+      .sms-hero-img, .sms-hero-img.center { height: 220px; margin: 0 0 18px 0; }
+    }
+    .sms-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(30,144,255,0.08);
+      padding: 0 0 0 0;
+    }
+    .sms-navbar ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      height: 64px;
+      gap: 32px;
+    }
+    .sms-navbar li {
+      display: inline-block;
+    }
+    .sms-navbar a {
+      display: block;
+      color: #1a2340;
+      font-size: 1.13rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .sms-navbar a:hover, .sms-navbar a.active {
+      background: #1e90ff;
+      color: #fff;
+    }
+    @media (max-width: 900px) {
+      .sms-navbar ul { gap: 12px; height: 48px; }
+      .sms-navbar a { font-size: 1rem; padding: 8px 10px; }
+    }
+    .sms-features-section h2 {
+      margin-top: 0;
+    }
+    @media (max-width: 900px) {
+      .sms-feature-row { flex-direction: column !important; gap: 32px; }
+      .sms-feature-row > div { padding: 0 !important; }
+    }
+    .sms-model-row {
+      background: #f8fbff;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(30,144,255,0.10);
+      padding: 32px 28px;
+      margin-bottom: 38px !important;
+      transition: box-shadow 0.2s;
+    }
+    .sms-model-row:hover {
+      box-shadow: 0 8px 32px rgba(30,144,255,0.18), 0 2px 12px rgba(26,35,64,0.10);
+    }
+    .sms-model-row b i {
+      color: #1a2340;
+      font-weight:700;
+      font-style:italic;
+    }
+    .sms-model-row > div:first-child {
+      padding-right: 18px;
+    }
+    .sms-model-row > div:last-child {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sms-model-row img {
+      border: 4px solid #fff;
+      box-shadow: 0 2px 12px rgba(30,144,255,0.13);
+    }
+    @media (max-width: 900px) {
+      .sms-model-row {
+        flex-direction: column !important;
+        gap: 18px;
+        padding: 18px 8px;
+      }
+      .sms-model-row > div:first-child {
+        padding-right: 0;
+      }
+    }
+    .sms-editions-cards img { background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(30,144,255,0.10); }
+    .sms-editions-table th, .sms-editions-table td { border-bottom: 1px solid #eaf4fb; vertical-align: middle; padding: 10px 8px; }
+    .sms-editions-table th { background: #eaf4fb; }
+    .sms-editions-table tr:last-child td { border-bottom: none; }
+    .sms-editions-table td { font-size:1.08rem; }
+    .sms-editions-table td[style*='color:#e74c3c'] { font-weight:700; }
+    .sms-edition-card button { margin-top:8px; }
+    @media (max-width: 900px) {
+      .sms-editions-cards { flex-direction: column; gap:18px; align-items:center; }
+      .sms-edition-card { width:100%; max-width:320px; }
+      .sms-editions-table th, .sms-editions-table td { font-size:0.98rem; padding:8px 4px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sticky Navigation Bar -->
+    <nav class="sms-navbar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#riverine">Riverine Models</a></li>
+        <li><a href="#coastal">Coastal Models</a></li>
+        <li><a href="#editions">Editions</a></li>
+      </ul>
+    </nav>
+    
+  <section class="sms-hero" id="home">
+    <div class="sms-hero-content">
+      <div class="sms-hero-text">
+        <img src="image/sms-logo.png" alt="" style="width: 100px; height: 100px;">
+        <h1 style="color:#1e90ff;font-weight:900; font-size: 3.0rem;">Surface-water Modeling System</h1>
+        <div class="sms-hero-title">Access a full range of <span style="color:#1e90ff;font-weight:400;">coastal and riverine solutions</span> with SMS</div>
+    </div>
+      <div class="sms-hero-images">
+        <img src="image/sms_134.png" alt="SMS Screenshot 1" class="sms-hero-img left">
+    </div>
+    </div>
+  </section>
+  
+  <!-- SMS Features Section -->
+  <section class="sms-features-section" style="max-width:1200px; margin:0 auto; padding:64px 0 32px 0; background:transparent;">
+    <div class="sms-feature-row" style="display:flex; flex-wrap:wrap; align-items:flex-start; margin-bottom:64px;">
+      <div style="flex:1.2; min-width:320px; padding:0 32px 0 0;">
+        <h2 style="color:#1e90ff; font-size:2rem; font-weight:400; margin-bottom:12px;">Flexible modeling approaches</h2>
+        <div style="font-size:1.13rem; color:#222; line-height:1.7; margin-bottom:18px;">Aquaveo pioneered the conceptual model approach. Build a conceptual model in SMS by constructing a high level representation of the model using familiar GIS objects: points, arcs and polygons. Work with large, complex models in a simple and efficient manner by using the conceptual modeling approach and easily update or change the model as needed.<br><br>SMS also has powerful tools to build meshes and grids.</div>
+      </div>
+      <div style="flex:1; min-width:220px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/smsmodeling1.png" alt="Flexible modeling approaches" style="max-width:320px; width:100%; border-radius:12px; box-shadow:0 4px 32px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <hr style="border:0; border-top:1px solid #1e90ff;">
+    <br>
+    <div class="sms-feature-row" style="display:flex; flex-wrap:wrap; align-items:flex-start;">
+      <div style="flex:1; min-width:220px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/smsviz1.png" alt="3D visualization optimized for performance" style="max-width:420px; width:100%; border-radius:12px; box-shadow:0 4px 32px rgba(30,144,255,0.10);">
+      </div>
+      <div style="flex:1.2; min-width:320px; padding:0 0 0 32px;">
+        <h2 style="color:#1e90ff; font-size:2rem; font-weight:400; margin-bottom:12px;">3D visualization optimized for performance</h2>
+        <div style="font-size:1.13rem; color:#222; line-height:1.7; margin-bottom:18px;">SMS is the most advanced software system available for performing surface-water simulations in a three-dimensional environment.</div>
+        <ul style="font-size:1.13rem; color:#222; line-height:1.8; padding-left:22px; margin:0;">
+          <li>Interact with models in true 3D</li>
+          <li>Optimized OpenGL graphics for improved hardware rendering</li>
+          <li>Create photo-realistic renderings</li>
+          <li>Generate animations for PowerPoint or web presentations</li>
+          <li>Drape images over the model and control the opacity</li>
+          <li>Annotations – Add north arrows, scale bars, reference images, company logos, and more</li>
+        </ul>
+      </div>
+    </div>
+    <br>
+    <hr style="border:0; border-top:1px solid #1e90ff;">
+    <br>
+    <div class="sms-feature-row" style="display:flex; flex-wrap:wrap; align-items:flex-start; margin-bottom:64px;">
+      <div style="flex:1.2; min-width:320px; padding:0 32px 0 0;">
+        <h2 style="color:#1e90ff; font-size:2rem; font-weight:400; margin-bottom:12px;">Import a variety of data formats & imagery</h2>
+        <div style="font-size:1.13rem; color:#222; line-height:1.7; margin-bottom:18px;">Models require data from many different sources. That’s why SMS is built to easily import numerous file types:</div>
+        <ul style="font-size:1.13rem; color:#222; line-height:1.8; padding-left:22px; margin:0;">
+          <li>Raster images including georeference and projection support</li>
+          <li>Topographical maps & elevation data</li>
+          <li>Elevation & bathymetry data</li>
+          <li>Web data services such as TerraServer</li>
+          <li>ArcGIS geodatabases and shapefiles</li>
+          <li>CAD files including .dwg, .dgn, and .dxf formats</li>
+          <li>Worldwide projection support including Cartesian and Geographic Systems</li>
+          <li>File Import wizard for delimited text files and spreadsheets</li>
+        </ul>
+    </div>
+      <div style="flex:1; min-width:220px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/smsconcmodel1.png" alt="Flexible modeling approaches" style="max-width:320px; width:100%; border-radius:12px; box-shadow:0 4px 32px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <hr style="border:0; border-top:1px solid #1e90ff;">
+    <br>
+    <div class="sms-feature-row" style="display:flex; flex-wrap:wrap; align-items:flex-start;">
+      <div style="flex:1; min-width:220px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/smsrivcoast1.png" alt="3D visualization optimized for performance" style="max-width:420px; width:100%; border-radius:12px; box-shadow:0 4px 32px rgba(30,144,255,0.10);">
+      </div>
+      <div style="flex:1.2; min-width:320px; padding:0 0 0 32px;">
+        <h2 style="color:#1e90ff; font-size:2rem; font-weight:400; margin-bottom:12px;">Advanced riverine & coastal modeling</h2>
+        <div style="font-size:1.13rem; color:#222; line-height:1.7; margin-bottom:18px;">SMS interfaces with a wide range of numerical models for applications including:</div>
+        <ul style="font-size:1.13rem; color:#222; line-height:1.8; padding-left:22px; margin:0;">
+          <li>Riverine analysis</li>
+          <li>Contaminant transport</li>
+          <li>Sediment transport</li>
+          <li>Particle tracking</li>
+          <li>Rural & urban flooding</li>
+          <li>Estuarine</li>
+          <li>Coastal circulation</li>
+          <li>Inlet & wave modeling</li>
+        </ul>
+      </div>
+    </div>
+    <style>
+      .sms-features-section h2 {
+        margin-top: 0;
+      }
+      @media (max-width: 900px) {
+        .sms-feature-row { flex-direction: column !important; gap: 32px; }
+        .sms-feature-row > div { padding: 0 !important; }
+      }
+    </style>
+  </section>
+  <!-- Riverine Models Section -->
+  <section id="riverine" class="sms-models-section" style="max-width:1200px; margin:0 auto 64px auto; background:#fff; border-radius:18px; box-shadow:0 4px 32px rgba(30,144,255,0.10); padding:48px 38px;">
+    <h2 style="color:#222; font-size:2.6rem; font-weight:300; margin-bottom:32px;">Riverine & Flood Modeling with SMS</h2>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:64px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">ADH</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Riverine Modeling</div>
+          <div><b><i>Type</i></b><br>2D</div>
+          <div><b><i>Method</i></b><br>Finite element</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>ADH is a state-of-the-art ADaptive Hydraulics modeling system. ADH uses adaptive numerical meshes to improve model accuracy without sacrificing efficiency. It also allows for the rapid convergence of flows to steady state solutions and contains features such as wetting and drying, completely coupled sediment transport, and wind effects.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-adh.png" alt="ADH Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">SRH</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Riverine Modeling</div>
+          <div><b><i>Type</i></b><br>2D</div>
+          <div><b><i>Method</i></b><br>Finite volume</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>SRH-2D is a 2D hydraulic, sediment, and vegetation model for river systems.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-srh.png" alt="SRH Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <!-- Additional 13 Riverine Model Cards -->
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">TUFLOW</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Riverine and Coastal Modeling</div>
+          <div><b><i>Type</i></b><br>1D/2D</div>
+          <div><b><i>Method</i></b><br>Finite difference</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>	TUFLOW is a 1D and 2D numerical model used to simulate flow and tidal wave propagation. TUFLOW is designed to simulate flooding of rivers and creeks with complex flow patterns, overland and piped flows through urban areas as well as estuarine and coastal tide hydraulics and inundation from storm tides and tsunamis.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-tuflow.png" alt="HEC-RAS Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">TUFLOW AD Module</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div style="flex:2;"><b><i>Description</i></b><br>	TUFLOW AD (Advection Dispersion) is a TUFLOW module for simulating depth-averaged, two and one-dimensional constituent fate and transport for both dissolved and particulate constituents.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-tuflowad.png" alt="ADCIRC Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">TIFLOW GPU Module</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div style="flex:2;"><b><i>Description</i></b><br>	TUFLOW GPU is a TUFLOW module that uses the computational performance of GPUs to deliver a 10 to 100 times speed increase.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-tuflowgpu.png" alt="FESWMS Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">TUFLOW Multiple Domains Module</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div style="flex:2;"><b><i>Description</i></b><br>	TUFLOW Multiple Domains is a TUFLOW module that allows any number of 2D domains of different cell size and orientation to be built into a model. The 2D domains can be linked by 1D domains, or via the 2D/2D linking feature. Each domain can be of different cell size, orientation and extent.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-tuflowmd.png" alt="RMA2 Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">TUFLOW FV</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Reverine and Coastal Modeling</div>
+          <div><b><i>Type</i></b><br>2D</div>
+          <div><b><i>Method</i></b><br>Finite Volume</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>	TUFLOW FV is used to simulate hydrodynamic, sediment transport and water quality processes in oceans, coastal waters, estuaries, and rivers.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-tuflowfv.png" alt="GSSHA Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">HydroAS</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Reverine Modeling</div>
+          <div><b><i>Type</i></b><br>2D</div>
+          <div><b><i>Method</i></b><br>Finite Volume</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>	HydroAS performs 2D modeling of bodies of water including current simulation, simulant pollutant and sediment transport.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-hydroas2d.png" alt="TUFLOW Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">RiverFlow2D</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Riverine Modeling</div>
+          <div><b><i>Type</i></b><br>2D</div>
+          <div><b><i>Method</i></b><br>Finite Volume GPU Based</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>RiverFlow2D is a high-performance hydrodynamic, pollutant transport and mobile bed model for rivers and estuaries used to compute high resolution flood hydraulics and environmental flows, including supercritical and subcritical flows over dry or wet river beds.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-riverflo2d.png" alt="WASH123D Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">RMA2</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Riverine Modeling</div>
+          <div><b><i>Type</i></b><br>1D/2D</div>
+          <div><b><i>Method</i></b><br>Finite Element</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>RMA2 is a hydrodynamic model that supports subcritical flow analysis including wetting and drying and marsh porosity models.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-rma2.png" alt="MIKE 11 Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">RMA4</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Riverine Modeling</div>
+          <div><b><i>Type</i></b><br>1D/2D</div>
+          <div><b><i>Method</i></b><br>Finite Element</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>RMA4 is used for tracking constituent flow in 2D models and can be applied to represent the tranport of a contaminent or salinity intrusion from an RMA 2 solution file.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-rma4.png" alt="MIKE 21 Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">FESWMS</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Riverine Modeling</div>
+          <div><b><i>Type</i></b><br>2D</div>
+          <div><b><i>Method</i></b><br>Finite Element</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>	FESWMS supports both super and subcritical flow analysis including wetting and drying and is suited for modeling regions involving flow control structures found at the intersection of roadways and waterways.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-feswms.png" alt="HSPF Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">PTM</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Riverine and Coastal Modeling</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>	The Partical Tracking Model (PTM) is a Lagrangian particle tracker designed to allow the user to simulate particle transport processes and is used in coastal projects including dredged material dispersion and fate, sediment pathway and fate, and consitituent tranport.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-ptm.png" alt="SWMM Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">Generic Model Interface</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Riverine and Coastal Modeling</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>	SMS has a generic interface whereby any two-dimensional finite element or finite difference model can be run using SMS as a pre- and post-processor.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-srh.png" alt="INFOWORKS ICM Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">Dynamic Model Interface</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Riverine and Coastal Modeling</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>The dynamic model interface is a more flexible and powerful alternative to the generic model interface that has been supported by SMS for several years. This methodology allows a model developer to define all the attributes of an interface for a specific model in an XML file. SMS will read this file when launched, and then interact with the model.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-srh.png" alt="INFOWORKS ICM Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <style>
+      .sms-model-row {
+        background: #f8fbff;
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(30,144,255,0.10);
+        padding: 32px 28px;
+        margin-bottom: 38px !important;
+        transition: box-shadow 0.2s;
+      }
+      .sms-model-row:hover {
+        box-shadow: 0 8px 32px rgba(30,144,255,0.18), 0 2px 12px rgba(26,35,64,0.10);
+      }
+      .sms-model-row b i {
+        color: #1a2340;
+        font-weight:700;
+        font-style:italic;
+      }
+      .sms-model-row > div:first-child {
+        padding-right: 18px;
+      }
+      .sms-model-row > div:last-child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .sms-model-row img {
+        border: 4px solid #fff;
+        box-shadow: 0 2px 12px rgba(30,144,255,0.13);
+      }
+      @media (max-width: 900px) {
+        .sms-model-row {
+          flex-direction: column !important;
+          gap: 18px;
+          padding: 18px 8px;
+        }
+        .sms-model-row > div:first-child {
+          padding-right: 0;
+        }
+      }
+    </style>
+  </section>
+  <!-- Coastal Models Section -->
+  <section id="coastal" class="sms-models-section" style="max-width:1200px; margin:0 auto 64px auto; background:#fff; border-radius:18px; box-shadow:0 4px 32px rgba(30,144,255,0.10); padding:48px 38px;">
+    <h2 style="color:#222; font-size:2.6rem; font-weight:300; margin-bottom:32px;">Coastal, Inlet & Wave Modeling with SMS</h2>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:64px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">ADCIRC</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Coastal Modeling</div>
+          <div><b><i>Type</i></b><br>2D</div>
+          <div><b><i>Method</i></b><br>Finite element</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>ADCIRC is a 2D, depth-integrated, baratropic time-dependent long-wave, hydrodynamic circulation model used for modeling tides and wind driven circulation, analysis of hurricane storm surge and flooding, dredging feasibility and material disposal studies, larval transport studies, and near shore marine operations.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-adcirc.png" alt="ADH Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">CGWAVE</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Coastal Modeling</div>
+          <div><b><i>Type</i></b><br>2D</div>
+          <div><b><i>Method</i></b><br>Finite element</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>	CGWAVE is a 2D wave transformation model that can be used to predict wave properties such as wave heights, velocities, pressures, and radiation stresses. The model can be used to simultaneously simulate the effects of refraction, diffraction, reflections by bathymetry and structures, dissipation due to friction and breaking, and nonlinear amplitude dispersion.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-cgwave.png" alt="SRH Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <!-- Additional 13 Riverine Model Cards -->
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">CMS Flow</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Coastal Modeling</div>
+          <div><b><i>Type</i></b><br>2D</div>
+          <div><b><i>Method</i></b><br>Finite volume</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>CMS Flow includes the capabilities to compute both hydrodynamics (water levels and current flow values under any combination of tide, wind, surge, waves and river flow) sediment transport as bedload, suspended load, and total load, and morphology change.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-cmsflow.png" alt="HEC-RAS Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">CMS Wave</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Coastal Modeling</div>
+          <div><b><i>Type</i></b><br>2D</div>
+          <div><b><i>Method</i></b><br>Finite difference</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>	CMS Wave is a 2D wave spectral transformation model that employs a forward-marching, finite-difference method to solve the wave action conservation equation.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-cmswave.png" alt="ADCIRC Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">BOUSS-2D</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Coastal Modeling</div>
+          <div><b><i>Type</i></b><br>2D</div>
+          <div><b><i>Method</i></b><br>Finite difference</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>	BOUSS-2D is a numerical model for simulating the propagation and transformation of waves in coastal regions and harbors based on a time-domain solution of Boussinesq-type equations.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-bouss2d.png" alt="FESWMS Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">STWAVE</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Coastal Modeling</div>
+          <div><b><i>Type</i></b><br>2D</div>
+          <div><b><i>Method</i></b><br>Finite Difference</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>STWAVE is a steady-state spectral model based on the wave action balance equation. STWAVE simulates depth-induced wave refraction and shoaling, current-induced refraction and shoaling, depth- and steepness-induced wave breaking, diffraction, and wave growth.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-stwave.png" alt="GSSHA Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">GENCADE</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Coastal Modeling</div>
+          <div><b><i>Type</i></b><br>1D</div>
+          <div><b><i>Method</i></b><br>N/A</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>GENCADE simulates shoreline change relative to regional morphologic constraints upon which these processes take place. The model supports responses to imposed wave conditions, coastal structures, and other engineering activity (e.g., beach nourishment).</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-gencade.png" alt="GSSHA Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">WAM</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Coastal Modeling</div>
+          <div><b><i>Type</i></b><br>2D</div>
+          <div><b><i>Method</i></b><br>N/A</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>	WAM is a global ocean wave prediction model that predicts directional spectra as well as wave properties such as significant height, mean wave direction and frequency, mean wave direction and frequency, swell wave height and mean direction etc.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-wam.png" alt="TUFLOW Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">TUFLOW</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Riverine and Coastal Modeling</div>
+          <div><b><i>Type</i></b><br>1D/2D</div>
+          <div><b><i>Method</i></b><br>Finite difference</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>	TUFLOW is a 1D and 2D numerical model used to simulate flow and tidal wave propagation. TUFLOW is designed to simulate flooding of rivers and creeks with complex flow patterns, overland and piped flows through urban areas as well as estuarine and coastal tide hydraulics and inundation from storm tides and tsunamis.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-tuflow.png" alt="HEC-RAS Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">TUFLOW AD Module</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div style="flex:2;"><b><i>Description</i></b><br>	TUFLOW AD (Advection Dispersion) is a TUFLOW module for simulating depth-averaged, two and one-dimensional constituent fate and transport for both dissolved and particulate constituents.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-tuflowad.png" alt="ADCIRC Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">TIFLOW GPU Module</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div style="flex:2;"><b><i>Description</i></b><br>	TUFLOW GPU is a TUFLOW module that uses the computational performance of GPUs to deliver a 10 to 100 times speed increase.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-tuflowgpu.png" alt="FESWMS Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">TUFLOW Multiple Domains Module</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div style="flex:2;"><b><i>Description</i></b><br>	TUFLOW Multiple Domains is a TUFLOW module that allows any number of 2D domains of different cell size and orientation to be built into a model. The 2D domains can be linked by 1D domains, or via the 2D/2D linking feature. Each domain can be of different cell size, orientation and extent.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-tuflowmd.png" alt="RMA2 Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">TUFLOW FV</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Reverine and Coastal Modeling</div>
+          <div><b><i>Type</i></b><br>2D</div>
+          <div><b><i>Method</i></b><br>Finite Volume</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>	TUFLOW FV is used to simulate hydrodynamic, sediment transport and water quality processes in oceans, coastal waters, estuaries, and rivers.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-tuflowfv.png" alt="GSSHA Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">HydroAS</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Reverine Modeling</div>
+          <div><b><i>Type</i></b><br>2D</div>
+          <div><b><i>Method</i></b><br>Finite Volume</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>	HydroAS performs 2D modeling of bodies of water including current simulation, simulant pollutant and sediment transport.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-hydroas2d.png" alt="TUFLOW Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">RiverFlow2D</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Riverine Modeling</div>
+          <div><b><i>Type</i></b><br>2D</div>
+          <div><b><i>Method</i></b><br>Finite Volume GPU Based</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>RiverFlow2D is a high-performance hydrodynamic, pollutant transport and mobile bed model for rivers and estuaries used to compute high resolution flood hydraulics and environmental flows, including supercritical and subcritical flows over dry or wet river beds.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-riverflo2d.png" alt="WASH123D Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">RMA2</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Riverine Modeling</div>
+          <div><b><i>Type</i></b><br>1D/2D</div>
+          <div><b><i>Method</i></b><br>Finite Element</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>RMA2 is a hydrodynamic model that supports subcritical flow analysis including wetting and drying and marsh porosity models.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-rma2.png" alt="MIKE 11 Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">RMA4</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Riverine Modeling</div>
+          <div><b><i>Type</i></b><br>1D/2D</div>
+          <div><b><i>Method</i></b><br>Finite Element</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>RMA4 is used for tracking constituent flow in 2D models and can be applied to represent the tranport of a contaminent or salinity intrusion from an RMA 2 solution file.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-rma4.png" alt="MIKE 21 Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">FESWMS</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Riverine Modeling</div>
+          <div><b><i>Type</i></b><br>2D</div>
+          <div><b><i>Method</i></b><br>Finite Element</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>	FESWMS supports both super and subcritical flow analysis including wetting and drying and is suited for modeling regions involving flow control structures found at the intersection of roadways and waterways.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-feswms.png" alt="HSPF Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">PTM</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Riverine and Coastal Modeling</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>	The Partical Tracking Model (PTM) is a Lagrangian particle tracker designed to allow the user to simulate particle transport processes and is used in coastal projects including dredged material dispersion and fate, sediment pathway and fate, and consitituent tranport.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-ptm.png" alt="SWMM Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">Generic Model Interface</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Riverine and Coastal Modeling</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>	SMS has a generic interface whereby any two-dimensional finite element or finite difference model can be run using SMS as a pre- and post-processor.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-srh.png" alt="INFOWORKS ICM Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <div class="sms-model-row" style="display:flex; align-items:flex-start; margin-bottom:32px; gap:32px;">
+      <div style="flex:2; min-width:320px;">
+        <div style="color:#b3ada0; font-size:2rem; font-weight:400; margin-bottom:8px;">Dynamic Model Interface</div>
+        <div style="display:flex; gap:32px; margin-bottom:8px;">
+          <div><b><i>Category</i></b><br>Riverine and Coastal Modeling</div>
+          <div style="flex:2;"><b><i>Description</i></b><br>The dynamic model interface is a more flexible and powerful alternative to the generic model interface that has been supported by SMS for several years. This methodology allows a model developer to define all the attributes of an interface for a specific model in an XML file. SMS will read this file when launched, and then interact with the model.</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:120px; display:flex; align-items:center; justify-content:center;">
+        <img src="image/sms-srh.png" alt="INFOWORKS ICM Model" style="width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 2px 12px rgba(30,144,255,0.10);">
+      </div>
+    </div>
+    <style>
+      .sms-model-row {
+        background: #f8fbff;
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(30,144,255,0.10);
+        padding: 32px 28px;
+        margin-bottom: 38px !important;
+        transition: box-shadow 0.2s;
+      }
+      .sms-model-row:hover {
+        box-shadow: 0 8px 32px rgba(30,144,255,0.18), 0 2px 12px rgba(26,35,64,0.10);
+      }
+      .sms-model-row b i {
+        color: #1a2340;
+        font-weight:700;
+        font-style:italic;
+      }
+      .sms-model-row > div:first-child {
+        padding-right: 18px;
+      }
+      .sms-model-row > div:last-child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .sms-model-row img {
+        border: 4px solid #fff;
+        box-shadow: 0 2px 12px rgba(30,144,255,0.13);
+      }
+      @media (max-width: 900px) {
+        .sms-model-row {
+          flex-direction: column !important;
+          gap: 18px;
+          padding: 18px 8px;
+        }
+        .sms-model-row > div:first-child {
+          padding-right: 0;
+        }
+      }
+    </style>
+  </section>
+  <!-- SMS Editions Section -->
+  <section id="editions" class="sms-editions-section" style="max-width:1200px; margin:0 auto 64px auto; background:#fff; border-radius:18px; box-shadow:0 4px 32px rgba(30,144,255,0.10); padding:48px 38px;">
+    <h2 style="color:#222; font-size:2.6rem; font-weight:300; margin-bottom:32px;">SMS Editions</h2>
+    <div style="overflow-x:auto;">
+      <table class="sms-editions-table" style="width:100%; border-collapse:collapse; background:#fff;">
+        <thead>
+          <tr style="background:#eaf4fb;">
+            <th style="padding:12px 10px; text-align:left; color:#1a2340; font-size:1.08rem; font-weight:700;">&nbsp;</th>
+            <th style="padding:12px 10px; text-align:center; color:#1a2340; font-size:1.08rem; font-weight:700;">Community</th>
+            <th style="padding:12px 10px; text-align:center; color:#1a2340; font-size:1.08rem; font-weight:700;">Riverine Pro</th>
+            <th style="padding:12px 10px; text-align:center; color:#1a2340; font-size:1.08rem; font-weight:700;">River & Coast</th>
+            <th style="padding:12px 10px; text-align:center; color:#1a2340; font-size:1.08rem; font-weight:700;">Build Your Own</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="font-weight:700; color:#1e90ff;">SMS Core Components</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Map, GIS, Annotations Module</td><td style="text-align:center; color:#e74c3c;">O**</td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td></tr>
+          <tr><td>Mesh Module</td><td style="text-align:center; color:#e74c3c;">O**</td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td></tr>
+          <tr><td>Grid Module</td><td style="text-align:center;"></td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td></tr>
+          <tr><td>Scatter Module</td><td style="text-align:center; color:#e74c3c;">O**</td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td></tr>
+          <tr><td>Professional 3D Rendering and Display Options</td><td style="text-align:center; color:#e74c3c;"></td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td></tr>
+          <tr><td>Advanced Mesh Generation Methods and Mesh Quality Tools</td><td style="text-align:center;"></td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td></tr>
+          <tr><td>Dataset Toolbox and Analysis Functions</td><td style="text-align:center; color:#e74c3c;">O**</td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td></tr>
+          <tr><td>Multi-simulation Management</td><td style="text-align:center;"></td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td></tr>
+          <tr><td>Calibration Tools and 2D Plots</td><td style="text-align:center;"></td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td></tr>
+          <tr><td style="font-weight:700; color:#1e90ff;">Riverine Models</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>SRH-2D Model & Interface</td><td style="text-align:center; color:#e74c3c;">O**</td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>HEC-RAS 2D Geometry Import & Export</td><td style="text-align:center; color:#e74c3c;"></td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>HEC-RAS 1D Model Export</td><td style="text-align:center; color:#e74c3c;"></td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>RMA2 Model & Interface</td><td style="text-align:center; color:#e74c3c;"></td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>RMA4 Model & Interface</td><td style="text-align:center; color:#e74c3c;"></td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>ADH Model & Interface</td><td style="text-align:center; color:#e74c3c;">O**</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>MIKE21 Geometry Import</td><td style="text-align:center; color:#e74c3c;"></td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td></tr>
+          <tr><td>Generic Model Interface</td><td style="text-align:center; color:#e74c3c;"></td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>HYDRO_AS-2D Model****</td><td style="text-align:center; color:#e74c3c;"></td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td style="font-weight:700; color:#1e90ff;">Coastal Models</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>ADCIRC Model</td><td style="text-align:center;"></td><td style="text-align:center;">Add-on</td><td style="text-align:center;">✔</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>ADCIRC Interface</td><td style="text-align:center; color: #e74c3c;">O**</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">✔</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>STWAVE Model & Interface</td><td style="text-align:center; color:#e74c3c;">O**</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">✔</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>CMS Flow Model & Interface</td><td style="text-align:center; color:#e74c3c;">O**</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">✔</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>CMS Wave Model & Interface</td><td style="text-align:center; color:#e74c3c;">O**</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">✔</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>WAM Model & Interface</td><td style="text-align:center;"></td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>CGWAVE Model & Interface</td><td style="text-align:center;"></td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>BOUSS-2D Model & Interface</td><td style="text-align:center;"></td><td style="text-align:center;">Add-on</td><td style="text-align:center;">✔</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>GENCADE Model & Interface</td><td style="text-align:center;"></td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td style="font-weight:700; color:#1e90ff;">Riverine & Coastal Models</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>TUFLOW FV Model (Local 1)</td><td style="text-align:center;"></td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>TUFLOW FV GPU Module (Local 1)</td><td style="text-align:center;"></td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>TUFLOW FV AD Module (Local 1)</td><td style="text-align:center;"></td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>TUFLOW Model & Interface (Local 1)</td><td style="text-align:center;"></td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>TUFLOW M2D/QT Module (Local 1)</td><td style="text-align:center;"></td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td>TUFLOW GPU Module (Local 1)</td><td style="text-align:center;"></td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td style="font-weight:700; color:#1e90ff;">Particle Tracking Model</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>PTM Model & Interface</td><td style="text-align:center;"></td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td><td style="text-align:center;">Add-on</td></tr>
+          <tr><td style="font-weight:700; color:#1e90ff;">Maintenance</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>First year of maintenance included</td><td style="text-align:center; color:#e74c3c;"></td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td><td style="text-align:center;">✔</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:0.98rem; color:#e74c3c; margin-top:12px;">* Requires at least one model (add-on).<br>** Limited to 1 simulation. <br>*** Limited Dataset Toolbox tools available in Community Edition. <br>**** Requires Generic Model Interface.</div>
+    </div>
+  </section>
+</body>
+</html>

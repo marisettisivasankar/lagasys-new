@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mega Menu Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f8fafc;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(37,99,235,0.07);
+      z-index: 1200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 64px;
+    }
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .navbar-logo img {
+      height: 40px;
+      border-radius: 6px;
+    }
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar-links li {
+      position: relative;
+    }
+    .navbar-links a, .navbar-links button {
+      color: #232b3b;
+      font-size: 1.08rem;
+      font-weight: 700;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.15s;
+    }
+    .navbar-links a:hover, .navbar-links button:hover {
+      color: #2563eb;
+    }
+    /* Mega Menu Styles */
+    .mega-menu {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 64px;
+      width: 100vw;
+      background: #fff;
+      box-shadow: 0 4px 32px rgba(37,99,235,0.13);
+      border-radius: 0 0 18px 18px;
+      padding: 0;
+      z-index: 1100;
+      min-height: 420px;
+      border-top: 1px solid #e3eaff;
+    }
+    .navbar-links li:hover .mega-menu,
+    .navbar-links li:focus-within .mega-menu {
+      display: flex;
+    }
+    .mega-menu-container {
+      display: flex;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 32px 48px 32px 48px;
+      gap: 0;
+    }
+    .mega-menu-sidebar {
+      width: 260px;
+      background: #f3f6fa;
+      border-radius: 12px;
+      padding: 18px 0 18px 0;
+      margin-right: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      height: 100%;
+    }
+    .mega-menu-cat-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: #232b3b;
+      background: none;
+      border: none;
+      width: 100%;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .mega-menu-cat-btn.active, .mega-menu-cat-btn:focus {
+      background: #232b3b;
+      color: #fff;
+    }
+    .mega-menu-arrow {
+      margin-left: 8px;
+      font-size: 1.1em;
+    }
+    .mega-menu-content {
+      flex: 1;
+      min-width: 0;
+      padding-left: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    .mega-menu-content h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #232b3b;
+      margin-bottom: 8px;
+    }
+    .mega-menu-content p {
+      color: #6b7280;
+      font-size: 1.08rem;
+      margin-bottom: 18px;
+    }
+    .mega-menu-content .mega-menu-link {
+      color: #232b3b;
+      font-size: 1.08rem;
+      font-weight: 600;
+      text-decoration: underline;
+      margin-bottom: 24px;
+      display: inline-block;
+      transition: color 0.15s;
+    }
+    .mega-menu-content .mega-menu-link:hover {
+      color: #2563eb;
+    }
+    .mega-menu-products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px 32px;
+      margin-top: 12px;
+    }
+    .mega-menu-product-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(37,99,235,0.07);
+      border: 1px solid #e3eaff;
+      padding: 18px 18px 14px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: box-shadow 0.18s, transform 0.18s;
+    }
+    .mega-menu-product-card:hover {
+      box-shadow: 0 6px 24px rgba(37,99,235,0.13);
+      transform: translateY(-2px) scale(1.03);
+    }
+    .mega-menu-product-title {
+      font-size: 1.13rem;
+      font-weight: 800;
+      color: #232b3b;
+      margin-bottom: 2px;
+      text-decoration: none;
+      line-height: 1.2;
+      transition: color 0.18s;
+    }
+    .mega-menu-product-title:hover {
+      color: #1db954;
+      text-decoration: underline;
+    }
+    .mega-menu-product-desc {
+      font-size: 1.01rem;
+      color: #6b7280;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+    @media (max-width: 900px) {
+      .mega-menu-container {
+        flex-direction: column;
+        padding: 24px 8px;
+      }
+      .mega-menu-sidebar {
+        width: 100%;
+        margin-right: 0;
+        flex-direction: row;
+        overflow-x: auto;
+        border-radius: 8px;
+      }
+      .mega-menu-content {
+        padding-left: 0;
+        margin-top: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <img src="image/newlagalogo.png" alt="Logo">
+      <span style="font-size:1.5rem;font-weight:800;color:#2563eb;">LaGa Systems</span>
+    </div>
+    <ul class="navbar-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li tabindex="0">
+        <button id="products-menu-btn">Products <i class="fas fa-chevron-down" style="font-size:0.9em;"></i></button>
+        <div class="mega-menu" id="products-mega-menu">
+          <div class="mega-menu-container">
+            <div class="mega-menu-sidebar" id="mega-menu-sidebar">
+              <button class="mega-menu-cat-btn active" data-cat="featured">Featured Products <span class="mega-menu-arrow">&#8594;</span></button>
+              <button class="mega-menu-cat-btn" data-cat="analytics">Analytics</button>
+              <button class="mega-menu-cat-btn" data-cat="ai">Artificial Intelligence</button>
+              <button class="mega-menu-cat-btn" data-cat="compute">Compute</button>
+              <button class="mega-menu-cat-btn" data-cat="databases">Databases</button>
+            </div>
+            <div class="mega-menu-content" id="mega-menu-content">
+              <!-- Content will be injected by JS -->
+            </div>
+          </div>
+        </div>
+      </li>
+      <li><a href="#solutions">Solutions</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#resources">Resources</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:18px;">
+      <a href="#" style="color:#232b3b;font-weight:600;font-size:1.08rem;text-decoration:none;">Sign in</a>
+      <a href="#" style="background:#232b3b;color:#fff;font-weight:700;padding:8px 22px;border-radius:24px;text-decoration:none;font-size:1.08rem;">Create account</a>
+    </div>
+  </nav>
+  <script>
+    // Mega menu logic
+    const productsMenuBtn = document.getElementById('products-menu-btn');
+    const productsMegaMenu = document.getElementById('products-mega-menu');
+    const sidebarBtns = document.querySelectorAll('.mega-menu-cat-btn');
+    const megaMenuContent = document.getElementById('mega-menu-content');
+    const sidebar = document.getElementById('mega-menu-sidebar');
+
+    // Content for each category
+    const megaMenuData = {
+      featured: {
+        heading: 'Featured Products',
+        subtitle: 'Get started with one of these featured services or browse all',
+        link: 'Browse all products',
+        linkHref: '#',
+        products: [
+          { title: 'Amazon Q Business', desc: 'Generative AI assistant for productivity and insights' },
+          { title: 'Transform', desc: 'Agentic AI to accelerate modernization of .NET, mainframe, and VMware...' },
+          { title: 'Aurora', desc: 'Serverless relational database service for PostgreSQL, MySQL, and DSQL' },
+          { title: 'Amazon Bedrock', desc: 'Managed service for building and scaling generative AI apps with foundation models' },
+          { title: 'Amazon Connect', desc: 'AI-native omnichannel cloud contact center' },
+          { title: 'EC2', desc: 'Secure and resizable compute capacity for virtually any workload' },
+        ]
+      },
+      analytics: {
+        heading: 'Analytics',
+        subtitle: 'Analytics services for all your data needs',
+        link: 'See all analytics',
+        linkHref: '#',
+        products: [
+          { title: 'QuickSight', desc: 'Business intelligence service built for the cloud' },
+          { title: 'Redshift', desc: 'Fast, scalable data warehouse' },
+          { title: 'Data Pipeline', desc: 'Orchestration service for data-driven workflows' },
+        ]
+      },
+      ai: {
+        heading: 'Artificial Intelligence',
+        subtitle: 'AI and ML services for every use case',
+        link: 'See all AI services',
+        linkHref: '#',
+        products: [
+          { title: 'SageMaker', desc: 'Build, train, and deploy machine learning models at scale' },
+          { title: 'Lex', desc: 'Build conversational interfaces into any application' },
+        ]
+      },
+      compute: {
+        heading: 'Compute',
+        subtitle: 'Compute services for any workload',
+        link: 'See all compute',
+        linkHref: '#',
+        products: [
+          { title: 'Lambda', desc: 'Run code without provisioning or managing servers' },
+          { title: 'EC2', desc: 'Secure and resizable compute capacity for virtually any workload' },
+        ]
+      },
+      databases: {
+        heading: 'Databases',
+        subtitle: 'Managed database services for any application',
+        link: 'See all databases',
+        linkHref: '#',
+        products: [
+          { title: 'Aurora', desc: 'Serverless relational database service for PostgreSQL, MySQL, and DSQL' },
+          { title: 'DynamoDB', desc: 'Fast and flexible NoSQL database service' },
+        ]
+      }
+    };
+
+    function renderMegaMenu(cat) {
+      const data = megaMenuData[cat] || megaMenuData['featured'];
+      let html = `<h2>${data.heading}</h2>`;
+      html += `<p>${data.subtitle}</p>`;
+      html += `<a class="mega-menu-link" href="${data.linkHref}">${data.link}</a>`;
+      html += '<div class="mega-menu-products-grid">';
+      data.products.forEach(prod => {
+        html += `<div class="mega-menu-product-card">
+          <a href="#" class="mega-menu-product-title">${prod.title}</a>
+          <div class="mega-menu-product-desc">${prod.desc}</div>
+        </div>`;
+      });
+      html += '</div>';
+      megaMenuContent.innerHTML = html;
+    }
+
+    // Initial render
+    renderMegaMenu('featured');
+
+    sidebarBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        sidebarBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderMegaMenu(btn.getAttribute('data-cat'));
+      });
+    });
+
+    // Keyboard accessibility for menu
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        productsMegaMenu.style.display = 'none';
+      }
+    });
+    // Show/hide mega menu on click (for mobile)
+    productsMenuBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (productsMegaMenu.style.display === 'flex') {
+        productsMegaMenu.style.display = 'none';
+      } else {
+        productsMegaMenu.style.display = 'flex';
+      }
+    });
+    document.addEventListener('click', function(e) {
+      if (!productsMegaMenu.contains(e.target) && e.target !== productsMenuBtn) {
+        productsMegaMenu.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
